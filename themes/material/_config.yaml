@@ -9,8 +9,8 @@ head:
     apple_touch_icon: "http://opqksc9nz.bkt.clouddn.com/code.png"
     keywords:
     site_verification:
-        google:
-        baidu:
+        google: "PM-youOm1Gs9nhRAbihUFKg8Nz8C3zYQdqRe-wI2mNw"
+        baidu: "fIB8rNXEiA"
 
     # Enable generate structured-data as JSON+LD for SEO or not.
     #        Set as 'false' if it cause some wrong when `hexo g`.
@@ -33,7 +33,7 @@ scheme: Paradox
 
 # UI & UX: slogan, color, effect
 uiux:
-    slogan: "Hi, nice to meet you"
+    slogan: "Kill the bug of the world"
     theme_color: "#0097A7"
     theme_sub_color: "#00838F"
     hyperlink_color: "#00838F"
@@ -95,7 +95,7 @@ card_elevation: 2
 # Copyright
 # Specify the date when the site was setup.
 #   For example, if you set it as 2015, then footer will show '© 2015 - 2017'
-copyright_since:
+copyright_since: 2018
 
 # Qrcode for redirect at other device
 #   use: choose which method to generate the qrcode for each posts.
@@ -105,7 +105,6 @@ copyright_since:
 qrcode:
     enable: false
     use: plugin
-
 
 # ---------------------------------------------------------------
 # Menu Settings
@@ -131,7 +130,7 @@ sns:
     linkedin:
     zhihu: "https://www.zhihu.com/people/zhang-hao-1-28/activities"
     bilibili: "https://space.bilibili.com/239706927/#/"
-    telegram:
+    telegram: "https://t.me/MichaelZhang2018"
 
 # SNS Share Switch
 sns_share:
@@ -140,14 +139,14 @@ sns_share:
     googleplus: true
     weibo: true
     linkedin: false
-    qq: false
-    telegram: false
+    qq: true
+    telegram: true
 
 # Sidebar Customize
 sidebar:
     dropdown:
         Email Me:
-            link: "#"
+            link: "mailto:zhanghao@xiyouant.org"
             icon: email
     homepage:
         use: true
@@ -158,20 +157,28 @@ sidebar:
         icon: inbox
         divider: false
     categories:
-        use: false
+        use: true
         icon: chrome_reader_mode
-        divider: false
+        divider: true
     pages:
-        #About:
-            #link: "/about"
-            #icon: person
-            #divider: false
+        "关于我":
+            link: "/about"
+            icon: person
+            divider: false
+        "友情链接":
+            link: "/links"
+            icon: link
+            divider: false
+        "标签云":
+            link: "/tags"
+            icon: 
+            divider: true
     article_num:
-        use: false
+        use: true
         divider: false
     footer:
-        divider: true
-        theme: true
+        divider: false
+        theme: false
         support: false
         feedback: false
         material: false
@@ -192,10 +199,10 @@ materialcdn:
 # Available value of "use":
 #     disqus | disqus_click | changyan | 163gentie
 comment:
-    use:
+    use: changyan
     shortname: # duoshuo or disqus shortname
-    changyan_appid:
-    changyan_conf:
+    changyan_appid: "cyttNCWQt"
+    changyan_conf: "prod_96b3ffa3d56ac7a9d4479878ad5af332"
     changyan_thread_key_type: path
     gentie_productKey: 
 
@@ -210,8 +217,8 @@ search:
 # Available value:
 #     baidu | google | cnzz
 analytics:
-    use:
-    site_id:
+    use: baidu
+    site_id: "a4f985b92495f97a07b51ae760c6913d"
 
 # Leancloud Views
 leancloud:
