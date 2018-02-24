@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title>vim中文乱码的解决方案</title>
+      <link href="/2017/10/27/vim%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+      <content type="html"><![CDATA[<p>某人喜欢在linux服务器上修改协会的官网文件，却总是出现“删除一个字符增加一个字符”、“保存以后增加一堆字符”的现象。实在看不下去，遂修补之。</p><a id="more"></a><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>编码问题。中文全是乱码了修改个毛线..</p><ol><li>执行<code>sudo vim ~/.vimrc</code></li><li><p>输入</p><p> set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936<br> set termencoding=utf-8<br> set encoding=utf-8</p></li></ol><hr><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><h4 id="为什么要改变vimrc文件"><a href="#为什么要改变vimrc文件" class="headerlink" title="为什么要改变vimrc文件"></a>为什么要改变vimrc文件</h4><p><code>vimrc</code>文件用于初始化vim。使用vim时，vim会到指定目录下寻找vimrc并用其进行初始化。更多的内容见<code>:help vimrc</code>，通过<code>version</code>，可以看到vim规定的vimrc文件路径。例如我的：</p><pre><code>system vimrc file: &quot;$VIM/vimrc&quot;user vimrc file: &quot;$HOME/.vimrc&quot;2nd user vimrc file: &quot;~/.vim/vimrc&quot;user exrc file: &quot;$HOME/.exrc&quot;fall-back for $VIM: &quot;/usr/share/vim&quot;</code></pre><h4 id="编辑内容的含义是什么？"><a href="#编辑内容的含义是什么？" class="headerlink" title="编辑内容的含义是什么？"></a>编辑内容的含义是什么？</h4><p>（1） 磁盘文件的字符编码<br>存放在磁盘上的文本文件，是按照一定的字符编码进行保存的，不同的文件可能使用了不同的字符编码。<br>这在VIM中被叫做：fileencoding。</p><p>（2） VIM缓冲区以及界面的字符编码<br>VIM运行时，其菜单、标签、以及各个缓冲区统一使用一种字符编码方式。<br>这在VIM中被叫做：encoding。</p><p>（3) 终端使用的字符编码<br>终端同一时刻只能使用一种字符编码，并按照这种编码从接收到的字节流中识别字符，并显示，终端的字符编码是可以动态调整的。<br>这在VIM中被叫做：termencoding。</p><p>可以看出，VIM涉及到的3种字符编码之间的转换：<br>读：fileencoding—–&gt; encoding<br>显：encoding ——&gt; termencoding<br>写：encoding ——-&gt; fileencoding</p><h4 id="那些字符编码"><a href="#那些字符编码" class="headerlink" title="那些字符编码"></a>那些字符编码</h4><p>UTF-8（8-bit Unicode Transformation Format）：是一种针对Unicode的可变长度字符编码，又称万国码。 支持中文。</p><p>UCS（通用字符集）：包含了用于表达所有已知语言的字符，保证了与其他字符集的双向兼容， 是所有其他字符集标准的一个超集。支持中文。Unicode规范中推荐的标记字节顺序的方法是BOM。BOM是Byte Order Mark。在UCS编码中有一个叫做”ZERO WIDTH NO-BREAK SPACE”的字符，它的编码是FEFF。而FFFE在UCS中是不存在的字符，所以不应该出现在实际传输中。UCS规范建议我们在传输字节流前，先传输字符”ZERO WIDTH NO-BREAK SPACE”。这样如果接收者收到FEFF，就表明这个字节流是Big-Endian的；如果收到FFFE，就表明这个字节流是Little-Endian的。因此字符”ZERO WIDTH NO-BREAK SPACE”又被称作BOM。</p><p>gb18030、gbk、gb2312肯定是支持中文的编码。</p><p>CP936其实就是GBK，IBM在发明Code Page的时候将GBK放在第936页，所以叫CP936。</p><p>参考资料： <a href="http://blog.csdn.net/smstong/article/details/51279810" target="_blank" rel="noopener">http://blog.csdn.net/smstong/article/details/51279810</a><br>参考资料： <a href="http://www.fmddlmyy.cn/text6.html" target="_blank" rel="noopener">http://www.fmddlmyy.cn/text6.html</a><br>参考资料： <a href="https://www.zhihu.com/question/35609295" target="_blank" rel="noopener">https://www.zhihu.com/question/35609295</a></p>]]></content>
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>《mongodb入门（一）：基础操作学习》</title>
+      <link href="/2017/10/16/mongodb%E5%85%A5%E9%97%A8%EF%BC%88%E4%B8%80%EF%BC%89%EF%BC%9A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E3%80%81%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C/"/>
+      <content type="html"><![CDATA[<h2 id="mongodb入门"><a href="#mongodb入门" class="headerlink" title="mongodb入门"></a>mongodb入门</h2><a id="more"></a><ol><li>mysql和mongodb关键概念区分</li></ol><table><thead><tr><th>术语/概念</th><th style="text-align:right">sql</th><th style="text-align:center">mongodb</th></tr></thead><tbody><tr><td>数据库</td><td style="text-align:right">database</td><td style="text-align:center">database</td></tr><tr><td>数据库表/集合</td><td style="text-align:right">table</td><td style="text-align:center">collection</td></tr><tr><td>数据记录行/文档</td><td style="text-align:right">row</td><td style="text-align:center">document</td></tr><tr><td>数据字段/域</td><td style="text-align:right">column</td><td style="text-align:center">field</td></tr><tr><td>索引</td><td style="text-align:right">index</td><td style="text-align:center">index</td></tr><tr><td>表连接</td><td style="text-align:right">table joins</td><td style="text-align:center">不支持</td></tr><tr><td>主键</td><td style="text-align:right">primary key</td><td style="text-align:center">primary key;mongodb自动将_id字段设置为主键</td></tr></tbody></table><ol><li>基础命令：<ol><li>show dbs    （显示所有数据库）</li><li>show tables     （显示所有集合）</li><li>db    （显示当前数据库）</li><li>use database （切换数据库，也可创建数据库）</li></ol></li><li>删除数据库：<ol><li>db.dropDatabase()    删除数据库</li><li>db.collection.drop()    删除集合</li></ol></li><li>插入文档<ol><li>db.collectionName.insert(document)    向数据库中插入数据。若不存在名为collectionName的集合，则会自动创建该集合并插入文档。</li><li>db.collectionName.find()    查看已插入文档</li><li>3.2版本后的几种语法：<ol><li>db.collectionName.insertOne({“a”:3})    向指定集合插入一条文档数据</li><li>db.collectionName.insertMany({“b”:3},{“c”,4})    向指定集合中插入多条数据</li></ol></li></ol></li><li>更新文档<ol><li>update方法： <code>db.collection.update(&lt; query&gt;,&lt; update&gt;,{upsert: &lt; boolean&gt;multi: &lt; boolean&gt;,writeConcern: &lt; document&gt;})</code>参数说明：<ol><li>query:updata的查询对象</li><li>update: update的更新对象和更新操作符号</li><li>upsert:可选，如果不存在update的记录，是否插入objNew.true为插入，默认是false,不插入</li><li>multi:可选，如果这个参数为true，就把按条件查出来多条记录全部更新，默认时false</li><li>writeConcern:可选，抛出异常级别</li></ol></li><li>save方法：通过传入文档替换原有文档<code>db.collection.save(&lt; document&gt;,{writeConcern: &lt; document&gt;})</code>示例如下：<code>&gt;db.col.save({&quot;_id&quot; : ObjectId(&quot;56064f89ade2f21f36b03136&quot;),&quot;title&quot; : &quot;MongoDB&quot;,&quot;description&quot; : &quot;MongoDB 是一个 Nosql 数据库&quot;,&quot;by&quot; : &quot;Runoob&quot;,&quot;url&quot; : &quot;http://www.runoob.com&quot;,&quot;tags&quot; : [&quot;mongodb&quot;,&quot;NoSQL&quot;],&quot;likes&quot; : 110})</code>可见，必须要用”_id”字段来标记被替换的文档；</li><li>3.2版本后的几种语法：<ol><li>db.collectionName.updateOne()</li><li>db.collectionName.updateMany()</li></ol></li></ol></li><li>删除文档<ol><li>remove方法：<code>db.collection.remove(&lt; query&gt;,&lt;justOne&gt;)</code>2.6版本以后的语法格式如下：<code>db.collection.remove(&lt; query&gt;,{justOne: &lt; boolean&gt;,writeConcern: &lt; document&gt;})</code>参数说明：<ol><li>query：可选，删除的文档的条件</li><li>justOne： 可选，设置为true或1,则只删除一个文档。</li><li>writeConcern：可选，抛出异常的级别</li></ol></li><li>remove() 方法已经过时了，现在官方推荐使用 deleteOne() 和 deleteMany() 方法。<ol><li>如删除集合下全部文档：<code>db.collectionName.deleteMany({})</code></li><li>删除 status 等于 A 的全部文档：<code>db.collectionName.deleteMany({&quot;status&quot;:&quot;A&quot;})</code></li><li>删除 status 等于 D 的一个文档：<code>db.collectionName.deleteOne({&quot;status&quot;:&quot;D&quot;})</code></li></ol></li></ol></li><li>查询文档<ol><li>使用find()方法：<code>db.collection.find(query, projection)</code>参数说明：<ol><li>query ：可选，使用查询操作符指定查询条件</li><li>projection ：可选，使用投影操作符指定返回的键。查询时返回文档中所有键值， 只需省略该参数即可（默认省略）。</li><li>pretty() 方法以格式化的方式来显示所有文档。如果你需要以易读的方式来读取数据，可以使用 pretty() 方法，语法格式如下：<code>db.col.find().pretty()</code></li><li>等于：直接键值对 <code>db.col.find({&quot;by&quot;:&quot;菜鸟教程&quot;}).pretty()</code></li><li>小于：lt <code>db.col.find({&quot;likes&quot;:{$lt:50}}).pretty()</code></li><li>小于或等于：lte <code>db.col.find({&quot;likes&quot;:{$lte:50}}).pretty()</code></li><li>大于：gt <code>db.col.find({&quot;likes&quot;:{$gt:50}}).pretty()</code></li><li>大于或等于：gte <code>db.col.find({&quot;likes&quot;:{$gte:50}}).pretty()</code></li><li>不等于：ne <code>db.col.find({&quot;likes&quot;:{$ne:50}}).pretty()</code></li><li>AND条件：多个键用逗号隔开 <code>db.col.find({key1:value1, key2:value2}).pretty()</code></li><li>OR条件：通过关键字$or <code>db.col.find({$or: [{key1: value1}, {key2:value2}]}).pretty()</code></li></ol></li></ol></li><li>Limit与Skip方法<ol><li>Limit方法用于取指定数量的数据记录<code>db.COLLECTION_NAME.find().limit(NUMBER)</code>，例如：<code>db.col.find({},{&quot;title&quot;:1,_id:0}).limit(2)，</code>结果为：<code>{ &quot;title&quot; : &quot;PHP 教程&quot; }{ &quot;title&quot; : &quot;Java 教程&quot; }</code>，其中第一个 {} 放 where 条件，为空表示返回集合中所有文档。第二个 {} 指定那些列显示和不显示 （0表示不显示 1表示显示)。</li><li>skip方法，可以用来跳过指定数量的数据，同样接收一个数字参数作为跳过的记录条数。<code>db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)</code></li><li>skip和limit结合可以实现分页：<code>db.COLLECTION_NAME.find().skip(10).limit(10)</code>跳过前面的十条返回十条数据</li></ol></li></ol>]]></content>
+      
+      <categories>
+          
+          <category> mongodb </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>换行造成空格间距的解决方案</title>
+      <link href="/2017/10/14/%E6%8D%A2%E8%A1%8C%E9%80%A0%E6%88%90%E7%A9%BA%E6%A0%BC%E9%97%B4%E8%B7%9D%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+      <content type="html"><![CDATA[<p>最近在写东西的时候总是碰见一些莫名奇妙的bug。</p><p>在使用<code>display:inline-block</code>属性时经常会两个元素之间莫名奇妙出现空白。</p><p>空白是因代码中的换行产生的，以下是解决方案。</p><a id="more"></a><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol><li>使用margin移动至合适位置</li><li>代码不进行换行</li><li>设置任意父级块的字体大小为0</li><li>视情况改为浮动布局</li><li><p>将两个标签中间的空白部分进行注释</p> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> /&gt;</span><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">   --&gt;</span><span class="tag">&lt;<span class="name">input</span> /&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>将闭合标签<code>&gt;</code>放到下一个标签的开始处</p> <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span></span></span><br><span class="line"><span class="tag">   /&gt;</span><span class="tag">&lt;<span class="name">input</span> /&gt;</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>「写给大家看的设计书」</title>
+      <link href="/2017/08/07/%E3%80%8C%E5%86%99%E7%BB%99%E5%A4%A7%E5%AE%B6%E7%9C%8B%E7%9A%84%E8%AE%BE%E8%AE%A1%E4%B9%A6%E3%80%8D/"/>
+      <content type="html"><![CDATA[<h3 id="本文是读书笔记兼读后感。"><a href="#本文是读书笔记兼读后感。" class="headerlink" title="本文是读书笔记兼读后感。"></a>本文是读书笔记兼读后感。</h3><p>由于经常做PPT和写网页，都涉及到设计。而自己设计出来的东西和自己的预期又相差太大。以后在做前端工作时，万一设计师没有给设计图，或者是针对细节处要自由发挥，没有一个好的欣赏和设计水平，设计出的东西奇丑无比，简直罪恶。</p><a id="more"></a><p>记得上次设计一系列关于某比赛的H5页面，页面布局和图片搭配被协会的设计师吐槽得不行不行的。</p><p>一句话，我不认为前端就不需要懂设计。</p><p>于是乎，决定在闲暇时间学一些设计相关的内容。</p><p>在知乎偶然间看到有人推荐《写给大家看的设计书》，豆瓣上的评价也不低。就看这本吧。</p><p>作者语言风趣，通俗易懂。前半部分围绕四大基本原则来讲述，后边对字体设计进行了科普，总结的原则非常精辟，但有些例子的效果感觉差别不大。</p><p>下面是关于本书的一些笔记</p><h2 id="笔记部分"><a href="#笔记部分" class="headerlink" title="笔记部分"></a>笔记部分</h2><h3 id="PART1：「设计原则」"><a href="#PART1：「设计原则」" class="headerlink" title="PART1：「设计原则」"></a>PART1：「设计原则」</h3><h4 id="第一章：「引言」"><a href="#第一章：「引言」" class="headerlink" title="第一章：「引言」"></a>第一章：「引言」</h4><p>通过<strong>约书亚树</strong>作为引言。</p><p>作者试图用关于这棵树的小故事说明一个道理：如果能说出一个物品的名称，那么在日常生活中你就会经常注意到它。<strong>掌握它，拥有它，让它受你所控</strong>。</p><p>类比于学习，差不多的道理。可能效果没那么明显，因为对于一些名词，你没有理解它原理性内容，见到次数再多也不会拥有它。但知道它的名称，总归是揭下它神秘面纱的第一步。</p><ul><li>4大基本原则<ol><li>对比</li><li>重复</li><li>对齐</li><li>亲密性</li></ol></li></ul><h4 id="第二章：「亲密性」"><a href="#第二章：「亲密性」" class="headerlink" title="第二章：「亲密性」"></a>第二章：「亲密性」</h4><ul><li>物理位置的接近就意味着存在关联。</li><li>把相关的元素分在一组，使他们建立更近的亲密性。</li><li>亲密性的根本目的是实现组织性。</li></ul><h4 id="第三章：「对齐」"><a href="#第三章：「对齐」" class="headerlink" title="第三章：「对齐」"></a>第三章：「对齐」</h4><ul><li>任何元素都不能在页面上随意安放。每一项都应当与页面上的某个内容存在某种视觉联系。</li><li>采用同一种对齐方式的元素会产生一种「边界强度」，其为布局提供力度。</li><li>勇敢一些，不要畏缩！</li><li>一个页面只使用一种对齐方式。</li><li>可以有意为之打破边界，如将插图斜着插入边界，只要效果比原来更好。不必过于拘束。勇敢一些，不要畏缩！</li><li>在打破规则前必须清楚规则是什么。</li><li>对齐也会使元素之间产生视觉联系。</li><li>对齐的根本目的是使页面统一而且由条理。</li></ul><h4 id="第四章：「重复」"><a href="#第四章：「重复」" class="headerlink" title="第四章：「重复」"></a>第四章：「重复」</h4><ul><li>设计的某些方面需要在整个作品中重复。</li><li>在一系列作品中尤其需要注意重复。</li><li>重复的目的就是统一， 并增强视觉效果。</li></ul><h4 id="第五章：「对比」"><a href="#第五章：「对比」" class="headerlink" title="第五章：「对比」"></a>第五章：「对比」</h4><ul><li>页面的元素之间要有对比效果，达到吸引读者的对比效果。</li><li>对比的根本目的有两个。一个目的是增强页面的效果，如果一个页面看起来很有意思，往往更有可读性。另一个目的是有助于信息的组织。</li></ul><h4 id="第六章：「4大基本原则复习」"><a href="#第六章：「4大基本原则复习」" class="headerlink" title="第六章：「4大基本原则复习」"></a>第六章：「4大基本原则复习」</h4><ul><li><strong>不要畏畏缩缩！</strong></li></ul><h4 id="第七章：「颜色运用」"><a href="#第七章：「颜色运用」" class="headerlink" title="第七章：「颜色运用」"></a>第七章：「颜色运用」</h4><ul><li>色轮<ul><li>三原色(tricolor):红黄蓝，色轮的基础。这三种颜色无法创建。</li><li><img src="http://opqksc9nz.bkt.clouddn.com/%E4%B8%89%E5%8E%9F%E8%89%B2.jpg" alt="三原色"></li><li>三间色(secondary color):将三原色色轮上相邻颜色<strong>等量</strong>混合，形成三间色。分别为橙、绿、紫色。</li><li><img src="http://opqksc9nz.bkt.clouddn.com/%E4%B8%89%E9%97%B4%E8%89%B2.jpg" alt="三间色"></li><li>第三色(tertiary colour):再将空白两边的颜色按<strong>等量</strong>混合，形成第三色。</li><li><img src="http://opqksc9nz.bkt.clouddn.com/%E7%AC%AC%E4%B8%89%E8%89%B2.jpg" alt="第三色"></li><li>「互补色」:色轮上相对(完全对立)的颜色。通常一种作为主色，另一种用来强调。</li><li>「三色组」:色轮上彼此等距的三种颜色形成的让人愉悦的三色组。<ul><li>「基色三色组」:红黄蓝。</li><li>「间色三色组」：绿橙紫</li><li>还有两组，作者没有细分，不作累述。</li></ul></li><li>「分裂互补三色组」:从色轮的一遍选择一种颜色，再从色轮上找到其对面的互补色两侧的颜色。具有更细致的颜色边界。</li><li>「类似色」:由色轮上彼此相邻的颜色构成。</li></ul></li><li>暗色和亮色<ul><li>基本色轮只涉及纯「色调」，即纯色。还可向其添加黑色或者白色，对色轮进行扩展。</li><li>纯色就是色调。</li><li>向色调增加黑色就构成一个暗色。</li><li>向色调增加一个白色构成一个亮色。</li><li>「单色组合」:由一种色调及其相应的多种亮色和暗色组成。</li><li>「暗色组合」:由暗色和亮色进行组合，不使用色调。</li></ul></li><li>注意色质<ul><li>「色质」:某种颜色的特定明暗度、深浅度或色调。</li><li>颜色组合导致视觉抖动:色质过于接近。</li><li><strong>避免让类似色质的色调挨在一起！</strong></li></ul></li><li>暖色与冷色<ul><li>「暖色」:其中包含红色或黄色。通过对颜色加此种颜色可以对颜色”加热”。</li><li>「冷色」:其中包含蓝色。通过对颜色加此种颜色可以对颜色”降温”</li><li>冷色趋于做背景色，为后退型。</li><li>暖色为趋进型。</li><li>在冷色和暖色的搭配中，少用暖色。</li></ul></li><li>两种颜色模型<ul><li>「CMYK」:Cyan(一种蓝色)、Magenta(一种红、粉红色)、Yellow(黄色)、Key(黑色)。<ul><li>「四色处理」:这四种颜色可以打印出成千上万种颜色。</li></ul></li><li>「RGB」:Red(红色)、Green(绿色)、Blue(蓝色)<ul><li>红色混合绿色可以产生黄色。</li><li>red、yellow、blue为颜料三原色。rgb为光学三原色。</li></ul></li><li><strong>需要印刷的项目应当使用CMYK</strong></li><li><strong>需要在屏幕上看到的内容则应使用RGB</strong></li></ul></li></ul><h4 id="第八章：「创建包装或品牌」"><a href="#第八章：「创建包装或品牌」" class="headerlink" title="第八章：「创建包装或品牌」"></a>第八章：「创建包装或品牌」</h4><ul><li>创建包装或品牌<ul><li>必须有某个标识性图像或某种标识性风格。</li></ul></li><li>企业名片</li><li>信笺和信封</li><li>传单</li><li>新闻简报</li><li>宣传册</li><li>明信片</li><li>报纸广告</li><li>简历</li></ul><h3 id="PART2：「字体设计」"><a href="#PART2：「字体设计」" class="headerlink" title="PART2：「字体设计」"></a>PART2：「字体设计」</h3><h4 id="第九章：「字体的基本规则」"><a href="#第九章：「字体的基本规则」" class="headerlink" title="第九章：「字体的基本规则」"></a>第九章：「字体的基本规则」</h4><ul><li>关于英语:标点后面加一个空格。作者是以英文做的示例， 不知道对中文是否适用。 好像不是很适用。 看上去总觉得怪怪的。</li><li>引号<ul><li>印刷引号:“66和99”</li><li>打字机引号:”竖杠引号”</li><li>问号和感叹号如果属于引用的一部分就出现在引号内。</li><li>问号和感叹号如果不属于引用的一部分就出现在引号外。</li></ul></li><li>撇号<ul><li>使用印刷撇号！！！’’’</li><li>省略字母：除了所属性词语之外，撇号意味着省略一个字母如：isn’t Rock’n’Roll，注意是99不是69！</li><li>撇号是9！</li></ul></li><li>连接号<ul><li>连字符<ul><li>odd-looking-critters</li><li>在转行时放在单词的前半部之后，用于断词。</li></ul></li><li>一字线<ul><li>「如何输入」:中文的破折号由两个一字线组成，所以其为破折号的一半，在中文打字法，输入中文的模式下，按下shift+0旁边的键(即连字符)，再删除一次横线，剩下的即为一字线。</li><li>一字线意味着一个持续事件，也可用to代替，前后无空格。例如：7:30—9:30pm</li><li>「宽度」:类似大写字母N的宽度</li></ul></li><li>破折号<ul><li>表示思想的突然变化。</li><li>「宽度」:即中文的破折号，一字线的两倍。</li><li>表意强度:句号&gt;破折号&gt;逗号</li><li>两侧无空格。</li></ul></li></ul></li><li>特殊符号<ul><li>PC上的特殊符号<ul><li>ANSI编码:alt+数字键</li><li>重音符号:alt+数字键</li></ul></li><li>MAC上的特殊符号<ul><li>shift/option+字符</li></ul></li></ul></li><li>大写字母<ul><li>全部大写比全部小写难以阅读，因为大写字母没有轮廓形状变化。</li></ul></li><li>下划线<ul><li>永远不要使用。</li><li>代替：<strong>粗体字</strong>、大号字、不同的字体、颜色。</li></ul></li><li>字距调整<ul><li>「字距调整」:挪动字符间距.</li><li>通常值针对与英语，因为字符键可能存在较大缝隙。</li></ul></li><li>寡妇和孤儿<ul><li>「寡妇」:一段文字的最后一行字符数少于7个。</li><li>「孤儿」:一段的最后一行由于太长而和其他文字分开，在下一栏或下一页的最上面结束。</li></ul></li><li>其他<ul><li>跟随在有样式的文字后的标点与文字样式一样。</li><li>括号中的标点<ul><li>如果括号中的文字是整个句子的一部分，标点在闭括号外。</li><li>括号内的文字是一个完整的句子，标点在括号内。</li></ul></li><li>段落缩进或段落进空行：二者只可选其一。因为都代表“下文为新的一段”的意思。</li><li>首段:不一定需要缩进。</li><li>方框内的文字:尽量在放扩四周留够空间，不要太挤。</li><li>在列表中使用项目符号或装饰符号，而不是连字符。</li></ul></li></ul><h4 id="第十章：「字体（与人生）」"><a href="#第十章：「字体（与人生）」" class="headerlink" title="第十章：「字体（与人生）」"></a>第十章：「字体（与人生）」</h4><ul><li>协调与冲突<ul><li>「协调」:只使用一个字体系列，样式、大小、字体粗细无变化。</li><li>「冲突」:结合使用多个字体系列，很类似但并不相同。</li><li>「对比」:结合的多种字体和元素彼此之间并不相同。</li><li>协调是一个稳妥有用的概念，但冲突务必要避免。</li><li>字体对比存在6种明确的不同方式:大小、粗细、结构、形状、方向和颜色。</li></ul></li></ul><h4 id="第十一章：「字体类别」"><a href="#第十一章：「字体类别」" class="headerlink" title="第十一章：「字体类别」"></a>第十一章：「字体类别」</h4><ul><li>「OldStyle」 旧式体<ul><li>都有衬线，且小写字母衬线存在角度。</li><li>「粗细过渡」:曲线笔画存在一种从粗到细的变化。</li><li>「适合阅读」</li><li>「对角强调线」:曲线最细部分的一条线。 </li></ul></li><li>「Modern」 现代体<ul><li>都有衬线，衬线水平。</li><li>「剧烈粗细过渡」:曲线笔画存在一种剧烈的从粗到细的变化。</li><li>强调线完全垂直。</li><li>「不适合大量显示正文」</li></ul></li><li>「Slab serif」 粗衬线体<ul><li>都有衬线。</li><li>「几乎不存在粗细过渡」</li><li>适合阅读。尤其是小孩。</li></ul></li><li>「Sans serif」 无衬线体<ul><li>「Sans」:法语“没有”。</li><li>没有衬线。</li><li>「几乎不存在粗细过渡」</li><li>页面中使用或许有奇效。</li></ul></li><li>「Script」 手写体<ul><li>很漂亮。</li><li>花里胡哨。</li><li>但是要少用。</li></ul></li><li>「Decorative」 花体<ul><li>各种奇效。</li></ul></li></ul><h4 id="第十二章：「字体对比」"><a href="#第十二章：「字体对比」" class="headerlink" title="第十二章：「字体对比」"></a>第十二章：「字体对比」</h4><ul><li>对比6要素：<ol><li>大小</li><li>粗细</li><li>结构</li><li>形状</li><li>方向</li><li>颜色</li></ol></li><li>「必须选取两个不同字体类别中的字体」不要把同一个类别中的两个自体放在同一个页面上。</li></ul><h2 id="最后说说"><a href="#最后说说" class="headerlink" title="最后说说"></a>最后说说</h2><p>花了近四个小时的时间整理，要把内容回顾了一遍。</p><p>多少还是有点收获吧，虽然方法笨。</p><p>贵有恒，何必担心收获不够多。</p>]]></content>
+      
+      <categories>
+          
+          <category> 读书笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 读书笔记 </tag>
+            
+            <tag> 设计 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>关于Attribute和property的区别</title>
+      <link href="/2017/08/01/Attribute%E2%80%98n&#39;property/"/>
+      <content type="html"><![CDATA[<p>阅读提示：</p><ol><li>本篇文章中的attribute，全部翻译为“属性”。而property，全部翻译为“特性”。</li><li>点表示法指js对象通过“.”获取特性，方括号表示法指js对象通过“[]”获取特性。</li></ol><a id="more"></a><h2 id="抛砖"><a href="#抛砖" class="headerlink" title="抛砖"></a>抛砖</h2><p>前段时间，有位学长问了我一个题目：在html文档中，给一个标签添加了一个属性，但是js通过点表示法无法对其进行引用。这是为什么？</p><p>当时我是脸上是大写的“懵”字。于是乎写了段代码进行尝试，如图：<br><img src="http://opqksc9nz.bkt.clouddn.com/attribute1.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute2.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute3.png" alt="啊图片"></p><p>点击标题后，并没有返回value的值，而是undefined。结果很是出人意料。<br>再做一次实验，这回获取的是DOM对象的id，代码及结果如下</p><p><img src="http://opqksc9nz.bkt.clouddn.com/attribute4.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute5.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute6.png" alt="啊图片"></p><p>对比两次的结果，是不是感觉非常奇怪？</p><h2 id="引玉"><a href="#引玉" class="headerlink" title="引玉"></a>引玉</h2><p>关系到点表示法、括号表示法与”getAttribute”和”Attribute”与”Property”的区别了。</p><p>首先，为什么取不到value属性的值呢？</p><p>在入门的时候，我们应该都学过这两种操作方式，对一个对象用点表示法或方括号表示法，表示获取该对象的属性。对象的getAttribute方法，也可获取对象的属性。但是，此属性非彼属性，一个是Attribute，另一个是property。</p><p>那么，为什么给”&lt;\h3&gt;”标签设置的value，只添加了Attributes中value的值呢？</p><h2 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h2><p>打开我们的神器——开发人员工具，选择</p><h3>的DOM节点后，在Elements选项卡下找到Properties，如图：<p></p><p><img src="http://opqksc9nz.bkt.clouddn.com/attribute7.png" alt="啊图片"></p><p>仔细观察上边的键值对，是不是有一个叫做attributes的键？</p><p><img src="http://opqksc9nz.bkt.clouddn.com/attribute8.png" alt="啊图片"></p><p>而我们的id、value都在里边有所显示。继续展开0:id、1:value来一探究竟。</p><p><img src="http://opqksc9nz.bkt.clouddn.com/attribute9.png" alt="啊图片"></p><p><img src="http://opqksc9nz.bkt.clouddn.com/attribute10.png" alt="啊图片"></p><p>可以发现，二者展开后都具有nodeValue字段，并且他们的值为html标签中的属性值。</p><p>但是在properties中，我们可以找到名为id的键，且其绑定值为myHeader，而无法找到名叫value的键。可见，我们在html标签中声明的id，同时存在于property和attribute中，而value只在attribute中具有。</p><p>之所以会出现“抛砖”中的现象，是因为点表示法和方括号表示法，获取到的是对象的property，而getAttribute方法获取的是对象的Attributes。</p><h2 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h2><h4 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h4><p>为什么在html标签中声明的不同属性，一个存在于对象的property，而另一个在对象的property和attribute中都存在呢？</p><h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer:"></a>Answer:</h4><p>区分以下几种情况：</p><ol><li>在html标签申明属性。<ol><li>若该属性在对象的property中存在，properties和attributes二者都可能会更新（若有特殊限制，如dir，对于值的格式有要求，则有可能在property中不会更新）</li><li>若属性不存在对象的property中，则只会在attributes中刷新。</li></ol></li><li>通过js添加属性<ol><li>如果是通过使用点表示法和方括号表示法添加属性，则只会在properties中添加，而不会在attributes中添加。<br><img src="http://opqksc9nz.bkt.clouddn.com/attribute11.png" alt="啊图片"></li><li>同理，通过对对象使用setAttributes方法添加属性，则会在对象的attributes中添加该属性，在对象的property有可能添加该属性（若该属性之前存在于property中，且对该属性的值如果有特殊要求，本次赋值对其满足，则可添加）。</li></ol></li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>让我们再来回顾一下本篇文章中所涉及的知识点：</p><ol><li>对象使用点表示法和括号表示法与使用“getAttribute()”方法有何不同。</li><li>如何通过js或开发人员工具查看对象的properties和attributes。</li><li>如何通过js对对象的property和attribute进行设置。</li></ol></h3>]]></content>
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> attribute </tag>
+            
+            <tag> property </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>《HTTP下午茶》</title>
+      <link href="/2017/06/14/http_afternoon_tea/"/>
+      <content type="html"><![CDATA[<p>于2017年6月14日读过此书。</p><p>入门小书，书中并未教人如何编写代码，而是进行概念讲解。全书通俗易读，辅以插图食用口味更佳。</p><a id="more"></a><p>传送门：<a href="https://www.kancloud.cn/kancloud/tealeaf-http/43837" target="_blank" rel="noopener">https://www.kancloud.cn/kancloud/tealeaf-http/43837</a></p><p>书里简要介绍了如下内容：</p><ul><li>如何通过网址如何上网<ul><li>DNS</li><li>客户端和服务器。</li></ul></li><li>无状态协议</li><li>URL</li><li>抓包工具</li><li>HTTP请求<ul><li>get请求</li><li>post请求</li><li>HTTP状态码</li></ul></li><li>如何构建有状态的web应用<ul><li>session</li><li>cookies</li><li>ajax</li></ul></li><li>WEB安全<ul><li>HTTPS</li><li>同源策略</li><li>会话劫持</li><li>XSS攻击（会话劫持的对策）</li></ul></li></ul>]]></content>
+      
+      <categories>
+          
+          <category> 读书笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> 读书笔记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>动态选项卡title及图标</title>
+      <link href="/2017/05/24/title-icon/"/>
+      <content type="html"><![CDATA[<p>很久之前在一个人的博客上，看到了一个很有意思的效果——当我在他的页面浏览时，选项卡图标和title是一个模样，当我离开他的页面以后，他的博客所在选项卡图标又变成了另一幅模样。当时感觉非常有趣，但没有花时间去考虑如何实现。</p><a id="more"></a><p>最近读《JavaScript高级程序设计》第十三章事件时，看到了unload事件。在书中对其的介绍如下：<br>     与load事件对应的是unload事件，这个事件在文档完全被卸载后触发。只要用户从一个页面转换到另一个页面，就会发生onunload事件。</p><p>首先映入脑海的是使用onunload来实现切换选项卡时，选项卡的图标和title进行变换的效果。首先要学习一下onunload事件。</p><hr><h4 id="第一次尝试："><a href="#第一次尝试：" class="headerlink" title="第一次尝试："></a>第一次尝试：</h4><p>测试onunload方法：<br>test2.html<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;     </span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;onunload事件&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body onunload=&quot;alert(&apos;Unloaded！&apos;)&quot;&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p><p>在chrome浏览器中，关闭test2.html文档或者切换该选项卡，onunload未起作用。</p><p><img src="http://opqksc9nz.bkt.clouddn.com/chromef123.png" alt="啊图片"></p><p>首先，高程上的意思有点磨棱两可。在网上一通谷歌后才明白，“文档完全被卸载”，“用户从一个页面转换到另一个页面”实际是关掉选项卡再进行的切换。实在是坑啊，看来我们方向找错了。<br>其次，我们来探究一下onunload为何未起作用。在onunload位置打上断点。并将右侧的pause on exceptions打开。如上图所示。这里有一个小知识点。</p><p>通过调试，在第五次调试时推出该页面，并提示错误信息“Blocked alert(‘Unloaded！’) during unload.”前四次中，前两步为渲染过程，后两步为网页卸载过程，但是仍不知为何会抛出这个错误，还请大神指点迷津。</p><hr><h4 id="第二次尝试"><a href="#第二次尝试" class="headerlink" title="第二次尝试"></a>第二次尝试</h4><p>搜索一番，更正思路，以下是实现代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt;被发现啦(*´∇｀*)&lt;/title&gt;</span><br><span class="line">    &lt;link href=&quot;../img/1.ico&quot;  rel=&quot;icon&quot; type=&quot;image/vnd.microsoft.icon&quot;/&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    //浏览器选项卡变换</span><br><span class="line">    //判断hidden属性是否存在于document属性中。</span><br><span class="line">    var hiddenProperty = &apos;hidden&apos; in document ? &apos;hidden&apos; :</span><br><span class="line">        &apos;webkitHidden&apos; in document ? &apos;webkitHidden&apos; :</span><br><span class="line">            &apos;mozHidden&apos; in document ? &apos;mozHidden&apos; :</span><br><span class="line">                null;</span><br><span class="line">    //用于在字符串中用字符串替代指定字符。第一个参数为原字符串中被替换字符串的正则表达式，第二个参数为用于替换的文本或字符串。</span><br><span class="line">    var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, &apos;visibilitychange&apos;);</span><br><span class="line">    //构造匿名函数，为更换标签页状态事件所要执行的函数。</span><br><span class="line">    var onVisibilityChange = function()&#123;</span><br><span class="line">        //获取link元素</span><br><span class="line">        var links = document.head.getElementsByTagName(&quot;link&quot;);</span><br><span class="line">        if (!document[hiddenProperty]) &#123;</span><br><span class="line">            document.title=&apos;被发现啦(*´∇｀*)&apos;;</span><br><span class="line">            links[0].href = &quot;../img/1.ico&quot;;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            document.title=&apos;藏好啦(つд⊂)&apos;;</span><br><span class="line">            links[0].href=&quot;../img/2.ico&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    //用于向指定元素添加事件句柄，第一个参数为事件名，第二个参数为指定要事件触发时执行的函数。</span><br><span class="line">    document.addEventListener(visibilityChangeEvent, onVisibilityChange);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></p><p>有几点需要注意。<br>变量hiddenProperty获取的是当前浏览器的hidden属性，使用了三个三元运算符来保证其兼容性。通过replace替换成为visibilitychange+属性名中除hidden外字符串。在这里要着重注意一下visibilitychange这个事件，在我们的这个效果中起到了关键的作用。<br>通过dom获取link标签。更改title和href。<br>为元素添加事件句柄使用addEventListener()函数。<br>最后我们可以发现，实现这个效果，真的是，相当，相当简单。</p><hr><h4 id="小知识点1：关于chrome的调试"><a href="#小知识点1：关于chrome的调试" class="headerlink" title="小知识点1：关于chrome的调试"></a>小知识点1：关于chrome的调试</h4><p>在界面下方能看到按钮，它是设置程序运行时遇到异常时是否中断的开关。点击该按钮会在3种状态间切换：<br><img src="http://opqksc9nz.bkt.clouddn.com/all_catch.png" alt="all_catch"> 遇到所有异常都会中断，包括已捕获的情况。（两条白色竖杠包含在蓝色八边形中<br><img src="http://opqksc9nz.bkt.clouddn.com/some_catch.png" alt="some_catch"> 仅在出现未捕获的异常时才中断。（两条白色竖杠包含在紫色八边形中 ）<br><img src="http://opqksc9nz.bkt.clouddn.com/no_catch.png" alt="no_catch"> 默认遇到异常不中断。（两条白色竖杠包含在黑色八边形中）</p><h4 id="小知识点2：visibilitychange事件"><a href="#小知识点2：visibilitychange事件" class="headerlink" title="小知识点2：visibilitychange事件"></a>小知识点2：visibilitychange事件</h4><p>浏览器标签页被隐藏或显示的时候会触发visibilitychange事件.<br>示例程序：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">document.addEventListener(&quot;visibilitychange&quot;, function() &#123;</span><br><span class="line">  console.log( document.visibilityState );&#125;);</span><br></pre></td></tr></table></figure><p>该事件具有四个属性：</p><ul><li>target属性：事件的目标。</li><li>type属性：被触发的事件的类型。</li><li>bubbles：表明事件是否冒泡。</li><li>cancelable：表明是否可以取消事件的默认行为。</li></ul><h4 id="另外附上一对选项卡图标"><a href="#另外附上一对选项卡图标" class="headerlink" title="另外附上一对选项卡图标"></a>另外附上一对选项卡图标</h4><p>觉得这一对相当有趣，怎么用就看客官自由发挥了。<br><img src="http://opqksc9nz.bkt.clouddn.com/1.ico" alt="1"><br><img src="http://opqksc9nz.bkt.clouddn.com/2.ico" alt="2"></p>]]></content>
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 选项卡 </tag>
+            
+            <tag> title </tag>
+            
+            <tag> 图标 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>GitHub Page + Hexo 搭建博客（win10）</title>
+      <link href="/2017/05/10/build-blog/"/>
+      <content type="html"><![CDATA[<p>简要介绍一下搭建博客的过程、遇到的问题及解决方案。</p><a id="more"></a><h2 id="搭建"><a href="#搭建" class="headerlink" title="搭建"></a>搭建</h2><p>  <a href="https://linghucong.js.org/2016/04/15/2016-04-15-hexo-github-pages-blog/" target="_blank" rel="noopener">https://linghucong.js.org/2016/04/15/2016-04-15-hexo-github-pages-blog/</a> 这篇博客写的相当详细。<br>        但有些问题还是没有说清楚，也踩了不少坑。<br>    问题及解决方案如下：<br>        问题1：没说清楚如何创建GitHub pages。<br>        解决方案：参考官网介绍可以将其搭建出来，并不难。<a href="https://pages.github.com" target="_blank" rel="noopener">https://pages.github.com</a><br>        问题2：搭建完成GitHub pages以后，如何将主题放到GitHub pages中。<br>        解决方案：这时根据第一个博客所讲述，使用hexo deploy即可。</p><h3 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h3><ol><li>新建文章<br>hexo n 命令，会在项目\source_posts中生成my new post.md文件，用编辑器打开即可进行编写。<br>或者写好.md文件后，在\source_posts中新建md文件。</li><li>推送文章<br>执行：<blockquote><p>hexo g #生成文章<br>hexo d #部署，可与hexo g合并为hexo d -g</p></blockquote></li><li>md文章标头格式<blockquote><p>title： 文章页面上的显示名称，可以任意修改，不会出现在URL中。<br>date：文章生成时间。格式为xxxx-xx-xx xx:xx:xx<br>categories：文章所属分类<br>tags：文章标签。</p></blockquote></li></ol><h3 id="更改主题配置"><a href="#更改主题配置" class="headerlink" title="更改主题配置"></a>更改主题配置</h3><p>在hexo下的/themes/(你的主题名称)/_config.yml文件，对其进行更改。<br>最后通过hexo d -g提交更改。</p><h3 id="常用命令："><a href="#常用命令：" class="headerlink" title="常用命令："></a>常用命令：</h3><p>hexo new “postName” #新建文章<br>hexo new page “pageName” #新建页面<br>hexo generate #生成静态页面至public目录<br>hexo server #开启预览访问端口（默认端口4000，’ctrl + c’关闭server）<br>hexo deploy #将.deploy目录部署到GitHub<br>hexo help # 查看帮助<br>hexo version #查看Hexo的版本</p><h3 id="部分简写："><a href="#部分简写：" class="headerlink" title="部分简写："></a>部分简写：</h3><p>hexo n == hexo new<br>hexo g == hexo generate<br>hexo s == hexo server<br>hexo d == hexo deploy</p>]]></content>
+      
+      <categories>
+          
+          <category> 环境搭建 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> win10 </tag>
+            
+            <tag> 博客 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+  
+  
+    
+    <entry>
+      <title>links</title>
+      <link href="/links/index.html"/>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <content type="html"><![CDATA[<p>准备考研。</p><h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><ul><li>email<br><a href="mailto:zhanghao@xiyouant.org" target="_blank" rel="noopener">zhanghao@xiyouant.org</a></li></ul>]]></content>
+    </entry>
+    
+  
+</search>
