@@ -12,7 +12,7 @@
     
     <title>
         
-            关于Attribute和property的区别 | 
+            简易搬瓦工vps搭建 | 
         
         XD
     </title>
@@ -39,8 +39,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Michael Zhang">
-    <meta name="description" itemprop="description" content="关于attribute和property的区别">
-    <meta name="keywords" content="null,attribute,property">
+    <meta name="description" itemprop="description" content="使用搬瓦工搭建简易vps">
+    <meta name="keywords" content="null,vps">
 
     <!-- Site Verification -->
     <meta name="google-site-verification" content="PM-youOm1Gs9nhRAbihUFKg8Nz8C3zYQdqRe-wI2mNw" />
@@ -69,26 +69,26 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="关于Attribute和property的区别 | XD">
+    <meta property="og:title" content="简易搬瓦工vps搭建 | XD">
     <meta property="og:image" content="http://opqksc9nz.bkt.clouddn.com/code.png" />
-    <meta property="og:description" content="关于attribute和property的区别">
-    <meta property="og:article:tag" content="attribute"> <meta property="og:article:tag" content="property"> 
+    <meta property="og:description" content="使用搬瓦工搭建简易vps">
+    <meta property="og:article:tag" content="vps"> 
 
     
-        <meta property="article:published_time" content="8月 01, 2017" />
-        <meta property="article:modified_time" content="2月 22, 2018" />
+        <meta property="article:published_time" content="7月 16, 2017" />
+        <meta property="article:modified_time" content="4月 15, 2018" />
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="关于Attribute和property的区别 | XD">
-    <meta name="twitter:description" content="关于attribute和property的区别">
+    <meta name="twitter:title" content="简易搬瓦工vps搭建 | XD">
+    <meta name="twitter:description" content="使用搬瓦工搭建简易vps">
     <meta name="twitter:image" content="http://opqksc9nz.bkt.clouddn.com/code.png">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="http://yoursite.com" />
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/08/01/Attribute‘n'property/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2017/07/16/vps-博客pop/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -114,11 +114,11 @@
         },
         "description": "Kill the bug of the world"
     },
-    "headline": "关于Attribute和property的区别",
-    "url": "http://yoursite.com/2017/08/01/Attribute‘n'property/index.html",
-    "datePublished": "8月 01, 2017",
-    "dateModified": "2月 22, 2018",
-    "description": "关于attribute和property的区别",
+    "headline": "简易搬瓦工vps搭建",
+    "url": "http://yoursite.com/2017/07/16/vps-博客pop/index.html",
+    "datePublished": "7月 16, 2017",
+    "dateModified": "4月 15, 2018",
+    "description": "使用搬瓦工搭建简易vps",
     "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "http://yoursite.com"
@@ -354,37 +354,7 @@
 
     
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#抛砖"><span class="post-toc-number">1.</span> <span class="post-toc-text">抛砖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#引玉"><span class="post-toc-number">2.</span> <span class="post-toc-text">引玉</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#尝试"><span class="post-toc-number">3.</span> <span class="post-toc-text">尝试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">的DOM节点后，在Elements选项卡下找到Properties，如图：
-
-仔细观察上边的键值对，是不是有一个叫做attributes的键？
-
-而我们的id、value都在里边有所显示。继续展开0:id、1:value来一探究竟。
-
-
-可以发现，二者展开后都具有nodeValue字段，并且他们的值为html标签中的属性值。
-但是在properties中，我们可以找到名为id的键，且其绑定值为myHeader，而无法找到名叫value的键。可见，我们在html标签中声明的id，同时存在于property和attribute中，而value只在attribute中具有。
-之所以会出现“抛砖”中的现象，是因为点表示法和方括号表示法，获取到的是对象的property，而getAttribute方法获取的是对象的Attributes。
-疑问Question:为什么在html标签中声明的不同属性，一个存在于对象的property，而另一个在对象的property和attribute中都存在呢？
-Answer:区分以下几种情况：
-
-在html标签申明属性。
-若该属性在对象的property中存在，properties和attributes二者都可能会更新（若有特殊限制，如dir，对于值的格式有要求，则有可能在property中不会更新）
-若属性不存在对象的property中，则只会在attributes中刷新。
-
-
-通过js添加属性
-如果是通过使用点表示法和方括号表示法添加属性，则只会在properties中添加，而不会在attributes中添加。
-同理，通过对对象使用setAttributes方法添加属性，则会在对象的attributes中添加该属性，在对象的property有可能添加该属性（若该属性之前存在于property中，且对该属性的值如果有特殊要求，本次赋值对其满足，则可添加）。
-
-
-
-总结让我们再来回顾一下本篇文章中所涉及的知识点：
-
-对象使用点表示法和括号表示法与使用“getAttribute()”方法有何不同。
-如何通过js或开发人员工具查看对象的properties和attributes。
-如何通过js对对象的property和attribute进行设置。
-
-</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#疑问"><span class="post-toc-number">4.</span> <span class="post-toc-text">疑问</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Question"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">Question:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Answer"><span class="post-toc-number">4.0.2.</span> <span class="post-toc-text">Answer:</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#购买vps"><span class="post-toc-number">1.</span> <span class="post-toc-text">购买vps</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#搭建ss服务"><span class="post-toc-number">2.</span> <span class="post-toc-text">搭建ss服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何添加多用户？"><span class="post-toc-number">3.</span> <span class="post-toc-text">如何添加多用户？</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#windows下使用ss"><span class="post-toc-number">4.</span> <span class="post-toc-text">windows下使用ss</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#android下使用ss"><span class="post-toc-number">5.</span> <span class="post-toc-text">android下使用ss</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ubuntu下使用ss"><span class="post-toc-number">6.</span> <span class="post-toc-text">ubuntu下使用ss</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ios系统使用SsrConnectPro建立ss连接"><span class="post-toc-number">7.</span> <span class="post-toc-text">ios系统使用SsrConnectPro建立ss连接</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#小白：如何连接到远程服务器？"><span class="post-toc-number">8.</span> <span class="post-toc-text">小白：如何连接到远程服务器？</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解决方案1：提供商提供的的云服务器控制面板"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">解决方案1：提供商提供的的云服务器控制面板</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#解决方案2：使用ssh连接远程服务器"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">解决方案2：使用ssh连接远程服务器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#windows连接vps"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">windows连接vps</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Android手机连接vps"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">Android手机连接vps</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#ubuntu连接vps"><span class="post-toc-number">8.5.</span> <span class="post-toc-text">ubuntu连接vps</span></a></li></ol></li></ol>
         <!--
         <li class="mdl-menu__item">
             Some Action
@@ -422,7 +392,7 @@ Answer:区分以下几种情况：
         
     
             <p class="article-headline-p">
-                关于Attribute和property的区别
+                简易搬瓦工vps搭建
             </p>
         </div>
 
@@ -441,7 +411,7 @@ Answer:区分以下几种情况：
     <!-- Author Name & Date -->
     <div>
         <strong>Michael Zhang</strong>
-        <span>8月 01, 2017</span>
+        <span>7月 16, 2017</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -465,7 +435,7 @@ Answer:区分以下几种情况：
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/attribute/">attribute</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/property/">property</a>
+        <a class="post_tag-link" href="/tags/vps/">vps</a>
     </ul>
     
 
@@ -481,7 +451,7 @@ Answer:区分以下几种情况：
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=关于Attribute和property的区别&url=http://yoursite.com/2017/08/01/Attribute‘n&#39;property/index.html&pic=&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=简易搬瓦工vps搭建&url=http://yoursite.com/2017/07/16/vps-博客pop/index.html&pic=&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 分享到微博
             </li>
@@ -490,7 +460,7 @@ Answer:区分以下几种情况：
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=关于Attribute和property的区别&url=http://yoursite.com/2017/08/01/Attribute‘n&#39;property/index.html&via=Michael Zhang" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=简易搬瓦工vps搭建&url=http://yoursite.com/2017/07/16/vps-博客pop/index.html&via=Michael Zhang" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Twitter
             </li>
@@ -499,7 +469,7 @@ Answer:区分以下几种情况：
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/01/Attribute‘n&#39;property/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/16/vps-博客pop/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Facebook
             </li>
@@ -508,7 +478,7 @@ Answer:区分以下几种情况：
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/01/Attribute‘n&#39;property/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/16/vps-博客pop/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Google+
             </li>
@@ -520,7 +490,7 @@ Answer:区分以下几种情况：
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=XD&title=关于Attribute和property的区别&summary=null&pics=http://yoursite.comhttp://opqksc9nz.bkt.clouddn.com/code.png&url=http://yoursite.com/2017/08/01/Attribute‘n'property/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=XD&title=简易搬瓦工vps搭建&summary=null&pics=http://yoursite.comhttp://opqksc9nz.bkt.clouddn.com/code.png&url=http://yoursite.com/2017/07/16/vps-博客pop/index.html" target="_blank">
             <li class="mdl-menu__item">
                 分享到 QQ
             </li>
@@ -529,7 +499,7 @@ Answer:区分以下几种情况：
 
     <!-- Share Telegram -->
     
-        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2017/08/01/Attribute‘n'property/index.html&text=关于Attribute和property的区别" target="_blank">
+        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2017/07/16/vps-博客pop/index.html&text=简易搬瓦工vps搭建" target="_blank">
             <li class="mdl-menu__item">
                 分享到 Telegram
             </li>
@@ -544,52 +514,83 @@ Answer:区分以下几种情况：
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>阅读提示：</p>
+        <p>本文涉及到的几个问题。</p>
 <ol>
-<li>本篇文章中的attribute，全部翻译为“属性”。而property，全部翻译为“特性”。</li>
-<li>点表示法指js对象通过“.”获取特性，方括号表示法指js对象通过“[]”获取特性。</li>
+<li><a href="#buy">购买vps</a></li>
+<li><a href="#build">搭建ss服务</a></li>
+<li><a href="#mulit-user">添加多用户</a></li>
+<li><a href="#use-windows">windows下使用ss</a></li>
+<li><a href="#use-android">android下使用ss</a></li>
+<li><a href="#use-ubuntu">ubuntu下使用ss</a></li>
+<li><a href="#use-ios">ios系统下使用ss</a></li>
+<li><a href="#use-ssh">小白：如何连接到远程服务器？</a></li>
 </ol>
-<a id="more"></a>
-<h2 id="抛砖"><a href="#抛砖" class="headerlink" title="抛砖"></a>抛砖</h2><p>前段时间，有位学长问了我一个题目：在html文档中，给一个标签添加了一个属性，但是js通过点表示法无法对其进行引用。这是为什么？</p>
-<p>当时我是脸上是大写的“懵”字。于是乎写了段代码进行尝试，如图：<br><img src="http://opqksc9nz.bkt.clouddn.com/attribute1.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute2.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute3.png" alt="啊图片"></p>
-<p>点击标题后，并没有返回value的值，而是undefined。结果很是出人意料。<br>再做一次实验，这回获取的是DOM对象的id，代码及结果如下</p>
-<p><img src="http://opqksc9nz.bkt.clouddn.com/attribute4.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute5.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute6.png" alt="啊图片"></p>
-<p>对比两次的结果，是不是感觉非常奇怪？</p>
-<h2 id="引玉"><a href="#引玉" class="headerlink" title="引玉"></a>引玉</h2><p>关系到点表示法、括号表示法与”getAttribute”和”Attribute”与”Property”的区别了。</p>
-<p>首先，为什么取不到value属性的值呢？</p>
-<p>在入门的时候，我们应该都学过这两种操作方式，对一个对象用点表示法或方括号表示法，表示获取该对象的属性。对象的getAttribute方法，也可获取对象的属性。但是，此属性非彼属性，一个是Attribute，另一个是property。</p>
-<p>那么，为什么给”&lt;\h3&gt;”标签设置的value，只添加了Attributes中value的值呢？</p>
-<h2 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h2><p>打开我们的神器——开发人员工具，选择</p><h3>的DOM节点后，在Elements选项卡下找到Properties，如图：<p></p>
-<p><img src="http://opqksc9nz.bkt.clouddn.com/attribute7.png" alt="啊图片"></p>
-<p>仔细观察上边的键值对，是不是有一个叫做attributes的键？</p>
-<p><img src="http://opqksc9nz.bkt.clouddn.com/attribute8.png" alt="啊图片"></p>
-<p>而我们的id、value都在里边有所显示。继续展开0:id、1:value来一探究竟。</p>
-<p><img src="http://opqksc9nz.bkt.clouddn.com/attribute9.png" alt="啊图片"></p>
-<p><img src="http://opqksc9nz.bkt.clouddn.com/attribute10.png" alt="啊图片"></p>
-<p>可以发现，二者展开后都具有nodeValue字段，并且他们的值为html标签中的属性值。</p>
-<p>但是在properties中，我们可以找到名为id的键，且其绑定值为myHeader，而无法找到名叫value的键。可见，我们在html标签中声明的id，同时存在于property和attribute中，而value只在attribute中具有。</p>
-<p>之所以会出现“抛砖”中的现象，是因为点表示法和方括号表示法，获取到的是对象的property，而getAttribute方法获取的是对象的Attributes。</p>
-<h2 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h2><h4 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h4><p>为什么在html标签中声明的不同属性，一个存在于对象的property，而另一个在对象的property和attribute中都存在呢？</p>
-<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer:"></a>Answer:</h4><p>区分以下几种情况：</p>
+<h3 id="购买vps"><a href="#购买vps" class="headerlink" title="购买vps"></a><div id="buy">购买vps</div></h3><p>在<a href="https://bwh1.net/index.php" target="_blank" rel="noopener">BandwagonHOST</a>购买vps。<br>可使用支付宝付款，记得使用优惠码：IAMSMART5TDT48。</p>
+<p>本人买的19.99刀每年，没错，几乎就是最便宜的那一款（好像有9.9刀一年的？反正买不到..）。</p>
+<p>配置虽低，但使用体验非常顺滑。google一下、流畅看油管1080p视频完全没有问题。</p>
+<h3 id="搭建ss服务"><a href="#搭建ss服务" class="headerlink" title="搭建ss服务"></a><div id="build">搭建ss服务</div></h3><p>官方可以支持一键安装ss，大家在kiwiVM控制面板可以找到。<br>想要动手的同学可以使用这个<a href="https://github.com/ziggear/shadowsocks" target="_blank" rel="noopener">github库</a>，自行安装，仓库的readme文档里详细介绍了安装过程。博主按照文档成功搭建。</p>
+<h3 id="如何添加多用户？"><a href="#如何添加多用户？" class="headerlink" title="如何添加多用户？"></a><div id="mulit-user">如何添加多用户？</div></h3><p>通过上述repo安装的同学，可以修改配置文件<code>#vim /etc/shadowsocks.json</code>来添加多用户。</p>
+<h3 id="windows下使用ss"><a href="#windows下使用ss" class="headerlink" title="windows下使用ss"></a><div id="use-windiows">windows下使用ss</div></h3><ol>
+<li><a href="http://opqksc9nz.bkt.clouddn.com/Shadowsocks.exe" target="_blank" rel="noopener">下载windows版shadowsocks</a></li>
+<li>配置服务器ip，服务器端口，密码。</li>
+<li>右键shadowsocks图标，在菜单里选择系统代理，PAC模式，即可使用。</li>
+<li>若仍无法使用可将PAC模式切换至GLOBAL(全局)模式。</li>
+</ol>
+<h3 id="android下使用ss"><a href="#android下使用ss" class="headerlink" title="android下使用ss"></a><div id="use-android">android下使用ss</div></h3><ol>
+<li><a href="http://opqksc9nz.bkt.clouddn.com/ssr-3_4_0_5.apk.1%253B+filename-%253Dutf-8%27+%27ssr-3_4_0_5.apk" target="_blank" rel="noopener">下载SSR</a></li>
+<li>进行相应配置，不再赘述。</li>
+</ol>
+<h3 id="ubuntu下使用ss"><a href="#ubuntu下使用ss" class="headerlink" title="ubuntu下使用ss"></a><div id="use-ubuntu">ubuntu下使用ss</div></h3><ol>
+<li>下载GUI版本<a href="https://github.com/shadowsocks/shadowsocks-qt5" target="_blank" rel="noopener">shadowsocks客户端</a>，并配置相应内容，</li>
+<li>下载chrome浏览器插件SwitchyOmega，进行相应配置.</li>
+</ol>
+<h3 id="ios系统使用SsrConnectPro建立ss连接"><a href="#ios系统使用SsrConnectPro建立ss连接" class="headerlink" title="ios系统使用SsrConnectPro建立ss连接"></a><div id="use-ios">ios系统使用SsrConnectPro建立ss连接</div></h3><p>app主界面如下：<br><img src="http://opqksc9nz.bkt.clouddn.com/SsrConnectPro%20%282%29.png" alt="SsrConnectPro主界面"><br>配置界面如下：<br><img src="http://opqksc9nz.bkt.clouddn.com/SsrConnectPro%20%282%29.png" alt="SsrConnectPro配置界面"></p>
+<p>使用步骤：</p>
 <ol>
-<li>在html标签申明属性。<ol>
-<li>若该属性在对象的property中存在，properties和attributes二者都可能会更新（若有特殊限制，如dir，对于值的格式有要求，则有可能在property中不会更新）</li>
-<li>若属性不存在对象的property中，则只会在attributes中刷新。</li>
+<li>在app store内下载SsrConnectPro</li>
+<li>打开应用,选择右上角的”+”号,添加服务器配置</li>
+<li>TYPE(类型),选择SS</li>
+<li>NAME(名称):只是用来区分你所添加的不同的服务器的,起一个你喜欢的名字.</li>
+<li>Server(服务器):输入服务器ip</li>
+<li>Porty(端口):输入远程服务器的端口号.</li>
+<li>Password(密码):输入远程服务器端口所对应的密码.</li>
+<li>ProxyMethod(代理模式):选择System(系统)或Global(全局)代理模式.(我用的是系统)</li>
+<li>Method(加密方式):提供商给你的配置里肯定有,一定要选择正确.</li>
+<li>点击 Save Configuration(保存配置)</li>
+<li>点击connect,即可愉快的番蔷学习.</li>
 </ol>
+<p>ps：第一次配置完毕以后，可在ios设备的系统设置，选择“vpn”选项进行打开或关闭ss连接。非常方便。</p>
+<h3 id="小白：如何连接到远程服务器？"><a href="#小白：如何连接到远程服务器？" class="headerlink" title="小白：如何连接到远程服务器？"></a><div id="use-ssh">小白：如何连接到远程服务器？</div></h3><h4 id="解决方案1：提供商提供的的云服务器控制面板"><a href="#解决方案1：提供商提供的的云服务器控制面板" class="headerlink" title="解决方案1：提供商提供的的云服务器控制面板"></a>解决方案1：提供商提供的的云服务器控制面板</h4><p>云服务器提供商一般会提供web端的远程连接方案，比如搬瓦工的kiwivm面板、腾讯云的控制台。<br>它们给用户提供了一个可以在官网操作云服务器的方法，优点是简单易懂，缺点是过于麻烦，每次登陆服务器都要登陆到云服务提供商的网站，非常不方便。<br>建议大家花点时间，学习以下的配置方案，这样在使用电脑、手机的时候都可以方便的连接到自己的服务器上。</p>
+<h4 id="解决方案2：使用ssh连接远程服务器"><a href="#解决方案2：使用ssh连接远程服务器" class="headerlink" title="解决方案2：使用ssh连接远程服务器"></a>解决方案2：使用ssh连接远程服务器</h4><p>分为三个平台：<a href="#user-windows">windows</a>,<a href="#user-android">android</a>,<a href="#user-ubuntu">ubuntu(linux)</a><br>所需已知条件：</p>
+<ol>
+<li>远程服务器的ip</li>
+<li>远程服务器上ssh服务开放的端口号</li>
+<li>远程服务器系统上的用户名称</li>
+<li>该用户对应的密码。</li>
+</ol>
+<h4 id="windows连接vps"><a href="#windows连接vps" class="headerlink" title="windows连接vps"></a><div id="user-windows">windows连接vps</div></h4><ol>
+<li>下载xshell 5.<br><a href="http://www.netsarang.com/download/down_form.html?code=522&amp;downloadType=0&amp;licenseType=1" target="_blank" rel="noopener">下载免费使用的个人/家庭版本</a><br>填写完毕并提交后，会在所填邮箱收到一封包含下载地址的邮件，点入相应链接，即可进行下载。</li>
+<li>下载完毕后打开应用，点击左上角的new，添加会话。</li>
+<li>填写配置信息。<ul>
+<li>Name(会话的名称，用来区分其他会话，取一个自己喜欢的名字即可)</li>
+<li>Host(主机，即所要连接的远程服务器。填写远程服务器ip地址，也可填写域名，必填。)</li>
+<li>Port Number(远程服务器SSH服务使用的端口，必填。)</li>
+<li>在左栏选择Authentication（认证），选择验证模式，为Password。</li>
+<li>User Name(用户名称)，即填写远程服务器上的一个用户的名称。</li>
+<li>Password(密码)，即填写该用户所对应的密码。</li>
+</ul>
 </li>
-<li>通过js添加属性<ol>
-<li>如果是通过使用点表示法和方括号表示法添加属性，则只会在properties中添加，而不会在attributes中添加。<br><img src="http://opqksc9nz.bkt.clouddn.com/attribute11.png" alt="啊图片"></li>
-<li>同理，通过对对象使用setAttributes方法添加属性，则会在对象的attributes中添加该属性，在对象的property有可能添加该属性（若该属性之前存在于property中，且对该属性的值如果有特殊要求，本次赋值对其满足，则可添加）。</li>
+<li>点击OK进行保存</li>
+<li>之后返回程序的主界面，双击会话即可登陆远程服务器。</li>
 </ol>
-</li>
+<h4 id="Android手机连接vps"><a href="#Android手机连接vps" class="headerlink" title="Android手机连接vps"></a><div id="user-android">Android手机连接vps</div></h4><ol>
+<li><a href="http://opqksc9nz.bkt.clouddn.com/com.sonelli.juicessh.apk" target="_blank" rel="noopener">下载JuiceSSH</a></li>
+<li>进行配置。请同学自己摸索吧。重要的仍然是那四个已知条件，配置正确后即可连接。</li>
 </ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>让我们再来回顾一下本篇文章中所涉及的知识点：</p>
-<ol>
-<li>对象使用点表示法和括号表示法与使用“getAttribute()”方法有何不同。</li>
-<li>如何通过js或开发人员工具查看对象的properties和attributes。</li>
-<li>如何通过js对对象的property和attribute进行设置。</li>
-</ol>
-</h3>
+<h4 id="ubuntu连接vps"><a href="#ubuntu连接vps" class="headerlink" title="ubuntu连接vps"></a><div id="user-ubuntu">ubuntu连接vps</div></h4><p>仅介绍一条命令,基本可以通吃.</p>
+<p><code>sudo ssh -p port_number user_name@xxx.xxx.xxx.xxx</code></p>
+<p>sudo: 使用root权限运行<br>-p: 指定端口选项.<br>port_number: 该位置填写指定的端口号<br>user_name: 用户名称<br>xxx.xxx.xxx.xxx: 该位置填写远程服务器的ip</p>
+
     
 
     
@@ -604,7 +605,7 @@ Answer:区分以下几种情况：
     <!-- 使用 changyan -->
 <div id="changyan-comment">
     <!--PC和WAP自适应版-->
-<div id="SOHUCS" sid="2017/08/01/Attribute‘n&#39;property/"  ></div>
+<div id="SOHUCS" sid="2017/07/16/vps-博客pop/"  ></div>
 <script type="text/javascript">
 (function(){
 var appid = 'cyttNCWQt';
@@ -628,7 +629,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2017/08/07/「写给大家看的设计书」/" id="post_nav-newer" class="prev-content">
+        <a href="/2017/08/01/Attribute‘n'property/" id="post_nav-newer" class="prev-content">
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
                 <i class="material-icons">arrow_back</i>
             </button>
@@ -642,7 +643,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 
     <!-- Next Nav -->
     
-        <a href="/2017/07/16/vps-博客pop/" id="post_nav-older" class="next-content">
+        <a href="/2017/06/14/http_afternoon_tea/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

@@ -12,7 +12,7 @@
     
     <title>
         
-            关于Attribute和property的区别 | 
+            归档: 2017/7 | 
         
         XD
     </title>
@@ -39,8 +39,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Michael Zhang">
-    <meta name="description" itemprop="description" content="关于attribute和property的区别">
-    <meta name="keywords" content="null,attribute,property">
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="null">
 
     <!-- Site Verification -->
     <meta name="google-site-verification" content="PM-youOm1Gs9nhRAbihUFKg8Nz8C3zYQdqRe-wI2mNw" />
@@ -69,62 +69,29 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="关于Attribute和property的区别 | XD">
+    <meta property="og:title" content="归档: 2017/7 | XD">
     <meta property="og:image" content="http://opqksc9nz.bkt.clouddn.com/code.png" />
-    <meta property="og:description" content="关于attribute和property的区别">
-    <meta property="og:article:tag" content="attribute"> <meta property="og:article:tag" content="property"> 
-
+    <meta property="og:description" content="">
     
-        <meta property="article:published_time" content="8月 01, 2017" />
-        <meta property="article:modified_time" content="2月 22, 2018" />
+
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="关于Attribute和property的区别 | XD">
-    <meta name="twitter:description" content="关于attribute和property的区别">
+    <meta name="twitter:title" content="归档: 2017/7 | XD">
+    <meta name="twitter:description" content="">
     <meta name="twitter:image" content="http://opqksc9nz.bkt.clouddn.com/code.png">
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="http://yoursite.com" />
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2017/08/01/Attribute‘n'property/index.html" />
+        <link rel="canonical" href="http://yoursite.com/archives/2017/07/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "XD",
-        "logo": "http://opqksc9nz.bkt.clouddn.com/code.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Michael Zhang",
-        "image": {
-            "@type": "ImageObject",
-            "url": "http://opqksc9nz.bkt.clouddn.com/code.png"
-        },
-        "description": "Kill the bug of the world"
-    },
-    "headline": "关于Attribute和property的区别",
-    "url": "http://yoursite.com/2017/08/01/Attribute‘n'property/index.html",
-    "datePublished": "8月 01, 2017",
-    "dateModified": "2月 22, 2018",
-    "description": "关于attribute和property的区别",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://yoursite.com"
-    }
-}
-</script>
 
 
     
@@ -327,334 +294,105 @@
                         </button>
                     
 
-                    <!-- Post TOC -->
-
+                    <!-- Index Module -->
+<div class="material-index mdl-grid">
     
-    <!-- Back Button -->
-    <!--
-    <div class="material-back" id="backhome-div" tabindex="0">
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-           href="#" onclick="window.history.back();return false;"
-           target="_self"
-           role="button"
-           data-upgraded=",MaterialButton,MaterialRipple">
-            <i class="material-icons" role="presentation">arrow_back</i>
-            <span class="mdl-button__ripple-container">
-                <span class="mdl-ripple"></span>
-            </span>
-        </a>
-    </div>
-    -->
+    <div class="locate-thumbnail-symbol"></div>
 
-    <!-- Left aligned menu below button -->
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#抛砖"><span class="post-toc-number">1.</span> <span class="post-toc-text">抛砖</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#引玉"><span class="post-toc-number">2.</span> <span class="post-toc-text">引玉</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#尝试"><span class="post-toc-number">3.</span> <span class="post-toc-text">尝试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#undefined"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">的DOM节点后，在Elements选项卡下找到Properties，如图：
-
-仔细观察上边的键值对，是不是有一个叫做attributes的键？
-
-而我们的id、value都在里边有所显示。继续展开0:id、1:value来一探究竟。
-
-
-可以发现，二者展开后都具有nodeValue字段，并且他们的值为html标签中的属性值。
-但是在properties中，我们可以找到名为id的键，且其绑定值为myHeader，而无法找到名叫value的键。可见，我们在html标签中声明的id，同时存在于property和attribute中，而value只在attribute中具有。
-之所以会出现“抛砖”中的现象，是因为点表示法和方括号表示法，获取到的是对象的property，而getAttribute方法获取的是对象的Attributes。
-疑问Question:为什么在html标签中声明的不同属性，一个存在于对象的property，而另一个在对象的property和attribute中都存在呢？
-Answer:区分以下几种情况：
-
-在html标签申明属性。
-若该属性在对象的property中存在，properties和attributes二者都可能会更新（若有特殊限制，如dir，对于值的格式有要求，则有可能在property中不会更新）
-若属性不存在对象的property中，则只会在attributes中刷新。
-
-
-通过js添加属性
-如果是通过使用点表示法和方括号表示法添加属性，则只会在properties中添加，而不会在attributes中添加。
-同理，通过对对象使用setAttributes方法添加属性，则会在对象的attributes中添加该属性，在对象的property有可能添加该属性（若该属性之前存在于property中，且对该属性的值如果有特殊要求，本次赋值对其满足，则可添加）。
-
-
-
-总结让我们再来回顾一下本篇文章中所涉及的知识点：
-
-对象使用点表示法和括号表示法与使用“getAttribute()”方法有何不同。
-如何通过js或开发人员工具查看对象的properties和attributes。
-如何通过js对对象的property和attribute进行设置。
-
-</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#疑问"><span class="post-toc-number">4.</span> <span class="post-toc-text">疑问</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Question"><span class="post-toc-number">4.0.1.</span> <span class="post-toc-text">Question:</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Answer"><span class="post-toc-number">4.0.2.</span> <span class="post-toc-text">Answer:</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#总结"><span class="post-toc-number">5.</span> <span class="post-toc-text">总结</span></a></li></ol>
-        <!--
-        <li class="mdl-menu__item">
-            Some Action
-        </li>
-        -->
-    </ul>
+    <!-- Pin on top -->
     
 
-
-
-
-
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-    <!-- Paradox Post Header -->
+    <!-- Normal Post -->
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 19 + 1);
-
-    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
-    $('.post_thumbnail-random').addClass('lazy');
-</script>
-
         
     
-            <p class="article-headline-p">
-                关于Attribute和property的区别
-            </p>
-        </div>
 
-
-
-
-
-                
-                    <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="/img/big.jpg" width="44px" height="44px" alt="Author Avatar"/>
-    </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>Michael Zhang</strong>
-        <span>8月 01, 2017</span>
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2017/07/16/vps-博客pop/">简易搬瓦工vps搭建</a></p>
     </div>
 
-    <div class="section-spacer"></div>
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            本文涉及到的几个问题。
 
-    <!-- Favorite -->
-    <!--
-        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-            <i class="material-icons" role="presentation">favorite</i>
-            <span class="visuallyhidden">favorites</span>
-        </button>
-    -->
+购买vps
 
-    <!-- Qrcode -->
-    
-
-    <!-- Tags (bookmark) -->
-    
-    <button id="article-functions-viewtags-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-        <i class="material-icons" role="presentation">bookmark</i>
-        <span class="visuallyhidden">bookmark</span>
-    </button>
-    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
-        <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/attribute/">attribute</a></li><li class="mdl-menu__item"><a class="post_tag-link" href="/tags/property/">property</a>
-    </ul>
-    
-
-    <!-- Share -->
-    <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
-    
-
-    
-
-    <!-- Share Weibo -->
-    
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=关于Attribute和property的区别&url=http://yoursite.com/2017/08/01/Attribute‘n&#39;property/index.html&pic=&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                分享到微博
-            </li>
-        </a>
-    
-
-    <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=关于Attribute和property的区别&url=http://yoursite.com/2017/08/01/Attribute‘n&#39;property/index.html&via=Michael Zhang" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Twitter
-            </li>
-        </a>
-    
-
-    <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/01/Attribute‘n&#39;property/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Facebook
-            </li>
-        </a>
-    
-
-    <!-- Share Google+ -->
-    
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/01/Attribute‘n&#39;property/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Google+
-            </li>
-        </a>
-    
-
-    <!-- Share LinkedIn -->
-    
-
-    <!-- Share QQ -->
-    
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=XD&title=关于Attribute和property的区别&summary=null&pics=http://yoursite.comhttp://opqksc9nz.bkt.clouddn.com/code.png&url=http://yoursite.com/2017/08/01/Attribute‘n'property/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 QQ
-            </li>
-        </a>
-    
-
-    <!-- Share Telegram -->
-    
-        <a class="post_share-link" href="https://telegram.me/share/url?url=http://yoursite.com/2017/08/01/Attribute‘n'property/index.html&text=关于Attribute和property的区别" target="_blank">
-            <li class="mdl-menu__item">
-                分享到 Telegram
-            </li>
-        </a>
-    
-</ul>
-
-</div>
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-        <p>阅读提示：</p>
-<ol>
-<li>本篇文章中的attribute，全部翻译为“属性”。而property，全部翻译为“特性”。</li>
-<li>点表示法指js对象通过“.”获取特性，方括号表示法指js对象通过“[]”获取特性。</li>
-</ol>
-<a id="more"></a>
-<h2 id="抛砖"><a href="#抛砖" class="headerlink" title="抛砖"></a>抛砖</h2><p>前段时间，有位学长问了我一个题目：在html文档中，给一个标签添加了一个属性，但是js通过点表示法无法对其进行引用。这是为什么？</p>
-<p>当时我是脸上是大写的“懵”字。于是乎写了段代码进行尝试，如图：<br><img src="http://opqksc9nz.bkt.clouddn.com/attribute1.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute2.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute3.png" alt="啊图片"></p>
-<p>点击标题后，并没有返回value的值，而是undefined。结果很是出人意料。<br>再做一次实验，这回获取的是DOM对象的id，代码及结果如下</p>
-<p><img src="http://opqksc9nz.bkt.clouddn.com/attribute4.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute5.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute6.png" alt="啊图片"></p>
-<p>对比两次的结果，是不是感觉非常奇怪？</p>
-<h2 id="引玉"><a href="#引玉" class="headerlink" title="引玉"></a>引玉</h2><p>关系到点表示法、括号表示法与”getAttribute”和”Attribute”与”Property”的区别了。</p>
-<p>首先，为什么取不到value属性的值呢？</p>
-<p>在入门的时候，我们应该都学过这两种操作方式，对一个对象用点表示法或方括号表示法，表示获取该对象的属性。对象的getAttribute方法，也可获取对象的属性。但是，此属性非彼属性，一个是Attribute，另一个是property。</p>
-<p>那么，为什么给”&lt;\h3&gt;”标签设置的value，只添加了Attributes中value的值呢？</p>
-<h2 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h2><p>打开我们的神器——开发人员工具，选择</p><h3>的DOM节点后，在Elements选项卡下找到Properties，如图：<p></p>
-<p><img src="http://opqksc9nz.bkt.clouddn.com/attribute7.png" alt="啊图片"></p>
-<p>仔细观察上边的键值对，是不是有一个叫做attributes的键？</p>
-<p><img src="http://opqksc9nz.bkt.clouddn.com/attribute8.png" alt="啊图片"></p>
-<p>而我们的id、value都在里边有所显示。继续展开0:id、1:value来一探究竟。</p>
-<p><img src="http://opqksc9nz.bkt.clouddn.com/attribute9.png" alt="啊图片"></p>
-<p><img src="http://opqksc9nz.bkt.clouddn.com/attribute10.png" alt="啊图片"></p>
-<p>可以发现，二者展开后都具有nodeValue字段，并且他们的值为html标签中的属性值。</p>
-<p>但是在properties中，我们可以找到名为id的键，且其绑定值为myHeader，而无法找到名叫value的键。可见，我们在html标签中声明的id，同时存在于property和attribute中，而value只在attribute中具有。</p>
-<p>之所以会出现“抛砖”中的现象，是因为点表示法和方括号表示法，获取到的是对象的property，而getAttribute方法获取的是对象的Attributes。</p>
-<h2 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h2><h4 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h4><p>为什么在html标签中声明的不同属性，一个存在于对象的property，而另一个在对象的property和attribute中都存在呢？</p>
-<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer:"></a>Answer:</h4><p>区分以下几种情况：</p>
-<ol>
-<li>在html标签申明属性。<ol>
-<li>若该属性在对象的property中存在，properties和attributes二者都可能会更新（若有特殊限制，如dir，对于值的格式有要求，则有可能在property中不会更新）</li>
-<li>若属性不存在对象的property中，则只会在attributes中刷新。</li>
-</ol>
-</li>
-<li>通过js添加属性<ol>
-<li>如果是通过使用点表示法和方括号表示法添加属性，则只会在properties中添加，而不会在attributes中添加。<br><img src="http://opqksc9nz.bkt.clouddn.com/attribute11.png" alt="啊图片"></li>
-<li>同理，通过对对象使用setAttributes方法添加属性，则会在对象的attributes中添加该属性，在对象的property有可能添加该属性（若该属性之前存在于property中，且对该属性的值如果有特殊要求，本次赋值对其满足，则可添加）。</li>
-</ol>
-</li>
-</ol>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>让我们再来回顾一下本篇文章中所涉及的知识点：</p>
-<ol>
-<li>对象使用点表示法和括号表示法与使用“getAttribute()”方法有何不同。</li>
-<li>如何通过js或开发人员工具查看对象的properties和attributes。</li>
-<li>如何通过js对对象的property和attribute进行设置。</li>
-</ol>
-</h3>
-    
-
-    
-</div>
-
-
-                
-
-                <!-- Post Comments -->
-                
-                    
-    <!-- 使用 changyan -->
-<div id="changyan-comment">
-    <!--PC和WAP自适应版-->
-<div id="SOHUCS" sid="2017/08/01/Attribute‘n&#39;property/"  ></div>
-<script type="text/javascript">
-(function(){
-var appid = 'cyttNCWQt';
-var conf = 'prod_96b3ffa3d56ac7a9d4479878ad5af332';
-var width = window.innerWidth || document.documentElement.clientWidth;
-if (width < 960) {
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
-
-</div>
-<style>
-    #changyan-comment{
-        background-color: #eee;
-        padding: 2pc;
-    }
-</style>
-
-                
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2017/07/16/vps-博客pop/" target="_self">阅读全文</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/big.jpg" width="44px" height="44px" alt="Michael Zhang's avatar">
             </div>
+            <div>
+                <strong>Michael Zhang</strong>
+                <span>7月 16, 2017</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+            <!-- Category -->
+            <span class="post_entry-category">
+                <a class="post_category-link" href="/categories/网络/">网络</a>
+            </span>
 
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
-    
-        <a href="/2017/08/07/「写给大家看的设计书」/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
+            
 
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
+            
+                <!-- Comment Number -->
+                &nbsp;|&nbsp;
+                <span class="post_entry-comment" >
+                        <span id = "sourceId::2017/07/16/vps-博客pop/" class = "cy_cmt_count" ></span>条评论
+                </span>
+            
 
-    <!-- Next Nav -->
-    
-        <a href="/2017/07/16/vps-博客pop/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
-    
-</nav>
-
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
         </div>
     </div>
+</div>
 
+            
+            
+        
+    
+
+    
+
+    
+        <script type="text/ls-javascript" id="thumbnail-script">
+    var randomNum;
+
+    var locatePost = $('.locate-thumbnail-symbol').next();
+    for(var i = 0; i < 10; i++) {
+        randomNum = Math.floor(Math.random() * 19 + 1);
+
+        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
+        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+
+        locatePost = locatePost.next();
+    }
+</script>
+
+    
+</div>
 
 
                     
