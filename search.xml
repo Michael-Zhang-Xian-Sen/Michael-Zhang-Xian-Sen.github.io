@@ -3,6 +3,26 @@
   
     
     <entry>
+      <title>南京大学</title>
+      <link href="/2018/04/16/NJU/"/>
+      <content type="html"><![CDATA[<p>这里有个逗比想考南京大学。</p><a id="more"></a><p>为什么选择考研呢？</p><ol><li>个人不急着找工作。钱不是问题，家里可以负担我读研，并且我也可以在研究生期间做项目赚取生活费。</li><li>家里人都很希望我考研。一方面自身也想提升学历。</li><li>方向的不确定性。对于有关计算机的一切我都很感兴趣，但从没有安下心来踏踏实实专研一个方向，考上研究生以后自己可以向更深更专的领域进行研究。</li><li>迫切的想要提升自身的能力。</li><li>可以有更多思考的时间。</li></ol><p>为什么选择南大？</p><ol><li>高中时就想考南大。起初这只是另一个人的执念，最后这个执念也变成了我的执念。现在机会摆在我的面前，只要我坚持下去，就有机会完成我的愿望。如果没有尝试，这可能会是我一辈子的遗憾。有些人说工作后也可以考啊，我也曾抱有这个想法，但是工作后考只会比现在更难，付出的更多。</li><li>前几日去南大看了看，唔，学校里人文气息浓厚，I love it.我喜欢有人文气息的地方，因为有人文气息的地方就有执念，有情怀，有理想。我也非常爱我的本科院校，西安邮电大学，但是作为典型的理工科院校，十分缺乏人文气息。</li><li>南大对我而言是遥不可及的。但越是遥不可及的事情就越是要尝试。人们总是沉溺于自己的舒适区，不敢做半点改变。有些坎、有些自身的缺点，永远无法改正，会不会太悲哀了？为什么一个人不可以改变自己的准则，思维方式，甚至是改变一点点？当然是朝好的方向改变。希望自己纵使没有考上，也有足够多的收获，也不会留下太多遗憾。</li></ol><p>嚼得菜根，做得大事。<br>诚朴雄伟，励学敦行。</p><p>同时希望另一个有此执念的人可以顺利考入南京大学。</p><p>写于2018年4月16日。距离2018年研究生入学考试初试还有 257 天。</p>]]></content>
+      
+      <categories>
+          
+          <category> 南京大学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 南京大学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>vim中文乱码的解决方案</title>
       <link href="/2017/10/27/vim%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
       <content type="html"><![CDATA[<p>某人喜欢在linux服务器上修改协会的官网文件。用vim编辑时却总是出现“删除一个字符增加一个字符”、“保存以后增加一堆字符”的现象。实在看不下去，遂修补之。「封面图来自：VIM图标」</p><a id="more"></a><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>出现上述现象是编码出了问题。</p><ol><li>执行<code>sudo vim ~/.vimrc</code></li><li><p>输入</p><p> set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936<br> set termencoding=utf-8<br> set encoding=utf-8</p></li></ol><h2 id="成功解决乱码。"><a href="#成功解决乱码。" class="headerlink" title="成功解决乱码。"></a>成功解决乱码。</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><h4 id="为什么要改变vimrc文件"><a href="#为什么要改变vimrc文件" class="headerlink" title="为什么要改变vimrc文件"></a>为什么要改变vimrc文件</h4><p><code>vimrc</code>文件用于初始化vim。使用vim时，vim会到指定目录下寻找vimrc并用其进行初始化。更多的内容见<code>:help vimrc</code>，通过<code>version</code>，可以看到vim规定的vimrc文件路径。例如我的：</p><pre><code>system vimrc file: &quot;$VIM/vimrc&quot;user vimrc file: &quot;$HOME/.vimrc&quot;2nd user vimrc file: &quot;~/.vim/vimrc&quot;user exrc file: &quot;$HOME/.exrc&quot;fall-back for $VIM: &quot;/usr/share/vim&quot;</code></pre><h4 id="编辑内容的含义是什么？"><a href="#编辑内容的含义是什么？" class="headerlink" title="编辑内容的含义是什么？"></a>编辑内容的含义是什么？</h4><p>（1） 磁盘文件的字符编码<br>存放在磁盘上的文本文件，是按照一定的字符编码进行保存的，不同的文件可能使用了不同的字符编码。<br>这在VIM中被叫做：fileencoding。</p><p>（2） VIM缓冲区以及界面的字符编码<br>VIM运行时，其菜单、标签、以及各个缓冲区统一使用一种字符编码方式。<br>这在VIM中被叫做：encoding。</p><p>（3) 终端使用的字符编码<br>终端同一时刻只能使用一种字符编码，并按照这种编码从接收到的字节流中识别字符，并显示，终端的字符编码是可以动态调整的。<br>这在VIM中被叫做：termencoding。</p><p>可以看出，VIM涉及到的3种字符编码之间的转换：<br>读：fileencoding—–&gt; encoding<br>显：encoding ——&gt; termencoding<br>写：encoding ——-&gt; fileencoding</p><h4 id="那些字符编码"><a href="#那些字符编码" class="headerlink" title="那些字符编码"></a>那些字符编码</h4><p>UTF-8（8-bit Unicode Transformation Format）：是一种针对Unicode的可变长度字符编码，又称万国码。 支持中文。</p><p>UCS（通用字符集）：包含了用于表达所有已知语言的字符，保证了与其他字符集的双向兼容， 是所有其他字符集标准的一个超集。支持中文。Unicode规范中推荐的标记字节顺序的方法是BOM。BOM是Byte Order Mark。在UCS编码中有一个叫做”ZERO WIDTH NO-BREAK SPACE”的字符，它的编码是FEFF。而FFFE在UCS中是不存在的字符，所以不应该出现在实际传输中。UCS规范建议我们在传输字节流前，先传输字符”ZERO WIDTH NO-BREAK SPACE”。这样如果接收者收到FEFF，就表明这个字节流是Big-Endian的；如果收到FFFE，就表明这个字节流是Little-Endian的。因此字符”ZERO WIDTH NO-BREAK SPACE”又被称作BOM。</p><p>gb18030、gbk、gb2312肯定是支持中文的编码。</p><p>CP936其实就是GBK，IBM在发明Code Page的时候将GBK放在第936页，所以叫CP936。</p><p>参考资料： <a href="http://blog.csdn.net/smstong/article/details/51279810" target="_blank" rel="noopener">http://blog.csdn.net/smstong/article/details/51279810</a><br>参考资料： <a href="http://www.fmddlmyy.cn/text6.html" target="_blank" rel="noopener">http://www.fmddlmyy.cn/text6.html</a><br>参考资料： <a href="https://www.zhihu.com/question/35609295" target="_blank" rel="noopener">https://www.zhihu.com/question/35609295</a></p>]]></content>
