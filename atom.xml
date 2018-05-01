@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-04-23T16:23:55.838Z</updated>
+  <updated>2018-05-01T16:30:10.572Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>考研作息时间表（第一阶段）</title>
+    <link href="http://yoursite.com/2018/05/02/%E4%BD%9C%E6%81%AFschedule/"/>
+    <id>http://yoursite.com/2018/05/02/作息schedule/</id>
+    <published>2018-05-01T16:34:50.000Z</published>
+    <updated>2018-05-01T16:30:10.572Z</updated>
+    
+    <content type="html"><![CDATA[<p>本作息表将执行至本学期结束。届时重新规划时间表，以适应暑假的复习生活。</p><a id="more"></a><p>8:30-12:30 高数<br>14:30-17:30 英语/专业课<br>19:00-21:00 高数/专业课<br>21:20-22:00 锻炼<br>23:30 必须睡觉</p><p>每日必做：</p><ol><li>按时睡觉！</li><li>锻炼：跑步五圈+40个蹲起||30个俯卧撑+80个蹲起</li><li>记单词：高质量背诵50个单词。</li></ol><p>若提前完成计划的学习内容，晚上可提前锻炼后回来撸代码。</p><p>若无要事必须严格按照作息表执行！</p><p>ps:复习两个月的感受。<br>早晨肯定是效率最好的，毋庸置疑，基本不会犯困，不会瞌睡，不会走神，也能坐得住，可以静下心来学习。<br>下午效率最差。2:00-3:30基本是半睡半醒中度过。甚至到四点还没有缓过神来，所以安排一些轻松的学习内容，不是那么耗费脑子。<br>晚上效率一般。这时候注意力经常分散，而且其他事情比较多，干扰较多。<br>想打乱计划很简单，只需熬一次夜！所以，现在立刻睡觉！</p>]]></content>
+    
+    <summary type="html">
+    
+      作息时间表
+    
+    </summary>
+    
+      <category term="白日梦" scheme="http://yoursite.com/categories/%E7%99%BD%E6%97%A5%E6%A2%A6/"/>
+    
+    
+      <category term="考研" scheme="http://yoursite.com/tags/%E8%80%83%E7%A0%94/"/>
+    
+  </entry>
   
   <entry>
     <title>《白日梦》 北岛</title>
@@ -167,28 +189,6 @@
     
     
       <category term="vps" scheme="http://yoursite.com/tags/vps/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>考研作息时间表（第一阶段）</title>
-    <link href="http://yoursite.com/2017/07/16/%E4%BD%9C%E6%81%AFschedule/"/>
-    <id>http://yoursite.com/2017/07/16/作息schedule/</id>
-    <published>2017-07-16T06:34:50.000Z</published>
-    <updated>2018-05-01T16:28:27.311Z</updated>
-    
-    <content type="html"><![CDATA[<p>本作息表将执行至本学期结束。届时重新规划时间表，以适应暑假的复习生活。</p><a id="more"></a><p>8:30-12:30 高数<br>14:30-17:30 英语/专业课<br>19:00-21:00 高数/专业课<br>21:20-22:00 锻炼<br>23:30 必须睡觉</p><p>每日必做：</p><ol><li>按时睡觉！</li><li>锻炼：跑步五圈+40个蹲起||30个俯卧撑+80个蹲起</li><li>记单词：高质量背诵50个单词。</li></ol><p>若提前完成计划的学习内容，晚上可提前锻炼后回来撸代码。</p><p>若无要事必须严格按照作息表执行！</p><p>ps:复习两个月的感受。<br>早晨肯定是效率最好的，毋庸置疑，基本不会犯困，不会瞌睡，不会走神，也能坐得住，可以静下心来学习。<br>下午效率最差。2:00-3:30基本是半睡半醒中度过。甚至到四点还没有缓过神来，所以安排一些轻松的学习内容，不是那么耗费脑子。<br>晚上效率一般。这时候注意力经常分散，而且其他事情比较多，干扰较多。<br>想打乱计划很简单，只需熬一次夜！所以，现在立刻睡觉！</p>]]></content>
-    
-    <summary type="html">
-    
-      作息时间表
-    
-    </summary>
-    
-      <category term="白日梦" scheme="http://yoursite.com/categories/%E7%99%BD%E6%97%A5%E6%A2%A6/"/>
-    
-    
-      <category term="考研" scheme="http://yoursite.com/tags/%E8%80%83%E7%A0%94/"/>
     
   </entry>
   
