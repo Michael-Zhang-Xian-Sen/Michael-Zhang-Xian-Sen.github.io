@@ -1,11 +1,15 @@
 ---
-title: ss搭建教程及各平台ss使用方案
-date: 2017-07-16 14:34:50 #文章生成时间，一般不改，当然也可以任意修改
-categories: 网络 #分类
-tags: [vps] #文章标签，可空，多标签请用格式，注意:后面有个空格
-description: 使用搬瓦工搭建简易vps
+title: ss搭建教程及各平台连接方案
+date: 2017-07-16 14:34:50 
+categories: 网络 
+tags: [vps] 
+description: ss
+thumbnail: http://opqksc9nz.bkt.clouddn.com/plane.jpg
 ---
-本文涉及到的几个问题。
+
+想要自己用vps搭建ss服务，怎么买服务器？怎么搭建？搭建好了怎么用？答案就在这篇文章里呐~若在实操过程中出现问题，欢迎留言或是发邮箱给博主~「封面图来自：《飞行家》，2004，莱昂纳多主演」
+
+<!-- more -->
 
 1. [购买vps](#buy)
 2. [搭建ss服务](#build)
@@ -15,6 +19,7 @@ description: 使用搬瓦工搭建简易vps
 6. [ubuntu下使用ss](#use-ubuntu)
 7. [ios系统下使用ss](#use-ios)
 8. [小白：如何连接到远程服务器？](#use-ssh)
+9. [网速太慢，有没有优化方案？](#optimization)
 
 ### <div id="buy">购买vps</div>
 在[BandwagonHOST](https://bwh1.net/index.php)购买vps。
@@ -50,7 +55,7 @@ description: 使用搬瓦工搭建简易vps
 
 ### <div id="use-ios">ios系统使用SsrConnectPro建立ss连接</div>
 app主界面如下：
-![SsrConnectPro主界面](http://opqksc9nz.bkt.clouddn.com/SsrConnectPro%20%282%29.png)
+![SsrConnectPro主界面](http://opqksc9nz.bkt.clouddn.com/SsrConnectPro.png)
 配置界面如下：
 ![SsrConnectPro配置界面](http://opqksc9nz.bkt.clouddn.com/SsrConnectPro%20%282%29.png)
 
@@ -114,3 +119,7 @@ sudo: 使用root权限运行
 port_number: 该位置填写指定的端口号
 user_name: 用户名称
 xxx.xxx.xxx.xxx: 该位置填写远程服务器的ip
+
+#### <div id="optimization">网速太慢，有没有优化方案？</div>
+
+1. 使用google bbr拥塞控制。[参考他人教程](http://www.bandwagonhost.net/1082.html)（亲测成功，速度提升3-4倍）
