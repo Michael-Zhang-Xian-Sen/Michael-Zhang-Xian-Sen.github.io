@@ -3,10 +3,24 @@
   
     
     <entry>
-      <title></title>
+      <title>Hexo部署问题</title>
       <link href="/2019/04/09/hexo%E9%83%A8%E7%BD%B2%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98/"/>
-      <content type="html"><![CDATA[]]></content>
+      <content type="html"><![CDATA[<p>重装系统，安装git和hexo后，使用hexo d -g 部署博客出现问题。</p><a id="more"></a><hr><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>环境：新装的win7系统，已安装git和hexo。</p><p>hexo d -g 时出现 <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>: Permission denied（publickey）<br>如图所示：</p><p><img src="http://pponbnybe.bkt.clouddn.com/hexo%20-deploy%20bug%20info.png" alt="报错信息1"></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol><li><p>查看用户主目录下的.ssh文件夹是否有id_rsa及id_rsa.pub文件。若不存在，</p><ul><li>执行<code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code>，剩下的提示内容全部回车即可。</li><li>配置完毕后，在用户主目录的<code>.ssh</code>目录下会出现<code>id_rsa</code>及<code>id_rsa.pub</code>文件，如图：<img src="http://pponbnybe.bkt.clouddn.com/hexo%20-deploy%20explorer.png" alt="配置完成"></li></ul></li><li><p>此时执行hexo部署命令<code>hexo d -g</code>仍会报错。需将上一步生成的公钥添加至我们的github账户，步骤如下</p><ul><li>登录github，选择settings中的SSH and GPG keys选项。</li><li>选择New SSH key。Tile可随意命名，主要用于区分其他SSH keys，在Key中将上一步的<code>id_rsa.pub</code>文件中的内容全部拷贝进去。</li><li>选择Add SSH Key。至此大功告成。</li></ul></li></ol>]]></content>
       
+      <categories>
+          
+          <category> git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+            <tag> hexo </tag>
+            
+        </tags>
       
     </entry>
     
