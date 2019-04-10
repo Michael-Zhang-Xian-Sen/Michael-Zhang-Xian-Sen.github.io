@@ -379,7 +379,7 @@
     <!-- Paradox Post Header -->
     
         <!-- Custom Thumbnail -->
-        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://pponbnybe.bkt.clouddn.com/hexo%20-deploy%20thumbnail3.jpg)">
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(http://cdn.ewinds.pw/hexo%20-deploy%20thumbnail3.jpg)">
     
             <p class="article-headline-p">
                 Hexo部署问题
@@ -509,12 +509,12 @@
 <hr>
 <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>环境：新装的win7系统，已安装git和hexo。</p>
 <p>hexo d -g 时出现 <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>: Permission denied（publickey）<br>如图所示：</p>
-<p><img src="http://pponbnybe.bkt.clouddn.com/hexo%20-deploy%20bug%20info.png" alt="报错信息1"></p>
+<p><img src="http://cdn.ewinds.pw/hexo%20-deploy%20bug%20info.png" alt="报错信息1"></p>
 <h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol>
 <li><p>查看用户主目录下的.ssh文件夹是否有id_rsa及id_rsa.pub文件。若不存在，</p>
 <ul>
 <li>执行<code>ssh-keygen -t rsa -C &quot;youremail@example.com&quot;</code>，剩下的提示内容全部回车即可。</li>
-<li>配置完毕后，在用户主目录的<code>.ssh</code>目录下会出现<code>id_rsa</code>及<code>id_rsa.pub</code>文件，如图：<img src="http://pponbnybe.bkt.clouddn.com/hexo%20-deploy%20explorer.png" alt="配置完成"></li>
+<li>配置完毕后，在用户主目录的<code>.ssh</code>目录下会出现<code>id_rsa</code>及<code>id_rsa.pub</code>文件，如图：<img src="http://cdn.ewinds.pw/hexo%20-deploy%20explorer.png" alt="配置完成"></li>
 </ul>
 </li>
 <li><p>此时执行hexo部署命令<code>hexo d -g</code>仍会报错。需将上一步生成的公钥添加至我们的github账户，步骤如下</p>
