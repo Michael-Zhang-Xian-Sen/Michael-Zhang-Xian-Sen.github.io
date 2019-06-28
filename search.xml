@@ -115,6 +115,28 @@
     </entry>
     
     <entry>
+      <title>Anaconda Navigator初始化失败，出现Navigator Error</title>
+      <link href="/2017/08/07/Anaconda%E5%88%9D%E5%A7%8B%E5%8C%96%E5%A4%B1%E8%B4%A5%EF%BC%8C%E5%87%BA%E7%8E%B0NavigatorError/"/>
+      <content type="html"><![CDATA[<h3 id="报错内容"><a href="#报错内容" class="headerlink" title="报错内容"></a>报错内容</h3><p><img src="http://cdn.ewinds.pw/%E6%8A%A5%E9%94%99%E4%BF%A1%E6%81%AF.png" alt="报错内容"></p><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><ol><li>根据报错信息，定位到.condarc文件，该文件在用户的根目录下。该文件的内容如下：<br><img src="http://cdn.ewinds.pw/.condarc%E6%96%87%E4%BB%B6.png" alt="报错时.condarc文件的内容"></li></ol><ol><li>尝试删除该文件，再次打开anaconda navigator，结果就..好了。并且此时在我们删除文件的位置，生成了新的.condarc文件。问题成功解决。<br><img src="http://cdn.ewinds.pw/.condarc%E6%96%87%E4%BB%B6%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90.png" alt="生成的新.condarc文件的内容"></li></ol>]]></content>
+      
+      <categories>
+          
+          <category> 读书笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 读书笔记 </tag>
+            
+            <tag> 设计 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>关于Attribute和property的区别</title>
       <link href="/2017/08/01/Attribute%E2%80%98n&#39;property/"/>
       <content type="html"><![CDATA[<p>阅读提示：</p><ol><li>本篇文章中的attribute，全部翻译为“属性”。而property，全部翻译为“特性”。</li><li>点表示法指js对象通过“.”获取特性，方括号表示法指js对象通过“[]”获取特性。</li></ol><a id="more"></a><h2 id="抛砖"><a href="#抛砖" class="headerlink" title="抛砖"></a>抛砖</h2><p>前段时间，有位学长问了我一个题目：在html文档中，给一个标签添加了一个属性，但是js通过点表示法无法对其进行引用。这是为什么？</p><p>当时我是脸上是大写的“懵”字。于是乎写了段代码进行尝试，如图：<br><img src="http://opqksc9nz.bkt.clouddn.com/attribute1.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute2.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute3.png" alt="啊图片"></p><p>点击标题后，并没有返回value的值，而是undefined。结果很是出人意料。<br>再做一次实验，这回获取的是DOM对象的id，代码及结果如下</p><p><img src="http://opqksc9nz.bkt.clouddn.com/attribute4.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute5.png" alt="啊图片"><br><img src="http://opqksc9nz.bkt.clouddn.com/attribute6.png" alt="啊图片"></p><p>对比两次的结果，是不是感觉非常奇怪？</p><h2 id="引玉"><a href="#引玉" class="headerlink" title="引玉"></a>引玉</h2><p>关系到点表示法、括号表示法与”getAttribute”和”Attribute”与”Property”的区别了。</p><p>首先，为什么取不到value属性的值呢？</p><p>在入门的时候，我们应该都学过这两种操作方式，对一个对象用点表示法或方括号表示法，表示获取该对象的属性。对象的getAttribute方法，也可获取对象的属性。但是，此属性非彼属性，一个是Attribute，另一个是property。</p><p>那么，为什么给”&lt;\h3&gt;”标签设置的value，只添加了Attributes中value的值呢？</p><h2 id="尝试"><a href="#尝试" class="headerlink" title="尝试"></a>尝试</h2><p>打开我们的神器——开发人员工具，选择</p><h3>的DOM节点后，在Elements选项卡下找到Properties，如图：<p></p><p><img src="http://opqksc9nz.bkt.clouddn.com/attribute7.png" alt="啊图片"></p><p>仔细观察上边的键值对，是不是有一个叫做attributes的键？</p><p><img src="http://opqksc9nz.bkt.clouddn.com/attribute8.png" alt="啊图片"></p><p>而我们的id、value都在里边有所显示。继续展开0:id、1:value来一探究竟。</p><p><img src="http://opqksc9nz.bkt.clouddn.com/attribute9.png" alt="啊图片"></p><p><img src="http://opqksc9nz.bkt.clouddn.com/attribute10.png" alt="啊图片"></p><p>可以发现，二者展开后都具有nodeValue字段，并且他们的值为html标签中的属性值。</p><p>但是在properties中，我们可以找到名为id的键，且其绑定值为myHeader，而无法找到名叫value的键。可见，我们在html标签中声明的id，同时存在于property和attribute中，而value只在attribute中具有。</p><p>之所以会出现“抛砖”中的现象，是因为点表示法和方括号表示法，获取到的是对象的property，而getAttribute方法获取的是对象的Attributes。</p><h2 id="疑问"><a href="#疑问" class="headerlink" title="疑问"></a>疑问</h2><h4 id="Question"><a href="#Question" class="headerlink" title="Question:"></a>Question:</h4><p>为什么在html标签中声明的不同属性，一个存在于对象的property，而另一个在对象的property和attribute中都存在呢？</p><h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer:"></a>Answer:</h4><p>区分以下几种情况：</p><ol><li>在html标签申明属性。<ol><li>若该属性在对象的property中存在，properties和attributes二者都可能会更新（若有特殊限制，如dir，对于值的格式有要求，则有可能在property中不会更新）</li><li>若属性不存在对象的property中，则只会在attributes中刷新。</li></ol></li><li>通过js添加属性<ol><li>如果是通过使用点表示法和方括号表示法添加属性，则只会在properties中添加，而不会在attributes中添加。<br><img src="http://opqksc9nz.bkt.clouddn.com/attribute11.png" alt="啊图片"></li><li>同理，通过对对象使用setAttributes方法添加属性，则会在对象的attributes中添加该属性，在对象的property有可能添加该属性（若该属性之前存在于property中，且对该属性的值如果有特殊要求，本次赋值对其满足，则可添加）。</li></ol></li></ol><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>让我们再来回顾一下本篇文章中所涉及的知识点：</p><ol><li>对象使用点表示法和括号表示法与使用“getAttribute()”方法有何不同。</li><li>如何通过js或开发人员工具查看对象的properties和attributes。</li><li>如何通过js对对象的property和attribute进行设置。</li></ol></h3>]]></content>
@@ -208,7 +230,7 @@
     <entry>
       <title>关于我</title>
       <link href="/about/index.html"/>
-      <content type="html"><![CDATA[<p>本博客会时不时更新技术上遇到的问题、生活中的经历和有趣的文章。</p><p>虽写博客已有三年之久，但写的内容不多，经验极少，若有问题还请随意指出。</p><p>可通过email、QQ联系博主，平时较忙，回复可能慢一些，但看到信息是一定会回复的。</p><h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><ul><li><p>email<br><a href="mailto:zh15691788231@qq.com" target="_blank" rel="noopener">zh15691788231@qq.com</a> </p></li><li><p>qq<br>1920395012</p></li></ul>]]></content>
+      <content type="html"><![CDATA[<p>本博客会时不时更新技术上遇到的问题、生活中的经历和有趣的文章。</p><p>虽写博客已有三年之久，但写的内容不多，经验极少，若有问题还请随意指出。</p><p>可通过email、QQ联系博主，平时较忙，回复可能慢一些，但看到信息是一定会回复的。</p><h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><ul><li><p>email<br><a href="mailto:zh15691788231@163.com" target="_blank" rel="noopener">zh15691788231@163.com</a> </p></li><li><p>qq<br>1920395012</p></li></ul>]]></content>
     </entry>
     
     <entry>
