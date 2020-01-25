@@ -7,12 +7,22 @@
         https://github.com/viosey/hexo-theme-material
         Version: 1.4.0 -->
     <script>window.materialVersion = "1.4.0"</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156881034-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-156881034-1');
+    </script>
+
 
     <!-- Title -->
     
     <title>
         
-            23种设计模式概览 | 
+        23种设计模式概览 | 
         
         XD
     </title>
@@ -22,10 +32,10 @@
     
     
     
-        <link rel="dns-prefetch" href="https://changyan.sohu.com">
+    <link rel="dns-prefetch" href="https://changyan.sohu.com">
     
     
-        <link rel="dns-prefetch" href="https://hm.baidu.com">
+    <link rel="dns-prefetch" href="https://hm.baidu.com">
     
     
     
@@ -43,7 +53,9 @@
     <meta name="keywords" content="null">
 
     <!-- Site Verification -->
+    
     <meta name="google-site-verification" content="PM-youOm1Gs9nhRAbihUFKg8Nz8C3zYQdqRe-wI2mNw">
+    
     <meta name="baidu-site-verification" content="fIB8rNXEiA">
 
     <!-- Favicons -->
@@ -75,8 +87,8 @@
     
 
     
-        <meta property="article:published_time" content="12月 02, 2019">
-        <meta property="article:modified_time" content="12月 02, 2019">
+    <meta property="article:published_time" content="12月 02, 2019">
+    <meta property="article:modified_time" content="1月 20, 2020">
     
 
     <!-- The Twitter Card protocol -->
@@ -88,12 +100,12 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2019/12/02/设计模式/index.html">
+    <link rel="canonical" href="http://yoursite.com/2019/12/02/设计模式/index.html">
     
 
     <!-- Structured-data for SEO -->
     
-        
+    
 
 
 <script type="application/ld+json">
@@ -117,7 +129,7 @@
     "headline": "23种设计模式概览",
     "url": "http://yoursite.com/2019/12/02/设计模式/index.html",
     "datePublished": "12月 02, 2019",
-    "dateModified": "12月 02, 2019",
+    "dateModified": "1月 20, 2020",
     "description": "23种设计模式，包括设计模式的UML图、定义、优缺点及java代码实现",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -138,15 +150,15 @@
     <![endif]-->
 
     <!-- Import lsloader -->
-    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(key){try{localStorage.removeItem(key)}catch(e){}};lsloader.setLS=function(key,val){try{localStorage.setItem(key,val)}catch(e){}};lsloader.getLS=function(key){var val="";try{val=localStorage.getItem(key)}catch(e){val=""}return val};versionString="/*"+materialVersion+"*/";lsloader.clean=function(){try{var keys=[];for(var i=0;i<localStorage.length;i++){keys.push(localStorage.key(i))}keys.forEach(function(key){var data=lsloader.getLS(key);if(data&&data.indexOf(versionString)===-1){lsloader.removeLS(key)}})}catch(e){}};lsloader.clean();lsloader.load=function(jsname,jspath,cssonload){cssonload=cssonload||function(){};var code;code=this.getLS(jsname);if(code&&code.indexOf(versionString)===-1){this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}if(code){var versionNumber=code.split(versionString)[0];if(versionNumber!=jspath){console.log("reload:"+jspath);this.removeLS(jsname);this.requestResource(jsname,jspath,cssonload);return}code=code.split(versionString)[1];if(/\.js?.+$/.test(versionNumber)){this.jsRunSequence.push({name:jsname,code:code});this.runjs(jspath,jsname,code)}else{document.getElementById(jsname).appendChild(document.createTextNode(code));cssonload()}}else{this.requestResource(jsname,jspath,cssonload)}};lsloader.requestResource=function(name,path,cssonload){var that=this;if(/\.js?.+$/.test(path)){this.iojs(path,name,function(path,name,code){that.setLS(name,path+versionString+code);that.runjs(path,name,code)})}else if(/\.css?.+$/.test(path)){this.iocss(path,name,function(code){document.getElementById(name).appendChild(document.createTextNode(code));that.setLS(name,path+versionString+code)},cssonload)}};lsloader.iojs=function(path,jsname,callback){var that=this;that.jsRunSequence.push({name:jsname,code:""});try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(path,jsname,xhr.response);return}}that.jsfallback(path,jsname)}};xhr.send(null)}catch(e){that.jsfallback(path,jsname)}};lsloader.iocss=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.iofonts=function(path,jsname,callback,cssonload){var that=this;try{var xhr=new XMLHttpRequest;xhr.open("get",path,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){callback(xhr.response);cssonload();return}}that.cssfallback(path,jsname,cssonload)}};xhr.send(null)}catch(e){that.cssfallback(path,jsname,cssonload)}};lsloader.runjs=function(path,name,code){if(!!name&&!!code){for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code=code}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var script=document.createElement("script");script.appendChild(document.createTextNode(this.jsRunSequence[0].code));script.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(script);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var that=this;var script=document.createElement("script");script.src=this.jsRunSequence[0].path;script.type="text/javascript";this.jsRunSequence[0].status="loading";script.onload=function(){that.jsRunSequence.shift();if(that.jsRunSequence.length>0){that.runjs()}};document.body.appendChild(script)}};lsloader.tagLoad=function(path,name){this.jsRunSequence.push({name:name,code:"",path:path,status:"failed"});this.runjs()};lsloader.jsfallback=function(path,name){if(!!this.jsnamemap[name]){return}else{this.jsnamemap[name]=name}for(var k in this.jsRunSequence){if(this.jsRunSequence[k].name==name){this.jsRunSequence[k].code="";this.jsRunSequence[k].status="failed";this.jsRunSequence[k].path=path}}this.runjs()};lsloader.cssfallback=function(path,name,cssonload){if(!!this.cssnamemap[name]){return}else{this.cssnamemap[name]=1}var link=document.createElement("link");link.type="text/css";link.href=path;link.rel="stylesheet";link.onload=link.onerror=cssonload;var root=document.getElementsByTagName("script")[0];root.parentNode.insertBefore(link,root)};lsloader.runInlineScript=function(scriptId,codeId){var code=document.getElementById(codeId).innerText;this.jsRunSequence.push({name:scriptId,code:code});this.runjs()};lsloader.loadCombo=function(jslist){var updateList="";var requestingModules={};for(var k in jslist){var LS=this.getLS(jslist[k].name);if(!!LS){var version=LS.split(versionString)[0];var code=LS.split(versionString)[1]}else{var version=""}if(version==jslist[k].path){this.jsRunSequence.push({name:jslist[k].name,code:code,path:jslist[k].path})}else{this.jsRunSequence.push({name:jslist[k].name,code:null,path:jslist[k].path,status:"comboloading"});requestingModules[jslist[k].name]=true;updateList+=(updateList==""?"":";")+jslist[k].path}}var that=this;if(!!updateList){var xhr=new XMLHttpRequest;xhr.open("get",combo+updateList,true);xhr.onreadystatechange=function(){if(xhr.readyState==4){if(xhr.status>=200&&xhr.status<300||xhr.status==304){if(xhr.response!=""){that.runCombo(xhr.response,requestingModules);return}}else{for(var i in that.jsRunSequence){if(requestingModules[that.jsRunSequence[i].name]){that.jsRunSequence[i].status="failed"}}that.runjs()}}};xhr.send(null)}this.runjs()};lsloader.runCombo=function(comboCode,requestingModules){comboCode=comboCode.split("/*combojs*/");comboCode.shift();for(var k in this.jsRunSequence){if(!!requestingModules[this.jsRunSequence[k].name]&&!!comboCode[0]){this.jsRunSequence[k].status="comboJS";this.jsRunSequence[k].code=comboCode[0];this.setLS(this.jsRunSequence[k].name,this.jsRunSequence[k].path+versionString+comboCode[0]);comboCode.shift()}}this.runjs()}})();</script>
+    <script>(function () { window.lsloader = { jsRunSequence: [], jsnamemap: {}, cssnamemap: {} }; lsloader.removeLS = function (key) { try { localStorage.removeItem(key) } catch (e) { } }; lsloader.setLS = function (key, val) { try { localStorage.setItem(key, val) } catch (e) { } }; lsloader.getLS = function (key) { var val = ""; try { val = localStorage.getItem(key) } catch (e) { val = "" } return val }; versionString = "/*" + materialVersion + "*/"; lsloader.clean = function () { try { var keys = []; for (var i = 0; i < localStorage.length; i++) { keys.push(localStorage.key(i)) } keys.forEach(function (key) { var data = lsloader.getLS(key); if (data && data.indexOf(versionString) === -1) { lsloader.removeLS(key) } }) } catch (e) { } }; lsloader.clean(); lsloader.load = function (jsname, jspath, cssonload) { cssonload = cssonload || function () { }; var code; code = this.getLS(jsname); if (code && code.indexOf(versionString) === -1) { this.removeLS(jsname); this.requestResource(jsname, jspath, cssonload); return } if (code) { var versionNumber = code.split(versionString)[0]; if (versionNumber != jspath) { console.log("reload:" + jspath); this.removeLS(jsname); this.requestResource(jsname, jspath, cssonload); return } code = code.split(versionString)[1]; if (/\.js?.+$/.test(versionNumber)) { this.jsRunSequence.push({ name: jsname, code: code }); this.runjs(jspath, jsname, code) } else { document.getElementById(jsname).appendChild(document.createTextNode(code)); cssonload() } } else { this.requestResource(jsname, jspath, cssonload) } }; lsloader.requestResource = function (name, path, cssonload) { var that = this; if (/\.js?.+$/.test(path)) { this.iojs(path, name, function (path, name, code) { that.setLS(name, path + versionString + code); that.runjs(path, name, code) }) } else if (/\.css?.+$/.test(path)) { this.iocss(path, name, function (code) { document.getElementById(name).appendChild(document.createTextNode(code)); that.setLS(name, path + versionString + code) }, cssonload) } }; lsloader.iojs = function (path, jsname, callback) { var that = this; that.jsRunSequence.push({ name: jsname, code: "" }); try { var xhr = new XMLHttpRequest; xhr.open("get", path, true); xhr.onreadystatechange = function () { if (xhr.readyState == 4) { if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { if (xhr.response != "") { callback(path, jsname, xhr.response); return } } that.jsfallback(path, jsname) } }; xhr.send(null) } catch (e) { that.jsfallback(path, jsname) } }; lsloader.iocss = function (path, jsname, callback, cssonload) { var that = this; try { var xhr = new XMLHttpRequest; xhr.open("get", path, true); xhr.onreadystatechange = function () { if (xhr.readyState == 4) { if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { if (xhr.response != "") { callback(xhr.response); cssonload(); return } } that.cssfallback(path, jsname, cssonload) } }; xhr.send(null) } catch (e) { that.cssfallback(path, jsname, cssonload) } }; lsloader.iofonts = function (path, jsname, callback, cssonload) { var that = this; try { var xhr = new XMLHttpRequest; xhr.open("get", path, true); xhr.onreadystatechange = function () { if (xhr.readyState == 4) { if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { if (xhr.response != "") { callback(xhr.response); cssonload(); return } } that.cssfallback(path, jsname, cssonload) } }; xhr.send(null) } catch (e) { that.cssfallback(path, jsname, cssonload) } }; lsloader.runjs = function (path, name, code) { if (!!name && !!code) { for (var k in this.jsRunSequence) { if (this.jsRunSequence[k].name == name) { this.jsRunSequence[k].code = code } } } if (!!this.jsRunSequence[0] && !!this.jsRunSequence[0].code && this.jsRunSequence[0].status != "failed") { var script = document.createElement("script"); script.appendChild(document.createTextNode(this.jsRunSequence[0].code)); script.type = "text/javascript"; document.getElementsByTagName("head")[0].appendChild(script); this.jsRunSequence.shift(); if (this.jsRunSequence.length > 0) { this.runjs() } } else if (!!this.jsRunSequence[0] && this.jsRunSequence[0].status == "failed") { var that = this; var script = document.createElement("script"); script.src = this.jsRunSequence[0].path; script.type = "text/javascript"; this.jsRunSequence[0].status = "loading"; script.onload = function () { that.jsRunSequence.shift(); if (that.jsRunSequence.length > 0) { that.runjs() } }; document.body.appendChild(script) } }; lsloader.tagLoad = function (path, name) { this.jsRunSequence.push({ name: name, code: "", path: path, status: "failed" }); this.runjs() }; lsloader.jsfallback = function (path, name) { if (!!this.jsnamemap[name]) { return } else { this.jsnamemap[name] = name } for (var k in this.jsRunSequence) { if (this.jsRunSequence[k].name == name) { this.jsRunSequence[k].code = ""; this.jsRunSequence[k].status = "failed"; this.jsRunSequence[k].path = path } } this.runjs() }; lsloader.cssfallback = function (path, name, cssonload) { if (!!this.cssnamemap[name]) { return } else { this.cssnamemap[name] = 1 } var link = document.createElement("link"); link.type = "text/css"; link.href = path; link.rel = "stylesheet"; link.onload = link.onerror = cssonload; var root = document.getElementsByTagName("script")[0]; root.parentNode.insertBefore(link, root) }; lsloader.runInlineScript = function (scriptId, codeId) { var code = document.getElementById(codeId).innerText; this.jsRunSequence.push({ name: scriptId, code: code }); this.runjs() }; lsloader.loadCombo = function (jslist) { var updateList = ""; var requestingModules = {}; for (var k in jslist) { var LS = this.getLS(jslist[k].name); if (!!LS) { var version = LS.split(versionString)[0]; var code = LS.split(versionString)[1] } else { var version = "" } if (version == jslist[k].path) { this.jsRunSequence.push({ name: jslist[k].name, code: code, path: jslist[k].path }) } else { this.jsRunSequence.push({ name: jslist[k].name, code: null, path: jslist[k].path, status: "comboloading" }); requestingModules[jslist[k].name] = true; updateList += (updateList == "" ? "" : ";") + jslist[k].path } } var that = this; if (!!updateList) { var xhr = new XMLHttpRequest; xhr.open("get", combo + updateList, true); xhr.onreadystatechange = function () { if (xhr.readyState == 4) { if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { if (xhr.response != "") { that.runCombo(xhr.response, requestingModules); return } } else { for (var i in that.jsRunSequence) { if (requestingModules[that.jsRunSequence[i].name]) { that.jsRunSequence[i].status = "failed" } } that.runjs() } } }; xhr.send(null) } this.runjs() }; lsloader.runCombo = function (comboCode, requestingModules) { comboCode = comboCode.split("/*combojs*/"); comboCode.shift(); for (var k in this.jsRunSequence) { if (!!requestingModules[this.jsRunSequence[k].name] && !!comboCode[0]) { this.jsRunSequence[k].status = "comboJS"; this.jsRunSequence[k].code = comboCode[0]; this.setLS(this.jsRunSequence[k].name, this.jsRunSequence[k].path + versionString + comboCode[0]); comboCode.shift() } } this.runjs() } })();</script>
 
     <!-- Import CSS & jQuery -->
     
-        <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
-        
-        
-            <style>
+    <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+    <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+    
+    
+    <style>
     
     
     
@@ -180,8 +192,8 @@
     
 </style>
 
-        
-        <!-- Config CSS -->
+    
+    <!-- Config CSS -->
 
 <!-- Other Styles -->
 <style>
@@ -289,10 +301,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 
-        <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+    <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
     
     
-    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+    <script>function Queue() { this.dataStore = []; this.offer = b; this.poll = d; this.execNext = a; this.debug = false; this.startDebug = c; function b(e) { if (this.debug) { console.log("Offered a Queued Function.") } if (typeof e === "function") { this.dataStore.push(e) } else { console.log("You must offer a function.") } } function d() { if (this.debug) { console.log("Polled a Queued Function.") } return this.dataStore.shift() } function a() { var e = this.poll(); if (e !== undefined) { if (this.debug) { console.log("Run a Queued Function.") } e() } } function c() { this.debug = true } } var queue = new Queue();</script>
 
     <!-- Analytics -->
     <script>
@@ -307,7 +319,6 @@
     <!-- Custom Head -->
     
 </head>
-
 
     
         <body id="scheme-Paradox" class="lazy">
@@ -510,36 +521,36 @@
 <a id="more"></a>
 <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ol>
 <li>创建型模式<ol>
-<li>抽象工厂模式</li>
-<li>工厂方法模式</li>
-<li>简单工厂（不属于设计模式。）</li>
-<li>原型模式</li>
-<li>单例模式</li>
-<li>建造者模式（生成器模式）</li>
+<li>抽象工厂模式（Abstract Factory Pattern）</li>
+<li>工厂方法模式（Factory Method Pattern）</li>
+<li>简单工厂（Simple Factory Pattern）（注：不属于设计模式。）</li>
+<li>原型模式（Prototype Pattern）</li>
+<li>单例模式（Singleton Pattern）</li>
+<li>建造者模式（Builder Pattern）（又名：生成器模式）</li>
 </ol>
 </li>
 <li>行为型模式<ol>
-<li>观察者模式</li>
-<li>模版方法模式</li>
+<li>观察者模式（Observer Pattern）</li>
+<li>模版方法模式（Template Pattern）</li>
 <li>命令模式（Command Pattern）</li>
 <li>状态模式（State Pattern）</li>
-<li>职责链模式</li>
-<li>解释器模式</li>
-<li>中介者模式（调停者模式）</li>
-<li>访问者模式</li>
-<li>策略模式</li>
-<li>备忘录模式</li>
-<li>迭代器模式</li>
+<li>职责链模式（Chain of Responsibility）</li>
+<li>解释器模式（Interpreter Pattern）</li>
+<li>中介者模式（Mediator Pattern）（又名：调停者模式）</li>
+<li>访问者模式（Visitor Pattern）</li>
+<li>策略模式（Strategy Pattern）</li>
+<li>备忘录模式（Memento Pattern）</li>
+<li>迭代器模式（Iterator Pattern）</li>
 </ol>
 </li>
 <li>结构型模式<ol>
-<li>适配器模式</li>
-<li>桥接模式</li>
-<li>组合模式</li>
-<li>装饰模式</li>
-<li>外观模式</li>
-<li>享元模式</li>
-<li>代理模式</li>
+<li>适配器模式（Adapter Pattern）</li>
+<li>桥接模式（Bridge Pattern）</li>
+<li>组合模式（Composite Pattern）</li>
+<li>装饰模式（Decorator Pattern）</li>
+<li>外观模式（Facade Pattern）</li>
+<li>享元模式（Flyweight Pattern）</li>
+<li>代理模式（Proxy Pattern）</li>
 </ol>
 </li>
 </ol>
@@ -655,6 +666,7 @@
 <h4 id="定义-15"><a href="#定义-15" class="headerlink" title="定义"></a>定义</h4><p>在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态。</p>
 <h3 id="2-11-迭代器模式"><a href="#2-11-迭代器模式" class="headerlink" title="2.11 迭代器模式"></a>2.11 迭代器模式</h3><h4 id="UML图-14"><a href="#UML图-14" class="headerlink" title="UML图"></a>UML图</h4><p><img src="http://cdn.ewinds.pw/%E8%BF%AD%E4%BB%A3%E5%99%A8%E6%A8%A1%E5%BC%8F.jpg" alt="image"></p>
 <h4 id="定义-16"><a href="#定义-16" class="headerlink" title="定义"></a>定义</h4><p>提供一种方法顺序访问一个聚合对象中各个元素，而又不暴露该对象的内部表示。</p>
+<p>该模式已经被多种语言所实现为</p>
 <h2 id="3-结构型模式"><a href="#3-结构型模式" class="headerlink" title="3. 结构型模式"></a>3. 结构型模式</h2><h3 id="3-1-适配器模式"><a href="#3-1-适配器模式" class="headerlink" title="3.1 适配器模式"></a>3.1 适配器模式</h3><h4 id="UML图-15"><a href="#UML图-15" class="headerlink" title="UML图"></a>UML图</h4><p><img src="http://cdn.ewinds.pw/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F.jpg" alt="image"></p>
 <h4 id="定义-17"><a href="#定义-17" class="headerlink" title="定义"></a>定义</h4><p>将一个类的接口转换成客户希望的另外一个接口。Adapter模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</p>
 <h4 id="优点-11"><a href="#优点-11" class="headerlink" title="优点"></a>优点</h4><h3 id="3-2-桥接模式"><a href="#3-2-桥接模式" class="headerlink" title="3.2 桥接模式"></a>3.2 桥接模式</h3><h4 id="UML图-16"><a href="#UML图-16" class="headerlink" title="UML图"></a>UML图</h4><p><img src="http://cdn.ewinds.pw/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F.jpg" alt="image"></p>
@@ -832,7 +844,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
             </a>
             <ul class="dropdown-menu">
             <li>
-                <a class="sidebar_archives-link" href="/archives/2019/12/">十二月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">1</span></a>
+                <a class="sidebar_archives-link" href="/archives/2019/12/">十二月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/05/">五月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/04/">四月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/10/">十月 2017<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/08/">八月 2017<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/07/">七月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/06/">六月 2017<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2017/05/">五月 2017<span class="sidebar_archives-count">1</span></a>
             </ul>
         </li>
         
@@ -850,7 +862,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
             </a>
             <ul class="dropdown-menu">
                 <li>
-                <a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/前端/">前端<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/现代诗/">现代诗<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/白日梦/">白日梦<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/计算机网络/">计算机网络<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/读书笔记/">读书笔记<span class="sidebar_archives-count">2</span></a>
+                <a class="sidebar_archives-link" href="/categories/Linux/">Linux<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/前端/">前端<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/现代诗/">现代诗<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/白日梦/">白日梦<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/计算机网络/">计算机网络<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/读书笔记/">读书笔记<span class="sidebar_archives-count">3</span></a>
             </ul>
         </li>
         
@@ -896,7 +908,7 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
         <li>
             <a href="/archives">
                 文章总数
-                <span class="sidebar-badge">10</span>
+                <span class="sidebar-badge">11</span>
             </a>
         </li>
         
