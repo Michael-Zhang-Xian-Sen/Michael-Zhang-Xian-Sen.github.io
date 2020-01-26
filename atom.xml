@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-01-20T10:44:46.145Z</updated>
+  <updated>2020-01-26T15:05:24.710Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>科学上网</title>
+    <link href="http://yoursite.com/2020/01/26/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    <id>http://yoursite.com/2020/01/26/科学上网/</id>
+    <published>2020-01-26T14:52:50.000Z</published>
+    <updated>2020-01-26T15:05:24.710Z</updated>
+    
+    <content type="html"><![CDATA[<p>记录博主科学上网的方法。「封面图来自：《飞行家》，2004，莱昂纳多主演」</p><a id="more"></a><ol><li><a href="#server">服务器</a></li><li><a href="#client">客户端</a></li><li><a href="#other">其他工具</a></li></ol><h3 id="1-服务器"><a href="#1-服务器" class="headerlink" title="1.服务器"></a><div id="server">1.服务器</div></h3><ul><li><a href="https://www.vultr.com/" target="_blank" rel="noopener">服务器提供商</a>。</li><li><a href="https://github.com/233boy/v2ray" target="_blank" rel="noopener">服务器运行的程序</a>。</li></ul><h3 id="2-客户端"><a href="#2-客户端" class="headerlink" title="2.客户端"></a><div id="client">2.客户端</div></h3><ul><li>小灰机<ul><li>windows：<a href="https://github.com/shadowsocks/shadowsocks-windows" target="_blank" rel="noopener">点我</a>（打开页面后，点击”中文说明”-&gt;下载”最新版”-&gt;assets里的链接。）</li><li>安卓：<a href="https://www.apkturbo.com/apps/shadowsocks/com.github.shadowsocks/4.8.7/" target="_blank" rel="noopener">下载链接点我</a>（如果安装失败可以尝试下载其他版本。也可通过<a href="https://www.apkturbo.com/搜索com.github.shadowsocks下载其他类似软件。）" target="_blank" rel="noopener">https://www.apkturbo.com/搜索com.github.shadowsocks下载其他类似软件。）</a></li><li>mac：SsrConnectPro（需要花几块钱购买）</li><li>ios：SsrConnectPro</li></ul></li><li>v2ray<ul><li>windows：<a href="https://github.com/2dust/v2rayN/releases" target="_blank" rel="noopener">GitHub仓库点我</a></li><li>安卓：<a href="https://github.com/2dust/v2rayNG" target="_blank" rel="noopener">GitHub仓库点我</a>，<a href="https://www.apkturbo.com/apps/v2rayng/com.v2ray.ang/1.0.0/" target="_blank" rel="noopener">下载链接点我</a></li><li>mac：<a href="https://github.com/Cenmrev/V2RayX" target="_blank" rel="noopener">GitHub仓库点我</a></li><li>ios：暂未找到…</li></ul></li></ul><h3 id="3-其他工具"><a href="#3-其他工具" class="headerlink" title="3.其他工具"></a><div id="other">3.其他工具</div></h3><h4 id="上网不科学，也能谷歌play"><a href="#上网不科学，也能谷歌play" class="headerlink" title="上网不科学，也能谷歌play"></a>上网不科学，也能谷歌play</h4><ul><li><a href="https://apps.evozi.com/apk-downloader/" target="_blank" rel="noopener">https://apps.evozi.com/apk-downloader/</a></li><li><a href="https://www.apkturbo.com/" target="_blank" rel="noopener">https://www.apkturbo.com/</a></li></ul><h4 id="Google-BBR算法-优化tcp链接速度"><a href="#Google-BBR算法-优化tcp链接速度" class="headerlink" title="Google BBR算法 优化tcp链接速度"></a>Google BBR算法 优化tcp链接速度</h4><ul><li>转自Mr_Bluyee,<a href="https://www.jianshu.com/p/98c21990ed23" target="_blank" rel="noopener">原文链接</a></li><li>Linux kernel 4.9 及以上已支持 tcp_bbr</li></ul><ol><li>查看系统内核版本<code>uname -r</code>看内核版本是否大于等于4.9，否则要升级内核，或者安装bbr。</li><li>开启BBR：<ol><li><code>echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf</code></li><li><code>echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf</code></li></ol></li><li>保存生效：<code>sysctl -p</code></li><li>检查BBR是否启用：<ul><li><code>sysctl net.ipv4.tcp_available_congestion_control</code>返回值一般为：net.ipv4.tcp_available_congestion_control = reno cubic bbr</li><li><code>sysctl net.ipv4.tcp_congestion_control</code>返回值一般为：net.ipv4.tcp_congestion_control = bbr</li><li><code>sysctl net.core.default_qdisc</code>返回值一般为：net.core.default_qdisc = fq</li><li><code>lsmod | grep bbr</code>返回值有 tcp_bbr 模块则BBR已启动：<code>tcp_bbr 20480 10</code></li></ul></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      科学上网
+    
+    </summary>
+    
+      <category term="计算机网络" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+      <category term="vps" scheme="http://yoursite.com/tags/vps/"/>
+    
+  </entry>
   
   <entry>
     <title>23种设计模式概览</title>
@@ -145,26 +167,22 @@
   </entry>
   
   <entry>
-    <title>「写给大家看的设计书」</title>
+    <title>2019年回顾及总结</title>
     <link href="http://yoursite.com/2017/08/07/2019%E6%80%BB%E7%BB%93/"/>
     <id>http://yoursite.com/2017/08/07/2019总结/</id>
     <published>2017-08-07T08:05:50.000Z</published>
-    <updated>2020-01-10T12:44:58.588Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="本文是读书笔记兼读后感。"><a href="#本文是读书笔记兼读后感。" class="headerlink" title="本文是读书笔记兼读后感。"></a>本文是读书笔记兼读后感。</h3><p>由于经常做PPT和写网页，都涉及到设计。而自己设计出来的东西和自己的预期又相差太大。以后在做前端工作时，万一设计师没有给设计图，或者是针对细节处要自由发挥，没有一个好的欣赏和设计水平，设计出的东西奇丑无比，简直罪恶。</p>]]></content>
+    <updated>2020-01-26T14:55:34.039Z</updated>
     
     <summary type="html">
     
-      本文是读书笔记兼读后感。
+      2019年的回顾及总结
     
     </summary>
     
-      <category term="读书笔记" scheme="http://yoursite.com/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+      <category term="总结" scheme="http://yoursite.com/categories/%E6%80%BB%E7%BB%93/"/>
     
     
-      <category term="读书笔记" scheme="http://yoursite.com/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
-    
-      <category term="设计" scheme="http://yoursite.com/tags/%E8%AE%BE%E8%AE%A1/"/>
+      <category term="总结" scheme="http://yoursite.com/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
@@ -189,28 +207,6 @@
       <category term="attribute" scheme="http://yoursite.com/tags/attribute/"/>
     
       <category term="property" scheme="http://yoursite.com/tags/property/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ss搭建教程及各平台连接方案</title>
-    <link href="http://yoursite.com/2017/07/16/vps-%E5%8D%9A%E5%AE%A2pop/"/>
-    <id>http://yoursite.com/2017/07/16/vps-博客pop/</id>
-    <published>2017-07-16T06:34:50.000Z</published>
-    <updated>2019-12-02T01:52:24.700Z</updated>
-    
-    <content type="html"><![CDATA[<p>想要自己用vps搭建ss服务，怎么买服务器？怎么搭建？搭建好了怎么用？答案就在这篇文章里呐~若在实操过程中出现问题，欢迎留言或是发邮箱给博主~「封面图来自：《飞行家》，2004，莱昂纳多主演」</p><a id="more"></a><ol><li><a href="#buy">购买vps</a></li><li><a href="#build">搭建ss服务</a></li><li><a href="#mulit-user">添加多用户</a></li><li><a href="#use-windows">windows下使用ss</a></li><li><a href="#use-android">android下使用ss</a></li><li><a href="#use-ubuntu">ubuntu下使用ss</a></li><li><a href="#use-ios">ios系统下使用ss</a></li><li><a href="#use-ssh">小白：如何连接到远程服务器？</a></li><li><a href="#optimization">网速太慢，有没有优化方案？</a></li></ol><h3 id="购买vps"><a href="#购买vps" class="headerlink" title="购买vps"></a><div id="buy">购买vps</div></h3><p>在<a href="https://bwh1.net/index.php" target="_blank" rel="noopener">BandwagonHOST</a>购买vps。<br>可使用支付宝付款，记得使用优惠码：IAMSMART5TDT48。</p><p>本人买的19.99刀每年，没错，几乎就是最便宜的那一款（好像有9.9刀一年的？反正买不到..）。</p><p>配置虽低，但使用体验非常顺滑。google一下、流畅看油管1080p视频完全没有问题。</p><h3 id="搭建ss服务"><a href="#搭建ss服务" class="headerlink" title="搭建ss服务"></a><div id="build">搭建ss服务</div></h3><p>官方可以支持一键安装ss，大家在kiwiVM控制面板可以找到。<br>想要动手的同学可以使用这个<a href="https://github.com/ziggear/shadowsocks" target="_blank" rel="noopener">github库</a>，自行安装，仓库的readme文档里详细介绍了安装过程。博主按照文档成功搭建。</p><h3 id="如何添加多用户？"><a href="#如何添加多用户？" class="headerlink" title="如何添加多用户？"></a><div id="mulit-user">如何添加多用户？</div></h3><p>通过上述repo安装的同学，可以修改配置文件<code>#vim /etc/shadowsocks.json</code>来添加多用户。</p><h3 id="windows下使用ss"><a href="#windows下使用ss" class="headerlink" title="windows下使用ss"></a><div id="use-windiows">windows下使用ss</div></h3><ol><li><a href="http://opqksc9nz.bkt.clouddn.com/Shadowsocks.exe" target="_blank" rel="noopener">下载windows版shadowsocks</a></li><li>配置服务器ip，服务器端口，密码。</li><li>右键shadowsocks图标，在菜单里选择系统代理，PAC模式，即可使用。</li><li>若仍无法使用可将PAC模式切换至GLOBAL(全局)模式。</li></ol><h3 id="android下使用ss"><a href="#android下使用ss" class="headerlink" title="android下使用ss"></a><div id="use-android">android下使用ss</div></h3><ol><li><a href="http://opqksc9nz.bkt.clouddn.com/ssr-3_4_0_5.apk.1%253B+filename-%253Dutf-8%27+%27ssr-3_4_0_5.apk" target="_blank" rel="noopener">下载SSR</a></li><li>进行相应配置，不再赘述。</li></ol><h3 id="ubuntu下使用ss"><a href="#ubuntu下使用ss" class="headerlink" title="ubuntu下使用ss"></a><div id="use-ubuntu">ubuntu下使用ss</div></h3><ol><li>下载GUI版本<a href="https://github.com/shadowsocks/shadowsocks-qt5" target="_blank" rel="noopener">shadowsocks客户端</a>，并配置相应内容，</li><li>下载chrome浏览器插件SwitchyOmega，进行相应配置.</li></ol><h3 id="ios系统使用SsrConnectPro建立ss连接"><a href="#ios系统使用SsrConnectPro建立ss连接" class="headerlink" title="ios系统使用SsrConnectPro建立ss连接"></a><div id="use-ios">ios系统使用SsrConnectPro建立ss连接</div></h3><p>app主界面如下：<br><img src="http://opqksc9nz.bkt.clouddn.com/SsrConnectPro.png" alt="SsrConnectPro主界面"><br>配置界面如下：<br><img src="http://opqksc9nz.bkt.clouddn.com/SsrConnectPro%20%282%29.png" alt="SsrConnectPro配置界面"></p><p>使用步骤：</p><ol><li>在app store内下载SsrConnectPro</li><li>打开应用,选择右上角的”+”号,添加服务器配置</li><li>TYPE(类型),选择SS</li><li>NAME(名称):只是用来区分你所添加的不同的服务器的,起一个你喜欢的名字.</li><li>Server(服务器):输入服务器ip</li><li>Porty(端口):输入远程服务器的端口号.</li><li>Password(密码):输入远程服务器端口所对应的密码.</li><li>ProxyMethod(代理模式):选择System(系统)或Global(全局)代理模式.(我用的是系统)</li><li>Method(加密方式):提供商给你的配置里肯定有,一定要选择正确.</li><li>点击 Save Configuration(保存配置)</li><li>点击connect,即可愉快的番蔷学习.</li></ol><p>ps：第一次配置完毕以后，可在ios设备的系统设置，选择“vpn”选项进行打开或关闭ss连接。非常方便。</p><h3 id="小白：如何连接到远程服务器？"><a href="#小白：如何连接到远程服务器？" class="headerlink" title="小白：如何连接到远程服务器？"></a><div id="use-ssh">小白：如何连接到远程服务器？</div></h3><h4 id="解决方案1：提供商提供的的云服务器控制面板"><a href="#解决方案1：提供商提供的的云服务器控制面板" class="headerlink" title="解决方案1：提供商提供的的云服务器控制面板"></a>解决方案1：提供商提供的的云服务器控制面板</h4><p>云服务器提供商一般会提供web端的远程连接方案，比如搬瓦工的kiwivm面板、腾讯云的控制台。<br>它们给用户提供了一个可以在官网操作云服务器的方法，优点是简单易懂，缺点是过于麻烦，每次登陆服务器都要登陆到云服务提供商的网站，非常不方便。<br>建议大家花点时间，学习以下的配置方案，这样在使用电脑、手机的时候都可以方便的连接到自己的服务器上。</p><h4 id="解决方案2：使用ssh连接远程服务器"><a href="#解决方案2：使用ssh连接远程服务器" class="headerlink" title="解决方案2：使用ssh连接远程服务器"></a>解决方案2：使用ssh连接远程服务器</h4><p>分为三个平台：<a href="#user-windows">windows</a>,<a href="#user-android">android</a>,<a href="#user-ubuntu">ubuntu(linux)</a><br>所需已知条件：</p><ol><li>远程服务器的ip</li><li>远程服务器上ssh服务开放的端口号</li><li>远程服务器系统上的用户名称</li><li>该用户对应的密码。</li></ol><h4 id="windows连接vps"><a href="#windows连接vps" class="headerlink" title="windows连接vps"></a><div id="user-windows">windows连接vps</div></h4><ol><li>下载xshell 5.<br><a href="http://www.netsarang.com/download/down_form.html?code=522&amp;downloadType=0&amp;licenseType=1" target="_blank" rel="noopener">下载免费使用的个人/家庭版本</a><br>填写完毕并提交后，会在所填邮箱收到一封包含下载地址的邮件，点入相应链接，即可进行下载。</li><li>下载完毕后打开应用，点击左上角的new，添加会话。</li><li>填写配置信息。<ul><li>Name(会话的名称，用来区分其他会话，取一个自己喜欢的名字即可)</li><li>Host(主机，即所要连接的远程服务器。填写远程服务器ip地址，也可填写域名，必填。)</li><li>Port Number(远程服务器SSH服务使用的端口，必填。)</li><li>在左栏选择Authentication（认证），选择验证模式，为Password。</li><li>User Name(用户名称)，即填写远程服务器上的一个用户的名称。</li><li>Password(密码)，即填写该用户所对应的密码。</li></ul></li><li>点击OK进行保存</li><li>之后返回程序的主界面，双击会话即可登陆远程服务器。</li></ol><h4 id="Android手机连接vps"><a href="#Android手机连接vps" class="headerlink" title="Android手机连接vps"></a><div id="user-android">Android手机连接vps</div></h4><ol><li><a href="http://opqksc9nz.bkt.clouddn.com/com.sonelli.juicessh.apk" target="_blank" rel="noopener">下载JuiceSSH</a></li><li>进行配置。请同学自己摸索吧。重要的仍然是那四个已知条件，配置正确后即可连接。</li></ol><h4 id="ubuntu连接vps"><a href="#ubuntu连接vps" class="headerlink" title="ubuntu连接vps"></a><div id="user-ubuntu">ubuntu连接vps</div></h4><p>仅介绍一条命令,基本可以通吃.</p><p><code>sudo ssh -p port_number user_name@xxx.xxx.xxx.xxx</code></p><p>sudo: 使用root权限运行<br>-p: 指定端口选项.<br>port_number: 该位置填写指定的端口号<br>user_name: 用户名称<br>xxx.xxx.xxx.xxx: 该位置填写远程服务器的ip</p><h4 id="网速太慢，有没有优化方案？"><a href="#网速太慢，有没有优化方案？" class="headerlink" title="网速太慢，有没有优化方案？"></a><div id="optimization">网速太慢，有没有优化方案？</div></h4><ol><li>使用google bbr拥塞控制。<a href="http://www.bandwagonhost.net/1082.html" target="_blank" rel="noopener">参考他人教程</a>（亲测成功，速度提升3-4倍）</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      ss
-    
-    </summary>
-    
-      <category term="计算机网络" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-    
-      <category term="vps" scheme="http://yoursite.com/tags/vps/"/>
     
   </entry>
   
