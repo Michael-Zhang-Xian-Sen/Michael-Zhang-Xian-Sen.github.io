@@ -32,8 +32,6 @@
     
     
     
-    <link rel="dns-prefetch" href="https://changyan.sohu.com">
-    
     
     <link rel="dns-prefetch" href="https://hm.baidu.com">
     
@@ -345,6 +343,12 @@
             <!-- Pages  -->
             
                 <span class="header-nav-item">
+                    <a href="/gallery" title="图库">
+                        <span>图库</span>
+                    </a>
+                </span>
+            
+                <span class="header-nav-item">
                     <a href="/about" title="关于我">
                         <span>关于我</span>
                     </a>
@@ -353,12 +357,6 @@
                 <span class="header-nav-item">
                     <a href="/links" title="友情链接">
                         <span>友情链接</span>
-                    </a>
-                </span>
-            
-                <span class="header-nav-item">
-                    <a href="/gallery" title="前端作品集">
-                        <span>前端作品集</span>
                     </a>
                 </span>
             
@@ -480,21 +478,30 @@
                 <!-- Post Comments -->
                 
                     
-    <!-- 使用 changyan -->
-<div id="changyan-comment">
-    <!--PC和WAP自适应版-->
-<div id="SOHUCS" sid="2017/08/07/2019总结/"  ></div>
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
 <script type="text/javascript">
-(function(){
-var appid = 'cyttNCWQt';
-var conf = 'prod_96b3ffa3d56ac7a9d4479878ad5af332';
-var width = window.innerWidth || document.documentElement.clientWidth;
-if (width < 960) {
-window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2017/08/07/2019总结/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2017/08/07/2019总结/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//nice2meetu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
 
 </div>
 <style>
-    #changyan-comment{
+    #disqus-comment{
         background-color: #eee;
         padding: 2pc;
     }
@@ -590,10 +597,8 @@ window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="tex
 
 
 
-   <!-- 畅言公共 js 代码 start -->
-<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cyttNCWQt">
-</script>
-<!-- 畅言公共 js 代码 end -->
+   <!-- 使用 DISQUS js 代码 -->
+<script id="dsq-count-scr" src="//nice2meetu.disqus.com/count.js" async></script>
 
 
 
