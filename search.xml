@@ -234,7 +234,7 @@
     <entry>
       <title>关于我</title>
       <link href="/about/index.html"/>
-      <content type="html"><![CDATA[<p>准备考研。</p><h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><ul><li>email<br><a href="mailto:zhanghao@xiyouant.org" target="_blank" rel="noopener">zhanghao@xiyouant.org</a></li></ul>]]></content>
+      <content type="html"><![CDATA[<p>研一在读。</p><h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><ul><li>email<br><a href="mailto:1920395012@qq.com" target="_blank" rel="noopener">1920395012@qq.com</a></li></ul>]]></content>
     </entry>
     
     <entry>
@@ -246,6 +246,12 @@
     <entry>
       <title>tags</title>
       <link href="/tags/index.html"/>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>gallery</title>
+      <link href="/gallery/index.html"/>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
