@@ -22,7 +22,7 @@
     
     <title>
         
-        标签: attribute | 
+        项目的一些思考 | 
         
         XD
     </title>
@@ -47,7 +47,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Michael Zhang">
-    <meta name="description" itemprop="description" content>
+    <meta name="description" itemprop="description" content="项目的一些思考">
     <meta name="keywords" content="Himory blog">
 
     <!-- Site Verification -->
@@ -79,23 +79,23 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: attribute | XD">
+    <meta property="og:title" content="项目的一些思考 | XD">
     <meta property="og:image" content="http://ewinds.pw/code.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="项目的一些思考">
     
 
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="标签: attribute | XD">
-    <meta name="twitter:description" content>
+    <meta name="twitter:title" content="项目的一些思考 | XD">
+    <meta name="twitter:description" content="项目的一些思考">
     <meta name="twitter:image" content="http://ewinds.pw/code.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="http://yoursite.com">
 
     <!-- Add canonical link for SEO -->
     
-    <link rel="canonical" href="http://yoursite.com/tags/attribute/index.html">
+    <link rel="canonical" href="http://yoursite.com/temp/项目的一些思考.html">
     
 
     <!-- Structured-data for SEO -->
@@ -384,84 +384,134 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
-    
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
+        <div class="post-header_info with-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
             <span class="name-span">Michael Zhang</span>
         </div>
 
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
+        <!-- Custom thumbnail -->
+        <div class="post_thumbnail-custom">
+            <img src="http://ewinds.pw/你不知道的javascript 上卷.png">
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/08/01/Attribute‘n&#39;property/">关于Attribute和property的区别</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                阅读提示：
 
-本篇文章中的attribute，全部翻译为“属性”。而property，全部翻译为“特性”。
-点表示法指js对象通过“.”获取特性，方括号表示法指js对象通过“[]”获取特性。
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/08/01/Attribute‘n&#39;property/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/attribute/">attribute</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/property/">property</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 01, 2017
-            </div>
-            <div class="post_entry-footer-comment">
                 
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                项目的一些思考
+            </p>
+            <p>项目的一些交互设计主要仿照如下网站：</p>
+<ul>
+<li>七牛云</li>
+<li>腾讯云</li>
+<li>阿里云</li>
+</ul>
+<a id="more"></a>
+<p>项目内容。</p>
+<h2 id="登陆模块"><a href="#登陆模块" class="headerlink" title="登陆模块"></a>登陆模块</h2><h3 id="七牛云登陆模块分析"><a href="#七牛云登陆模块分析" class="headerlink" title="七牛云登陆模块分析"></a>七牛云登陆模块分析</h3><h4 id="1-用户交互"><a href="#1-用户交互" class="headerlink" title="1. 用户交互"></a>1. 用户交互</h4><p>输入框内容</p>
+<ol>
+<li>未输入文本时，输入框的背景色为白色，输入框内的背景为浅色文字，文字内容为名词：“七牛注册邮箱”、“七牛登陆密码”。</li>
+<li>输入文本之后，背景文字消失，无其他变化。</li>
+</ol>
+<p>快捷键：回车</p>
+<ol>
+<li>当光标在任意输入框内，都可以通过回车登陆。</li>
+</ol>
+<h4 id="2-登陆按钮点击操作。"><a href="#2-登陆按钮点击操作。" class="headerlink" title="2. 登陆按钮点击操作。"></a>2. 登陆按钮点击操作。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">loginButton.on(&apos;click&apos;, function(e) &#123;</span><br><span class="line">  // 判断是否已经发送了登陆请求。</span><br><span class="line">  if (isSendingSigninReq) &#123;   </span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 获取需要传送的内容的值。</span><br><span class="line">  var email = emailElement.val()</span><br><span class="line">  var password = passwordElement.val()</span><br><span class="line">  var captchaVal = captchaIn.val()</span><br><span class="line"></span><br><span class="line">  // 值判空</span><br><span class="line">  if (!loginValidEmpty()) &#123;</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 拼凑字符串</span><br><span class="line">  var clientId = getURLParameter(&quot;client_id&quot;) || &quot;&quot;</span><br><span class="line">  var redirectUrl = getURLParameter(&quot;redirect_url&quot;) || &quot;&quot;</span><br><span class="line">  var url = &quot;/signin?client_id=&quot; + clientId + &quot;&amp;redirect_url=&quot; + redirectUrl</span><br><span class="line"></span><br><span class="line">  // 设置已经发送过登陆请求。</span><br><span class="line">  isSendingSigninReq = true</span><br><span class="line">  // 添加样式。disabled属性，导致按钮的颜色变浅，光标变化。</span><br><span class="line">  // cursor: not-allowed;</span><br><span class="line">  // filter: alpha(opacity=65);</span><br><span class="line">  // -webkit-box-shadow: none;</span><br><span class="line">  // box-shadow: none;</span><br><span class="line">  // opacity: .65;</span><br><span class="line">  loginButton.addClass(&apos;disabled&apos;);</span><br><span class="line"></span><br><span class="line">  performRequest(url, &quot;POST&quot;, &#123;</span><br><span class="line">    &quot;username&quot;: email,</span><br><span class="line">    &quot;password&quot;: password,</span><br><span class="line">    &quot;captcha&quot;: captchaVal</span><br><span class="line">  &#125;, loginSuccess, loginError, function(e) &#123;</span><br><span class="line">    isSendingSigninReq = false</span><br><span class="line">    loginButton.removeClass(&apos;disabled&apos;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="律师事务所登陆操作"><a href="#律师事务所登陆操作" class="headerlink" title="律师事务所登陆操作"></a>律师事务所登陆操作</h3><h4 id="1-用户交互-1"><a href="#1-用户交互-1" class="headerlink" title="1. 用户交互"></a>1. 用户交互</h4><p>猜测：按钮点击，然后提交表单，然后接收返回的内容，是一整套流程。这个流程里边有很多细节。可以探究一下。</p>
+<h3 id="登陆模块还可以采取的改进方式"><a href="#登陆模块还可以采取的改进方式" class="headerlink" title="登陆模块还可以采取的改进方式"></a>登陆模块还可以采取的改进方式</h3><ul>
+<li>表单提交最大的等待时间？</li>
+<li></li>
+</ul>
+
+        </div>
+    
+</div>
+
+
+                
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/temp/项目的一些思考.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/temp/项目的一些思考.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//nice2meetu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
                 
             </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-            
-        
-    
-
-    
-
-    
-</div>
 
 
                     
