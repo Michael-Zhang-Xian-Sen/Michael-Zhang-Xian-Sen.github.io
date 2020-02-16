@@ -3,22 +3,20 @@
   
     
     <entry>
-      <title>《你不知道的JavaScript 上卷》第二部分</title>
-      <link href="/2020/02/04/%E3%80%8A%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%20%E4%B8%8A%E5%8D%B7%E3%80%8B%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86/"/>
-      <content type="html"><![CDATA[<p>第二部分：this和对象原型。</p><a id="more"></a><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>## </p><hr>]]></content>
+      <title>宅</title>
+      <link href="/2020/02/16/%E5%AE%85/"/>
+      <content type="html"><![CDATA[<p>若要宅，请好好宅。</p><a id="more"></a><p>打今年过年以来，天天在家宅着，整个人快废掉了，干事情毫无动力。</p><p>天天晚上一两点睡，早晨九点起，下午还要午睡。</p><p>醒了就吃、喝，玩梦幻。</p><p>人们常称这种人叫「死肥宅」。</p><p>没有锻炼。</p><p>没有思考。</p><p>没有长进。</p><p>还胖得不行。</p><p>不能再这样下去了！宅也要宅出风度、宅出水准、宅出生命的意义！</p><p>制定一些小目标，截止月底前完成。</p><ol><li>调整作息。七点半起、十一点睡。</li><li>读完《你不知道的JavaScript》。</li><li>每天坚持keep。</li><li>读完《夜谭十记》</li></ol><p>调整状态，奥利给！</p>]]></content>
       
       <categories>
           
-          <category> 读书笔记 </category>
+          <category> 生活 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 读书笔记 </tag>
-            
-            <tag> 设计 </tag>
+            <tag> 生活 </tag>
             
         </tags>
       
@@ -38,9 +36,9 @@
       
         <tags>
             
-            <tag> 读书笔记 </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> 读书笔记 </tag>
             
         </tags>
       
@@ -224,9 +222,9 @@
       
         <tags>
             
-            <tag> 读书笔记 </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> 读书笔记 </tag>
             
         </tags>
       
@@ -256,12 +254,6 @@
   
     
     <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <content type="html"><![CDATA[<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><ul><li>email<br><a href="mailto:1920395012@qq.com" target="_blank" rel="noopener">1920395012@qq.com</a></li></ul>]]></content>
-    </entry>
-    
-    <entry>
       <title>links</title>
       <link href="/links/index.html"/>
       <content type="html"><![CDATA[]]></content>
@@ -274,9 +266,45 @@
     </entry>
     
     <entry>
-      <title>gallery</title>
-      <link href="/gallery/index.html"/>
-      <content type="html"><![CDATA[]]></content>
+      <title></title>
+      <link href="/temp/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"/>
+      <content type="html"><![CDATA[<h1 id="插槽"><a href="#插槽" class="headerlink" title="插槽"></a>插槽</h1><h3 id="重要规则："><a href="#重要规则：" class="headerlink" title="重要规则："></a>重要规则：</h3><ol><li>父级模版里的所有内容都是在父级作用域中编译的；子模版里的所有内容都是在子作用域中编译的。</li><li></li></ol><h1 id="prop"><a href="#prop" class="headerlink" title="prop"></a>prop</h1><h3 id="如果子组件，要利用父组件传来的数据进行处理，然后再显示在template当中，该怎么做？"><a href="#如果子组件，要利用父组件传来的数据进行处理，然后再显示在template当中，该怎么做？" class="headerlink" title="如果子组件，要利用父组件传来的数据进行处理，然后再显示在template当中，该怎么做？"></a>如果子组件，要利用父组件传来的数据进行处理，然后再显示在template当中，该怎么做？</h3><ol><li></li></ol>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/BootstrapVue%E4%B8%AD%E5%85%83%E7%B4%A0%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95.html"/>
+      <content type="html"><![CDATA[<h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><p>表单的一项经常是一些文字带一个表单input，比如标题，要写清楚标题两个字，旁边附带一个输入框。<br>则就是bootstrap中表单组的概念。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b-form-group</span> <span class="attr">label</span>=<span class="string">"性别"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b-form-radio-group</span> <span class="attr">v-model</span>=<span class="string">"form.gender"</span> <span class="attr">:disabled</span>=<span class="string">"disabled"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">b-form-radio</span> <span class="attr">value</span>=<span class="string">"true"</span>&gt;</span>男性<span class="tag">&lt;/<span class="name">b-form-radio</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">b-form-radio</span> <span class="attr">value</span>=<span class="string">"false"</span>&gt;</span>女性<span class="tag">&lt;/<span class="name">b-form-radio</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">b-form-radio-group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">b-form-group</span>&gt;</span></span><br></pre></td></tr></table></figure></p>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/vue%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3.html"/>
+      <content type="html"><![CDATA[<h2 id="做项目中遇到的一些问题"><a href="#做项目中遇到的一些问题" class="headerlink" title="做项目中遇到的一些问题"></a>做项目中遇到的一些问题</h2><h3 id="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"><a href="#如何对使用父组件通过v-bind传递给子组件的数据进行过滤？" class="headerlink" title="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"></a>如何对使用父组件通过v-bind传递给子组件的数据进行过滤？</h3><h4 id="方案1-使用过滤器。"><a href="#方案1-使用过滤器。" class="headerlink" title="方案1:使用过滤器。"></a>方案1:使用过滤器。</h4><p>vue文档中指出过滤器可以用在两个地方：1. 双花括号差值。 2. v-bind表达式</p>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/%E5%85%B3%E4%BA%8E%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91.html"/>
+      <content type="html"><![CDATA[<p>加密型<br>无特征。但是墙通过判断包大小可以阻断。<br>ss,ssr,v2ray by Vmess</p><p>伪装型<br>伪装为HTTPS流量。<br>Trojan,v2ray WebSocket+LTs</p><ul><li>Trojan TCP+TLS</li><li>V2ray webocket+TLS</li></ul>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8A%9F%E8%83%BD.html"/>
+      <content type="html"><![CDATA[<h2 id="前端导出excel文件"><a href="#前端导出excel文件" class="headerlink" title="前端导出excel文件"></a>前端导出excel文件</h2><ol><li>save as的前端实现</li></ol><p>插件：</p><ol><li>FileSaver <a href="https://www.npmjs.com/package/file-saver" target="_blank" rel="noopener">npm地址</a>, <a href="https://github.com/eligrey/FileSaver.js/" target="_blank" rel="noopener">GitHub地址</a> </li><li>xlsx <a href="https://www.npmjs.com/package/xlsx" target="_blank" rel="noopener">npm地址</a></li><li>script-loader <a href="https://www.npmjs.com/package/script-loader" target="_blank" rel="noopener">npm地址</a> </li></ol>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9Bbug.json"/>
+      <content type="html"><![CDATA[[{"userId":1,"usernameSys":"Himory","username":"张浩","groupId":64,"roleId":"11","mobile":"15691788231","extensionNumber":"123","email":"abcdefghijklmnopqrstuvwxyzabcdefg@1.com","gender":true,"birthday":"1996-02-12","idNumber":"431222199912111111","lawyerNumber":"1232323","firstPractice":"2019-09-04","graduateSchool":"南京大学","eduBackground":"研究生","academicDegree":"12333344","politicalStatus":"党员","entryTime":"2019-09-14","post":"攻城狮","roleName":null,"module":null,"avatar":"Himory.jpg"},{"userId":2,"usernameSys":"carrie","username":"小花","groupId":63,"roleId":"2","mobile":"15699998888","extensionNumber":"","email":"zhang@xiyouant.org","gender":false,"birthday":"1997-02-02","idNumber":"370882199702124239","lawyerNumber":"123","firstPractice":"2019-09-03","graduateSchool":"南京大学","eduBackground":"硕士","academicDegree":"硕士","politicalStatus":"党员","entryTime":"2019-10-09","post":"总经理","roleName":null,"module":null,"avatar":"/img/head/234.jpg"},{"userId":3,"usernameSys":"ser","username":"罗文佳","groupId":55,"roleId":"11","mobile":"11111111131","extensionNumber":"","email":"11111@11.amg","gender":false,"birthday":"2019-11-06","idNumber":"431224195802025555","lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":16,"usernameSys":"Himory2019","username":"张浩测试","groupId":55,"roleId":"1","mobile":"15691788231","extensionNumber":"82311111","email":"1611334044@qq.com","gender":true,"birthday":"1997-02-12","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"/img/head/123.jpg"},{"userId":20,"usernameSys":"Himory123","username":"测试第二次","groupId":62,"roleId":"1","mobile":"","extensionNumber":"123","email":"123","gender":true,"birthday":"1997-02-02","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"/img/head/123.jpg"},{"userId":52,"usernameSys":"root","username":"测试第三次","groupId":63,"roleId":"1","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"/img/head/123.jpg"},{"userId":65,"usernameSys":"Mr.White","username":"白先生","groupId":55,"roleId":"1","mobile":"15691788231","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":66,"usernameSys":"Mr.Pink","username":"粉先生","groupId":55,"roleId":"1","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":67,"usernameSys":"Mr.Blonde","username":"金先生","groupId":55,"roleId":"1","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":89,"usernameSys":"test2","username":"测试第四次","groupId":55,"roleId":"1","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":100,"usernameSys":"2323","username":"测试第五次","groupId":55,"roleId":"1","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":101,"usernameSys":"3332","username":"2323","groupId":55,"roleId":"8","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":102,"usernameSys":"2444","username":"2444","groupId":55,"roleId":"8","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":103,"usernameSys":"test123","username":"test123","groupId":55,"roleId":"8","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":104,"usernameSys":"323","username":"333","groupId":55,"roleId":"8","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":105,"usernameSys":"testSP","username":"SP","groupId":55,"roleId":"8","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":106,"usernameSys":"2342","username":"4234","groupId":55,"roleId":"8","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":107,"usernameSys":"测试","username":"测试","groupId":55,"roleId":"8","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":111,"usernameSys":"MyCaptain","username":"哦～船长","groupId":55,"roleId":"8","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":114,"usernameSys":"silentbz","username":"吴宝章","groupId":55,"roleId":",11,12,","mobile":"18270555672","extensionNumber":"","email":"silentbz@163.com","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"silentbz.jpg"},{"userId":115,"usernameSys":"TinyMeow","username":"张耀威","groupId":55,"roleId":"11","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":"420202222222222233","lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"TinyMeow.jpg"},{"userId":116,"usernameSys":"测试客户","username":"测试客户","groupId":55,"roleId":"11","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"},{"userId":117,"usernameSys":"123","username":"来来来","groupId":55,"roleId":"8","mobile":"","extensionNumber":"","email":"","gender":true,"birthday":"1970-01-01","idNumber":null,"lawyerNumber":null,"firstPractice":"2000-01-01","graduateSchool":null,"eduBackground":null,"academicDegree":null,"politicalStatus":null,"entryTime":"2000-01-01","post":null,"roleName":null,"module":null,"avatar":"0"}]]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98.html"/>
+      <content type="html"><![CDATA[<h3 id="1-obj-xxx和obj-xxx-的区别"><a href="#1-obj-xxx和obj-xxx-的区别" class="headerlink" title="1. obj.xxx和obj[xxx]的区别"></a>1. obj.xxx和obj[xxx]的区别</h3><p>如下所示，<code>v[j]</code>和<code>v.j</code>的效果是否一样？为什么？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">formatJson(filterVal, jsonData) &#123;</span><br><span class="line">    debugger</span><br><span class="line">    return jsonData.map(v =&gt; filterVal.map(j =&gt; v[j]));</span><br><span class="line">&#125;</span><br><span class="line">filterVal:[&quot;id&quot;,&quot;clientId&quot;,&quot;abbr&quot;]</span><br><span class="line">jsonData: [&#123;&quot;clientId&quot;:1000,&quot;abbr&quot;:&quot;客户一号&quot;,&quot;fullname&quot;:&quot;客户一号全称&quot;,&quot;property&quot;:&quot;个人&quot;,&quot;category&quot;:&quot;商业银行&quot;,&quot;industry&quot;:&quot;金融&quot;,&quot;domicile&quot;:&quot;&quot;,&quot;business&quot;:null,&quot;cooperationTime&quot;:&quot;2020-02-07&quot;,&quot;id&quot;:1,&quot;checked&quot;:false&#125;,&#123;&quot;clientId&quot;:1001,&quot;abbr&quot;:&quot;客户2&quot;,&quot;fullname&quot;:&quot;客户二号&quot;,&quot;property&quot;:&quot;个人&quot;,&quot;category&quot;:&quot;商业银行&quot;,&quot;industry&quot;:&quot;金融&quot;,&quot;domicile&quot;:null,&quot;business&quot;:null,&quot;cooperationTime&quot;:&quot;2020-02-08&quot;,&quot;id&quot;:2,&quot;checked&quot;:false&#125;]</span><br></pre></td></tr></table></figure></p>]]></content>
     </entry>
     
     <entry>
@@ -286,9 +314,21 @@
     </entry>
     
     <entry>
-      <title>2019年回顾及总结</title>
-      <link href="/temp/2019%E6%80%BB%E7%BB%93.html"/>
-      <content type="html"><![CDATA[<p>2019年发生了很多事情，无论自身还是周边环境都发生了很大的变化。</p><p>第一件事，也是最重要的事情，考研顺利上岸。</p><p>在录取结果出来之前，我设想了许多。</p>]]></content>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <content type="html"><![CDATA[<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><ul><li>email<br><a href="mailto:1920395012@qq.com" target="_blank" rel="noopener">1920395012@qq.com</a></li></ul>]]></content>
+    </entry>
+    
+    <entry>
+      <title>gallery</title>
+      <link href="/gallery/index.html"/>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>《你不知道的JavaScript 上卷》第二部分</title>
+      <link href="/temp/%E3%80%8A%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript%20%E4%B8%8A%E5%8D%B7%E3%80%8B%E7%AC%AC%E4%BA%8C%E9%83%A8%E5%88%86.html"/>
+      <content type="html"><![CDATA[<p>第二部分：this和对象原型。</p><a id="more"></a><h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><p>## </p><hr>]]></content>
     </entry>
     
   
