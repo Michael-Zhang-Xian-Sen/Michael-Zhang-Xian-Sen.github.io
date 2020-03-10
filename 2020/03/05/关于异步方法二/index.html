@@ -22,7 +22,7 @@
     
     <title>
         
-        标签: 编程感悟 | 
+        关于异步方法（一）：使用Promise | 
         
         XD
     </title>
@@ -47,8 +47,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Michael Zhang">
-    <meta name="description" itemprop="description" content>
-    <meta name="keywords" content="Himory blog">
+    <meta name="description" itemprop="description" content="js异步">
+    <meta name="keywords" content="Himory blog,js异步">
 
     <!-- Site Verification -->
     
@@ -79,29 +79,63 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: 编程感悟 | XD">
+    <meta property="og:title" content="关于异步方法（一）：使用Promise | XD">
     <meta property="og:image" content="http://ewinds.pw/code.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="js异步">
     
+    <meta property="og:article:tag" content="js异步"> 
 
+    
+    <meta property="article:published_time" content="3月 05, 2020">
+    <meta property="article:modified_time" content="3月 10, 2020">
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="标签: 编程感悟 | XD">
-    <meta name="twitter:description" content>
+    <meta name="twitter:title" content="关于异步方法（一）：使用Promise | XD">
+    <meta name="twitter:description" content="js异步">
     <meta name="twitter:image" content="http://ewinds.pw/code.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="http://yoursite.com">
 
     <!-- Add canonical link for SEO -->
     
-    <link rel="canonical" href="http://yoursite.com/tags/编程感悟/index.html">
+    <link rel="canonical" href="http://yoursite.com/2020/03/05/关于异步方法二/index.html">
     
 
     <!-- Structured-data for SEO -->
     
     
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "XD",
+        "logo": "http://ewinds.pw/code.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Michael Zhang",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://ewinds.pw/code.png"
+        },
+        "description": "要么不做，要么就做到极致。"
+    },
+    "headline": "关于异步方法（一）：使用Promise",
+    "url": "http://yoursite.com/2020/03/05/关于异步方法二/index.html",
+    "datePublished": "3月 05, 2020",
+    "dateModified": "3月 10, 2020",
+    "description": "js异步",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com"
+    }
+}
+</script>
 
 
     
@@ -384,25 +418,29 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
+        <div class="post-header_info without-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
             <span class="name-span">Michael Zhang</span>
@@ -413,51 +451,121 @@
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2020/03/05/写项目的一些感悟(1)/">写项目的一些感悟（一）：关于异步请求</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
+
                 
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2020/03/05/写项目的一些感悟(1)/" target="_self">阅读全文</a>
-            </span>
-        </p>
 
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/编程感悟/">编程感悟</a></li></ul>
-    </div>
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
 
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                3月 05, 2020
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                关于异步方法（一）：使用Promise
+            </p>
+            <h3 id="1-时刻牢记：ajax请求是异步的。"><a href="#1-时刻牢记：ajax请求是异步的。" class="headerlink" title="1. 时刻牢记：ajax请求是异步的。"></a>1. 时刻牢记：ajax请求是异步的。</h3><p>比如：在A方法里调用ajax请求,在B方法里调用A方法，同时调用C方法进行一些涉及到ajax返回的数据的处理工作（这个处理工作因某些原因不能放到ajax请求的回调函数中，比如需要用到另一个ajax请求的内容）。<br>伪代码如下，用axios替代ajax请求：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">// 这段代码的目的：通过B函数，成功为经过ajax请求获取到的id设置name。</span><br><span class="line"></span><br><span class="line">// 全局变量</span><br><span class="line">var data = []   // 我们最终要设置的变量</span><br><span class="line">var mapRelation = [&#123;userId:123,userName:1234&#125;]  // 注意：这是通过另外一个ajax请求获得的。所以处理函数C不能或者说不方便放到A方法中。</span><br><span class="line"></span><br><span class="line">// 该方法通过异步请求，获取Id。</span><br><span class="line">function A()&#123;</span><br><span class="line">    return axios(请求参数).then(res=&gt;&#123;</span><br><span class="line">        // 对请求所返回内容的处理工作</span><br><span class="line">        // 假如res为&#123;userId:123&#125;;</span><br><span class="line">        data.push(res); </span><br><span class="line">    &#125;).catch(err=&gt;console.log(err))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// 该方法通过对象data的userId，为data设置userName。</span><br><span class="line">function C(data)&#123;</span><br><span class="line">    mapRelation.map(userItem=&gt;&#123;</span><br><span class="line">        if(userItem.userId === data.userId)&#123;</span><br><span class="line">            data.userName = userItem.uesrName;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 设计B函数，为经过ajax请求获取到的id设置name。</span><br><span class="line">// 错误的写法。</span><br><span class="line">function bWrong()&#123;</span><br><span class="line">    // 这里并不会成功地为后台传来的userId找到usernName。</span><br><span class="line">    // 因为A中axios请求的回调函数和函数C()是并行的关系。</span><br><span class="line">    A();</span><br><span class="line">    C();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 正确的写法</span><br><span class="line">function bCorrect()&#123;</span><br><span class="line">    // 由于axios().then()返回的是一个promise对象（），该对象又被A函数返回，于是可以通过.then()的方式进行串行处理请求。</span><br><span class="line">    A().then(()=&gt;&#123;</span><br><span class="line">        C();</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4><ol>
+<li>Promise.then()的语法如下。其中<code>[]</code>中的内容代表可选内容。<code>Promise.then(onFulfilled[,onRejected])。</code></li>
+<li>then()返回一个 Promise 对象。(关于Promise.then()的更多内容<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/then" target="_blank" rel="noopener">mdn</a>)</li>
+<li>catch()返回一个 Promise 对象。(关于Promise.catch()的更多内容<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch" target="_blank" rel="noopener">mdn</a>)</li>
+<li>Promise定义于ES6.</li>
+</ol>
+<h3 id="2-吃饭要等人齐了，写代码要等数据都到了：在多个异步请求执行完毕后，执行一段代码——Promise-all"><a href="#2-吃饭要等人齐了，写代码要等数据都到了：在多个异步请求执行完毕后，执行一段代码——Promise-all" class="headerlink" title="2. 吃饭要等人齐了，写代码要等数据都到了：在多个异步请求执行完毕后，执行一段代码——Promise.all()"></a>2. 吃饭要等人齐了，写代码要等数据都到了：在多个异步请求执行完毕后，执行一段代码——Promise.all()</h3><p>在写项目的时候经常会遇到，需要得到两个ajax请求的结果后，才能进行数据处理的场景。此时用Promise.all()便能将两个异步请求与数据处理方法进行串行化。</p>
+<p>一般的写法是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Promise.all([方法1，方法2]).then(res=&gt;&#123;</span><br><span class="line">    需要串行执行的方法</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="补充：-1"><a href="#补充：-1" class="headerlink" title="补充："></a>补充：</h4><ol>
+<li>Promise.all(iterable)方法，返回一个Promise实例。如果iterable参数的所有方法执行成功，则返回的Promise实例中的参数为iterable执行成功后的返回值。否则返回没有成功执行的原因。</li>
+</ol>
+<h3 id="3-不得不说：Promise真的是个好东西。"><a href="#3-不得不说：Promise真的是个好东西。" class="headerlink" title="3. 不得不说：Promise真的是个好东西。"></a>3. 不得不说：Promise真的是个好东西。</h3><ol>
+<li>解决了异步请求进行同步执行的问题。</li>
+<li>解决了回调地狱的问题，链式调用简介又直观还好写。</li>
+</ol>
+<h4 id="补充：Promise相关的方法"><a href="#补充：Promise相关的方法" class="headerlink" title="补充：Promise相关的方法"></a>补充：Promise相关的方法</h4><ol>
+<li><code>Promise.resolve()</code>：个人理解是Prmoise的一个状态，指问题成功解决、代码成功运行。</li>
+<li><code>Promise.reject()</code>：问题解决失败或代码运行失败。</li>
+<li><code>Promise.then(succes,failed)</code>：在then中加入Promise状态为resolve或者reject的回调函数，链式执行。</li>
+<li><code>Promise.catch(failed)</code>：仅在Promise状态为reject或者抛出异常时运行catch中的函数。</li>
+<li><code>Promise.finally()</code>：仅在Promise结束时运行，无论结果是reject还是resolve。</li>
+<li><code>Promise.all(iterator)</code>：执行iterator中的所有方法，方法之间是且的关系。如果全部方法的执行结果全部为resolved或未返回Promise的情况，回调resolve，否则回调reject。</li>
+<li><code>Promise.race(iterator)</code>：执行iterator中的方法，方法之间可以理解为或的关系。回调的是最早执行的函数的状态，如果最早的函数执行结果是resolved，则回调resolve，否则回调reject。如果迭代内容iterator是空，则永远等待。</li>
+</ol>
+
+        </div>
+    
+</div>
+
+
+                
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2020/03/05/关于异步方法二/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2020/03/05/关于异步方法二/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//nice2meetu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
             </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2020/03/10/关于异步方法一/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/01/31/《你不知道的JavaScript 上卷》第一部分/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-            
-        
-    
-
-    
-
-    
-</div>
 
 
                     
