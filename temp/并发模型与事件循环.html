@@ -22,7 +22,7 @@
     
     <title>
         
-        标签: 生活 | 
+        关于异步（三）： 并发模型与事件循环机制 | 
         
         XD
     </title>
@@ -47,7 +47,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Michael Zhang">
-    <meta name="description" itemprop="description" content>
+    <meta name="description" itemprop="description" content="js异步">
     <meta name="keywords" content="Himory blog">
 
     <!-- Site Verification -->
@@ -79,23 +79,23 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="标签: 生活 | XD">
+    <meta property="og:title" content="关于异步（三）： 并发模型与事件循环机制 | XD">
     <meta property="og:image" content="http://ewinds.pw/code.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="js异步">
     
 
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="标签: 生活 | XD">
-    <meta name="twitter:description" content>
+    <meta name="twitter:title" content="关于异步（三）： 并发模型与事件循环机制 | XD">
+    <meta name="twitter:description" content="js异步">
     <meta name="twitter:image" content="http://ewinds.pw/code.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="http://yoursite.com">
 
     <!-- Add canonical link for SEO -->
     
-    <link rel="canonical" href="http://yoursite.com/tags/生活/index.html">
+    <link rel="canonical" href="http://yoursite.com/temp/并发模型与事件循环.html">
     
 
     <!-- Structured-data for SEO -->
@@ -384,81 +384,141 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
-    
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
+        <div class="post-header_info without-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
             <span class="name-span">Michael Zhang</span>
         </div>
 
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://ewinds.pw/endeavor.jpg">
+        <!-- Null Thumbnail -->
+        <div class="post_thumbnail-null">
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2018/05/02/作息schedule/">考研作息时间表（第一阶段）</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                本作息表将执行至本学期结束。届时重新规划时间表，以适应暑假的复习生活。
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2018/05/02/作息schedule/" target="_self">阅读全文</a>
-            </span>
-        </p>
 
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/生活/">生活</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                5月 02, 2018
-            </div>
-            <div class="post_entry-footer-comment">
                 
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                关于异步（三）： 并发模型与事件循环机制
+            </p>
+            <h2 id="运行时概念"><a href="#运行时概念" class="headerlink" title="运行时概念"></a>运行时概念</h2><ul>
+<li><strong>函数调用</strong>形成栈帧</li>
+<li><strong>对象</strong>被分配在堆中</li>
+<li><strong>待处理消息</strong>在队列中。消息关联着一个用以处理这个消息的回调函数。</li>
+</ul>
+<h2 id="事件循环（EventLoop）"><a href="#事件循环（EventLoop）" class="headerlink" title="事件循环（EventLoop）"></a>事件循环（EventLoop）</h2><ol>
+<li>事件循环时，“运行时”会先处理队头的消息。处理方式即将该消息移出队列，然后使用其输入参数调用关联的函数，形成栈帧，然后继续执行这个函数直到完成（栈空）。</li>
+<li>处理完后，执行下一个消息。</li>
+</ol>
+<h3 id="添加“消息”"><a href="#添加“消息”" class="headerlink" title="添加“消息”"></a>添加“消息”</h3><p>条件：</p>
+<ol>
+<li>事件被事件监听器绑定。</li>
+<li>事件发生。</li>
+</ol>
+<p>注意：</p>
+<ul>
+<li>如果没有事件监听器，则该事件被丢失。</li>
+</ul>
+<h3 id="关于处理消息的“执行至完成”过程"><a href="#关于处理消息的“执行至完成”过程" class="headerlink" title="关于处理消息的“执行至完成”过程"></a>关于处理消息的“执行至完成”过程</h3><ul>
+<li>缺陷：如果消息耗费时间长，则无法处理其他的事情，比如用户的其他交互。</li>
+<li>对策：<ol>
+<li>采用loading动画等提示信息。</li>
+<li>将消息剪裁为多个消息。</li>
+</ol>
+</li>
+</ul>
+<h3 id="关于setTimeout"><a href="#关于setTimeout" class="headerlink" title="关于setTimeout"></a>关于setTimeout</h3><p>setTimeout接收的参数如下：</p>
+<ul>
+<li>待加入队列的消息。</li>
+<li>一个时间值。即消息被加入队列的最小延迟时间。<br>当经过最小延迟时间后，该消息将入队，但必须要等待到前边的内容全部处理完毕后才能执行。</li>
+</ul>
+
+        </div>
+    
+</div>
+
+
+                
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/temp/并发模型与事件循环.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/temp/并发模型与事件循环.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//nice2meetu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
                 
             </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-            
-        
-    
-
-    
-
-    
-</div>
 
 
                     
