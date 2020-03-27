@@ -22,7 +22,7 @@
     
     <title>
         
-        vim中文乱码的解决方案 | 
+        JavaScript中的Date对象及其常用方法总结 | 
         
         XD
     </title>
@@ -47,8 +47,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Michael Zhang">
-    <meta name="description" itemprop="description" content="vim中文乱码解决方案。">
-    <meta name="keywords" content="Himory blog,工具,vim">
+    <meta name="description" itemprop="description" content="JavaScript中的Date对象及其常用方法总结">
+    <meta name="keywords" content="Himory blog">
 
     <!-- Site Verification -->
     
@@ -79,64 +79,29 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="vim中文乱码的解决方案 | XD">
+    <meta property="og:title" content="JavaScript中的Date对象及其常用方法总结 | XD">
     <meta property="og:image" content="http://ewinds.pw/code.png">
-    <meta property="og:description" content="vim中文乱码解决方案。">
+    <meta property="og:description" content="JavaScript中的Date对象及其常用方法总结">
     
-    <meta property="og:article:tag" content="工具"> 
-    <meta property="og:article:tag" content="vim"> 
 
-    
-    <meta property="article:published_time" content="10月 27, 2017">
-    <meta property="article:modified_time" content="3月 18, 2020">
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="vim中文乱码的解决方案 | XD">
-    <meta name="twitter:description" content="vim中文乱码解决方案。">
+    <meta name="twitter:title" content="JavaScript中的Date对象及其常用方法总结 | XD">
+    <meta name="twitter:description" content="JavaScript中的Date对象及其常用方法总结">
     <meta name="twitter:image" content="http://ewinds.pw/code.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="http://yoursite.com">
 
     <!-- Add canonical link for SEO -->
     
-    <link rel="canonical" href="http://yoursite.com/2017/10/27/vim中文乱码的解决方案/index.html">
+    <link rel="canonical" href="http://yoursite.com/temp/JS Date对象.html">
     
 
     <!-- Structured-data for SEO -->
     
     
 
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "XD",
-        "logo": "http://ewinds.pw/code.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Michael Zhang",
-        "image": {
-            "@type": "ImageObject",
-            "url": "http://ewinds.pw/code.png"
-        },
-        "description": "要么不做，要么就做到极致。"
-    },
-    "headline": "vim中文乱码的解决方案",
-    "url": "http://yoursite.com/2017/10/27/vim中文乱码的解决方案/index.html",
-    "datePublished": "10月 27, 2017",
-    "dateModified": "3月 18, 2020",
-    "description": "vim中文乱码解决方案。",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://yoursite.com"
-    }
-}
-</script>
 
 
     
@@ -421,9 +386,6 @@
 
                     <!-- Post TOC -->
 
-    
-
-
 
 <!-- Layouts -->
 
@@ -441,15 +403,14 @@
     <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post-header_info with-thumbnail">
+        <div class="post-header_info without-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
             <span class="name-span">Michael Zhang</span>
         </div>
 
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://ewinds.pw/vim2.jpg">
+        <!-- Null Thumbnail -->
+        <div class="post_thumbnail-null">
     
         </div>
 
@@ -464,32 +425,103 @@
     
         <div class="post-content_wrapper">
             <p class="post-title">
-                vim中文乱码的解决方案
+                JavaScript中的Date对象及其常用方法总结
             </p>
-            <p>「封面图：VIM图标」</p>
+            <p>本文主要总结了理解和使用Date对象的几个关键的常识性问题，然后根据mdn整理并运行了Date对象的所有方法。</p>
 <a id="more"></a>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>出现上述现象是编码出了问题。</p>
-<ol>
-<li>执行<code>sudo vim ~/.vimrc</code></li>
-<li><p>输入</p>
-<p> set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936<br> set termencoding=utf-8<br> set encoding=utf-8</p>
+<p>Date()对象表示某个时刻。</p>
+<h2 id="关于Date对象，比较关键的几个问题。"><a href="#关于Date对象，比较关键的几个问题。" class="headerlink" title="关于Date对象，比较关键的几个问题。"></a>关于Date对象，比较关键的几个问题。</h2><h3 id="UTC和GMT的区别？"><a href="#UTC和GMT的区别？" class="headerlink" title="UTC和GMT的区别？"></a>UTC和GMT的区别？</h3><p>### </p>
+<h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><h3 id="1-无参数"><a href="#1-无参数" class="headerlink" title="1. 无参数"></a>1. 无参数</h3><ul>
+<li>语法：<code>new Date()</code></li>
+<li>返回一个Date对象，该对象表示实例化Date()时的时刻。</li>
+</ul>
+<h3 id="2-Unix时间戳"><a href="#2-Unix时间戳" class="headerlink" title="2. Unix时间戳"></a>2. Unix时间戳</h3><ul>
+<li>语法<code>new Date(timestamp)</code></li>
+<li>示例：<code>new Date((new Date()).getTime()-1000*60*60*24)</code>，获取表示昨天当前时刻的date对象。</li>
+<li>什么是Unix时间戳？一个 Unix 时间戳（Unix Time Stamp），它是一个整数值，表示自1970年1月1日00:00:00 UTC（the Unix epoch）以来的毫秒数，忽略了闰秒。</li>
+</ul>
+<h3 id="3-字符串（不建议）"><a href="#3-字符串（不建议）" class="headerlink" title="3. 字符串（不建议）"></a>3. 字符串（不建议）</h3><ul>
+<li>形式：<code>new Date(dateString)</code></li>
+<li>示例：<code>new Date(&#39;2020-03-16&#39;)</code>，获取表示当前日期、时间的小时数等于当前时区（博主是东八区），分、秒皆为0的时刻。该示例返回的时间日期为：<code>&quot;Sun Feb 02 2020 08:00:00 GMT+0800 (中国标准时间)&quot;</code></li>
+<li>字符串的要求：该dateString需要能被<code>date.parse()</code>识别。</li>
+</ul>
+<h3 id="4-提供时间与日期的每一项成员"><a href="#4-提供时间与日期的每一项成员" class="headerlink" title="4. 提供时间与日期的每一项成员"></a>4. 提供时间与日期的每一项成员</h3><ul>
+<li>语法：<code>new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])</code></li>
+<li>示例1：<code>new Date(2020,2)</code>，返回的date对象时间和日期为：<code>&quot;Sun Mar 01 2020 00:00:00 GMT+0800 (中国标准时间)&quot;</code><ul>
+<li><strong>注意1</strong>：月数的索引从0开始，与字符串形式的索引不一致。</li>
+<li><strong>注意2</strong>：时间默认从当前时区的0点开始。</li>
+</ul>
 </li>
-</ol>
-<h2 id="成功解决乱码。"><a href="#成功解决乱码。" class="headerlink" title="成功解决乱码。"></a>成功解决乱码。</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><h4 id="为什么要改变vimrc文件"><a href="#为什么要改变vimrc文件" class="headerlink" title="为什么要改变vimrc文件"></a>为什么要改变vimrc文件</h4><p><code>vimrc</code>文件用于初始化vim。使用vim时，vim会到指定目录下寻找vimrc并用其进行初始化。更多的内容见<code>:help vimrc</code>，通过<code>version</code>，可以看到vim规定的vimrc文件路径。例如我的：</p>
-<pre><code>system vimrc file: &quot;$VIM/vimrc&quot;
-user vimrc file: &quot;$HOME/.vimrc&quot;
-2nd user vimrc file: &quot;~/.vim/vimrc&quot;
-user exrc file: &quot;$HOME/.exrc&quot;
-fall-back for $VIM: &quot;/usr/share/vim&quot;
-</code></pre><h4 id="编辑内容的含义是什么？"><a href="#编辑内容的含义是什么？" class="headerlink" title="编辑内容的含义是什么？"></a>编辑内容的含义是什么？</h4><p>（1） 磁盘文件的字符编码<br>存放在磁盘上的文本文件，是按照一定的字符编码进行保存的，不同的文件可能使用了不同的字符编码。<br>这在VIM中被叫做：fileencoding。</p>
-<p>（2） VIM缓冲区以及界面的字符编码<br>VIM运行时，其菜单、标签、以及各个缓冲区统一使用一种字符编码方式。<br>这在VIM中被叫做：encoding。</p>
-<p>（3) 终端使用的字符编码<br>终端同一时刻只能使用一种字符编码，并按照这种编码从接收到的字节流中识别字符，并显示，终端的字符编码是可以动态调整的。<br>这在VIM中被叫做：termencoding。</p>
-<p>可以看出，VIM涉及到的3种字符编码之间的转换：<br>读：fileencoding—–&gt; encoding<br>显：encoding ——&gt; termencoding<br>写：encoding ——-&gt; fileencoding</p>
-<h4 id="那些字符编码"><a href="#那些字符编码" class="headerlink" title="那些字符编码"></a>那些字符编码</h4><p>UTF-8（8-bit Unicode Transformation Format）：是一种针对Unicode的可变长度字符编码，又称万国码。 支持中文。</p>
-<p>UCS（通用字符集）：包含了用于表达所有已知语言的字符，保证了与其他字符集的双向兼容， 是所有其他字符集标准的一个超集。支持中文。Unicode规范中推荐的标记字节顺序的方法是BOM。BOM是Byte Order Mark。在UCS编码中有一个叫做”ZERO WIDTH NO-BREAK SPACE”的字符，它的编码是FEFF。而FFFE在UCS中是不存在的字符，所以不应该出现在实际传输中。UCS规范建议我们在传输字节流前，先传输字符”ZERO WIDTH NO-BREAK SPACE”。这样如果接收者收到FEFF，就表明这个字节流是Big-Endian的；如果收到FFFE，就表明这个字节流是Little-Endian的。因此字符”ZERO WIDTH NO-BREAK SPACE”又被称作BOM。</p>
-<p>gb18030、gbk、gb2312肯定是支持中文的编码。</p>
-<p>CP936其实就是GBK，IBM在发明Code Page的时候将GBK放在第936页，所以叫CP936。</p>
-<p>参考资料： <a href="http://blog.csdn.net/smstong/article/details/51279810" target="_blank" rel="noopener">http://blog.csdn.net/smstong/article/details/51279810</a><br>参考资料： <a href="http://www.fmddlmyy.cn/text6.html" target="_blank" rel="noopener">http://www.fmddlmyy.cn/text6.html</a><br>参考资料： <a href="https://www.zhihu.com/question/35609295" target="_blank" rel="noopener">https://www.zhihu.com/question/35609295</a></p>
+<li>示例2：执行语句<code>new Date(2020,3,16)</code>返回的date对象的时间和日期为：<code>&quot;Thu Apr 16 2020 00:00:00 GMT+0800 (中国标准时间)&quot;</code></li>
+</ul>
+<h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><ul>
+<li><code>Date.now()</code>，返回自UTC时间1970-1-1 00:00:00至今所经过的毫秒数。<ul>
+<li>执行语句：<code>Date.now()</code>。执行结果：<code>1584452901581</code></li>
+</ul>
+</li>
+<li><code>Date.parse()</code>，解析一个表示日期的字符串，返回自UTC时间1970-1-1 00:00:00至今所经过的毫秒数。<ul>
+<li>执行语句：<code>Date.parse(&#39;2020-03-17&#39;)</code>，执行结果：<code>1584403200000</code></li>
+<li>执行语句：<code>(new Date(Date.parse(&quot;2020-03-17&quot;))).toString()</code>，执行结果：<code>&quot;Tue Mar 17 2020 08:00:00 GMT+0800 (中国标准时间)&quot;</code></li>
+<li><strong>不建议使用，因浏览器的实现有差异</strong></li>
+</ul>
+</li>
+<li><code>Date.UTC()</code>接受参数同构造器4“提供时间与日期的每一项成员”，返回自UTC时间1970-1-1 00:00:00至今所经过的毫秒数。<ul>
+<li>执行语句：<code>Date.parse(2020,02,17)</code>，执行结果：<code>1584403200000</code>。注意此处的月份索引从0开始。</li>
+<li>执行语句：<code>(new Date(Date.parse(2020,02,17))).toString()</code>，执行结果：<code>&quot;Tue Mar 17 2020 08:00:00 GMT+0800 (中国标准时间)&quot;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="Getter方法"><a href="#Getter方法" class="headerlink" title="Getter方法"></a>Getter方法</h2><h2 id="Setter方法"><a href="#Setter方法" class="headerlink" title="Setter方法"></a>Setter方法</h2><h2 id="转换型Getter方法"><a href="#转换型Getter方法" class="headerlink" title="转换型Getter方法"></a>转换型Getter方法</h2><h3 id="Date-prototype-toDateString"><a href="#Date-prototype-toDateString" class="headerlink" title="Date.prototype.toDateString()"></a><code>Date.prototype.toDateString()</code></h3><ul>
+<li>作用：以人类易读（human-readable）的形式返回该日期对象日期部分的字符串。</li>
+<li>执行语句：<code>(new Date()).toDateString()</code>。执行结果：<code>&quot;Tue Mar 17 2020&quot;</code></li>
+</ul>
+<h3 id="Date-prototype-toISOString"><a href="#Date-prototype-toISOString" class="headerlink" title="Date.prototype.toISOString()"></a><code>Date.prototype.toISOString()</code></h3><ul>
+<li>作用：把一个日期转换为符合 ISO 8601 扩展格式的字符串。》》》》》这里最好也做一个跳链。</li>
+<li>ISO 8601：由国际标准化组织（ISO）提出的编号为8601的标准。该标准的全部内容需要收费阅读，但作为开发我们只需要看万维网联盟（W3C）根据ISO内容制定的标准即可<a href="https://www.w3.org/TR/NOTE-datetime" target="_blank" rel="noopener">Date and Time Formats</a>。比较重要的内容如下：<ul>
+<li>完整的日期与时间格式，包含年、月、日、时、分、秒、秒的小数位和时区指示符：<code>YYYY-MM-DDThh:mm:ssTZD</code>，例如：<code>1997-07-16T19:20:30+01:00</code>。</li>
+<li>使用UTC时区，则显示时区指示符<code>Z</code></li>
+<li>使用本地时区，则显示时区指示符<code>+hh:mm</code>或<code>-hh:mm</code>。<code>+hh:mm</code>含义为”本地时区相较于UTC时区，要快hh个小时、mm分钟；<code>-hh:mm</code>含义为”本地时区相较于UTC时区要慢hh个小时、mm分钟”。</li>
+</ul>
+</li>
+<li>执行语句：<code>(new Date()).toISOString()</code>。执行结果：<code>&quot;2020-03-17T14:22:12.947Z&quot;</code>（注：此时本地时间为2020-03-17,22:22:12）</li>
+</ul>
+<h3 id="Date-prototype-toJSON"><a href="#Date-prototype-toJSON" class="headerlink" title="Date.prototype.toJSON()"></a><code>Date.prototype.toJSON()</code></h3><ul>
+<li>作用：使用 toISOString() 返回一个表示该日期的字符串。为了在 JSON.stringify() 方法中使用。</li>
+<li>调用<code>toJSON()</code>作用和调用<code>toISOString()</code>一样一样的。为什么呢？请看后文》》》》这里给个跳链。</li>
+<li>执行语句：<code>(new Date()).toJSON()</code>。执行结果：<code>&quot;2020-03-17T15:30:30.979Z&quot;</code>。</li>
+</ul>
+<h3 id="Date-prototype-toGMTString"><a href="#Date-prototype-toGMTString" class="headerlink" title="Date.prototype.toGMTString()"></a><code>Date.prototype.toGMTString()</code></h3><ul>
+<li>作用：返回一个基于 GMT (UT) 时区的字符串来表示该日期。<strong>mdn官方不建议使用，请使用 toUTCString() 方法代替。</strong></li>
+<li>执行语句：<code>(new Date()).toGMTString()</code>。执行结果：<code>&quot;Tue, 17 Mar 2020 15:37:56 GMT&quot;</code></li>
+</ul>
+<h3 id="Date-prototype-toLocaleDateString"><a href="#Date-prototype-toLocaleDateString" class="headerlink" title="Date.prototype.toLocaleDateString()"></a><code>Date.prototype.toLocaleDateString()</code></h3><ul>
+<li>作用：返回一个表示该日期对象日期部分的字符串，该字符串格式与系统设置的地区关联（locality sensitive）。</li>
+<li>执行语句：<code>(new Date()).toLocaleDateString()</code>。执行结果：<code>&quot;2020/3/18&quot;</code></li>
+</ul>
+<h3 id="Date-prototype-toLocaleString"><a href="#Date-prototype-toLocaleString" class="headerlink" title="Date.prototype.toLocaleString()"></a><code>Date.prototype.toLocaleString()</code></h3><ul>
+<li>作用：返回一个表示该日期对象的字符串，该字符串与系统设置的地区关联（locality sensitive）。覆盖了 Object.prototype.toLocaleString() 方法。</li>
+<li>执行语句：<code>(new Date()).toLocaleString()</code>。执行结果：<code>&quot;2020/3/18 下午11:45:03&quot;</code></li>
+</ul>
+<h3 id="Date-prototype-toLocaleTimeString"><a href="#Date-prototype-toLocaleTimeString" class="headerlink" title="Date.prototype.toLocaleTimeString()"></a><code>Date.prototype.toLocaleTimeString()</code></h3><ul>
+<li>作用：返回一个表示该日期对象时间部分的字符串，该字符串格式与系统设置的地区关联（locality sensitive）。</li>
+<li>执行语句：<code>(new Date()).toLocaleTimeString()</code>。执行结果：<code>&quot;下午11:47:12&quot;</code></li>
+</ul>
+<h3 id="Date-prototype-toString"><a href="#Date-prototype-toString" class="headerlink" title="Date.prototype.toString()"></a><code>Date.prototype.toString()</code></h3><ul>
+<li>作用：返回一个表示该日期对象的字符串。覆盖了Object.prototype.toString() 方法。</li>
+<li>执行语句：<code>(new Date()).toString()</code>。执行结果：<code>&quot;Wed Mar 18 2020 23:48:31 GMT+0800 (中国标准时间)&quot;</code></li>
+</ul>
+<h3 id="Date-prototype-toTimeString"><a href="#Date-prototype-toTimeString" class="headerlink" title="Date.prototype.toTimeString()"></a><code>Date.prototype.toTimeString()</code></h3><ul>
+<li>作用：以人类易读格式返回日期对象时间部分的字符串。</li>
+<li>执行语句：<code>(new Date()).toTimeString()</code>。执行结果：<code>&quot;23:50:22 GMT+0800 (中国标准时间)&quot;</code></li>
+</ul>
+<h3 id="Date-prototype-toUTCString"><a href="#Date-prototype-toUTCString" class="headerlink" title="Date.prototype.toUTCString()"></a><code>Date.prototype.toUTCString()</code></h3><ul>
+<li>作用：把一个日期对象转换为一个以UTC时区计时的字符串。</li>
+<li>执行语句：<code>(new Date()).toUTCString()</code>。执行结果：<code>&quot;Wed, 18 Mar 2020 15:51:49 GMT&quot;</code></li>
+</ul>
+<h3 id="Date-prototype-valueOf"><a href="#Date-prototype-valueOf" class="headerlink" title="Date.prototype.valueOf"></a><code>Date.prototype.valueOf</code></h3><ul>
+<li>作用：返回一个日期对象的原始值。覆盖了 Object.prototype.valueOf() 方法。</li>
+<li>执行语句：<code>(new Date()).valueOf()</code>。执行结果：<code>1584546764856</code></li>
+</ul>
 
         </div>
     
@@ -509,8 +541,8 @@ fall-back for $VIM: &quot;/usr/share/vim&quot;
     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2017/10/27/vim中文乱码的解决方案/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://yoursite.com/2017/10/27/vim中文乱码的解决方案/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://yoursite.com/temp/JS Date对象.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/temp/JS Date对象.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script type="text/ls-javascript" id="disqus-thread-script">
@@ -540,27 +572,11 @@ fall-back for $VIM: &quot;/usr/share/vim&quot;
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2018/04/23/daydream/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
-    
-        <a href="/2017/10/14/换行造成空格间距的解决方案/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
     
 </nav>
 

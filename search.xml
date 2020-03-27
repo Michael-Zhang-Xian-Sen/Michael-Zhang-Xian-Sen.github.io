@@ -3,6 +3,48 @@
   
     
     <entry>
+      <title>CSS的那些坑</title>
+      <link href="/2020/03/27/CSS%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/"/>
+      <content type="html"><![CDATA[<p>css中的坑不少啊。</p><a id="more"></a><h3 id="font-size"><a href="#font-size" class="headerlink" title="font-size"></a>font-size</h3><ol><li>webkit内核的浏览器中，该属性不支持小于<code>12px</code>的值。若要将字体设置的更小，可以使用css3中的<code>transform:scale()</code>。</li></ol>]]></content>
+      
+      <categories>
+          
+          <category> css </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> css </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>ES6：let和const关键字的总结</title>
+      <link href="/2020/03/23/ES6%EF%BC%9Alet%E5%92%8Cconst%E5%85%B3%E9%94%AE%E5%AD%97%E7%9A%84%E6%80%BB%E7%BB%93/"/>
+      <content type="html"><![CDATA[<h2 id="let总结"><a href="#let总结" class="headerlink" title="let总结"></a>let总结</h2><p>let关键字：其所声明的变量，只在let命令所在的代码块内有效。</p><ol><li>暂时性死区（TDZ,Temporal Dead Zone），避免了使用var时出现的变量提升现象。</li><li>不允许重复声明。</li><li>在一些场景下取代了匿名立即执行函数（IIFE）。</li><li>结合块级作用域的用法。<ul><li>块级作用域必须有大括号，如果没有大括号，JavaScript 引擎就认为不存在块级作用域。</li><li>使用let声明的变量，块外无法引用。</li><li>块内声明定义的函数，块外无法使用。（浏览器的实现有偏差）（应该避免在块级作用域内声明函数。在一定要声明函数的情况下，采用块级作用域的形式）</li></ul></li><li>声明的全局变量，不属于顶层对象的属性</li></ol><h2 id="const总结"><a href="#const总结" class="headerlink" title="const总结"></a>const总结</h2><p>const关键字：声明只读常量。一旦声明，常量的值就不能改变。</p><p>本质：变量指向的那个内存地址所保存的数据不得改动。</p><ol><li>声明时必须初始化。</li><li>只在声明所在的块级作用域中有效。</li><li>存在暂时性死区现象。</li><li>不可重复声明。</li><li>声明的全局变量，不属于顶层对象的属性。</li></ol>]]></content>
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+            <tag> let </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>MySQL小记</title>
       <link href="/2020/03/15/Mysql%E5%B0%8F%E8%AE%B0/"/>
       <content type="html"><![CDATA[<p>记录使用mysql时常用的语法、函数和语句。</p><a id="more"></a><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><h3 id="case-when语句"><a href="#case-when语句" class="headerlink" title="case when语句"></a>case when语句</h3><ul><li>用于计算条件列表并返回多个可能结果表达式之一。</li><li>有两种形式，<strong>简单case函数</strong>和<strong>case搜索函数</strong></li></ul><h4 id="1-简单case函数"><a href="#1-简单case函数" class="headerlink" title="1. 简单case函数"></a>1. 简单case函数</h4><p>语法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CASE input_expression</span><br><span class="line">    WHEN when_expression THEN result_expression</span><br><span class="line">        [ ...n ]</span><br><span class="line">    [</span><br><span class="line">        ELSE else_result_expression</span><br><span class="line">    END</span><br></pre></td></tr></table></figure></p><h4 id="2-case搜索函数"><a href="#2-case搜索函数" class="headerlink" title="2. case搜索函数"></a>2. case搜索函数</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CASE   </span><br><span class="line">WHEN Boolean_expression THEN result_expression</span><br><span class="line">        [ ...n ]</span><br><span class="line">    [</span><br><span class="line">        ELSE else_result_expression</span><br><span class="line">    END</span><br></pre></td></tr></table></figure><h2 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h2><h3 id="1-convert"><a href="#1-convert" class="headerlink" title="1. convert()"></a>1. convert()</h3><p>把字段转换成指定类型。</p><h3 id="2-concat"><a href="#2-concat" class="headerlink" title="2. concat()"></a>2. concat()</h3><ul><li>作用：拼接字符串。</li><li>语法：concat(str1,str2)</li></ul><h3 id="3-dayofweek"><a href="#3-dayofweek" class="headerlink" title="3. dayofweek()"></a>3. dayofweek()</h3><ul><li>作用：返回指定日期的工作日索引（即指定日期是一周中的第几天）。其中1是周日，2是周一，以此类推…7是周六。</li><li>语法：dayofweek(date)</li></ul><h3 id="4-dayofmonth"><a href="#4-dayofmonth" class="headerlink" title="4. dayofmonth()"></a>4. dayofmonth()</h3><ul><li>作用：返回指定日期所在月的天数的索引（即指定日期是一个月中的第几天）。范围为1到31。</li><li>语法：dayofmonth(date)</li></ul><h3 id="5-dayofyear"><a href="#5-dayofyear" class="headerlink" title="5. dayofyear()"></a>5. dayofyear()</h3><ul><li>作用：返回指定日期date所在年的天数的索引（即指定日期是一年中的第几天）。范围为1到366。</li><li>语法：dayofyear(date)</li></ul><h3 id="6-weekofyear"><a href="#6-weekofyear" class="headerlink" title="6. weekofyear()"></a>6. weekofyear()</h3><ul><li>作用：返回指定日期所在的星期是这一年的第几个星期。范围为1到53.</li><li>语法：weekofyear(date)</li></ul><h3 id="7-adddate-date-INTERVAL-expr-unit"><a href="#7-adddate-date-INTERVAL-expr-unit" class="headerlink" title="7. adddate(date,INTERVAL expr unit)"></a>7. adddate(date,INTERVAL expr unit)</h3><ul><li>作用：修改时间。向指定的日期添加指定的时间。</li><li>语法：adddate(date,INTERVAL expr unit)</li></ul><h3 id="8-curdate"><a href="#8-curdate" class="headerlink" title="8. curdate()"></a>8. curdate()</h3><ul><li>作用：返回当前的日期。</li><li>语法：curdate()</li></ul><h3 id="9-year"><a href="#9-year" class="headerlink" title="9. year()"></a>9. year()</h3><ul><li>作用：返回指定日期的年份。</li><li>语法：year(date)</li></ul><h3 id="10-month"><a href="#10-month" class="headerlink" title="10. month()"></a>10. month()</h3><ul><li>作用：返回指定日期的月份。</li><li>语法：month(date)</li></ul><h3 id="11-quarter"><a href="#11-quarter" class="headerlink" title="11. quarter()"></a>11. quarter()</h3><ul><li>作用：返回指定日期在一年中的季度。</li><li>语法：quarter(date)</li></ul><h3 id="12-sign"><a href="#12-sign" class="headerlink" title="12. sign()"></a>12. sign()</h3><ul><li>作用：根据X是负数、零或正数，将参数的符号返回为-1、0、或1</li><li>语法：sign(x)</li></ul><h2 id="常用语句"><a href="#常用语句" class="headerlink" title="常用语句"></a>常用语句</h2><ol><li>修改自增字段的起始值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER table table_name</span><br><span class="line">AUTO_INCREMENT=起始值</span><br></pre></td></tr></table></figure></li></ol>]]></content>
@@ -36,9 +78,9 @@
       
         <tags>
             
-            <tag> 环境搭建 </tag>
-            
             <tag> mysql </tag>
+            
+            <tag> 环境搭建 </tag>
             
         </tags>
       
@@ -120,9 +162,9 @@
       
         <tags>
             
-            <tag> 读书笔记 </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> 读书笔记 </tag>
             
         </tags>
       
@@ -191,7 +233,7 @@
     <entry>
       <title>vim中文乱码的解决方案</title>
       <link href="/2017/10/27/vim%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-      <content type="html"><![CDATA[<p>「封面图来自：VIM图标」</p><a id="more"></a><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>出现上述现象是编码出了问题。</p><ol><li>执行<code>sudo vim ~/.vimrc</code></li><li><p>输入</p><p> set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936<br> set termencoding=utf-8<br> set encoding=utf-8</p></li></ol><h2 id="成功解决乱码。"><a href="#成功解决乱码。" class="headerlink" title="成功解决乱码。"></a>成功解决乱码。</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><h4 id="为什么要改变vimrc文件"><a href="#为什么要改变vimrc文件" class="headerlink" title="为什么要改变vimrc文件"></a>为什么要改变vimrc文件</h4><p><code>vimrc</code>文件用于初始化vim。使用vim时，vim会到指定目录下寻找vimrc并用其进行初始化。更多的内容见<code>:help vimrc</code>，通过<code>version</code>，可以看到vim规定的vimrc文件路径。例如我的：</p><pre><code>system vimrc file: &quot;$VIM/vimrc&quot;user vimrc file: &quot;$HOME/.vimrc&quot;2nd user vimrc file: &quot;~/.vim/vimrc&quot;user exrc file: &quot;$HOME/.exrc&quot;fall-back for $VIM: &quot;/usr/share/vim&quot;</code></pre><h4 id="编辑内容的含义是什么？"><a href="#编辑内容的含义是什么？" class="headerlink" title="编辑内容的含义是什么？"></a>编辑内容的含义是什么？</h4><p>（1） 磁盘文件的字符编码<br>存放在磁盘上的文本文件，是按照一定的字符编码进行保存的，不同的文件可能使用了不同的字符编码。<br>这在VIM中被叫做：fileencoding。</p><p>（2） VIM缓冲区以及界面的字符编码<br>VIM运行时，其菜单、标签、以及各个缓冲区统一使用一种字符编码方式。<br>这在VIM中被叫做：encoding。</p><p>（3) 终端使用的字符编码<br>终端同一时刻只能使用一种字符编码，并按照这种编码从接收到的字节流中识别字符，并显示，终端的字符编码是可以动态调整的。<br>这在VIM中被叫做：termencoding。</p><p>可以看出，VIM涉及到的3种字符编码之间的转换：<br>读：fileencoding—–&gt; encoding<br>显：encoding ——&gt; termencoding<br>写：encoding ——-&gt; fileencoding</p><h4 id="那些字符编码"><a href="#那些字符编码" class="headerlink" title="那些字符编码"></a>那些字符编码</h4><p>UTF-8（8-bit Unicode Transformation Format）：是一种针对Unicode的可变长度字符编码，又称万国码。 支持中文。</p><p>UCS（通用字符集）：包含了用于表达所有已知语言的字符，保证了与其他字符集的双向兼容， 是所有其他字符集标准的一个超集。支持中文。Unicode规范中推荐的标记字节顺序的方法是BOM。BOM是Byte Order Mark。在UCS编码中有一个叫做”ZERO WIDTH NO-BREAK SPACE”的字符，它的编码是FEFF。而FFFE在UCS中是不存在的字符，所以不应该出现在实际传输中。UCS规范建议我们在传输字节流前，先传输字符”ZERO WIDTH NO-BREAK SPACE”。这样如果接收者收到FEFF，就表明这个字节流是Big-Endian的；如果收到FFFE，就表明这个字节流是Little-Endian的。因此字符”ZERO WIDTH NO-BREAK SPACE”又被称作BOM。</p><p>gb18030、gbk、gb2312肯定是支持中文的编码。</p><p>CP936其实就是GBK，IBM在发明Code Page的时候将GBK放在第936页，所以叫CP936。</p><p>参考资料： <a href="http://blog.csdn.net/smstong/article/details/51279810" target="_blank" rel="noopener">http://blog.csdn.net/smstong/article/details/51279810</a><br>参考资料： <a href="http://www.fmddlmyy.cn/text6.html" target="_blank" rel="noopener">http://www.fmddlmyy.cn/text6.html</a><br>参考资料： <a href="https://www.zhihu.com/question/35609295" target="_blank" rel="noopener">https://www.zhihu.com/question/35609295</a></p>]]></content>
+      <content type="html"><![CDATA[<p>「封面图：VIM图标」</p><a id="more"></a><h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>出现上述现象是编码出了问题。</p><ol><li>执行<code>sudo vim ~/.vimrc</code></li><li><p>输入</p><p> set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936<br> set termencoding=utf-8<br> set encoding=utf-8</p></li></ol><h2 id="成功解决乱码。"><a href="#成功解决乱码。" class="headerlink" title="成功解决乱码。"></a>成功解决乱码。</h2><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><h4 id="为什么要改变vimrc文件"><a href="#为什么要改变vimrc文件" class="headerlink" title="为什么要改变vimrc文件"></a>为什么要改变vimrc文件</h4><p><code>vimrc</code>文件用于初始化vim。使用vim时，vim会到指定目录下寻找vimrc并用其进行初始化。更多的内容见<code>:help vimrc</code>，通过<code>version</code>，可以看到vim规定的vimrc文件路径。例如我的：</p><pre><code>system vimrc file: &quot;$VIM/vimrc&quot;user vimrc file: &quot;$HOME/.vimrc&quot;2nd user vimrc file: &quot;~/.vim/vimrc&quot;user exrc file: &quot;$HOME/.exrc&quot;fall-back for $VIM: &quot;/usr/share/vim&quot;</code></pre><h4 id="编辑内容的含义是什么？"><a href="#编辑内容的含义是什么？" class="headerlink" title="编辑内容的含义是什么？"></a>编辑内容的含义是什么？</h4><p>（1） 磁盘文件的字符编码<br>存放在磁盘上的文本文件，是按照一定的字符编码进行保存的，不同的文件可能使用了不同的字符编码。<br>这在VIM中被叫做：fileencoding。</p><p>（2） VIM缓冲区以及界面的字符编码<br>VIM运行时，其菜单、标签、以及各个缓冲区统一使用一种字符编码方式。<br>这在VIM中被叫做：encoding。</p><p>（3) 终端使用的字符编码<br>终端同一时刻只能使用一种字符编码，并按照这种编码从接收到的字节流中识别字符，并显示，终端的字符编码是可以动态调整的。<br>这在VIM中被叫做：termencoding。</p><p>可以看出，VIM涉及到的3种字符编码之间的转换：<br>读：fileencoding—–&gt; encoding<br>显：encoding ——&gt; termencoding<br>写：encoding ——-&gt; fileencoding</p><h4 id="那些字符编码"><a href="#那些字符编码" class="headerlink" title="那些字符编码"></a>那些字符编码</h4><p>UTF-8（8-bit Unicode Transformation Format）：是一种针对Unicode的可变长度字符编码，又称万国码。 支持中文。</p><p>UCS（通用字符集）：包含了用于表达所有已知语言的字符，保证了与其他字符集的双向兼容， 是所有其他字符集标准的一个超集。支持中文。Unicode规范中推荐的标记字节顺序的方法是BOM。BOM是Byte Order Mark。在UCS编码中有一个叫做”ZERO WIDTH NO-BREAK SPACE”的字符，它的编码是FEFF。而FFFE在UCS中是不存在的字符，所以不应该出现在实际传输中。UCS规范建议我们在传输字节流前，先传输字符”ZERO WIDTH NO-BREAK SPACE”。这样如果接收者收到FEFF，就表明这个字节流是Big-Endian的；如果收到FFFE，就表明这个字节流是Little-Endian的。因此字符”ZERO WIDTH NO-BREAK SPACE”又被称作BOM。</p><p>gb18030、gbk、gb2312肯定是支持中文的编码。</p><p>CP936其实就是GBK，IBM在发明Code Page的时候将GBK放在第936页，所以叫CP936。</p><p>参考资料： <a href="http://blog.csdn.net/smstong/article/details/51279810" target="_blank" rel="noopener">http://blog.csdn.net/smstong/article/details/51279810</a><br>参考资料： <a href="http://www.fmddlmyy.cn/text6.html" target="_blank" rel="noopener">http://www.fmddlmyy.cn/text6.html</a><br>参考资料： <a href="https://www.zhihu.com/question/35609295" target="_blank" rel="noopener">https://www.zhihu.com/question/35609295</a></p>]]></content>
       
       <categories>
           
@@ -286,9 +328,9 @@
       
         <tags>
             
-            <tag> 读书笔记 </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> 读书笔记 </tag>
             
         </tags>
       
@@ -340,15 +382,27 @@
   
     
     <entry>
-      <title>关于我</title>
-      <link href="/about/index.html"/>
-      <content type="html"><![CDATA[<p>要么就不做，要么就做到极致。</p>]]></content>
+      <title></title>
+      <link href="/temp/PS%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"/>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/git%E5%B0%8F%E8%AE%B0.html"/>
+      <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
       <title>links</title>
       <link href="/links/index.html"/>
       <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
+      <title>关于我</title>
+      <link href="/about/index.html"/>
+      <content type="html"><![CDATA[<p>要么就不做，要么就做到极致。</p>]]></content>
     </entry>
     
     <entry>
@@ -364,9 +418,15 @@
     </entry>
     
     <entry>
-      <title></title>
-      <link href="/temp/vue%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3.html"/>
-      <content type="html"><![CDATA[<h2 id="做项目中遇到的一些问题"><a href="#做项目中遇到的一些问题" class="headerlink" title="做项目中遇到的一些问题"></a>做项目中遇到的一些问题</h2><h3 id="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"><a href="#如何对使用父组件通过v-bind传递给子组件的数据进行过滤？" class="headerlink" title="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"></a>如何对使用父组件通过v-bind传递给子组件的数据进行过滤？</h3><h4 id="方案1-使用过滤器。"><a href="#方案1-使用过滤器。" class="headerlink" title="方案1:使用过滤器。"></a>方案1:使用过滤器。</h4><p>vue文档中指出过滤器可以用在两个地方：1. 双花括号差值。 2. v-bind表达式</p>]]></content>
+      <title>初识uri scheme</title>
+      <link href="/temp/schema.html"/>
+      <content type="html"><![CDATA[<p>初识scheme</p><a id="more"></a><p>uri scheme即uri方案。指URi命名结构的第一级。</p>]]></content>
+    </entry>
+    
+    <entry>
+      <title>JavaScript中的Date对象及其常用方法总结</title>
+      <link href="/temp/JS%20Date%E5%AF%B9%E8%B1%A1.html"/>
+      <content type="html"><![CDATA[<p>本文主要总结了理解和使用Date对象的几个关键的常识性问题，然后根据mdn整理并运行了Date对象的所有方法。</p><a id="more"></a><p>Date()对象表示某个时刻。</p><h2 id="关于Date对象，比较关键的几个问题。"><a href="#关于Date对象，比较关键的几个问题。" class="headerlink" title="关于Date对象，比较关键的几个问题。"></a>关于Date对象，比较关键的几个问题。</h2><h3 id="UTC和GMT的区别？"><a href="#UTC和GMT的区别？" class="headerlink" title="UTC和GMT的区别？"></a>UTC和GMT的区别？</h3><p>### </p><h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><h3 id="1-无参数"><a href="#1-无参数" class="headerlink" title="1. 无参数"></a>1. 无参数</h3><ul><li>语法：<code>new Date()</code></li><li>返回一个Date对象，该对象表示实例化Date()时的时刻。</li></ul><h3 id="2-Unix时间戳"><a href="#2-Unix时间戳" class="headerlink" title="2. Unix时间戳"></a>2. Unix时间戳</h3><ul><li>语法<code>new Date(timestamp)</code></li><li>示例：<code>new Date((new Date()).getTime()-1000*60*60*24)</code>，获取表示昨天当前时刻的date对象。</li><li>什么是Unix时间戳？一个 Unix 时间戳（Unix Time Stamp），它是一个整数值，表示自1970年1月1日00:00:00 UTC（the Unix epoch）以来的毫秒数，忽略了闰秒。</li></ul><h3 id="3-字符串（不建议）"><a href="#3-字符串（不建议）" class="headerlink" title="3. 字符串（不建议）"></a>3. 字符串（不建议）</h3><ul><li>形式：<code>new Date(dateString)</code></li><li>示例：<code>new Date(&#39;2020-03-16&#39;)</code>，获取表示当前日期、时间的小时数等于当前时区（博主是东八区），分、秒皆为0的时刻。该示例返回的时间日期为：<code>&quot;Sun Feb 02 2020 08:00:00 GMT+0800 (中国标准时间)&quot;</code></li><li>字符串的要求：该dateString需要能被<code>date.parse()</code>识别。</li></ul><h3 id="4-提供时间与日期的每一项成员"><a href="#4-提供时间与日期的每一项成员" class="headerlink" title="4. 提供时间与日期的每一项成员"></a>4. 提供时间与日期的每一项成员</h3><ul><li>语法：<code>new Date(year, monthIndex [, day [, hours [, minutes [, seconds [, milliseconds]]]]])</code></li><li>示例1：<code>new Date(2020,2)</code>，返回的date对象时间和日期为：<code>&quot;Sun Mar 01 2020 00:00:00 GMT+0800 (中国标准时间)&quot;</code><ul><li><strong>注意1</strong>：月数的索引从0开始，与字符串形式的索引不一致。</li><li><strong>注意2</strong>：时间默认从当前时区的0点开始。</li></ul></li><li>示例2：执行语句<code>new Date(2020,3,16)</code>返回的date对象的时间和日期为：<code>&quot;Thu Apr 16 2020 00:00:00 GMT+0800 (中国标准时间)&quot;</code></li></ul><h2 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h2><ul><li><code>Date.now()</code>，返回自UTC时间1970-1-1 00:00:00至今所经过的毫秒数。<ul><li>执行语句：<code>Date.now()</code>。执行结果：<code>1584452901581</code></li></ul></li><li><code>Date.parse()</code>，解析一个表示日期的字符串，返回自UTC时间1970-1-1 00:00:00至今所经过的毫秒数。<ul><li>执行语句：<code>Date.parse(&#39;2020-03-17&#39;)</code>，执行结果：<code>1584403200000</code></li><li>执行语句：<code>(new Date(Date.parse(&quot;2020-03-17&quot;))).toString()</code>，执行结果：<code>&quot;Tue Mar 17 2020 08:00:00 GMT+0800 (中国标准时间)&quot;</code></li><li><strong>不建议使用，因浏览器的实现有差异</strong></li></ul></li><li><code>Date.UTC()</code>接受参数同构造器4“提供时间与日期的每一项成员”，返回自UTC时间1970-1-1 00:00:00至今所经过的毫秒数。<ul><li>执行语句：<code>Date.parse(2020,02,17)</code>，执行结果：<code>1584403200000</code>。注意此处的月份索引从0开始。</li><li>执行语句：<code>(new Date(Date.parse(2020,02,17))).toString()</code>，执行结果：<code>&quot;Tue Mar 17 2020 08:00:00 GMT+0800 (中国标准时间)&quot;</code></li></ul></li></ul><h2 id="Getter方法"><a href="#Getter方法" class="headerlink" title="Getter方法"></a>Getter方法</h2><h2 id="Setter方法"><a href="#Setter方法" class="headerlink" title="Setter方法"></a>Setter方法</h2><h2 id="转换型Getter方法"><a href="#转换型Getter方法" class="headerlink" title="转换型Getter方法"></a>转换型Getter方法</h2><h3 id="Date-prototype-toDateString"><a href="#Date-prototype-toDateString" class="headerlink" title="Date.prototype.toDateString()"></a><code>Date.prototype.toDateString()</code></h3><ul><li>作用：以人类易读（human-readable）的形式返回该日期对象日期部分的字符串。</li><li>执行语句：<code>(new Date()).toDateString()</code>。执行结果：<code>&quot;Tue Mar 17 2020&quot;</code></li></ul><h3 id="Date-prototype-toISOString"><a href="#Date-prototype-toISOString" class="headerlink" title="Date.prototype.toISOString()"></a><code>Date.prototype.toISOString()</code></h3><ul><li>作用：把一个日期转换为符合 ISO 8601 扩展格式的字符串。》》》》》这里最好也做一个跳链。</li><li>ISO 8601：由国际标准化组织（ISO）提出的编号为8601的标准。该标准的全部内容需要收费阅读，但作为开发我们只需要看万维网联盟（W3C）根据ISO内容制定的标准即可<a href="https://www.w3.org/TR/NOTE-datetime" target="_blank" rel="noopener">Date and Time Formats</a>。比较重要的内容如下：<ul><li>完整的日期与时间格式，包含年、月、日、时、分、秒、秒的小数位和时区指示符：<code>YYYY-MM-DDThh:mm:ssTZD</code>，例如：<code>1997-07-16T19:20:30+01:00</code>。</li><li>使用UTC时区，则显示时区指示符<code>Z</code></li><li>使用本地时区，则显示时区指示符<code>+hh:mm</code>或<code>-hh:mm</code>。<code>+hh:mm</code>含义为”本地时区相较于UTC时区，要快hh个小时、mm分钟；<code>-hh:mm</code>含义为”本地时区相较于UTC时区要慢hh个小时、mm分钟”。</li></ul></li><li>执行语句：<code>(new Date()).toISOString()</code>。执行结果：<code>&quot;2020-03-17T14:22:12.947Z&quot;</code>（注：此时本地时间为2020-03-17,22:22:12）</li></ul><h3 id="Date-prototype-toJSON"><a href="#Date-prototype-toJSON" class="headerlink" title="Date.prototype.toJSON()"></a><code>Date.prototype.toJSON()</code></h3><ul><li>作用：使用 toISOString() 返回一个表示该日期的字符串。为了在 JSON.stringify() 方法中使用。</li><li>调用<code>toJSON()</code>作用和调用<code>toISOString()</code>一样一样的。为什么呢？请看后文》》》》这里给个跳链。</li><li>执行语句：<code>(new Date()).toJSON()</code>。执行结果：<code>&quot;2020-03-17T15:30:30.979Z&quot;</code>。</li></ul><h3 id="Date-prototype-toGMTString"><a href="#Date-prototype-toGMTString" class="headerlink" title="Date.prototype.toGMTString()"></a><code>Date.prototype.toGMTString()</code></h3><ul><li>作用：返回一个基于 GMT (UT) 时区的字符串来表示该日期。<strong>mdn官方不建议使用，请使用 toUTCString() 方法代替。</strong></li><li>执行语句：<code>(new Date()).toGMTString()</code>。执行结果：<code>&quot;Tue, 17 Mar 2020 15:37:56 GMT&quot;</code></li></ul><h3 id="Date-prototype-toLocaleDateString"><a href="#Date-prototype-toLocaleDateString" class="headerlink" title="Date.prototype.toLocaleDateString()"></a><code>Date.prototype.toLocaleDateString()</code></h3><ul><li>作用：返回一个表示该日期对象日期部分的字符串，该字符串格式与系统设置的地区关联（locality sensitive）。</li><li>执行语句：<code>(new Date()).toLocaleDateString()</code>。执行结果：<code>&quot;2020/3/18&quot;</code></li></ul><h3 id="Date-prototype-toLocaleString"><a href="#Date-prototype-toLocaleString" class="headerlink" title="Date.prototype.toLocaleString()"></a><code>Date.prototype.toLocaleString()</code></h3><ul><li>作用：返回一个表示该日期对象的字符串，该字符串与系统设置的地区关联（locality sensitive）。覆盖了 Object.prototype.toLocaleString() 方法。</li><li>执行语句：<code>(new Date()).toLocaleString()</code>。执行结果：<code>&quot;2020/3/18 下午11:45:03&quot;</code></li></ul><h3 id="Date-prototype-toLocaleTimeString"><a href="#Date-prototype-toLocaleTimeString" class="headerlink" title="Date.prototype.toLocaleTimeString()"></a><code>Date.prototype.toLocaleTimeString()</code></h3><ul><li>作用：返回一个表示该日期对象时间部分的字符串，该字符串格式与系统设置的地区关联（locality sensitive）。</li><li>执行语句：<code>(new Date()).toLocaleTimeString()</code>。执行结果：<code>&quot;下午11:47:12&quot;</code></li></ul><h3 id="Date-prototype-toString"><a href="#Date-prototype-toString" class="headerlink" title="Date.prototype.toString()"></a><code>Date.prototype.toString()</code></h3><ul><li>作用：返回一个表示该日期对象的字符串。覆盖了Object.prototype.toString() 方法。</li><li>执行语句：<code>(new Date()).toString()</code>。执行结果：<code>&quot;Wed Mar 18 2020 23:48:31 GMT+0800 (中国标准时间)&quot;</code></li></ul><h3 id="Date-prototype-toTimeString"><a href="#Date-prototype-toTimeString" class="headerlink" title="Date.prototype.toTimeString()"></a><code>Date.prototype.toTimeString()</code></h3><ul><li>作用：以人类易读格式返回日期对象时间部分的字符串。</li><li>执行语句：<code>(new Date()).toTimeString()</code>。执行结果：<code>&quot;23:50:22 GMT+0800 (中国标准时间)&quot;</code></li></ul><h3 id="Date-prototype-toUTCString"><a href="#Date-prototype-toUTCString" class="headerlink" title="Date.prototype.toUTCString()"></a><code>Date.prototype.toUTCString()</code></h3><ul><li>作用：把一个日期对象转换为一个以UTC时区计时的字符串。</li><li>执行语句：<code>(new Date()).toUTCString()</code>。执行结果：<code>&quot;Wed, 18 Mar 2020 15:51:49 GMT&quot;</code></li></ul><h3 id="Date-prototype-valueOf"><a href="#Date-prototype-valueOf" class="headerlink" title="Date.prototype.valueOf"></a><code>Date.prototype.valueOf</code></h3><ul><li>作用：返回一个日期对象的原始值。覆盖了 Object.prototype.valueOf() 方法。</li><li>执行语句：<code>(new Date()).valueOf()</code>。执行结果：<code>1584546764856</code></li></ul>]]></content>
     </entry>
     
     <entry>
@@ -395,14 +455,44 @@
     
     <entry>
       <title></title>
+      <link href="/temp/web%E7%AB%AF%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83.html"/>
+      <content type="html"><![CDATA[<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>中文：微软雅黑字体。<br>英文：arial字体。</p><h3 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h3><p>12px：网页的最小字体，突出性的日期、版权等注释性内容。<br>14px：适用于非突出的普通正文内容。<br>16px：突出性的标题内容。</p><h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>黑</p><ul><li>#999999;</li><li>#666666;</li><li>#333333;</li></ul><p>灰</p><ul><li>#8a9699;</li><li>#5c6466;</li><li>#2e3233;</li></ul>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/%E5%89%8D%E5%90%8E%E7%AB%AF%E8%B7%A8%E5%9F%9F%E6%96%B9%E6%A1%88%E6%95%B4%E7%90%86.html"/>
+      <content type="html"><![CDATA[<h3 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h3><h3 id="跨域问题的根源：同源策略"><a href="#跨域问题的根源：同源策略" class="headerlink" title="跨域问题的根源：同源策略"></a>跨域问题的根源：同源策略</h3><p>同源指的是<strong>域名（或IP）</strong>，<strong>协议</strong>，<strong>端口</strong>都相同，不同源的客户端脚本(javascript、ActionScript)在没明确授权的情况下，不能读写对方的资源。</p>]]></content>
+    </entry>
+    
+    <entry>
+      <title>跨域</title>
+      <link href="/temp/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5.html"/>
+      <content type="html"><![CDATA[<h2 id="为什么跨域会出现问题？"><a href="#为什么跨域会出现问题？" class="headerlink" title="为什么跨域会出现问题？"></a>为什么跨域会出现问题？</h2><p>同源策略（Same origin policy）内容有二：</p><ol><li>禁止使用 XHR 对象向不同源的服务器地址发起 HTTP 请求。</li><li>禁止对不同源页面 DOM 进行操作。这里主要场景是 iframe 跨域的情况，不同域名的 iframe 是限制互相访问的。</li></ol><p>同源指：域名、协议、端口相同。</p><h2 id="如何解决？"><a href="#如何解决？" class="headerlink" title="如何解决？"></a>如何解决？</h2><h3 id="1-CORS（Cross-origin-resource-sharing，跨域资源共享）"><a href="#1-CORS（Cross-origin-resource-sharing，跨域资源共享）" class="headerlink" title="1. CORS（Cross-origin resource sharing，跨域资源共享）"></a>1. CORS（Cross-origin resource sharing，跨域资源共享）</h3><p>本质：使用自定义的 HTTP 头部让浏览器与服务器进行沟通，从而决定请求或响应是应该成功，还是应该失败。</p>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/vue%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3.html"/>
+      <content type="html"><![CDATA[<h2 id="做项目中遇到的一些问题"><a href="#做项目中遇到的一些问题" class="headerlink" title="做项目中遇到的一些问题"></a>做项目中遇到的一些问题</h2><h3 id="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"><a href="#如何对使用父组件通过v-bind传递给子组件的数据进行过滤？" class="headerlink" title="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"></a>如何对使用父组件通过v-bind传递给子组件的数据进行过滤？</h3><h4 id="方案1-使用过滤器。"><a href="#方案1-使用过滤器。" class="headerlink" title="方案1:使用过滤器。"></a>方案1:使用过滤器。</h4><p>vue文档中指出过滤器可以用在两个地方：1. 双花括号差值。 2. v-bind表达式</p>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/%E5%85%B3%E4%BA%8Enpm.html"/>
+      <content type="html"><![CDATA[<h2 id="关于npx"><a href="#关于npx" class="headerlink" title="关于npx"></a>关于npx</h2><ul><li>npx 想要解决的主要问题，就是调用项目内部安装的模块。</li><li>npx还可以安装模块，且默认不是全局安装，而是安装到一个临时目录，用完即删。可以通过命令进行指定是否使用本地的模块而不是安装模块（–no-install）、强制安装并使用远程模块（–ignore-existing）</li><li><code>-p</code>参数，指定要安装的模块。</li><li><code>-c</code>参数，使得所有命令交由npx解释。</li><li>npx还可以远程执行github源码。</li><li>npm从5.2版本开始支持npx。</li></ul><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li>阮一峰的npx使用教程：<a href="http://www.ruanyifeng.com/blog/2019/02/npx.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/02/npx.html</a></li></ul>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
       <link href="/temp/%E5%B8%B8%E8%AF%86%E7%A7%AF%E7%B4%AF.html"/>
       <content type="html"><![CDATA[<h3 id="crlf"><a href="#crlf" class="headerlink" title="crlf"></a>crlf</h3><p>回车换行（Carriage-Return Line-Feed）</p><ul><li>回车(CR, ASCII 13, \r) </li><li>换行(LF, ASCII 10, \n)</li></ul>]]></content>
     </entry>
     
     <entry>
-      <title></title>
-      <link href="/temp/web%E7%AB%AF%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83.html"/>
-      <content type="html"><![CDATA[<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>中文：微软雅黑字体。<br>英文：arial字体。</p><h3 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h3><p>12px：网页的最小字体，突出性的日期、版权等注释性内容。<br>14px：适用于非突出的普通正文内容。<br>16px：突出性的标题内容。</p><h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>黑</p><ul><li>#999999;</li><li>#666666;</li><li>#333333;</li></ul><p>灰</p><ul><li>#8a9699;</li><li>#5c6466;</li><li>#2e3233;</li></ul>]]></content>
+      <title>关于异步（三）： 并发模型与事件循环机制</title>
+      <link href="/temp/%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.html"/>
+      <content type="html"><![CDATA[<h2 id="运行时概念"><a href="#运行时概念" class="headerlink" title="运行时概念"></a>运行时概念</h2><ul><li><strong>函数调用</strong>形成栈帧</li><li><strong>对象</strong>被分配在堆中</li><li><strong>待处理消息</strong>在队列中。消息关联着一个用以处理这个消息的回调函数。</li></ul><h2 id="事件循环（EventLoop）"><a href="#事件循环（EventLoop）" class="headerlink" title="事件循环（EventLoop）"></a>事件循环（EventLoop）</h2><ol><li>事件循环时，“运行时”会先处理队头的消息。处理方式即将该消息移出队列，然后使用其输入参数调用关联的函数，形成栈帧，然后继续执行这个函数直到完成（栈空）。</li><li>处理完后，执行下一个消息。</li></ol><h3 id="添加“消息”"><a href="#添加“消息”" class="headerlink" title="添加“消息”"></a>添加“消息”</h3><p>条件：</p><ol><li>事件被事件监听器绑定。</li><li>事件发生。</li></ol><p>注意：</p><ul><li>如果没有事件监听器，则该事件被丢失。</li></ul><h3 id="关于处理消息的“执行至完成”过程"><a href="#关于处理消息的“执行至完成”过程" class="headerlink" title="关于处理消息的“执行至完成”过程"></a>关于处理消息的“执行至完成”过程</h3><ul><li>缺陷：如果消息耗费时间长，则无法处理其他的事情，比如用户的其他交互。</li><li>对策：<ol><li>采用loading动画等提示信息。</li><li>将消息剪裁为多个消息。</li></ol></li></ul><h3 id="关于setTimeout"><a href="#关于setTimeout" class="headerlink" title="关于setTimeout"></a>关于setTimeout</h3><p>setTimeout接收的参数如下：</p><ul><li>待加入队列的消息。</li><li>一个时间值。即消息被加入队列的最小延迟时间。<br>当经过最小延迟时间后，该消息将入队，但必须要等待到前边的内容全部处理完毕后才能执行。</li></ul>]]></content>
     </entry>
     
     <entry>
@@ -413,20 +503,8 @@
     
     <entry>
       <title></title>
-      <link href="/temp/%E5%89%8D%E5%90%8E%E7%AB%AF%E8%B7%A8%E5%9F%9F%E6%96%B9%E6%A1%88%E6%95%B4%E7%90%86.html"/>
-      <content type="html"><![CDATA[<h3 id="跨域问题"><a href="#跨域问题" class="headerlink" title="跨域问题"></a>跨域问题</h3><h3 id="跨域问题的根源：同源策略"><a href="#跨域问题的根源：同源策略" class="headerlink" title="跨域问题的根源：同源策略"></a>跨域问题的根源：同源策略</h3><p>同源指的是<strong>域名（或IP）</strong>，<strong>协议</strong>，<strong>端口</strong>都相同，不同源的客户端脚本(javascript、ActionScript)在没明确授权的情况下，不能读写对方的资源。</p>]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
       <link href="/temp/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8A%9F%E8%83%BD.html"/>
       <content type="html"><![CDATA[<h2 id="前端导出excel文件"><a href="#前端导出excel文件" class="headerlink" title="前端导出excel文件"></a>前端导出excel文件</h2><ol><li>save as的前端实现</li></ol><p>插件：</p><ol><li>FileSaver <a href="https://www.npmjs.com/package/file-saver" target="_blank" rel="noopener">npm地址</a>, <a href="https://github.com/eligrey/FileSaver.js/" target="_blank" rel="noopener">GitHub地址</a> </li><li>xlsx <a href="https://www.npmjs.com/package/xlsx" target="_blank" rel="noopener">npm地址</a></li><li>script-loader <a href="https://www.npmjs.com/package/script-loader" target="_blank" rel="noopener">npm地址</a> </li></ol>]]></content>
-    </entry>
-    
-    <entry>
-      <title>项目的一些思考</title>
-      <link href="/temp/%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83.html"/>
-      <content type="html"><![CDATA[<p>项目的一些交互设计主要仿照如下网站：</p><ul><li>七牛云</li><li>腾讯云</li><li>阿里云</li></ul><a id="more"></a><p>项目内容。</p><h2 id="登陆模块"><a href="#登陆模块" class="headerlink" title="登陆模块"></a>登陆模块</h2><h3 id="七牛云登陆模块分析"><a href="#七牛云登陆模块分析" class="headerlink" title="七牛云登陆模块分析"></a>七牛云登陆模块分析</h3><h4 id="1-用户交互"><a href="#1-用户交互" class="headerlink" title="1. 用户交互"></a>1. 用户交互</h4><p>输入框内容</p><ol><li>未输入文本时，输入框的背景色为白色，输入框内的背景为浅色文字，文字内容为名词：“七牛注册邮箱”、“七牛登陆密码”。</li><li>输入文本之后，背景文字消失，无其他变化。</li></ol><p>快捷键：回车</p><ol><li>当光标在任意输入框内，都可以通过回车登陆。</li></ol><h4 id="2-登陆按钮点击操作。"><a href="#2-登陆按钮点击操作。" class="headerlink" title="2. 登陆按钮点击操作。"></a>2. 登陆按钮点击操作。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">loginButton.on(&apos;click&apos;, function(e) &#123;</span><br><span class="line">  // 判断是否已经发送了登陆请求。</span><br><span class="line">  if (isSendingSigninReq) &#123;   </span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 获取需要传送的内容的值。</span><br><span class="line">  var email = emailElement.val()</span><br><span class="line">  var password = passwordElement.val()</span><br><span class="line">  var captchaVal = captchaIn.val()</span><br><span class="line"></span><br><span class="line">  // 值判空</span><br><span class="line">  if (!loginValidEmpty()) &#123;</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 拼凑字符串</span><br><span class="line">  var clientId = getURLParameter(&quot;client_id&quot;) || &quot;&quot;</span><br><span class="line">  var redirectUrl = getURLParameter(&quot;redirect_url&quot;) || &quot;&quot;</span><br><span class="line">  var url = &quot;/signin?client_id=&quot; + clientId + &quot;&amp;redirect_url=&quot; + redirectUrl</span><br><span class="line"></span><br><span class="line">  // 设置已经发送过登陆请求。</span><br><span class="line">  isSendingSigninReq = true</span><br><span class="line">  // 添加样式。disabled属性，导致按钮的颜色变浅，光标变化。</span><br><span class="line">  // cursor: not-allowed;</span><br><span class="line">  // filter: alpha(opacity=65);</span><br><span class="line">  // -webkit-box-shadow: none;</span><br><span class="line">  // box-shadow: none;</span><br><span class="line">  // opacity: .65;</span><br><span class="line">  loginButton.addClass(&apos;disabled&apos;);</span><br><span class="line"></span><br><span class="line">  performRequest(url, &quot;POST&quot;, &#123;</span><br><span class="line">    &quot;username&quot;: email,</span><br><span class="line">    &quot;password&quot;: password,</span><br><span class="line">    &quot;captcha&quot;: captchaVal</span><br><span class="line">  &#125;, loginSuccess, loginError, function(e) &#123;</span><br><span class="line">    isSendingSigninReq = false</span><br><span class="line">    loginButton.removeClass(&apos;disabled&apos;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h3 id="律师事务所登陆操作"><a href="#律师事务所登陆操作" class="headerlink" title="律师事务所登陆操作"></a>律师事务所登陆操作</h3><h4 id="1-用户交互-1"><a href="#1-用户交互-1" class="headerlink" title="1. 用户交互"></a>1. 用户交互</h4><p>猜测：按钮点击，然后提交表单，然后接收返回的内容，是一整套流程。这个流程里边有很多细节。可以探究一下。</p><h3 id="登陆模块还可以采取的改进方式"><a href="#登陆模块还可以采取的改进方式" class="headerlink" title="登陆模块还可以采取的改进方式"></a>登陆模块还可以采取的改进方式</h3><ul><li>表单提交最大的等待时间？</li><li></li></ul>]]></content>
     </entry>
     
     <entry>
@@ -436,9 +514,9 @@
     </entry>
     
     <entry>
-      <title>关于异步（三）： 并发模型与事件循环机制</title>
-      <link href="/temp/%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.html"/>
-      <content type="html"><![CDATA[<h2 id="运行时概念"><a href="#运行时概念" class="headerlink" title="运行时概念"></a>运行时概念</h2><ul><li><strong>函数调用</strong>形成栈帧</li><li><strong>对象</strong>被分配在堆中</li><li><strong>待处理消息</strong>在队列中。消息关联着一个用以处理这个消息的回调函数。</li></ul><h2 id="事件循环（EventLoop）"><a href="#事件循环（EventLoop）" class="headerlink" title="事件循环（EventLoop）"></a>事件循环（EventLoop）</h2><ol><li>事件循环时，“运行时”会先处理队头的消息。处理方式即将该消息移出队列，然后使用其输入参数调用关联的函数，形成栈帧，然后继续执行这个函数直到完成（栈空）。</li><li>处理完后，执行下一个消息。</li></ol><h3 id="添加“消息”"><a href="#添加“消息”" class="headerlink" title="添加“消息”"></a>添加“消息”</h3><p>条件：</p><ol><li>事件被事件监听器绑定。</li><li>事件发生。</li></ol><p>注意：</p><ul><li>如果没有事件监听器，则该事件被丢失。</li></ul><h3 id="关于处理消息的“执行至完成”过程"><a href="#关于处理消息的“执行至完成”过程" class="headerlink" title="关于处理消息的“执行至完成”过程"></a>关于处理消息的“执行至完成”过程</h3><ul><li>缺陷：如果消息耗费时间长，则无法处理其他的事情，比如用户的其他交互。</li><li>对策：<ol><li>采用loading动画等提示信息。</li><li>将消息剪裁为多个消息。</li></ol></li></ul><h3 id="关于setTimeout"><a href="#关于setTimeout" class="headerlink" title="关于setTimeout"></a>关于setTimeout</h3><p>setTimeout接收的参数如下：</p><ul><li>待加入队列的消息。</li><li>一个时间值。即消息被加入队列的最小延迟时间。<br>当经过最小延迟时间后，该消息将入队，但必须要等待到前边的内容全部处理完毕后才能执行。</li></ul>]]></content>
+      <title>项目的一些思考</title>
+      <link href="/temp/%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83.html"/>
+      <content type="html"><![CDATA[<p>项目的一些交互设计主要仿照如下网站：</p><ul><li>七牛云</li><li>腾讯云</li><li>阿里云</li></ul><a id="more"></a><p>项目内容。</p><h2 id="登陆模块"><a href="#登陆模块" class="headerlink" title="登陆模块"></a>登陆模块</h2><h3 id="七牛云登陆模块分析"><a href="#七牛云登陆模块分析" class="headerlink" title="七牛云登陆模块分析"></a>七牛云登陆模块分析</h3><h4 id="1-用户交互"><a href="#1-用户交互" class="headerlink" title="1. 用户交互"></a>1. 用户交互</h4><p>输入框内容</p><ol><li>未输入文本时，输入框的背景色为白色，输入框内的背景为浅色文字，文字内容为名词：“七牛注册邮箱”、“七牛登陆密码”。</li><li>输入文本之后，背景文字消失，无其他变化。</li></ol><p>快捷键：回车</p><ol><li>当光标在任意输入框内，都可以通过回车登陆。</li></ol><h4 id="2-登陆按钮点击操作。"><a href="#2-登陆按钮点击操作。" class="headerlink" title="2. 登陆按钮点击操作。"></a>2. 登陆按钮点击操作。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">loginButton.on(&apos;click&apos;, function(e) &#123;</span><br><span class="line">  // 判断是否已经发送了登陆请求。</span><br><span class="line">  if (isSendingSigninReq) &#123;   </span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 获取需要传送的内容的值。</span><br><span class="line">  var email = emailElement.val()</span><br><span class="line">  var password = passwordElement.val()</span><br><span class="line">  var captchaVal = captchaIn.val()</span><br><span class="line"></span><br><span class="line">  // 值判空</span><br><span class="line">  if (!loginValidEmpty()) &#123;</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 拼凑字符串</span><br><span class="line">  var clientId = getURLParameter(&quot;client_id&quot;) || &quot;&quot;</span><br><span class="line">  var redirectUrl = getURLParameter(&quot;redirect_url&quot;) || &quot;&quot;</span><br><span class="line">  var url = &quot;/signin?client_id=&quot; + clientId + &quot;&amp;redirect_url=&quot; + redirectUrl</span><br><span class="line"></span><br><span class="line">  // 设置已经发送过登陆请求。</span><br><span class="line">  isSendingSigninReq = true</span><br><span class="line">  // 添加样式。disabled属性，导致按钮的颜色变浅，光标变化。</span><br><span class="line">  // cursor: not-allowed;</span><br><span class="line">  // filter: alpha(opacity=65);</span><br><span class="line">  // -webkit-box-shadow: none;</span><br><span class="line">  // box-shadow: none;</span><br><span class="line">  // opacity: .65;</span><br><span class="line">  loginButton.addClass(&apos;disabled&apos;);</span><br><span class="line"></span><br><span class="line">  performRequest(url, &quot;POST&quot;, &#123;</span><br><span class="line">    &quot;username&quot;: email,</span><br><span class="line">    &quot;password&quot;: password,</span><br><span class="line">    &quot;captcha&quot;: captchaVal</span><br><span class="line">  &#125;, loginSuccess, loginError, function(e) &#123;</span><br><span class="line">    isSendingSigninReq = false</span><br><span class="line">    loginButton.removeClass(&apos;disabled&apos;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h3 id="律师事务所登陆操作"><a href="#律师事务所登陆操作" class="headerlink" title="律师事务所登陆操作"></a>律师事务所登陆操作</h3><h4 id="1-用户交互-1"><a href="#1-用户交互-1" class="headerlink" title="1. 用户交互"></a>1. 用户交互</h4><p>猜测：按钮点击，然后提交表单，然后接收返回的内容，是一整套流程。这个流程里边有很多细节。可以探究一下。</p><h3 id="登陆模块还可以采取的改进方式"><a href="#登陆模块还可以采取的改进方式" class="headerlink" title="登陆模块还可以采取的改进方式"></a>登陆模块还可以采取的改进方式</h3><ul><li>表单提交最大的等待时间？</li><li></li></ul>]]></content>
     </entry>
     
   
