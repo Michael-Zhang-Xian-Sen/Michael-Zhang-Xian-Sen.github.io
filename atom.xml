@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-27T14:04:20.705Z</updated>
+  <updated>2020-03-29T13:52:40.027Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2020/03/27/CSS%E7%9A%84%E9%82%A3%E4%BA%9B%E5%9D%91/"/>
     <id>http://yoursite.com/2020/03/27/CSS的那些坑/</id>
     <published>2020-03-27T14:05:30.000Z</published>
-    <updated>2020-03-27T14:04:20.705Z</updated>
+    <updated>2020-03-29T13:52:40.027Z</updated>
     
     <content type="html"><![CDATA[<p>css中的坑不少啊。</p><a id="more"></a><h3 id="font-size"><a href="#font-size" class="headerlink" title="font-size"></a>font-size</h3><ol><li>webkit内核的浏览器中，该属性不支持小于<code>12px</code>的值。若要将字体设置的更小，可以使用css3中的<code>transform:scale()</code>。</li></ol>]]></content>
     
@@ -102,9 +102,9 @@
       <category term="mysql" scheme="http://yoursite.com/categories/mysql/"/>
     
     
-      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
-    
       <category term="环境搭建" scheme="http://yoursite.com/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    
+      <category term="mysql" scheme="http://yoursite.com/tags/mysql/"/>
     
   </entry>
   
