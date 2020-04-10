@@ -22,7 +22,7 @@
     
     <title>
         
-        分类: 工具 | 
+        vue-cli配置代理进行跨域 | 
         
         XD
     </title>
@@ -47,7 +47,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Michael Zhang">
-    <meta name="description" itemprop="description" content>
+    <meta name="description" itemprop="description" content="vue-cli配置代理">
     <meta name="keywords" content="Himory blog">
 
     <!-- Site Verification -->
@@ -79,23 +79,23 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="分类: 工具 | XD">
+    <meta property="og:title" content="vue-cli配置代理进行跨域 | XD">
     <meta property="og:image" content="http://ewinds.pw/code.png">
-    <meta property="og:description" content>
+    <meta property="og:description" content="vue-cli配置代理">
     
 
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="分类: 工具 | XD">
-    <meta name="twitter:description" content>
+    <meta name="twitter:title" content="vue-cli配置代理进行跨域 | XD">
+    <meta name="twitter:description" content="vue-cli配置代理">
     <meta name="twitter:image" content="http://ewinds.pw/code.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="http://yoursite.com">
 
     <!-- Add canonical link for SEO -->
     
-    <link rel="canonical" href="http://yoursite.com/categories/工具/index.html">
+    <link rel="canonical" href="http://yoursite.com/temp/vue-cli配置代理.html">
     
 
     <!-- Structured-data for SEO -->
@@ -384,25 +384,26 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
-    
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
+        <div class="post-header_info without-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
             <span class="name-span">Michael Zhang</span>
@@ -413,170 +414,86 @@
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2020/04/09/使用SonarQube进行代码质量检查/">使用SonarQube进行代码质量检查</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                SonarQube的安装、插件配置及个人的一些感受
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2020/04/09/使用SonarQube进行代码质量检查/" target="_self">阅读全文</a>
-            </span>
-        </p>
 
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/SonarQube/">SonarQube</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/代码质量检查/">代码质量检查</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                4月 09, 2020
-            </div>
-            <div class="post_entry-footer-comment">
                 
-                
-            </div>
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                vue-cli配置代理进行跨域
+            </p>
+            <p>记录通过vue-cli配置代理进行跨域的实践及感悟。</p>
+<a id="more"></a>
+<h3 id="实践：通过vue-cli配置代理进行跨域。"><a href="#实践：通过vue-cli配置代理进行跨域。" class="headerlink" title="实践：通过vue-cli配置代理进行跨域。"></a>实践：通过vue-cli配置代理进行跨域。</h3><ol>
+<li>在项目根目录添加vue.config.js文件（如果已经有则跳过）。</li>
+<li>添加如下代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devServer: &#123;  <span class="comment">// 该配置仅针对开发模式有效</span></span><br><span class="line">    proxy: &#123;    <span class="comment">// 该对象下的内容为代理配置</span></span><br><span class="line">      <span class="string">'/api'</span>: &#123; <span class="comment">// 代理具有'\api'前缀的请求</span></span><br><span class="line">        target: <span class="string">'http://localhost:8080/video_war/'</span>, <span class="comment">// 将匹配的前缀（本示例中为'api'）改为target属性的内容。</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span>, <span class="comment">// </span></span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          <span class="string">'^/api'</span>: <span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+
         </div>
-    </div>
+    
 </div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
-            <span class="name-span">Michael Zhang</span>
-        </div>
 
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2020/04/08/git小记/">git常用命令小记</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                git的常用操作及相关问题的解决方案。
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2020/04/08/git小记/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/git/">git</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/版本管理工具/">版本管理工具</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                4月 08, 2020
-            </div>
-            <div class="post_entry-footer-comment">
                 
+                    <!-- Paradox Post Info -->
+                    
                 
-            </div>
-        </div>
-    </div>
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/temp/vue-cli配置代理.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/temp/vue-cli配置代理.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//nice2meetu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
 </div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info with-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
-            <span class="name-span">Michael Zhang</span>
-        </div>
-
-        <!-- Custom thumbnail -->
-        <div class="post_thumbnail-custom">
-            <img src="http://ewinds.pw/vim2.jpg">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/10/27/vim中文乱码的解决方案/">vim中文乱码的解决方案</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                「封面图：VIM图标」
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/10/27/vim中文乱码的解决方案/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/vim/">vim</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/工具/">工具</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                10月 27, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
                 
             </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-            
-        
-    
-
-    
-
-    
-</div>
 
 
                     

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-03-29T13:52:40.027Z</updated>
+  <updated>2020-04-09T13:22:57.220Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用SonarQube进行代码质量检查</title>
+    <link href="http://yoursite.com/2020/04/09/%E4%BD%BF%E7%94%A8SonarQube%E8%BF%9B%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E6%A3%80%E6%9F%A5/"/>
+    <id>http://yoursite.com/2020/04/09/使用SonarQube进行代码质量检查/</id>
+    <published>2020-04-09T03:35:30.000Z</published>
+    <updated>2020-04-09T13:22:57.220Z</updated>
+    
+    <content type="html"><![CDATA[<p>SonarQube的安装、插件配置及个人的一些感受</p><a id="more"></a><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li><a href="#1">安装SonarQube</a></li><li><a href="#2">配置相关插件</a><ol><li><a href="#2.1">汉化插件</a></li><li><a href="#2.2">导出代码质量检测报告插件</a></li></ol></li><li><a href="#3">其他SonarQube相关操作</a><ol><li><a href="#3.1">查看当前SonarQube版本</a></li></ol></li></ol><h2 id="1-安装SonarQube"><a href="#1-安装SonarQube" class="headerlink" title="1. 安装SonarQube"></a><span id="1">1. 安装SonarQube</span></h2><ol><li>前往SonarQube官网进行下载（推荐下载Community版本，免费，功能够用）：<a href="https://www.sonarqube.org/downloads/" target="_blank" rel="noopener">https://www.sonarqube.org/downloads/</a></li><li>下载完成后解压该文件，此处最好不要使用root用户进行解压。该步骤在官网文档的说明十分详细：<a href="https://docs.sonarqube.org/latest/setup/get-started-2-minutes/" target="_blank" rel="noopener">https://docs.sonarqube.org/latest/setup/get-started-2-minutes/</a> </li><li><p>解压后在命令行下进入解压后的文件夹，然后进入<code>bin</code>目录，该文件夹包含了不同平台下的脚本文件。如：</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jsw-licensemacosx-universal-64</span><br><span class="line">linux-x86-64windows-x86-64</span><br></pre></td></tr></table></figure></li><li><p>根据自己的平台cd到相应文件夹下（博主是macos），然后输入<code>sonar.sh start</code>运行SonarQube。</p></li><li>进入SonarQube客户端界面：<a href="http://localhost:9000" target="_blank" rel="noopener">http://localhost:9000</a> </li></ol><h2 id="2-配置相关插件"><a href="#2-配置相关插件" class="headerlink" title="2. 配置相关插件"></a><span id="2">2. 配置相关插件</span></h2><h3 id="2-1-汉化插件"><a href="#2-1-汉化插件" class="headerlink" title="2.1 汉化插件"></a><span id="2.1">2.1 汉化插件</span></h3><ol><li>下载汉化插件。一定要下载相应版本，否则可能会无法启动SonarQube：<a href="https://github.com/SonarQubeCommunity/sonar-l10n-zh" target="_blank" rel="noopener">https://github.com/SonarQubeCommunity/sonar-l10n-zh</a></li><li>将下载后的插件移动到<code>sonarQube根目录/extensions/plugins</code></li><li>重启SonarQube</li></ol><h3 id="导出代码质量检测报告插件"><a href="#导出代码质量检测报告插件" class="headerlink" title="导出代码质量检测报告插件"></a><span id="2.2">导出代码质量检测报告插件</span></h3><ol><li>使用该仓库的python程序导出：<a href="https://github.com/ximone/Sonar_Report_Generator" target="_blank" rel="noopener">https://github.com/ximone/Sonar_Report_Generator</a></li></ol><h2 id="3-其他SonarQube相关操作"><a href="#3-其他SonarQube相关操作" class="headerlink" title="3. 其他SonarQube相关操作"></a><span id="3">3. 其他SonarQube相关操作</span></h2><h3 id="1-查看当前SonarQube的版本"><a href="#1-查看当前SonarQube的版本" class="headerlink" title="1. 查看当前SonarQube的版本"></a><span id="3.1">1. 查看当前SonarQube的版本</span></h3><p>在SonarQube的客户端界面选择Administration-&gt;System</p><h2 id="个人感受"><a href="#个人感受" class="headerlink" title="个人感受"></a>个人感受</h2><p>使用不多，课程要求才进行了初步尝试。<br>个人感觉该软件对一个软件开发团队而言意义更大一些。</p><ol><li>可以更好地帮助一个软件开发团队维护代码，使得代码编写符合内部的编码规范。</li><li>可以方便地review代码。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      使用SonarQube进行代码质量检查
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="代码质量检查" scheme="http://yoursite.com/tags/%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E6%A3%80%E6%9F%A5/"/>
+    
+      <category term="SonarQube" scheme="http://yoursite.com/tags/SonarQube/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git常用命令小记</title>
+    <link href="http://yoursite.com/2020/04/08/git%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://yoursite.com/2020/04/08/git小记/</id>
+    <published>2020-04-08T13:35:30.000Z</published>
+    <updated>2020-04-09T12:55:56.120Z</updated>
+    
+    <content type="html"><![CDATA[<p>git的常用操作及相关问题的解决方案。</p><a id="more"></a><h2 id="具体问题的解决方案"><a href="#具体问题的解决方案" class="headerlink" title="具体问题的解决方案"></a>具体问题的解决方案</h2><h3 id="1-fork得到的仓库的代码如何更新使得其与原仓库的代码一致。"><a href="#1-fork得到的仓库的代码如何更新使得其与原仓库的代码一致。" class="headerlink" title="1. fork得到的仓库的代码如何更新使得其与原仓库的代码一致。"></a>1. fork得到的仓库的代码如何更新使得其与原仓库的代码一致。</h3><ol><li>配置原仓库的路径：<code>git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git</code></li><li>查看远程仓库的路径，确保正确添加上游仓库：<code>git remote -v</code></li><li>抓取原仓库的修改：<code>git fetch upstream</code></li><li>其他内容：删除某个远程仓库<code>git remote remove &lt;name&gt;</code></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      git常用命令
+    
+    </summary>
+    
+      <category term="工具" scheme="http://yoursite.com/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+    
+      <category term="版本管理工具" scheme="http://yoursite.com/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
   
   <entry>
     <title>CSS的那些坑</title>
