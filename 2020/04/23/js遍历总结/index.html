@@ -88,7 +88,7 @@
 
     
     <meta property="article:published_time" content="4月 23, 2020">
-    <meta property="article:modified_time" content="4月 23, 2020">
+    <meta property="article:modified_time" content="4月 24, 2020">
     
 
     <!-- The Twitter Card protocol -->
@@ -129,7 +129,7 @@
     "headline": "js遍历方法总结",
     "url": "http://yoursite.com/2020/04/23/js遍历总结/index.html",
     "datePublished": "4月 23, 2020",
-    "dateModified": "4月 23, 2020",
+    "dateModified": "4月 24, 2020",
     "description": "js遍历方法的汇总",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -490,7 +490,7 @@
 <li>表达式的返回值是什么？</li>
 <li>能否跳出遍历？</li>
 <li>遍历方法的推荐使用场景。</li>
-<li>遍历过程中数组是否实时更新。换句话说：被遍历的数组在遍历时的内容是否为调用遍历方法时为准？</li>
+<li>遍历过程中数组是否实时更新。换句话说：被遍历的数组在遍历时的内容是否以调用该遍历方法时为准？</li>
 <li>遍历时传入回调函数中的元素是数组中相应项的深拷贝吗？</li>
 </ol>
 <table>
@@ -587,9 +587,9 @@
 </ul>
 <h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h4><p>规则有点不同。如果数组在迭代时被修改了，则其他元素会被跳过。</p>
 <h3 id="上述方法，遍历时传入回调函数中的元素是数组中相应项的深拷贝吗？"><a href="#上述方法，遍历时传入回调函数中的元素是数组中相应项的深拷贝吗？" class="headerlink" title="上述方法，遍历时传入回调函数中的元素是数组中相应项的深拷贝吗？"></a>上述方法，遍历时传入回调函数中的元素是数组中相应项的深拷贝吗？</h3><p>不是。</p>
-<h2 id="其他注意事项"><a href="#其他注意事项" class="headerlink" title="其他注意事项"></a><div id="3">其他注意事项</div></h2><h3 id="map"><a href="#map" class="headerlink" title="map"></a><div id="3.1">map</div></h3><p>在遍历过程中一定记得写明返回值！直接更改当前遍历的内容而不反回，不会反映到遍历结束生成的数组中！比如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = arr.map(<span class="function"><span class="params">i</span>=&gt;</span>&#123;i.text = <span class="string">"测试"</span>;i.value=<span class="string">"测试"</span>&#125;);       <span class="comment">// 此时b数组中所有项的值皆undefined</span></span><br><span class="line"><span class="keyword">var</span> b = arr.map(<span class="function"><span class="params">i</span>=&gt;</span>&#123;<span class="keyword">return</span> &#123;<span class="attr">text</span>:<span class="string">"测试"</span>,<span class="attr">value</span>:<span class="string">"测试"</span>&#125;&#125;)     <span class="comment">// 此时b数组所有项的值才为一个包含text和value属性的对象</span></span><br></pre></td></tr></table></figure></p>
-<h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce"></a><div id="3.2">reduce</div></h3><p>注意一下reduce函数中累加器的初始值设置。</p>
-<h2 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a><div id="4">一些思考</div></h2><p>for循环功能很强大，但总不能处处都用for循环。在项目中只用for可能会徒增不必要的代码，使得代码写的复杂、晦涩，存在大量重复等。代码在保证运行效率的情况下，应该足够简洁，编写的代码才会更易懂、易维护，应该针对不同的场景使用合适的遍历方法。</p>
+<h2 id="3-其他注意事项"><a href="#3-其他注意事项" class="headerlink" title="3. 其他注意事项"></a><div id="3">3. 其他注意事项</div></h2><h3 id="3-1-map"><a href="#3-1-map" class="headerlink" title="3.1 map"></a><div id="3.1">3.1 map</div></h3><p>在遍历过程中一定记得写明返回值！直接更改当前遍历的内容而不反回，不会反映到遍历结束生成的数组中！比如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = arr.map(<span class="function"><span class="params">i</span>=&gt;</span>&#123;i.text = <span class="string">"测试"</span>;i.value=<span class="string">"测试"</span>&#125;);       <span class="comment">// 此时b数组中所有项的值皆undefined</span></span><br><span class="line"><span class="keyword">var</span> b = arr.map(<span class="function"><span class="params">i</span>=&gt;</span>&#123;<span class="keyword">return</span> &#123;<span class="attr">text</span>:<span class="string">"测试"</span>,<span class="attr">value</span>:<span class="string">"测试"</span>&#125;&#125;)     <span class="comment">// 此时b数组所有项的值才为一个包含text和value属性的对象</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="3-2-reduce"><a href="#3-2-reduce" class="headerlink" title="3.2 reduce"></a><div id="3.2">3.2 reduce</div></h3><p>注意一下reduce函数中累加器的初始值设置。</p>
+<h2 id="4-一些思考"><a href="#4-一些思考" class="headerlink" title="4. 一些思考"></a><div id="4">4. 一些思考</div></h2><p>for循环功能很强大，但总不能处处都用for循环。在项目中只用for可能会徒增不必要的代码，使得代码写的复杂、晦涩，存在大量重复等。代码在保证运行效率的情况下，应该足够简洁，编写的代码才会更易懂、易维护，应该针对不同的场景使用合适的遍历方法。</p>
 
         </div>
     
