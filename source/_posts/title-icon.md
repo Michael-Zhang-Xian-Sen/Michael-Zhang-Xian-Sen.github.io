@@ -1,9 +1,9 @@
 ---
-title: 动态选项卡title及图标 
+title: 标签页动态图标的实现
 date: 2017-05-24 21:12:50 #文章生成时间，一般不改，当然也可以任意修改
 categories: 前端 #分类
-tags: [选项卡,title,图标] #文章标签，可空，多标签请用格式，注意:后面有个空格
-description: 记录一次实现一个小效果的过程。
+tags: [前端] #文章标签，可空，多标签请用格式，注意:后面有个空格
+description: 标签页动态图标
 ---
 
 
@@ -112,13 +112,11 @@ document.addEventListener("visibilitychange", function() {
 ```
 
 该事件具有四个属性：
-
 * target属性：事件的目标。
 * type属性：被触发的事件的类型。
 * bubbles：表明事件是否冒泡。
 * cancelable：表明是否可以取消事件的默认行为。
 
 #### 另外附上一对选项卡图标
-觉得这一对相当有趣，怎么用就看客官自由发挥了。
 ![1](http://opqksc9nz.bkt.clouddn.com/1.ico)
 ![2](http://opqksc9nz.bkt.clouddn.com/2.ico)

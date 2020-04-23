@@ -1,13 +1,13 @@
 ---
 title: vim中文乱码的解决方案
 date: 2017-10-27 15:11:50 #文章生成时间，一般不改，当然也可以任意修改
-categories: Linux #分类
-tags: [] #文章标签，可空，多标签请用格式，注意:后面有个空格
+categories: 工具 #分类
+tags: [工具, vim] #文章标签，可空，多标签请用格式，注意:后面有个空格
 description: vim中文乱码解决方案。
-thumbnail: http://opqksc9nz.bkt.clouddn.com/vim2.jpg
+thumbnail: http://ewinds.pw/vim2.jpg
 ---
 
-某人喜欢在linux服务器上修改协会的官网文件。用vim编辑时却总是出现“删除一个字符增加一个字符”、“保存以后增加一堆字符”的现象。实在看不下去，遂修补之。「封面图来自：VIM图标」
+「封面图：VIM图标」
 
 <!-- more -->
 

@@ -1,0 +1,4 @@
+测试图片: 
+    full_link: https://cn.bing.com/th?id=OHR.OberweissbacherBergbahn_ZH-CN1289048050_1920x1080.jpg #为完整图片的地址。
+    thumb_link: https://cn.bing.com/th?id=OHR.OberweissbacherBergbahn_ZH-CN1289048050_1920x1080.jpg  #为图片缩略图的地址，如果没有缩略图也可使用完整图片的地址。
+    descr: "这是一个描述"    #图片描述。

@@ -2,14 +2,12 @@
 title: 《白日梦》 北岛
 date: 2018-04-23 23:40:50 
 categories: 现代诗
-tags: [现代诗] 
+tags: [诗歌] 
 description: 现代诗
-thumbnail: http://opqksc9nz.bkt.clouddn.com/daydream_4.jpg
+thumbnail: http://ewinds.pw/daydream_4.jpg
 ---
 
-考研就像是和梦想的院校谈恋爱。哦不，是追她，还没开始谈。（天天生活在劝退阴影里的我。）
-
-「封面图来自：爆裂鼓手」
+封面图来自：爆裂鼓手
 
 <!-- more-->
 

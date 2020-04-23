@@ -4,10 +4,10 @@
 
 # Head info
 head:
-    favicon: "http://opqksc9nz.bkt.clouddn.com/code.png"
-    high_res_favicon: "http://opqksc9nz.bkt.clouddn.com/code.png"
-    apple_touch_icon: "http://opqksc9nz.bkt.clouddn.com/code.png"
-    keywords:
+    favicon: "http://opqksc9nz.bkt.clouddn.com/code.png"    # 网站的favicon
+    high_res_favicon: "http://ewinds.pw/code.png"           # 网站的favicon
+    apple_touch_icon: "http://ewinds.pw/code.png"           # iOS 主屏按钮图标
+    keywords: Himory blog                                   # 关键字
     site_verification:
         google: "PM-youOm1Gs9nhRAbihUFKg8Nz8C3zYQdqRe-wI2mNw"
         baidu: "fIB8rNXEiA"
@@ -18,22 +18,21 @@ head:
 
 # Jump Links Settings
 url:
-    rss:
-    daily_pic: "#"
-    logo: "/about"
-
+    rss: # 设置生成的 rss 或 atom url
+    daily_pic: "https://github.com/Michael-Zhang-Xian-Sen" # 设置 daily_pic 被被点击时跳转的 url
+    logo: "/about"  # 设置 logo 模块 被点击时跳转的url
 
 # ---------------------------------------------------------------
 # Style Settings
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Paradox
-#scheme: Isolation
+#scheme: Paradox    # 主题外观（默认）
+scheme: Isolation   # 主题外观（极简）
 
 # UI & UX: slogan, color, effect
 uiux:
-    slogan: "Kill the bug of the world"
+    slogan: "要么不做，要么就做到极致。" 
     theme_color: "#0097A7"
     theme_sub_color: "#00838F"
     hyperlink_color: "#00838F"
@@ -44,17 +43,17 @@ uiux:
 
 # JS Effect Switches
 js_effect:
-    fade: true
-    smoothscroll: true
+    fade: true          # 页面加载时部分模块的渐显效果
+    smoothscroll: true  # 页面平滑滚动效果
 
 # Reading experience
 reading:
-    entry_excerpt: 80
+    entry_excerpt: 80   # 首页文章输出摘要的字符长度，默认为80.
 
 # Thumbnail Settings
 thumbnail:
-    purecolor:
-    random_amount: 19
+    purecolor:          # 填入颜色代码。如果文章内无设置缩略图，此项又不为空，则使用纯色缩略图。
+    random_amount: 19   # 随机图片数量，根据 主题所在文件夹/source/img/random 中的图片数量设置。Material 主题默认提供了 19 张 Material 风格的缩略图。
 
 # Background Settings
 # bing available parameter:
@@ -62,20 +61,20 @@ thumbnail:
 #         color available value: black, blue, brown, green, multi, orange, pink, purple, red, white, yellow
 #         type available value: A (animal), C (culture), N (nature), S (space), T (travel)
 background:
-    purecolor: "#F5F5F5"
-    #bgimg: "/img/bg.png"
-    bing:
+    purecolor: "#F5F5F5" # 填入颜色代码。则站点使用纯色背景。
+    # bgimg: "/img/bg.png"
+    bing: # 用于启用“必应美图”的图片作为背景。
         enable: false
-        parameter:
+        parameter: 
 
 # Images Settings
 img:
-    logo: "/img/big.jpg"
-    avatar: "/img/big.jpg"
-    daily_pic: "/img/daily_pic.png"
-    sidebar_header: "http://opqksc9nz.bkt.clouddn.com/sidebar.jpg"
-    random_thumbnail: "/img/random/material-"
-    footer_image:
+    logo: "/img/big.jpg"        # 显示于blog_info模块
+    avatar: "/img/big.jpg"      # 
+    daily_pic: "/img/daily_pic.png" # 每日图片 在Paradox中的首页显示
+    sidebar_header: "http://opqksc9nz.bkt.clouddn.com/sidebar.jpg"  # 显示于侧栏的顶部
+    random_thumbnail: "/img/random/material-"   # 随机缩略图的路径。
+    footer_image:   # 侧边底栏的图片
         #upyun_logo:
             #link: "https://www.upyun.com/"
             #src: "/img/upyun_logo.svg"
@@ -95,7 +94,7 @@ card_elevation: 2
 # Copyright
 # Specify the date when the site was setup.
 #   For example, if you set it as 2015, then footer will show '© 2015 - 2017'
-copyright_since: 2018
+copyright_since: 2017
 
 # Qrcode for redirect at other device
 #   use: choose which method to generate the qrcode for each posts.
@@ -128,7 +127,6 @@ sns:
     tumblr:
     github: "https://github.com/Michael-Zhang-Xian-Sen"
     linkedin:
-    zhihu: "https://www.zhihu.com/people/zhang-hao-1-28/activities"
     bilibili: "https://space.bilibili.com/239706927/#/"
     telegram: "https://t.me/MichaelZhang2018"
 
@@ -161,6 +159,15 @@ sidebar:
         icon: chrome_reader_mode
         divider: true
     pages:
+        "图库":
+            link: "/gallery"
+            icon: images
+            divider: false
+        # "作品集":
+        #     link: "/work"
+        #     icon: images
+        #     divider: false
+        # 暂时还没有这个功能，以后添加。
         "关于我":
             link: "/about"
             icon: person
@@ -169,10 +176,11 @@ sidebar:
             link: "/links"
             icon: link
             divider: false
-        "标签云":
-            link: "/tags"
-            icon: 
-            divider: true
+
+        # "标签云":
+        #     link: "/tags"
+        #     icon: cloud
+        #     divider: true
     article_num:
         use: true
         divider: false
@@ -199,12 +207,13 @@ materialcdn:
 # Available value of "use":
 #     disqus | disqus_click | changyan | 163gentie
 comment:
-    use: changyan
-    shortname: # duoshuo or disqus shortname
-    changyan_appid: "cyttNCWQt"
-    changyan_conf: "prod_96b3ffa3d56ac7a9d4479878ad5af332"
-    changyan_thread_key_type: path
-    gentie_productKey: 
+    use: disqus
+    shortname: nice2meetu # duoshuo or disqus shortname
+    count: true
+    # changyan_appid: "cyttNCWQt"
+    # changyan_conf: "prod_96b3ffa3d56ac7a9d4479878ad5af332"
+    # changyan_thread_key_type: path
+    # gentie_productKey: 
 
 # Search Systems
 # Available value:
