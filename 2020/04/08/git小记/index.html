@@ -88,7 +88,7 @@
 
     
     <meta property="article:published_time" content="4月 08, 2020">
-    <meta property="article:modified_time" content="4月 09, 2020">
+    <meta property="article:modified_time" content="4月 22, 2020">
     
 
     <!-- The Twitter Card protocol -->
@@ -129,7 +129,7 @@
     "headline": "git常用命令小记",
     "url": "http://yoursite.com/2020/04/08/git小记/index.html",
     "datePublished": "4月 08, 2020",
-    "dateModified": "4月 09, 2020",
+    "dateModified": "4月 22, 2020",
     "description": "git常用命令",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -467,6 +467,15 @@
             </p>
             <p>git的常用操作及相关问题的解决方案。</p>
 <a id="more"></a>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>遇到git命令参数的问题，可通过查看文档解决：</p>
+<ol>
+<li>输入<code>git</code>后回车可以显示常用的git命令。</li>
+<li>输入<code>git 某个命令 -h</code> 可以查看该命令具体的参数信息。</li>
+</ol>
+<h3 id="1-分支操作"><a href="#1-分支操作" class="headerlink" title="1. 分支操作"></a>1. 分支操作</h3><ol>
+<li>将当前内容全部复制到一个新分支：<code>git checkout -b 新分支名称</code></li>
+<li>删除分支：<code>git branch -d</code></li>
+</ol>
 <h2 id="具体问题的解决方案"><a href="#具体问题的解决方案" class="headerlink" title="具体问题的解决方案"></a>具体问题的解决方案</h2><h3 id="1-fork得到的仓库的代码如何更新使得其与原仓库的代码一致。"><a href="#1-fork得到的仓库的代码如何更新使得其与原仓库的代码一致。" class="headerlink" title="1. fork得到的仓库的代码如何更新使得其与原仓库的代码一致。"></a>1. fork得到的仓库的代码如何更新使得其与原仓库的代码一致。</h3><ol>
 <li>配置原仓库的路径：<code>git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git</code></li>
 <li>查看远程仓库的路径，确保正确添加上游仓库：<code>git remote -v</code></li>
