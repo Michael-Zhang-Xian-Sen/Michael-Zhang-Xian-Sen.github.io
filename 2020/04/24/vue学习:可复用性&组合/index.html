@@ -22,7 +22,7 @@
     
     <title>
         
-        归档: 2020/4 | 
+        vue学习：可复用性&amp;组合 | 
         
         XD
     </title>
@@ -48,7 +48,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Michael Zhang">
     <meta name="description" itemprop="description" content>
-    <meta name="keywords" content="Himory blog">
+    <meta name="keywords" content="Himory blog,前端,vue">
 
     <!-- Site Verification -->
     
@@ -79,15 +79,20 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档: 2020/4 | XD">
+    <meta property="og:title" content="vue学习：可复用性&amp;组合 | XD">
     <meta property="og:image" content="http://ewinds.pw/code.png">
     <meta property="og:description" content>
     
+    <meta property="og:article:tag" content="前端"> 
+    <meta property="og:article:tag" content="vue"> 
 
+    
+    <meta property="article:published_time" content="4月 24, 2020">
+    <meta property="article:modified_time" content="4月 24, 2020">
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档: 2020/4 | XD">
+    <meta name="twitter:title" content="vue学习：可复用性&amp;组合 | XD">
     <meta name="twitter:description" content>
     <meta name="twitter:image" content="http://ewinds.pw/code.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -95,13 +100,43 @@
 
     <!-- Add canonical link for SEO -->
     
-    <link rel="canonical" href="http://yoursite.com/archives/2020/04/index.html">
+    <link rel="canonical" href="http://yoursite.com/2020/04/24/vue学习:可复用性&组合/index.html">
     
 
     <!-- Structured-data for SEO -->
     
     
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "XD",
+        "logo": "http://ewinds.pw/code.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Michael Zhang",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://ewinds.pw/code.png"
+        },
+        "description": "机会总是青睐喜欢动脑子的人"
+    },
+    "headline": "vue学习：可复用性&组合",
+    "url": "http://yoursite.com/2020/04/24/vue学习:可复用性&组合/index.html",
+    "datePublished": "4月 24, 2020",
+    "dateModified": "4月 24, 2020",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com"
+    }
+}
+</script>
 
 
     
@@ -384,25 +419,29 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
+        <div class="post-header_info without-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
             <span class="name-span">Michael Zhang</span>
@@ -413,230 +452,123 @@
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2020/04/24/vue学习:可复用性&amp;组合/">vue学习：可复用性&amp;组合</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                目录
 
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2020/04/24/vue学习:可复用性&amp;组合/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/vue/">vue</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/前端/">前端</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                4月 24, 2020
-            </div>
-            <div class="post_entry-footer-comment">
                 
-                
-            </div>
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                vue学习：可复用性&组合
+            </p>
+            <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#1">混入（mixin）</a></li>
+<li><a href="#2">自定义指令</a></li>
+<li><a href="#3">渲染函数&amp;JSX</a></li>
+<li><a href="#4">插件</a></li>
+<li><a href="#5">过滤器</a></li>
+</ol>
+<h2 id="1-混入"><a href="#1-混入" class="headerlink" title="1. 混入"></a><div id="1">1. 混入</div></h2><p>Vue中使用全局变量的方案。顾名思义，混入功能可以将vue组件的一些选项如data、created、methods，置入到每一个组件中，从而被每个组件使用。混入的内容将涉及所有组件——十分混乱；混入的内容可注入到每个组件中——十分深入。</p>
+<ul>
+<li>选项合并：解决混入时的同名选项冲突问题。<ul>
+<li>数据对象：递归合并，组件优先。</li>
+<li>生命周期钩子：合并为数组，mixin中的钩子先调用。</li>
+<li>值为对象的选项：合并为同一个对象，键名冲突时组件优先（如methods中的同名方法）。</li>
+</ul>
+</li>
+<li>全局混入：即全局注册，混入的主要使用场景。</li>
+<li>自定义选项合并策略（不太清楚这一块的作用。）</li>
+</ul>
+<h3 id="全局混入用法实践"><a href="#全局混入用法实践" class="headerlink" title="全局混入用法实践"></a>全局混入用法实践</h3><ul>
+<li><p>将混入内容单独写到一个文件中，例如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mixin = &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            msg:<span class="string">"Hello~"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> mixin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在main.js文件中引入：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mixin <span class="keyword">from</span> <span class="string">'路径/mixin.js'</span></span><br><span class="line">Vue.mixin(mixin)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="2-自定义指令"><a href="#2-自定义指令" class="headerlink" title="2. 自定义指令"></a>2. <div id="2">自定义指令</div></h2><p>通过自定义指令可以更方便地控制dom的样式及行为，而不仅仅局限于v-bind、v-model、v-show等。</p>
+<ul>
+<li>钩子函数：类似组件的生命周期。这就是钩子函数就是自定义指令的生命周期。</li>
+<li>钩子函数参数：所绑定元素的DOM、包含指令属性的对象、vnode、上一个vnode。</li>
+<li>对象字面量：指令函数能够接收所有合法js语句。</li>
+</ul>
+<h2 id="3-渲染函数"><a href="#3-渲染函数" class="headerlink" title="3. 渲染函数"></a>3. <div id="3">渲染函数</div></h2><p>通过render函数，可以使用js编写模版。有时直接使用template编写模版重复度会较高，而使用js编写可以简洁很多。<br>这一部分内容比较多，理解难度比较大，暂时没有完全吃透。</p>
+<h2 id="4-插件"><a href="#4-插件" class="headerlink" title="4. 插件"></a>4. <div id="4">插件</div></h2><p>可以通过插件封装经常使用的重复代码，在一定程度上减少了冗余代码。</p>
+<h2 id="5-过滤器"><a href="#5-过滤器" class="headerlink" title="5. 过滤器"></a>5. <div id="5">过滤器</div></h2><p>主要用来格式化数据。除了可以在组件内部使用filers属性定义局部过滤器之外，还可以使用Vue.filter()定义全局过滤器。</p>
+
         </div>
-    </div>
+    
 </div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
-            <span class="name-span">Michael Zhang</span>
-        </div>
 
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2020/04/23/js遍历总结/">js遍历方法总结</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                目录
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2020/04/23/js遍历总结/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/js/">js</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/前端/">前端</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                4月 23, 2020
-            </div>
-            <div class="post_entry-footer-comment">
                 
+                    <!-- Paradox Post Info -->
+                    
                 
-            </div>
-        </div>
-    </div>
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2020/04/24/vue学习:可复用性&amp;组合/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2020/04/24/vue学习:可复用性&amp;组合/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//nice2meetu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
 </div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
-            <span class="name-span">Michael Zhang</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2020/04/09/使用SonarQube进行代码质量检查/">使用SonarQube进行代码质量检查</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                SonarQube的安装、插件配置及个人的一些感受
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2020/04/09/使用SonarQube进行代码质量检查/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/SonarQube/">SonarQube</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/代码质量检查/">代码质量检查</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                4月 09, 2020
-            </div>
-            <div class="post_entry-footer-comment">
-                
                 
             </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/04/23/js遍历总结/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
-            <span class="name-span">Michael Zhang</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2020/04/08/git小记/">git常用命令小记</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                git的常用操作及相关问题的解决方案。
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2020/04/08/git小记/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/git/">git</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/版本管理工具/">版本管理工具</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                4月 08, 2020
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-
-    
-
-    
-</div>
 
 
                     
