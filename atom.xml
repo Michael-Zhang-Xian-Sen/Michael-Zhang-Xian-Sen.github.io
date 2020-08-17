@@ -176,9 +176,9 @@
       <category term="mac" scheme="http://yoursite.com/categories/mac/"/>
     
     
-      <category term="mac" scheme="http://yoursite.com/tags/mac/"/>
-    
       <category term="工具" scheme="http://yoursite.com/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="mac" scheme="http://yoursite.com/tags/mac/"/>
     
   </entry>
   
@@ -258,9 +258,9 @@
       <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="es6" scheme="http://yoursite.com/tags/es6/"/>
+    
+      <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
@@ -269,7 +269,7 @@
     <link href="http://yoursite.com/2020/04/24/vue/vuex%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2020/04/24/vue/vuex学习笔记/</id>
     <published>2020-04-24T03:23:50.000Z</published>
-    <updated>2020-08-17T09:23:43.018Z</updated>
+    <updated>2020-08-17T09:36:21.263Z</updated>
     
     <content type="html"><![CDATA[<h3 id="mapState辅助函数"><a href="#mapState辅助函数" class="headerlink" title="mapState辅助函数"></a>mapState辅助函数</h3><p>第一个可选参数不太懂。<br>第二个参数可以为对象或者数组。<br>数组，适用于计算属性的名称和state的名称相同时。<br>对象，key为computed的key，value如果是字符串，直接返回该字符串对应的State。如果是函数，则函数的第一个参数为state。<br>辅助函数常与扩展运算符一起用。</p><h3 id="使用常量替代-Mutation-事件类型"><a href="#使用常量替代-Mutation-事件类型" class="headerlink" title="使用常量替代 Mutation 事件类型"></a>使用常量替代 Mutation 事件类型</h3><h4 id="具体实践："><a href="#具体实践：" class="headerlink" title="具体实践："></a>具体实践：</h4><ol><li>将mutation的名称全部作为常量提取到另一个文件<code>mutations-type.js</code>，并将全部常量export。</li><li>定义mutation时，导入<code>mutations-type.js</code>文件中的常量。并且在创建vuex的mutations中全部用常量作为类型名。</li><li>触发mutation，即调用commit时，需要将调用的类型名从<code>mutations-type.js</code>中引入，并使用常量作为commit方法的类型名。</li></ol><p>优点：</p><ol><li>如果需要修改mutation的类型名，只需将常量的值进行修改即可，无需改动其他内容。降低改动成本。</li><li>可以让合作者对整个应用的mutation一目了然。即mutation是如何定义的、何处调用的commit会更加清晰。</li></ol>]]></content>
     
@@ -339,9 +339,9 @@
       <category term="前端" scheme="http://yoursite.com/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="js" scheme="http://yoursite.com/tags/js/"/>
+    
+      <category term="前端" scheme="http://yoursite.com/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
@@ -490,7 +490,7 @@
     <link href="http://yoursite.com/2020/03/11/%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E6%A3%80%E6%9F%A5/%E4%BB%A3%E7%A0%81%E6%A3%80%E6%B5%8B%E5%B7%A5%E5%85%B7eslint%E5%88%9D%E5%8D%B0%E8%B1%A1/"/>
     <id>http://yoursite.com/2020/03/11/代码质量检查/代码检测工具eslint初印象/</id>
     <published>2020-03-11T07:04:50.000Z</published>
-    <updated>2020-08-17T08:05:26.943Z</updated>
+    <updated>2020-08-17T09:36:23.415Z</updated>
     
     <content type="html"><![CDATA[<p>eslint配置简单、功能强大，官网文档丰富、实用。</p><p>一款难得的好工具。</p><a id="more"></a><h1 id="vue项目中使用eslint（vue-cli搭建）"><a href="#vue项目中使用eslint（vue-cli搭建）" class="headerlink" title="vue项目中使用eslint（vue-cli搭建）"></a>vue项目中使用eslint（vue-cli搭建）</h1><h2 id="1-安装eslint"><a href="#1-安装eslint" class="headerlink" title="1. 安装eslint"></a>1. 安装eslint</h2><ul><li>vue-cli安装eslint：在使用vue-cli搭建vue项目时，可选择安装eslint。</li><li>手动安装eslint至当前项目：<code>npm i eslint --save-dev</code></li><li>全局安装eslint命令行工具：<code>npm i eslint -g</code></li></ul><h2 id="2-配置eslint"><a href="#2-配置eslint" class="headerlink" title="2. 配置eslint"></a>2. 配置eslint</h2><h3 id="使用vue-cli安装eslint时的配置文件"><a href="#使用vue-cli安装eslint时的配置文件" class="headerlink" title="使用vue-cli安装eslint时的配置文件"></a>使用vue-cli安装eslint时的配置文件</h3><p>vue-cli安装eslint，有两种可能的配置文件方式</p><ol><li>配置文件集成在<code>package.json</code>文件中</li><li>配置文件为<code>.eslintrc.js</code><br>二者可同时生效</li></ol><h2 id="3-配置文件内容解读"><a href="#3-配置文件内容解读" class="headerlink" title="3. 配置文件内容解读"></a>3. 配置文件内容解读</h2><p>以我使用vue-cli搭建的项目的eslint配置文件为例：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* eslint配置 */</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    root: <span class="literal">true</span>,     <span class="comment">// 只在项目目录中寻找eslint配置文件，禁止向父级目录寻找配置文件。</span></span><br><span class="line">    env: &#123;          <span class="comment">// 在env中指定脚本的运行环境</span></span><br><span class="line">        node: <span class="literal">true</span>  <span class="comment">// 使用 Node.js 全局变量和 Node.js 作用域。</span></span><br><span class="line">    &#125;,</span><br><span class="line">    extends: [                  <span class="comment">// 扩展配置</span></span><br><span class="line">        <span class="string">"plugin:vue/essential"</span>, <span class="comment">// 启用esline-plugin-vue的essential配置</span></span><br><span class="line">        <span class="string">"eslint:recommended"</span>    <span class="comment">// 启用eslint推荐的规则</span></span><br><span class="line">    ],</span><br><span class="line">    parserOptions: &#123;            <span class="comment">// 解析器选项</span></span><br><span class="line">        parser: <span class="string">"babel-eslint"</span>  <span class="comment">// 一个对Babel解析器的包装，使其能够与 ESLint 兼容。</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [  <span class="comment">// 插件</span></span><br><span class="line">        <span class="string">'vue'</span>,  <span class="comment">// eslint-plugin-vue插件</span></span><br><span class="line">        <span class="string">'html'</span>  <span class="comment">// eslint-plugin-html插件</span></span><br><span class="line">    ],</span><br><span class="line">    rules: &#123;    <span class="comment">// 规则</span></span><br><span class="line">        <span class="string">"no-multiple-empty-lines"</span>: [<span class="number">2</span>, &#123; <span class="string">"max"</span>: <span class="number">3</span> &#125;],   <span class="comment">// 空行不得连续超过三行。</span></span><br><span class="line">        <span class="string">"no-extra-boolean-cast"</span>: <span class="number">2</span>,  <span class="comment">// 禁止不必要的布尔类型转换</span></span><br><span class="line">        <span class="string">"no-extra-semi"</span>: <span class="number">2</span>,          <span class="comment">// 禁止使用额外的分号，禁止情况如：";;"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h2 id="4-规则的级别"><a href="#4-规则的级别" class="headerlink" title="4. 规则的级别"></a>4. 规则的级别</h2><ol><li>“off” or 0 - 关闭规则</li><li>“warn” or 1 - 将规则视为一个警告（不会影响退出码）</li><li>“error” or 2 - 将规则视为一个错误 (退出码为1)</li></ol><blockquote><p>这三个错误级别可以允许你细粒度的控制 ESLint 是如何应用规则。（摘自官方文档）</p></blockquote><h2 id="扩展阅读"><a href="#扩展阅读" class="headerlink" title="扩展阅读"></a>扩展阅读</h2><ul><li>eslint官方文档：<a href="https://eslint.bootcss.com/" target="_blank" rel="noopener">https://eslint.bootcss.com/</a></li><li>plugin-vue-eslint官方文档：<a href="https://eslint.vuejs.org/" target="_blank" rel="noopener">https://eslint.vuejs.org/</a></li></ul>]]></content>
     
