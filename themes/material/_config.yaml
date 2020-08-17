@@ -32,7 +32,7 @@ scheme: Isolation   # 主题外观（极简）
 
 # UI & UX: slogan, color, effect
 uiux:
-    slogan: "要么不做，要么就做到极致。" 
+    slogan: "机会总是青睐喜欢动脑子的人" 
     theme_color: "#0097A7"
     theme_sub_color: "#00838F"
     hyperlink_color: "#00838F"
