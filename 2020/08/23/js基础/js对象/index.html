@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.4.0 -->
+    <script>window.materialVersion = "1.4.0"</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156881034-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-156881034-1');
+    </script>
+
+
+    <!-- Title -->
+    
+    <title>
+        
+        js对象 | 
+        
+        XD
+    </title>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Michael Zhang">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="Himory blog,js,前端">
+
+    <!-- Site Verification -->
+    
+    <meta name="google-site-verification" content="PM-youOm1Gs9nhRAbihUFKg8Nz8C3zYQdqRe-wI2mNw">
+    
+    <meta name="baidu-site-verification" content="fIB8rNXEiA">
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="http://opqksc9nz.bkt.clouddn.com/code.png">
+    <link rel="icon" sizes="192x192" href="http://ewinds.pw/code.png">
+    <link rel="apple-touch-icon" href="http://ewinds.pw/code.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="XD">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="js对象 | XD">
+    <meta property="og:image" content="http://ewinds.pw/code.png">
+    <meta property="og:description" content>
+    
+    <meta property="og:article:tag" content="js"> 
+    <meta property="og:article:tag" content="前端"> 
+
+    
+    <meta property="article:published_time" content="8月 23, 2020">
+    <meta property="article:modified_time" content="8月 23, 2020">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="js对象 | XD">
+    <meta name="twitter:description" content>
+    <meta name="twitter:image" content="http://ewinds.pw/code.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://yoursite.com">
+
+    <!-- Add canonical link for SEO -->
+    
+    <link rel="canonical" href="http://yoursite.com/2020/08/23/js基础/js对象/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+    
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "XD",
+        "logo": "http://ewinds.pw/code.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Michael Zhang",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://ewinds.pw/code.png"
+        },
+        "description": "机会总是青睐喜欢动脑子的人"
+    },
+    "headline": "js对象",
+    "url": "http://yoursite.com/2020/08/23/js基础/js对象/index.html",
+    "datePublished": "8月 23, 2020",
+    "dateModified": "8月 23, 2020",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://yoursite.com"
+    }
+}
+</script>
+
+
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function () { window.lsloader = { jsRunSequence: [], jsnamemap: {}, cssnamemap: {} }; lsloader.removeLS = function (key) { try { localStorage.removeItem(key) } catch (e) { } }; lsloader.setLS = function (key, val) { try { localStorage.setItem(key, val) } catch (e) { } }; lsloader.getLS = function (key) { var val = ""; try { val = localStorage.getItem(key) } catch (e) { val = "" } return val }; versionString = "/*" + materialVersion + "*/"; lsloader.clean = function () { try { var keys = []; for (var i = 0; i < localStorage.length; i++) { keys.push(localStorage.key(i)) } keys.forEach(function (key) { var data = lsloader.getLS(key); if (data && data.indexOf(versionString) === -1) { lsloader.removeLS(key) } }) } catch (e) { } }; lsloader.clean(); lsloader.load = function (jsname, jspath, cssonload) { cssonload = cssonload || function () { }; var code; code = this.getLS(jsname); if (code && code.indexOf(versionString) === -1) { this.removeLS(jsname); this.requestResource(jsname, jspath, cssonload); return } if (code) { var versionNumber = code.split(versionString)[0]; if (versionNumber != jspath) { console.log("reload:" + jspath); this.removeLS(jsname); this.requestResource(jsname, jspath, cssonload); return } code = code.split(versionString)[1]; if (/\.js?.+$/.test(versionNumber)) { this.jsRunSequence.push({ name: jsname, code: code }); this.runjs(jspath, jsname, code) } else { document.getElementById(jsname).appendChild(document.createTextNode(code)); cssonload() } } else { this.requestResource(jsname, jspath, cssonload) } }; lsloader.requestResource = function (name, path, cssonload) { var that = this; if (/\.js?.+$/.test(path)) { this.iojs(path, name, function (path, name, code) { that.setLS(name, path + versionString + code); that.runjs(path, name, code) }) } else if (/\.css?.+$/.test(path)) { this.iocss(path, name, function (code) { document.getElementById(name).appendChild(document.createTextNode(code)); that.setLS(name, path + versionString + code) }, cssonload) } }; lsloader.iojs = function (path, jsname, callback) { var that = this; that.jsRunSequence.push({ name: jsname, code: "" }); try { var xhr = new XMLHttpRequest; xhr.open("get", path, true); xhr.onreadystatechange = function () { if (xhr.readyState == 4) { if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { if (xhr.response != "") { callback(path, jsname, xhr.response); return } } that.jsfallback(path, jsname) } }; xhr.send(null) } catch (e) { that.jsfallback(path, jsname) } }; lsloader.iocss = function (path, jsname, callback, cssonload) { var that = this; try { var xhr = new XMLHttpRequest; xhr.open("get", path, true); xhr.onreadystatechange = function () { if (xhr.readyState == 4) { if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { if (xhr.response != "") { callback(xhr.response); cssonload(); return } } that.cssfallback(path, jsname, cssonload) } }; xhr.send(null) } catch (e) { that.cssfallback(path, jsname, cssonload) } }; lsloader.iofonts = function (path, jsname, callback, cssonload) { var that = this; try { var xhr = new XMLHttpRequest; xhr.open("get", path, true); xhr.onreadystatechange = function () { if (xhr.readyState == 4) { if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { if (xhr.response != "") { callback(xhr.response); cssonload(); return } } that.cssfallback(path, jsname, cssonload) } }; xhr.send(null) } catch (e) { that.cssfallback(path, jsname, cssonload) } }; lsloader.runjs = function (path, name, code) { if (!!name && !!code) { for (var k in this.jsRunSequence) { if (this.jsRunSequence[k].name == name) { this.jsRunSequence[k].code = code } } } if (!!this.jsRunSequence[0] && !!this.jsRunSequence[0].code && this.jsRunSequence[0].status != "failed") { var script = document.createElement("script"); script.appendChild(document.createTextNode(this.jsRunSequence[0].code)); script.type = "text/javascript"; document.getElementsByTagName("head")[0].appendChild(script); this.jsRunSequence.shift(); if (this.jsRunSequence.length > 0) { this.runjs() } } else if (!!this.jsRunSequence[0] && this.jsRunSequence[0].status == "failed") { var that = this; var script = document.createElement("script"); script.src = this.jsRunSequence[0].path; script.type = "text/javascript"; this.jsRunSequence[0].status = "loading"; script.onload = function () { that.jsRunSequence.shift(); if (that.jsRunSequence.length > 0) { that.runjs() } }; document.body.appendChild(script) } }; lsloader.tagLoad = function (path, name) { this.jsRunSequence.push({ name: name, code: "", path: path, status: "failed" }); this.runjs() }; lsloader.jsfallback = function (path, name) { if (!!this.jsnamemap[name]) { return } else { this.jsnamemap[name] = name } for (var k in this.jsRunSequence) { if (this.jsRunSequence[k].name == name) { this.jsRunSequence[k].code = ""; this.jsRunSequence[k].status = "failed"; this.jsRunSequence[k].path = path } } this.runjs() }; lsloader.cssfallback = function (path, name, cssonload) { if (!!this.cssnamemap[name]) { return } else { this.cssnamemap[name] = 1 } var link = document.createElement("link"); link.type = "text/css"; link.href = path; link.rel = "stylesheet"; link.onload = link.onerror = cssonload; var root = document.getElementsByTagName("script")[0]; root.parentNode.insertBefore(link, root) }; lsloader.runInlineScript = function (scriptId, codeId) { var code = document.getElementById(codeId).innerText; this.jsRunSequence.push({ name: scriptId, code: code }); this.runjs() }; lsloader.loadCombo = function (jslist) { var updateList = ""; var requestingModules = {}; for (var k in jslist) { var LS = this.getLS(jslist[k].name); if (!!LS) { var version = LS.split(versionString)[0]; var code = LS.split(versionString)[1] } else { var version = "" } if (version == jslist[k].path) { this.jsRunSequence.push({ name: jslist[k].name, code: code, path: jslist[k].path }) } else { this.jsRunSequence.push({ name: jslist[k].name, code: null, path: jslist[k].path, status: "comboloading" }); requestingModules[jslist[k].name] = true; updateList += (updateList == "" ? "" : ";") + jslist[k].path } } var that = this; if (!!updateList) { var xhr = new XMLHttpRequest; xhr.open("get", combo + updateList, true); xhr.onreadystatechange = function () { if (xhr.readyState == 4) { if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { if (xhr.response != "") { that.runCombo(xhr.response, requestingModules); return } } else { for (var i in that.jsRunSequence) { if (requestingModules[that.jsRunSequence[i].name]) { that.jsRunSequence[i].status = "failed" } } that.runjs() } } }; xhr.send(null) } this.runjs() }; lsloader.runCombo = function (comboCode, requestingModules) { comboCode = comboCode.split("/*combojs*/"); comboCode.shift(); for (var k in this.jsRunSequence) { if (!!requestingModules[this.jsRunSequence[k].name] && !!comboCode[0]) { this.jsRunSequence[k].status = "comboJS"; this.jsRunSequence[k].code = comboCode[0]; this.setLS(this.jsRunSequence[k].name, this.jsRunSequence[k].path + versionString + comboCode[0]); comboCode.shift() } } this.runjs() } })();</script>
+
+    <!-- Import CSS & jQuery -->
+    
+    <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+    <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+    
+    <style id="/css/fontawesome.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("/css/fontawesome.min.css","/css/fontawesome.min.css?JpVQUwzBJ7aqWjWSWn3mzg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+    
+    
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+    
+    
+    <script>function Queue() { this.dataStore = []; this.offer = b; this.poll = d; this.execNext = a; this.debug = false; this.startDebug = c; function b(e) { if (this.debug) { console.log("Offered a Queued Function.") } if (typeof e === "function") { this.dataStore.push(e) } else { console.log("You must offer a function.") } } function d() { if (this.debug) { console.log("Polled a Queued Function.") } return this.dataStore.shift() } function a() { var e = this.poll(); if (e !== undefined) { if (this.debug) { console.log("Run a Queued Function.") } e() } } function c() { this.debug = true } } var queue = new Queue();</script>
+
+    <!-- Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?a4f985b92495f97a07b51ae760c6913d';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Custom Head -->
+    
+</head>
+
+    
+        <body id="scheme-Isolation" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+                    <!-- Isolation Header -->
+                    <header class="header">
+    <div class="header-wrapper">
+        <!-- Header Copyright -->
+        <div class="header-copyright">
+            <div class="header-site">
+                ©&nbsp;
+                <script type="text/javascript">
+                    var fd = new Date();
+                    document.write(fd.getFullYear());
+                </script>
+                &nbsp;XD
+            </div>
+            <!--
+            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+            It will not impact the appearance and can give developers a lot of support :)
+
+            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+            它不会影响美观并可以给开发者很大的支持。 :)
+            -->
+            <div>
+                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+                <br>
+                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
+            </div>
+        </div>
+
+        <!-- Header Title -->
+        <span class="header-title header-item">
+            <a href="/" title="XD">
+                XD
+            </a>
+        </span>
+
+        <p class="header-slogan header-item">
+        
+            
+                机会总是青睐喜欢动脑子的人
+            
+        
+        </p>
+
+        <!-- Header Nav -->
+        <nav class="header-nav header-item">
+            <span class="header-nav-item">
+                <a href="/" title="Home">
+                    <span>主页</span>
+                </a>
+            </span>
+
+            <!-- Pages  -->
+            
+                <span class="header-nav-item">
+                    <a href="/gallery" title="图库">
+                        <span>图库</span>
+                    </a>
+                </span>
+            
+                <span class="header-nav-item">
+                    <a href="/about" title="关于我">
+                        <span>关于我</span>
+                    </a>
+                </span>
+            
+                <span class="header-nav-item">
+                    <a href="/links" title="友情链接">
+                        <span>友情链接</span>
+                    </a>
+                </span>
+            
+            
+        </nav>
+
+        <!-- Header SNS -->
+        <div class="header-item header-sns_list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+        <a href="https://plus.google.com/u/0/108135275713505840320" target="_blank">
+            <i class="fa fa-google-plus fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Michael-Zhang-Xian-Sen" target="_blank">
+            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Telegram -->
+    
+        <a href="https://t.me/MichaelZhang2018" target="_blank">
+            <i class="fa fa-telegram fa-lg" aria-hidden="true"></i>
+        </a>
+    
+</div>
+
+    </div>
+</header>
+
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+
+                    <!-- Post TOC -->
+
+    
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
+    
+        <!-- Post Header Info -->
+        <div class="post-header_info without-thumbnail">
+            <!-- Author Avatar & Name -->
+            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
+            <span class="name-span">Michael Zhang</span>
+        </div>
+
+        <!-- Null Thumbnail -->
+        <div class="post_thumbnail-null">
+    
+        </div>
+
+
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                js对象
+            </p>
+            <h2 id="对象的属性"><a href="#对象的属性" class="headerlink" title="对象的属性"></a>对象的属性</h2><ol>
+<li>数据属性<ul>
+<li><code>configurable</code>：能否通过delete删除属性从而重新定义属性、能否修改属性的特性、能否把属性修改为访问器属性。对于直接在对象上定义的属性，默认为true。</li>
+<li><code>enumerable</code>：表示能否通过for-in循环返回属性。默认为true。</li>
+<li><code>writable</code>：表示能否修改属性的值。默认为true。</li>
+<li><code>value</code>：包含这个属性的数据值。默认为undefined。</li>
+</ul>
+</li>
+<li>访问器属性<ul>
+<li><code>configurable</code>：表示能否通过delete删除属性从而重新定义属性、能否修改属性的特性、能否把属性修改为数据属性。对于直接在对象上定义的属性，默认为true。</li>
+<li><code>enumerable</code>：表示能否通过for-in循环返回属性。默认为true。</li>
+<li><code>get</code>：在读取属性时调用的函数，默认值为undefined。</li>
+<li><code>set</code>：在写入属性时调用的函数，默认值为undefined。</li>
+</ul>
+</li>
+<li>其他属性<ul>
+<li><code>constructor</code>：对象的构造函数。</li>
+</ul>
+</li>
+<li>相关方法<ul>
+<li>定义属性描述符的方法1：<code>Object.defineProperty(对象, 属性名, 描述符对象)</code></li>
+<li>定义属性描述符的方法2：<code>Object.defineProperties(对象, 描述符对象)</code></li>
+<li>读取属性描述符的方法：<code>Object.getOwnPropertyDescriptor(对象, 属性名)</code></li>
+</ul>
+</li>
+</ol>
+<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="1-工厂模式"><a href="#1-工厂模式" class="headerlink" title="1. 工厂模式"></a>1. 工厂模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name,age,job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.age = age;</span><br><span class="line">    o.job = job;</span><br><span class="line">    o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="2-构造函数模式"><a href="#2-构造函数模式" class="headerlink" title="2. 构造函数模式"></a>2. 构造函数模式</h3><p>创建实例时实际经历的步骤：</p>
+<ol>
+<li>创建一个对象。</li>
+<li>将构造函数的作用域赋给新对象</li>
+<li>执行构造函数中的代码。</li>
+<li>返回新对象。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>,<span class="number">29</span>,<span class="string">"Software Enigneer"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意：</p>
+<ol>
+<li>构造函数始终应该以大写字母开头。</li>
+<li>构造出的不同对象的方法并不共用同一片内存。</li>
+</ol>
+<h3 id="3-原型模式"><a href="#3-原型模式" class="headerlink" title="3. 原型模式"></a>3. 原型模式</h3><p>创建新函数时，会为该函数创建一个prototype属性，该属性指向该函数的原型对象。默认情况下，所有的原型对象都会具有一个<code>constructor</code>属性，这个属性是一个指向<code>prototype</code>属性所在函数的指针，如下所示<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> NewFunction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">NewFunction.prototype.constructor === NewFunction <span class="comment">// true.</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="读取一个对象的属性，发生了什么？"><a href="#读取一个对象的属性，发生了什么？" class="headerlink" title="读取一个对象的属性，发生了什么？"></a>读取一个对象的属性，发生了什么？</h4><ol>
+<li>首先搜索对象实例本身。如果在实例中找到了具有给定名字的属性，则返回该属性的值。</li>
+<li>若第一步没有找到，则继续搜索指针指向的原型对象，在原型对象中查找具有给定名字的属性。</li>
+</ol>
+<h4 id="原型添加属性和方法"><a href="#原型添加属性和方法" class="headerlink" title="原型添加属性和方法"></a>原型添加属性和方法</h4><ol>
+<li>通过<code>prototype</code>属性。如:<code>NewFunction.prototype.a = 1</code></li>
+<li><p>通过对象字面量的方法，此时原型的constructor不再指向原函数，但是<code>instanceof</code>操作符仍然会返回true。可以通过显示地向对象添加constructor属性，以保证原型的constructor指向原函数。另外需要注意，使用对象字面量的方法，可能会重写原型链。</p>
+ <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">NewFunction</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">NewFunction.prototype = &#123;</span><br><span class="line">    a:<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">NewFunction.prototype.constructor === NewFunction; <span class="comment">// false</span></span><br><span class="line"><span class="keyword">var</span> newFunctionObj = <span class="keyword">new</span> NewFunction();</span><br><span class="line">newFunctionObj <span class="keyword">instanceof</span> NewFunction <span class="comment">// true</span></span><br><span class="line">NewFunction.prototype = &#123;</span><br><span class="line">    <span class="keyword">constructor</span>:NewFunction,</span><br><span class="line">    a:1,</span><br><span class="line">&#125;</span><br><span class="line">NewFunction.prototype.<span class="keyword">constructor</span> === NewFunction; // true</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用<code>Object.defineProperty()</code>。</p>
+</li>
+</ol>
+<h4 id="原型的动态性"><a href="#原型的动态性" class="headerlink" title="原型的动态性"></a>原型的动态性</h4><p>对原型对象所做的任何修改，都能立刻从实例上反映出来。</p>
+<h4 id="原型相关的方法"><a href="#原型相关的方法" class="headerlink" title="原型相关的方法"></a>原型相关的方法</h4><ol>
+<li><code>prototypeObject.prototype.isPrototypeOf(被测对象)</code> 用于prototypeObject是否存在于被测对象的原型链上。</li>
+<li><code>Object.getPrototypeOf()</code>，用于获取指定对象的原型</li>
+<li><code>obj.hasOwnProperty(属性名)</code>，方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性。不包括原型中的属性。</li>
+<li><code>&quot;属性名&quot; in obj</code>，<code>in</code>操作符可检测对象是否有相应属性，不论属性在实例中还是在原型中。</li>
+<li><code>Object.keys(obj)</code>,获取obj对象上的所有可枚举的实例属性。</li>
+<li><code>Object.getOwnPropertyNames(obj)</code>，获取obj对象上的所有实例属性，无论是否可枚举。</li>
+</ol>
+<h3 id="4-组合使用构造函数模式和原型模式"><a href="#4-组合使用构造函数模式和原型模式" class="headerlink" title="4. 组合使用构造函数模式和原型模式"></a>4. 组合使用构造函数模式和原型模式</h3><p>使用构造函数模式定义实例属性，使用原型模式定义方法和共享的属性。</p>
+<h3 id="5-动态原型模式"><a href="#5-动态原型模式" class="headerlink" title="5. 动态原型模式"></a>5. 动态原型模式</h3><p>将实例属性、原型方法和原型属性都定义在构造函数中。如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="comment">// 仅需检测一个原型中可能存在的属性或方法即可。若该属性/方法在原型中不存在，则将原型上应存在的所有属性和方法添加至原型。</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName !== <span class="string">"function"</span>)&#123;</span><br><span class="line">        <span class="comment">// 也可使用instanceof，如：</span></span><br><span class="line">        <span class="comment">// if(this.sayName instanceof Function)</span></span><br><span class="line">        Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            alert(<span class="keyword">this</span>.name);</span><br><span class="line">        &#125;</span><br><span class="line">        Person.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">            alert(<span class="string">`My name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>, nice to meet you <span class="subst">$&#123;name&#125;</span>`</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="6-寄生构造函数模式"><a href="#6-寄生构造函数模式" class="headerlink" title="6. 寄生构造函数模式"></a>6. 寄生构造函数模式</h3><p>创建一个函数，该函数仅封装创建对象的代码，然后再返回新创建的对象。主要用来为现有的引用类型增加其他的功能，且不污染现有的引用类型。</p>
+<p>与工厂模式有两个区别：</p>
+<ol>
+<li>命名上，不再采用createXxxx。</li>
+<li>在实例化时，通过<code>new</code>运算符进行实例化，而不是仅调用方法。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SpecialArray</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> values = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">    values.push.apply(values,<span class="built_in">arguments</span>);</span><br><span class="line">    values.toPipedString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.join(<span class="string">"|"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> values;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> SpecialArray(<span class="string">"red"</span>,<span class="string">"blue"</span>,<span class="string">"green"</span>);</span><br><span class="line">alert(colors.toPipedString());</span><br><span class="line">colors <span class="keyword">instanceof</span> SpecialArray <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>注意：寄生构造函数返回的对象与构造函数及构造函数的原型之间没有任何关系。</p>
+<h3 id="7-稳妥构造函数模式"><a href="#7-稳妥构造函数模式" class="headerlink" title="7. 稳妥构造函数模式"></a>7. 稳妥构造函数模式</h3><p>稳妥对象：没有公共属性，而且其方法也不引用this。</p>
+<p>稳妥构造函数模式不适用<code>new</code>操作符调用构造函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在此处定义私有变量</span></span><br><span class="line"></span><br><span class="line">    o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>基本思想：利用原型让一个引用类型继承另一个引用类型的属性和方法，是js语言实现继承的主要方法。</p>
+<h3 id="确定原型和实例的关系"><a href="#确定原型和实例的关系" class="headerlink" title="确定原型和实例的关系"></a>确定原型和实例的关系</h3><ol>
+<li>方法1：使用<code>instanceof</code></li>
+<li>方法2：使用<code>isPrototypeOf</code>，如<code>Object.prototype.isPrototypeOf(instance)</code>;</li>
+</ol>
+<h3 id="原型链存在的问题"><a href="#原型链存在的问题" class="headerlink" title="原型链存在的问题"></a>原型链存在的问题</h3><ol>
+<li>原型上引用类型值的属性，会被所有实例共享。</li>
+<li>在不影响所有对象实例的情况下，无法给超类型的构造函数提供参数。</li>
+</ol>
+<h3 id="1-借用构造函数"><a href="#1-借用构造函数" class="headerlink" title="1. 借用构造函数"></a>1. 借用构造函数</h3><p>在子类型构造函数的内部调用超类型构造函数,便可以实现向超类型传递参数。</p>
+<p>存在的问题：无法实现函数复用（因为超类型的原型中定义的方法，对于子类型而言是不可见的。）</p>
+<h3 id="2-组合继承"><a href="#2-组合继承" class="headerlink" title="2. 组合继承"></a>2. 组合继承</h3><p>一种继承模式，将原型链和借用构造函数的技术组合到一起。主要思路为使用原型链实现对原型属性和方法的继承，通过借用构造函数来实现对实例属性的继承。</p>
+<p>组合继承模式有两个关键步骤。在调用子类的构造函数实例化对象前，一定要先将超类挂载至子类的原型上，然后将子类原型的构造方法手动设置为子类的构造方法（因为在挂载原型时，构造方法会被覆盖）。</p>
+<h3 id="3-原型式继承"><a href="#3-原型式继承" class="headerlink" title="3. 原型式继承"></a>3. 原型式继承</h3><p>借助原型，基于已有的对象创建新对象，同时也不必创建自定义类型。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ES6的<code>Object.craete(用作新对象原型的对象, 为新对象定义额外属性的对象)</code>api实现了原型式继承。</p>
+<h3 id="4-寄生式继承"><a href="#4-寄生式继承" class="headerlink" title="4. 寄生式继承"></a>4. 寄生式继承</h3><p>创建一个仅用于封装继承过程的函数，使用该函数实现继承。</p>
+
+        </div>
+    
+</div>
+
+
+                
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2020/08/23/js基础/js对象/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://yoursite.com/2020/08/23/js基础/js对象/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//nice2meetu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/08/23/Node/node入门/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+
+
+
+    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("js/smoothscroll.js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==")</script>
+    
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+<script id="dsq-count-scr" src="//nice2meetu.disqus.com/count.js" async></script>
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Window Load-->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Bing Background -->
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
