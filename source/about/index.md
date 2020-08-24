@@ -5,12 +5,15 @@ layout: about
 ---
 
 ## 关于我
-菜鸟一枚，什么都会，什么都只是会一点。
 
-正在学习前端，常常因为对原理的不了解而陷入"why does it not work"的痛苦。
+### 技术栈
+* 语言
+    * 比较了解：JS、CSS、HTML、C
+    * 略懂一些：JAVA、PYTHON
+* 框架
+    * 比较了解：VUE、SpringBoot、jQuery、D3.js
 
-
-## 挖坑待填
-1. vs格式化插件：如何让格式化不自动将代码换行？
-2. vue的响应式原理、$set的原理、$updateForce的原理。
-
+### 兴趣爱好
+* 游戏：代码写累了打两盘CSGO，放松一下。
+* 电影：Christopher Nolan、Quentin Tarantino、姜文
+* 想要学习摄影和剪辑。
