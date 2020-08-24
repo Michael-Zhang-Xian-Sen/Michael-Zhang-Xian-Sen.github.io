@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>XD</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://nice2meetu.site/"/>
+  <updated>2020-08-24T05:46:32.909Z</updated>
+  <id>http://nice2meetu.site/</id>
+  
+  <author>
+    <name>Michael Zhang</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://nice2meetu.site/2020/08/24/css%E5%9F%BA%E7%A1%80/%E5%A4%96%E8%BE%B9%E8%B7%9D%E6%8A%98%E5%8F%A0/"/>
+    <id>http://nice2meetu.site/2020/08/24/css基础/外边距折叠/</id>
+    <published>2020-08-24T05:46:32.909Z</published>
+    <updated>2020-08-24T05:46:32.909Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="形成外布局重叠的情况："><a href="#形成外布局重叠的情况：" class="headerlink" title="形成外布局重叠的情况："></a>形成外布局重叠的情况：</h3><p>外边距重叠的含义：块的上外边距(margin-top)和下外边距(margin-bottom)有时合并(折叠)为单个边距，其大小为单个边距的最大值(或如果它们相等，则仅为其中一个)，</p><ol><li>同一层相邻元素之间：相邻的两个元素之间的外边距重叠，除非后一个元素加上clear-fix清除浮动。</li></ol><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>知乎回答：<a href="https://www.zhihu.com/question/19823139?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/19823139?sort=created</a></li><li>MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;形成外布局重叠的情况：&quot;&gt;&lt;a href=&quot;#形成外布局重叠的情况：&quot; class=&quot;headerlink&quot; title=&quot;形成外布局重叠的情况：&quot;&gt;&lt;/a&gt;形成外布局重叠的情况：&lt;/h3&gt;&lt;p&gt;外边距重叠的含义：块的上外边距(margin-top)和下外边距(m
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://nice2meetu.site/2020/08/24/css%E5%9F%BA%E7%A1%80/%E5%AE%9A%E4%BD%8D%E3%80%81%E6%96%87%E6%A1%A3%E6%B5%81%E4%B8%8E%E6%96%87%E6%9C%AC%E6%B5%81/"/>
+    <id>http://nice2meetu.site/2020/08/24/css基础/定位、文档流与文本流/</id>
+    <published>2020-08-24T05:46:32.909Z</published>
+    <updated>2020-08-24T05:46:32.910Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="几种定位"><a href="#几种定位" class="headerlink" title="几种定位"></a>几种定位</h3><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>mdn有关文档流及定位的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;几种定位&quot;&gt;&lt;a href=&quot;#几种定位&quot; class=&quot;headerlink&quot; title=&quot;几种定位&quot;&gt;&lt;/a&gt;几种定位&lt;/h3&gt;&lt;h3 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>js对象</title>
+    <link href="http://nice2meetu.site/2020/08/23/js%E5%9F%BA%E7%A1%80/js%E5%AF%B9%E8%B1%A1/"/>
+    <id>http://nice2meetu.site/2020/08/23/js基础/js对象/</id>
+    <published>2020-08-23T15:39:00.000Z</published>
+    <updated>2020-08-24T05:46:32.915Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="对象的属性"><a href="#对象的属性" class="headerlink" title="对象的属性"></a>对象的属性</h2><ol><li>数据属性<ul><li><code>configurable</code>：能否通过delete删除属性从而重新定义属性、能否修改属性的特性、能否把属性修改为访问器属性。对于直接在对象上定义的属性，默认为true。</li><li><code>enumerable</code>：表示能否通过for-in循环返回属性。默认为true。</li><li><code>writable</code>：表示能否修改属性的值。默认为true。</li><li><code>value</code>：包含这个属性的数据值。默认为undefined。</li></ul></li><li>访问器属性<ul><li><code>configurable</code>：表示能否通过delete删除属性从而重新定义属性、能否修改属性的特性、能否把属性修改为数据属性。对于直接在对象上定义的属性，默认为true。</li><li><code>enumerable</code>：表示能否通过for-in循环返回属性。默认为true。</li><li><code>get</code>：在读取属性时调用的函数，默认值为undefined。</li><li><code>set</code>：在写入属性时调用的函数，默认值为undefined。</li></ul></li><li>其他属性<ul><li><code>constructor</code>：对象的构造函数。</li></ul></li><li>相关方法<ul><li>定义属性描述符的方法1：<code>Object.defineProperty(对象, 属性名, 描述符对象)</code></li><li>定义属性描述符的方法2：<code>Object.defineProperties(对象, 描述符对象)</code></li><li>读取属性描述符的方法：<code>Object.getOwnPropertyDescriptor(对象, 属性名)</code></li></ul></li></ol><h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="1-工厂模式"><a href="#1-工厂模式" class="headerlink" title="1. 工厂模式"></a>1. 工厂模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name,age,job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">    o.name = name;</span><br><span class="line">    o.age = age;</span><br><span class="line">    o.job = job;</span><br><span class="line">    o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">var</span> person1 = createPerson(<span class="string">"Nicholas"</span>, <span class="number">29</span>, <span class="string">"Software Engineer"</span>);</span><br></pre></td></tr></table></figure><h3 id="2-构造函数模式"><a href="#2-构造函数模式" class="headerlink" title="2. 构造函数模式"></a>2. 构造函数模式</h3><p>创建实例时实际经历的步骤：</p><ol><li>创建一个对象。</li><li>将构造函数的作用域赋给新对象</li><li>执行构造函数中的代码。</li><li>返回新对象。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name, age, job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="keyword">this</span>.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="keyword">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person1 = <span class="keyword">new</span> Person(<span class="string">"Nicholas"</span>,<span class="number">29</span>,<span class="string">"Software Enigneer"</span>);</span><br></pre></td></tr></table></figure></li></ol><p>注意：</p><ol><li>构造函数始终应该以大写字母开头。</li><li>构造出的不同对象的方法并不共用同一片内存。</li></ol><h3 id="3-原型模式"><a href="#3-原型模式" class="headerlink" title="3. 原型模式"></a>3. 原型模式</h3><p>创建新函数时，会为该函数创建一个prototype属性，该属性指向该函数的原型对象。默认情况下，所有的原型对象都会具有一个<code>constructor</code>属性，这个属性是一个指向<code>prototype</code>属性所在函数的指针，如下所示<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> NewFunction = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">NewFunction.prototype.constructor === NewFunction <span class="comment">// true.</span></span><br></pre></td></tr></table></figure></p><h4 id="读取一个对象的属性，发生了什么？"><a href="#读取一个对象的属性，发生了什么？" class="headerlink" title="读取一个对象的属性，发生了什么？"></a>读取一个对象的属性，发生了什么？</h4><ol><li>首先搜索对象实例本身。如果在实例中找到了具有给定名字的属性，则返回该属性的值。</li><li>若第一步没有找到，则继续搜索指针指向的原型对象，在原型对象中查找具有给定名字的属性。</li></ol><h4 id="原型添加属性和方法"><a href="#原型添加属性和方法" class="headerlink" title="原型添加属性和方法"></a>原型添加属性和方法</h4><ol><li>通过<code>prototype</code>属性。如:<code>NewFunction.prototype.a = 1</code></li><li><p>通过对象字面量的方法，此时原型的constructor不再指向原函数，但是<code>instanceof</code>操作符仍然会返回true。可以通过显示地向对象添加constructor属性，以保证原型的constructor指向原函数。另外需要注意，使用对象字面量的方法，可能会重写原型链。</p> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">NewFunction</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">NewFunction.prototype = &#123;</span><br><span class="line">    a:<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">NewFunction.prototype.constructor === NewFunction; <span class="comment">// false</span></span><br><span class="line"><span class="keyword">var</span> newFunctionObj = <span class="keyword">new</span> NewFunction();</span><br><span class="line">newFunctionObj <span class="keyword">instanceof</span> NewFunction <span class="comment">// true</span></span><br><span class="line">NewFunction.prototype = &#123;</span><br><span class="line">    <span class="keyword">constructor</span>:NewFunction,</span><br><span class="line">    a:1,</span><br><span class="line">&#125;</span><br><span class="line">NewFunction.prototype.<span class="keyword">constructor</span> === NewFunction; // true</span><br></pre></td></tr></table></figure></li><li><p>使用<code>Object.defineProperty()</code>。</p></li></ol><h4 id="原型的动态性"><a href="#原型的动态性" class="headerlink" title="原型的动态性"></a>原型的动态性</h4><p>对原型对象所做的任何修改，都能立刻从实例上反映出来。</p><h4 id="原型相关的方法"><a href="#原型相关的方法" class="headerlink" title="原型相关的方法"></a>原型相关的方法</h4><ol><li><code>prototypeObject.prototype.isPrototypeOf(被测对象)</code> 用于prototypeObject是否存在于被测对象的原型链上。</li><li><code>Object.getPrototypeOf()</code>，用于获取指定对象的原型</li><li><code>obj.hasOwnProperty(属性名)</code>，方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性。不包括原型中的属性。</li><li><code>&quot;属性名&quot; in obj</code>，<code>in</code>操作符可检测对象是否有相应属性，不论属性在实例中还是在原型中。</li><li><code>Object.keys(obj)</code>,获取obj对象上的所有可枚举的实例属性。</li><li><code>Object.getOwnPropertyNames(obj)</code>，获取obj对象上的所有实例属性，无论是否可枚举。</li></ol><h3 id="4-组合使用构造函数模式和原型模式"><a href="#4-组合使用构造函数模式和原型模式" class="headerlink" title="4. 组合使用构造函数模式和原型模式"></a>4. 组合使用构造函数模式和原型模式</h3><p>使用构造函数模式定义实例属性，使用原型模式定义方法和共享的属性。</p><h3 id="5-动态原型模式"><a href="#5-动态原型模式" class="headerlink" title="5. 动态原型模式"></a>5. 动态原型模式</h3><p>将实例属性、原型方法和原型属性都定义在构造函数中。如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.name = name;</span><br><span class="line">    <span class="keyword">this</span>.age = age;</span><br><span class="line">    <span class="keyword">this</span>.job = job;</span><br><span class="line">    <span class="comment">// 仅需检测一个原型中可能存在的属性或方法即可。若该属性/方法在原型中不存在，则将原型上应存在的所有属性和方法添加至原型。</span></span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName !== <span class="string">"function"</span>)&#123;</span><br><span class="line">        <span class="comment">// 也可使用instanceof，如：</span></span><br><span class="line">        <span class="comment">// if(this.sayName instanceof Function)</span></span><br><span class="line">        Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">            alert(<span class="keyword">this</span>.name);</span><br><span class="line">        &#125;</span><br><span class="line">        Person.prototype.sayHello = <span class="function"><span class="keyword">function</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">            alert(<span class="string">`My name is <span class="subst">$&#123;<span class="keyword">this</span>.name&#125;</span>, nice to meet you <span class="subst">$&#123;name&#125;</span>`</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="6-寄生构造函数模式"><a href="#6-寄生构造函数模式" class="headerlink" title="6. 寄生构造函数模式"></a>6. 寄生构造函数模式</h3><p>创建一个函数，该函数仅封装创建对象的代码，然后再返回新创建的对象。主要用来为现有的引用类型增加其他的功能，且不污染现有的引用类型。</p><p>与工厂模式有两个区别：</p><ol><li>命名上，不再采用createXxxx。</li><li>在实例化时，通过<code>new</code>运算符进行实例化，而不是仅调用方法。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SpecialArray</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> values = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">    values.push.apply(values,<span class="built_in">arguments</span>);</span><br><span class="line">    values.toPipedString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>.join(<span class="string">"|"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> values;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> SpecialArray(<span class="string">"red"</span>,<span class="string">"blue"</span>,<span class="string">"green"</span>);</span><br><span class="line">alert(colors.toPipedString());</span><br><span class="line">colors <span class="keyword">instanceof</span> SpecialArray <span class="comment">// false</span></span><br></pre></td></tr></table></figure></li></ol><p>注意：寄生构造函数返回的对象与构造函数及构造函数的原型之间没有任何关系。</p><h3 id="7-稳妥构造函数模式"><a href="#7-稳妥构造函数模式" class="headerlink" title="7. 稳妥构造函数模式"></a>7. 稳妥构造函数模式</h3><p>稳妥对象：没有公共属性，而且其方法也不引用this。</p><p>稳妥构造函数模式不适用<code>new</code>操作符调用构造函数。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,job</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 在此处定义私有变量</span></span><br><span class="line"></span><br><span class="line">    o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> o;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h2 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h2><p>基本思想：利用原型让一个引用类型继承另一个引用类型的属性和方法，是js语言实现继承的主要方法。</p><h3 id="确定原型和实例的关系"><a href="#确定原型和实例的关系" class="headerlink" title="确定原型和实例的关系"></a>确定原型和实例的关系</h3><ol><li>方法1：使用<code>instanceof</code></li><li>方法2：使用<code>isPrototypeOf</code>，如<code>Object.prototype.isPrototypeOf(instance)</code>;</li></ol><h3 id="原型链存在的问题"><a href="#原型链存在的问题" class="headerlink" title="原型链存在的问题"></a>原型链存在的问题</h3><ol><li>原型上引用类型值的属性，会被所有实例共享。</li><li>在不影响所有对象实例的情况下，无法给超类型的构造函数提供参数。</li></ol><h3 id="1-借用构造函数"><a href="#1-借用构造函数" class="headerlink" title="1. 借用构造函数"></a>1. 借用构造函数</h3><p>在子类型构造函数的内部调用超类型构造函数,便可以实现向超类型传递参数。</p><p>存在的问题：无法实现函数复用（因为超类型的原型中定义的方法，对于子类型而言是不可见的。）</p><h3 id="2-组合继承"><a href="#2-组合继承" class="headerlink" title="2. 组合继承"></a>2. 组合继承</h3><p>一种继承模式，将原型链和借用构造函数的技术组合到一起。主要思路为使用原型链实现对原型属性和方法的继承，通过借用构造函数来实现对实例属性的继承。</p><p>组合继承模式有两个关键步骤。在调用子类的构造函数实例化对象前，一定要先将超类挂载至子类的原型上，然后将子类原型的构造方法手动设置为子类的构造方法（因为在挂载原型时，构造方法会被覆盖）。</p><h3 id="3-原型式继承"><a href="#3-原型式继承" class="headerlink" title="3. 原型式继承"></a>3. 原型式继承</h3><p>借助原型，基于已有的对象创建新对象，同时也不必创建自定义类型。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    F.prototype = o;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p>ES6的<code>Object.craete(用作新对象原型的对象, 为新对象定义额外属性的对象)</code>api实现了原型式继承。</p><h3 id="4-寄生式继承"><a href="#4-寄生式继承" class="headerlink" title="4. 寄生式继承"></a>4. 寄生式继承</h3><p>创建一个仅用于封装继承过程的函数，使用该函数实现继承。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;对象的属性&quot;&gt;&lt;a href=&quot;#对象的属性&quot; class=&quot;headerlink&quot; title=&quot;对象的属性&quot;&gt;&lt;/a&gt;对象的属性&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;数据属性&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;configurable&lt;/code&gt;：能否通过delete删除属
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
+    
+      <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>NodeJS入门</title>
+    <link href="http://nice2meetu.site/2020/08/23/Node/node%E5%85%A5%E9%97%A8/"/>
+    <id>http://nice2meetu.site/2020/08/23/Node/node入门/</id>
+    <published>2020-08-23T07:11:50.000Z</published>
+    <updated>2020-08-24T05:46:32.908Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="搭建nodeJS环境。"><a href="#搭建nodeJS环境。" class="headerlink" title="搭建nodeJS环境。"></a>搭建nodeJS环境。</h1><ol><li>官网下载相应版本的NodeJS，直接安装即可。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;搭建nodeJS环境。&quot;&gt;&lt;a href=&quot;#搭建nodeJS环境。&quot; class=&quot;headerlink&quot; title=&quot;搭建nodeJS环境。&quot;&gt;&lt;/a&gt;搭建nodeJS环境。&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;官网下载相应版本的NodeJS，直接安装即可。&lt;/li&gt;
+      
+    
+    </summary>
+    
+      <category term="NodeJS" scheme="http://nice2meetu.site/categories/NodeJS/"/>
+    
+    
+      <category term="NodeJS" scheme="http://nice2meetu.site/tags/NodeJS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>chrome浏览器的渲染过程</title>
+    <link href="http://nice2meetu.site/2020/08/17/%E6%B5%8F%E8%A7%88%E5%99%A8/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B/"/>
+    <id>http://nice2meetu.site/2020/08/17/浏览器/Chrome浏览器的渲染过程/</id>
+    <published>2020-08-17T07:04:50.000Z</published>
+    <updated>2020-08-24T05:46:32.924Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="浏览器的渲染过程分为以下几步："><a href="#浏览器的渲染过程分为以下几步：" class="headerlink" title="浏览器的渲染过程分为以下几步："></a>浏览器的渲染过程分为以下几步：</h2><p>1.解析HTML，构建DOM树<br>2.解析CSS样式表，构建CSSOM(CSS Object Model)<br>3.将DOM和CSSOM进行合并生成Render Tree(渲染树)<br>4.根据Render Tree计算布局<br>5.依据Render Tree进行渲染</p><h2 id="关于回流和重绘"><a href="#关于回流和重绘" class="headerlink" title="关于回流和重绘"></a>关于回流和重绘</h2><ol><li>回流(reflow/layout)：当Render Tree中的一部分(或所有)因为其中元素的规模尺寸、布局(计算确切位置)、隐藏等改变而需要重新构建Render Tree。</li><li>重绘(repaint/painting)：当Render Tree中的一些元素需要更新属性，但这些属性只会影响元素的外观，风格，而不会影响布局，无需重新构建render tree。</li></ol><p>导致回流的具体情况：</p><ul><li>添加或删除可见的DOM元素</li><li>元素的位置发生变化</li><li>元素的尺寸发生变化（包括外边距、内边框、边框大小、高度和宽度等）</li><li>内容发生变化，比如文本变化或图片被另一个不同尺寸的图片所替代。</li><li>页面一开始渲染的时候（这肯定避免不了）</li><li>浏览器的窗口尺寸变化（因为回流是根据视口的大小来计算元素的位置和大小的）</li></ul><p>回流一定会触发重绘，但是重绘不一定触发回流。</p><h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><ul><li>利用cssTest属性和修改class更改元素样式，避免直接修改元素样式，最小化重绘和重排。</li><li>让DOM脱离文档流，进行修改完毕后，再回到文档流。脱离文档流后的改动不会引起回流。</li><li>现代浏览器大部分有一个队列，用于优化重排过程。而类似offsetTop的方法会强制队列刷新。所以需要避免在修改样式时直接引用以上属性，即避免触发同步布局事件。</li><li>复杂动画最好能脱离文档流。</li><li>css3硬件加速。</li></ul><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>谷歌开发者web基础：<a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn" target="_blank" rel="noopener">https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn</a></li><li>你真的了解重流和重绘吗：<a href="https://segmentfault.com/a/1190000017329980" target="_blank" rel="noopener">https://segmentfault.com/a/1190000017329980</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;浏览器的渲染过程分为以下几步：&quot;&gt;&lt;a href=&quot;#浏览器的渲染过程分为以下几步：&quot; class=&quot;headerlink&quot; title=&quot;浏览器的渲染过程分为以下几步：&quot;&gt;&lt;/a&gt;浏览器的渲染过程分为以下几步：&lt;/h2&gt;&lt;p&gt;1.解析HTML，构建DOM树&lt;br
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="浏览器原理" scheme="http://nice2meetu.site/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浏览器存储总结</title>
+    <link href="http://nice2meetu.site/2020/08/17/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8%E6%80%BB%E7%BB%93/"/>
+    <id>http://nice2meetu.site/2020/08/17/浏览器/浏览器存储总结/</id>
+    <published>2020-08-17T07:04:50.000Z</published>
+    <updated>2020-08-24T05:46:32.925Z</updated>
+    
+    <content type="html"><![CDATA[<p>存储方式：</p><ol><li>localStorage</li><li>sessionStorage</li><li>cookie</li></ol><p>浏览器的存储根据上下文环境不同，涉及到几个层级关系。</p><ol><li>浏览器。firefox or chome or …</li><li>浏览器窗口。一个窗口包含一堆标签页。</li><li>浏览器标签页。<ul><li>引申：标签页之间是否同源。</li><li>引申：点击链接，进行跳转<ul><li>跳转到新的标签页。</li><li>在本标签页内跳转，不生成新页面。</li></ul></li></ul></li><li>内嵌iframe</li></ol><h2 id="1-localStorage"><a href="#1-localStorage" class="headerlink" title="1. localStorage"></a>1. localStorage</h2><p>HTML5新增。</p><ul><li>生命周期：用于将数据长久保存在网站中，保存的数据没有过期时间，直到手动删除。关闭浏览器呢？</li><li>使用范围：同一个浏览器下的不同浏览器窗口的同源标签页之间，可以共享。</li><li>大小：因浏览器而异，大致在2.5MB到10MB之间。</li></ul><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p><code>localStorage</code>对象的对象原型为<code>Storage</code>。</p><ul><li>设置localStorage：<code>localStorage.setItem(&#39;test&#39;,&#39;设置localStorage&#39;)</code></li><li>获取localStorage<ul><li>获取指定记录：<code>localStorage.getItem(&#39;test&#39;)</code></li><li>获取全部记录：<code>window.localStorage</code></li></ul></li><li>移除localStorage<ul><li>移除指定记录：<code>localStorage.removeItem(&#39;test&#39;)</code></li><li>移除全部记录：<code>localStorage.clear()</code></li></ul></li><li>获取localStorage的长度：<code>localStorage.length</code></li><li>获取某条localStorage记录的名称：<code>localStorage.key(idx)</code></li></ul><h2 id="2-sessionStorage"><a href="#2-sessionStorage" class="headerlink" title="2. sessionStorage"></a>2. sessionStorage</h2><p>HTML5新增。</p><ul><li>生命周期：当前窗口/标签页，刷新时不会被清空。</li><li>使用范围：当前标签页。当前标签页内跳转可以共享sessionStorage，但是通过打开新标签页跳转时不能共享。</li></ul><h3 id="基本操作-1"><a href="#基本操作-1" class="headerlink" title="基本操作"></a>基本操作</h3><p><code>sessionStorage</code>的对象原型也为<code>Storage</code>。api和localStorage几乎可以说是一模一样。</p><ul><li>设置sessionStorage：<code>sessionStorage.setItem(&#39;test&#39;,&quot;设置sessionStorage)</code></li><li>获取sessionStorage<ul><li>获取指定记录：<code>sessionStorage.getItem(&#39;test&#39;)</code></li><li>获取全部记录：<code>window.sessionStorage</code></li></ul></li><li>移除sessionStorage<ul><li>移除指定记录：<code>sessionStorage.removeItem(&#39;test&#39;)</code></li><li>移除全部记录：<code>sessionStorage.clear()</code></li></ul></li><li>获取sessionStorage的长度：<code>sessionStorage.length</code></li><li>获取某条sessionStorage记录的名称：<code>sessionStorage.key(idx)</code></li></ul><h2 id="3-cookie"><a href="#3-cookie" class="headerlink" title="3. cookie"></a>3. cookie</h2><p>cookie经常与session搭配使用。由于http协议是无状态的，而服务器如果要识别当前通信的客户，此时需要一个“通行证”，由服务器颁发给客户端，客户端以后再与后台通信时，仅需要将通行证和要传递的内容一起发给后台，后台看到通行证就会明白自己在与谁通信，然后就可以将需要的数据返回给前端。cookie和session的作用，就是此处的通行证。</p><p>生命周期：Cookie存储于电脑上的文本文件中，如果不进行清除或未打到过期时间，永远不会消失。<br>适用范围：同一个浏览器下可以共享。<br>使用场景：可以帮助我们实现记录用户个人信息的功能。Cookie经常被用于存储用户的信息，来实现记住用户名、记住密码等功能。</p><h3 id="基本操作-2"><a href="#基本操作-2" class="headerlink" title="基本操作"></a>基本操作</h3><ul><li>设置cookie：<code>document.cookie=&quot;键值对;过期时间;cookie路径&quot;</code>，如：<code>document.cookie=&quot;username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/&quot;;</code></li><li>获取cookie：获取字符串格式的cookie：<code>document.cookie</code></li><li>删除cookie：为该记录设置一个已经过去的时间或者当前时间<code>document.cookie = &quot;username=; expires=Thu, 01 Jan 1970 00:00:00 GMT&quot;;</code><br>由于cookie的相关api较少，操作不方便，故使用时最好能够封装一些cookie的基本操作。</li></ul><h2 id="4-indexedDB"><a href="#4-indexedDB" class="headerlink" title="4. indexedDB"></a>4. indexedDB</h2><p>浏览器内置的大量数据存储技术。</p><p>相关教程：<a href="http://www.ruanyifeng.com/blog/2018/07/indexeddb.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2018/07/indexeddb.html</a></p><h2 id="localStorage和sessionStorage的区别"><a href="#localStorage和sessionStorage的区别" class="headerlink" title="localStorage和sessionStorage的区别"></a>localStorage和sessionStorage的区别</h2><p>时效性。localStorage会一直存储在浏览器中，除非手动删除。而sessionStorage会在关闭窗口或标签页后清除，仅仅用于临时保存。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;存储方式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;localStorage&lt;/li&gt;
+&lt;li&gt;sessionStorage&lt;/li&gt;
+&lt;li&gt;cookie&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;浏览器的存储根据上下文环境不同，涉及到几个层级关系。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;浏览器。firefox
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="浏览器原理" scheme="http://nice2meetu.site/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>display:none与visibility:hidden的辨析</title>
+    <link href="http://nice2meetu.site/2020/08/17/css%E5%9F%BA%E7%A1%80/dispaly:none%E4%B8%8Evisibility%E7%9A%84%E8%BE%A8%E6%9E%90/"/>
+    <id>http://nice2meetu.site/2020/08/17/css基础/dispaly:none与visibility的辨析/</id>
+    <published>2020-08-17T03:09:30.000Z</published>
+    <updated>2020-08-24T05:46:32.909Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h3><ol><li>都能把网页上某个元素隐藏起来。</li></ol><h3 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h3><ol><li>display:none隐藏的元素不占据物理空间（设置该属性的元素会产生回流，不会加入到render tree），visibility:hidden隐藏的元素占据物理空间（不会产生回流，会加入到render tree）。</li><li>display:none会跳过ol的计数器，而visibility不会跳过。</li><li>css3的transition支持visibility属性，不支持display属性。</li><li>visibility:hidden具有继承性，子元素也会继承visibility:hidden属性。display:none没有继承性。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      css的那些坑
+    
+    </summary>
+    
+      <category term="css" scheme="http://nice2meetu.site/categories/css/"/>
+    
+    
+      <category term="css" scheme="http://nice2meetu.site/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>版本管理工具：svn小记</title>
+    <link href="http://nice2meetu.site/2020/08/03/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%EF%BC%9Asvn%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://nice2meetu.site/2020/08/03/版本管理工具/版本管理工具：svn小记/</id>
+    <published>2020-08-03T13:35:30.000Z</published>
+    <updated>2020-08-24T05:46:32.926Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="mac使用svn-Subvision"><a href="#mac使用svn-Subvision" class="headerlink" title="mac使用svn(Subvision)"></a>mac使用svn(Subvision)</h2><p>mac自带svn，在控制台可直接使用，无需下载。</p><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul><li>下载项目：<code>svn checkout url(svn项目全路径) project_dir(本地项目全路径) --username=用户名 --password=密码</code></li><li>查看最近5条svn log日志：<code>svn log -l 5</code><br>该项目已遗失 (被非 svn 命令所删除) 或是不完整</li><li>svn status：执行SVN up和svn merge等命令出现在首位置的各字母含义如下：<ul><li>“ ” 无修改</li><li>“A” 新增</li><li>“C” 冲突</li><li>“D” 删除</li><li>“G” 合并</li><li>“I” 忽略</li><li>“M” 改变</li><li>“R” 替换</li><li>“X” 未纳入版本控制，但被外部定义所用</li><li>“?” 未纳入版本控制</li><li>“!” 该项目已遗失 (被非 svn 命令所删除) 或是不完整</li><li>“~” 版本控制下的项目与其它类型的项目重名</li><li>L abc.c # svn已经在.svn目录锁定了abc.c</li></ul></li></ul><h3 id="svn-update"><a href="#svn-update" class="headerlink" title="svn update"></a>svn update</h3><ul><li>A  已添加</li><li>D  已删除</li><li>U  已更新</li><li>C  合并冲突</li><li>G  合并成功</li><li>E  已存在</li></ul><h2 id="设置忽略文件"><a href="#设置忽略文件" class="headerlink" title="设置忽略文件"></a>设置忽略文件</h2><h3 id="全局设置忽略文件"><a href="#全局设置忽略文件" class="headerlink" title="全局设置忽略文件"></a>全局设置忽略文件</h3><p>找到svn的全局配置文件：<code>~/.subversion/config</code>，将<code>[miscellany]</code>段中<code>global-ignores</code>前的注释符号去掉即可。还可增加一些自己想要忽略的文件类型。</p><p>此处推荐添加的一些额外忽略文件：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Editor directories and files</span><br><span class="line">.idea .vscode *.iml *.suo</span><br><span class="line">*.ntvs* *.njsproj *.sln *.sw?</span><br></pre></td></tr></table></figure></p><h3 id="工程目录下设置忽略文件和目录"><a href="#工程目录下设置忽略文件和目录" class="headerlink" title="工程目录下设置忽略文件和目录"></a>工程目录下设置忽略文件和目录</h3><p>使用<code>svn propedit svn:ignore &lt;dir&gt;</code>命令。</p><h2 id="相关资料"><a href="#相关资料" class="headerlink" title="相关资料"></a>相关资料</h2><ul><li>官网文档：<a href="https://subversion.apache.org/docs/" target="_blank" rel="noopener">https://subversion.apache.org/docs/</a></li><li>svnbook：<a href="http://svnbook.red-bean.com/" target="_blank" rel="noopener">http://svnbook.red-bean.com/</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      svn小记
+    
+    </summary>
+    
+      <category term="工具" scheme="http://nice2meetu.site/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="版本管理工具" scheme="http://nice2meetu.site/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="svn" scheme="http://nice2meetu.site/tags/svn/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js 命名规范</title>
+    <link href="http://nice2meetu.site/2020/08/02/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%E5%8F%8A%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%EF%BC%9Ajs/"/>
+    <id>http://nice2meetu.site/2020/08/02/命名规范及最佳实践/命名规范：js/</id>
+    <published>2020-08-02T01:40:30.000Z</published>
+    <updated>2020-08-24T05:46:32.924Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="变量名："><a href="#变量名：" class="headerlink" title="变量名："></a>变量名：</h3><ul><li>变量名应为名词如car或person。</li></ul><h3 id="函数名"><a href="#函数名" class="headerlink" title="函数名"></a>函数名</h3><p>语法规范：<br>任何合法的javascript标识符都可以作为函数的名称。<br>约定俗成的内容：(非ECMAScript语法，但是为了便于开发者理解和识别，约定的函数命名规范。)<br>命名方法： 小驼峰式命名法</p><ul><li>命名规范： 前缀应该为动词，常用前缀如下：<ul><li>can     判断是否可执行某个动作</li><li>has     判断是否含有某个值</li><li>is     判断是否为某个值</li><li>get     获取某个值</li><li>set     设置某个值</li><li>load     加载某些数据</li></ul></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;变量名：&quot;&gt;&lt;a href=&quot;#变量名：&quot; class=&quot;headerlink&quot; title=&quot;变量名：&quot;&gt;&lt;/a&gt;变量名：&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;变量名应为名词如car或person。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;函数名&quot;&gt;&lt;a href=&quot;#函数
+      
+    
+    </summary>
+    
+      <category term="js" scheme="http://nice2meetu.site/categories/js/"/>
+    
+    
+      <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
+    
+      <category term="命名规范" scheme="http://nice2meetu.site/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git常用命令小记</title>
+    <link href="http://nice2meetu.site/2020/08/01/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%EF%BC%9Agit%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://nice2meetu.site/2020/08/01/版本管理工具/版本管理工具：git小记/</id>
+    <published>2020-08-01T13:35:30.000Z</published>
+    <updated>2020-08-24T05:46:32.925Z</updated>
+    
+    <content type="html"><![CDATA[<p>git的常用操作及相关问题的解决方案。</p><a id="more"></a><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>遇到git命令参数的问题，可通过查看文档解决：</p><ol><li>输入<code>git</code>后回车可以显示常用的git命令。</li><li>输入<code>git 某个命令 -h</code> 可以查看该命令具体的参数信息。</li></ol><h3 id="1-分支操作"><a href="#1-分支操作" class="headerlink" title="1. 分支操作"></a>1. 分支操作</h3><ol><li>将当前内容全部复制到一个新分支：<code>git checkout -b 新分支名称</code></li><li>删除分支：<code>git branch -d</code></li></ol><h2 id="具体问题的解决方案"><a href="#具体问题的解决方案" class="headerlink" title="具体问题的解决方案"></a>具体问题的解决方案</h2><h3 id="1-fork得到的仓库的代码如何更新使得其与原仓库的代码一致。"><a href="#1-fork得到的仓库的代码如何更新使得其与原仓库的代码一致。" class="headerlink" title="1. fork得到的仓库的代码如何更新使得其与原仓库的代码一致。"></a>1. fork得到的仓库的代码如何更新使得其与原仓库的代码一致。</h3><ol><li>配置原仓库的路径：<code>git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git</code></li><li>查看远程仓库的路径，确保正确添加上游仓库：<code>git remote -v</code></li><li>抓取原仓库的修改：<code>git fetch upstream</code></li><li>其他内容：删除某个远程仓库<code>git remote remove &lt;name&gt;</code></li></ol><h3 id="2-修改commit的注释"><a href="#2-修改commit的注释" class="headerlink" title="2. 修改commit的注释"></a>2. 修改commit的注释</h3><p><code>git commit --amend</code>amend为修正的意思。</p><h3 id="3-撤销git-add"><a href="#3-撤销git-add" class="headerlink" title="3. 撤销git add"></a>3. 撤销git add</h3><p><code>git reset 文件名</code></p>]]></content>
+    
+    <summary type="html">
+    
+      git常用命令
+    
+    </summary>
+    
+      <category term="工具" scheme="http://nice2meetu.site/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="git" scheme="http://nice2meetu.site/tags/git/"/>
+    
+      <category term="版本管理工具" scheme="http://nice2meetu.site/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>打造舒适的Mac工作环境：CLI配置</title>
+    <link href="http://nice2meetu.site/2020/07/02/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/Mac%20bash%E9%85%8D%E7%BD%AE/"/>
+    <id>http://nice2meetu.site/2020/07/02/环境搭建/Mac bash配置/</id>
+    <published>2020-07-02T13:47:50.000Z</published>
+    <updated>2020-08-24T05:46:32.926Z</updated>
+    
+    <content type="html"><![CDATA[<p>mac环境下的CLI终端工具及bash配置推荐。</p><a id="more"></a><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li>CLI终端推荐：iTerm2</li><li>bash推荐：oh-my-zsh</li><li>bsah相关的命令</li></ol><h2 id="1-CLI终端推荐：iTerm2"><a href="#1-CLI终端推荐：iTerm2" class="headerlink" title="1. CLI终端推荐：iTerm2"></a>1. CLI终端推荐：iTerm2</h2><ol><li>下载地址：<a href="https://www.iterm2.com/" target="_blank" rel="noopener">https://www.iterm2.com/</a></li></ol><h3 id="实用小技巧"><a href="#实用小技巧" class="headerlink" title="实用小技巧"></a>实用小技巧</h3><ul><li>分屏：<code>command+d</code>。</li></ul><h2 id="2-bash推荐：oh-my-zsh"><a href="#2-bash推荐：oh-my-zsh" class="headerlink" title="2. bash推荐：oh-my-zsh"></a>2. bash推荐：oh-my-zsh</h2><p>oh-my-zsh是一款傻瓜化的zsh配置工具。优点：省心，功能强大。</p><ol><li>安装oh-my-zsh：<code>sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code></li></ol><h3 id="2-1-插件"><a href="#2-1-插件" class="headerlink" title="2.1 插件"></a>2.1 插件</h3><p>如何安装插件？</p><ol><li>在<code>oh-my-zsh安装位置/.oh-my-zsh/custom/plugins</code>文件夹下，使用插件名创建文件夹<code>mkdir 插件名</code></li><li>将下载好的插件放入该文件夹中。</li><li>打开oh-my-zsh配置文件：<code>vim ~/.zshrc</code></li><li>在配置文件结束添加如下内容：<code>source $ZSH/custom/plugins/插件名文件夹/插件名</code>（vim中<code>shit+G</code>可以快速跳转到最后一行）</li><li>更新配置<code>source ~/.zshrc</code></li></ol><h4 id="2-1-1-git-plugin（自带插件）"><a href="#2-1-1-git-plugin（自带插件）" class="headerlink" title="2.1.1 git plugin（自带插件）"></a>2.1.1 git plugin（自带插件）</h4><p>这款插件默认开启。该插件为大量的git的命令设置了别名，</p><p>文档地址：<a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/" target="_blank" rel="noopener">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/</a></p><h4 id="2-1-2-extract-plugin（自带插件）"><a href="#2-1-2-extract-plugin（自带插件）" class="headerlink" title="2.1.2 extract plugin（自带插件）"></a>2.1.2 extract plugin（自带插件）</h4><p>一款功能强大的解压软件。仅通过一个命令<code>extract</code>即可解压大部分的压缩文件，包括rar、zip、tar等。</p><p>文档地址：<a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract" target="_blank" rel="noopener">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract</a></p><h4 id="2-1-3-自动补全插件"><a href="#2-1-3-自动补全插件" class="headerlink" title="2.1.3 自动补全插件"></a>2.1.3 自动补全插件</h4><p>这款插件可以在用户输入命令时，在光标下方提示可以使用的命令、文件等信息，再也不用为记不住linux命令名、不停地输入ls而苦恼。</p><p>插件下载地址：<a href="http://mimosa-pudica.net/src/incr-0.2.zsh" target="_blank" rel="noopener">http://mimosa-pudica.net/src/incr-0.2.zsh</a></p><h2 id="2-bash相关的命令"><a href="#2-bash相关的命令" class="headerlink" title="2. bash相关的命令"></a>2. bash相关的命令</h2><ul><li>查看当前终端使用的bash：<code>echo $SHELL</code></li><li>查看当前安装的所有bash：<code>cat /etc/shells</code></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      mac工具
+    
+    </summary>
+    
+      <category term="mac" scheme="http://nice2meetu.site/categories/mac/"/>
+    
+    
+      <category term="工具" scheme="http://nice2meetu.site/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="mac" scheme="http://nice2meetu.site/tags/mac/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用idea开发springboot项目生成文件的含义详解</title>
+    <link href="http://nice2meetu.site/2020/07/01/IDE/%E4%BD%BF%E7%94%A8idea%E5%BC%80%E5%8F%91spring%20boot%E9%A1%B9%E7%9B%AE%E7%94%9F%E6%88%90%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%87%E4%BB%B6/"/>
+    <id>http://nice2meetu.site/2020/07/01/IDE/使用idea开发spring boot项目生成的一些文件/</id>
+    <published>2020-07-01T15:35:30.000Z</published>
+    <updated>2020-08-24T05:46:32.907Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="使用idea开发spring-boot项目生成的一些文件"><a href="#使用idea开发spring-boot项目生成的一些文件" class="headerlink" title="使用idea开发spring boot项目生成的一些文件"></a>使用idea开发spring boot项目生成的一些文件</h1><ul><li>.iml：idea的工程配置文件。包含当前project的一些配置信息，如模块开发的相关信息，比如java组件，maven组件，插件组件等，还可能会存储一些模块路径信息，依赖信息以及一些别的信息。</li><li>mvnw：一个执行脚本，用于命令行环境。mvnw是一个maven wrapper script,它可以让你在没有安装maven或者maven版本不兼容的条件下运行maven的命令.</li><li>mvnw.cmd：作用与mvnw相同，只是用于win环境。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;使用idea开发spring-boot项目生成的一些文件&quot;&gt;&lt;a href=&quot;#使用idea开发spring-boot项目生成的一些文件&quot; class=&quot;headerlink&quot; title=&quot;使用idea开发spring boot项目生成的一些文件&quot;&gt;&lt;/a&gt;使用
+      
+    
+    </summary>
+    
+      <category term="es6" scheme="http://nice2meetu.site/categories/es6/"/>
+    
+    
+      <category term="es6" scheme="http://nice2meetu.site/tags/es6/"/>
+    
+      <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于箭头函数</title>
+    <link href="http://nice2meetu.site/2020/07/01/js%E5%9F%BA%E7%A1%80/%E5%85%B3%E4%BA%8E%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E5%9C%B0%E6%96%B9/"/>
+    <id>http://nice2meetu.site/2020/07/01/js基础/关于箭头函数需要注意的地方/</id>
+    <published>2020-07-01T15:35:30.000Z</published>
+    <updated>2020-08-24T05:46:32.919Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>箭头函数表达式的语法比函数表达式更简洁，并且没有自己的this，arguments，super或new.target。</li><li>箭头函数表达式更适用于那些本来需要匿名函数的地方，并且它不能用作构造函数。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;箭头函数表达式的语法比函数表达式更简洁，并且没有自己的this，arguments，super或new.target。&lt;/li&gt;
+&lt;li&gt;箭头函数表达式更适用于那些本来需要匿名函数的地方，并且它不能用作构造函数。&lt;/li&gt;
+&lt;/ol&gt;
+
+      
+    
+    </summary>
+    
+      <category term="es6" scheme="http://nice2meetu.site/categories/es6/"/>
+    
+    
+      <category term="es6" scheme="http://nice2meetu.site/tags/es6/"/>
+    
+      <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于箭头函数</title>
+    <link href="http://nice2meetu.site/2020/05/20/js%E5%9F%BA%E7%A1%80/%E5%B8%B8%E7%94%A8console%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/"/>
+    <id>http://nice2meetu.site/2020/05/20/js基础/常用console方法总结/</id>
+    <published>2020-05-20T03:09:00.000Z</published>
+    <updated>2020-08-24T05:46:32.919Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h3><ul><li><code>console.log</code> 用于输出普通信息</li><li><code>console.info</code> 用于输出提示性信息</li><li><code>console.error</code> 用于输出错误信息</li><li><code>console.warn</code> 用于输出警示信息</li><li><code>console.debug</code> 用于输出调试信息</li></ul><p>针对不同类型的信息，大多数浏览器在consoole会使用不同的标志进行标识，并可以根据信息类型进行筛选。</p><h3 id="辅助方法"><a href="#辅助方法" class="headerlink" title="辅助方法"></a>辅助方法</h3><ul><li><code>console.table(obj)</code> ：可以将对象或者数组以表格的形式直观地打印出来</li><li><code>console.count()</code>：以参数为标识记录调用的次数，调用时在控制台打印标识以及调用次数。</li><li><code>console.countReset()</code>：重置指定标签的计数器值。</li><li><code>console.time()</code>：启动一个以入参作为特定名称的计时器，在显示页面中可同时运行的计时器上限为10,000.</li><li><code>console.timeEnd()</code>：结束特定的 计时器 并以豪秒打印其从开始到结束所用的时间。</li><li><code>console.timeLog()</code>：打印特定 计时器 所运行的时间。</li></ul><h3 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h3><ul><li>css占位符（仅在chrome支持？）：<code>console.log(&quot;%cHello World&quot;,padding:50px;font-size:40px;color:gray);</code></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;常用方法&quot;&gt;&lt;a href=&quot;#常用方法&quot; class=&quot;headerlink&quot; title=&quot;常用方法&quot;&gt;&lt;/a&gt;常用方法&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;console.log&lt;/code&gt; 用于输出普通信息&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;console
+      
+    
+    </summary>
+    
+      <category term="es6" scheme="http://nice2meetu.site/categories/es6/"/>
+    
+    
+      <category term="es6" scheme="http://nice2meetu.site/tags/es6/"/>
+    
+      <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js数据类型</title>
+    <link href="http://nice2meetu.site/2020/05/04/js%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
+    <id>http://nice2meetu.site/2020/05/04/js基础/js数据类型/</id>
+    <published>2020-05-04T10:13:30.000Z</published>
+    <updated>2020-08-24T05:46:32.916Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>共八种，分为基础类型和引用类型。</p><h2 id="基本类型（又称原始类型、简单类型。）"><a href="#基本类型（又称原始类型、简单类型。）" class="headerlink" title="基本类型（又称原始类型、简单类型。）"></a>基本类型（又称原始类型、简单类型。）</h2><p>值本身无法被改变。尤其注意的是基本类型和内置对象是不一样的。比如Boolean的基本类型的值只有false和true，而Boolean对象只是用来承载Boolean基本类型的。</p><ol><li>Boolean：值仅有<code>true</code>或<code>false</code><ul><li>判断基本类型：<code>typeof variable === &quot;boolean&quot;</code></li></ul></li><li>Null<ul><li>判断基本类型：<code>variable === null</code></li></ul></li><li>Undefined<ul><li>判断基本类型方法1：<code>variable === undefined</code></li><li>判断基本类型方法2：<code>typeof a === &quot;undefined&quot;</code></li></ul></li><li>Number<ul><li>判断基本类型：<code>typeof variable === &quot;number&quot;</code></li><li>判断整数：<code>Number.isInteger()</code>。</li><li>判断是否为NaN：<code>Number.isNan()</code>。</li><li>判断是否为有穷数：<code>Number.isFinite()</code>。</li><li>字符串转浮点数：<code>Number.parseFloat()</code>。</li><li>字符串转整数：<code>Number.parseInt()</code>。和全局的<code>parseInt()</code>方法一致。</li></ul></li><li>BigInt<ul><li>判断基本类型：<code>typeof variable === &quot;bigint&quot;</code></li><li>注意：不能用于Math对象中的方法。</li></ul></li><li>String<ul><li>判断基本类型：<code>typeof variable === &quot;String&quot;</code></li></ul></li><li>Symbol<ul><li>判断基本类型：<code>typeof variable === &quot;Symbol&quot;</code></li></ul></li></ol><h2 id="引用类型Object"><a href="#引用类型Object" class="headerlink" title="引用类型Object"></a>引用类型Object</h2><p>值本身可以被改变。</p><h3 id="对象判空的方法"><a href="#对象判空的方法" class="headerlink" title="对象判空的方法"></a>对象判空的方法</h3><ol><li>使用JSON.stringify()。</li><li>使用<code>for in</code>。</li><li>使用Object.keys()。</li></ol><h3 id="1-使用JSON-stringify"><a href="#1-使用JSON-stringify" class="headerlink" title="1. 使用JSON.stringify()"></a>1. 使用JSON.stringify()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    return JSON.stringify(obj) === &quot;&#123;&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-使用for-in"><a href="#2-使用for-in" class="headerlink" title="2. 使用for in"></a>2. 使用<code>for in</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    for(let attr in obj)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="3-使用Object-keys"><a href="#3-使用Object-keys" class="headerlink" title="3. 使用Object.keys()"></a>3. 使用Object.keys()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    return Object.keys(obj).length === 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;数据类型&quot;&gt;&lt;a href=&quot;#数据类型&quot; class=&quot;headerlink&quot; title=&quot;数据类型&quot;&gt;&lt;/a&gt;数据类型&lt;/h1&gt;&lt;p&gt;共八种，分为基础类型和引用类型。&lt;/p&gt;
+&lt;h2 id=&quot;基本类型（又称原始类型、简单类型。）&quot;&gt;&lt;a href=&quot;#基本类
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ES6学习笔记（二）：字符串的扩展</title>
+    <link href="http://nice2meetu.site/2020/04/29/es6/ES6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%BA%8C%EF%BC%89:%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%89%A9%E5%B1%95/"/>
+    <id>http://nice2meetu.site/2020/04/29/es6/ES6学习笔记（二）:字符串的扩展/</id>
+    <published>2020-04-29T06:03:50.000Z</published>
+    <updated>2020-08-24T05:46:32.912Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="normalize-方法"><a href="#normalize-方法" class="headerlink" title="normalize()方法"></a>normalize()方法</h2><p>参数如下，注意参数必须大写！</p><ul><li>NFC(default)。标准等价合成（Normalization Form Canonical Composition）。先规范分解，然后进行规范组合。</li><li>NFD。标准等价分解（Normalization Form Canonical Decomposition）。规范分解。</li><li>NFKC。兼容等价合成（Normalization Form Compatibility Composition）。先兼容性分解，然后进行规范组合。</li><li>NFKD。兼容等价分解（Normalization Form Compatibility Decomposition）。兼容性分解。</li></ul><p>个人理解，针对字母后跟音标符号的组合，如<code>\u004F\u030C</code>，与一个标有音标符合的字符<code>\u01D1</code>，属于<strong>规范等价</strong>，因此可以用NFC和NFD。<br>兼容等价（NFKC和NFKD）包含了规范等价，但比规范等价额外包含了<strong>兼容</strong>的部分，是规范等价的超集。若两个字符完全相同的组合，如<code>\u0066\u0066</code>，与他们的单个字符表现形式<code>\uFB00</code>，他们的语义相同，则二者为兼容等价。可以使用规范化将二者变为同一形式。</p><h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><ol><li><p>NFC和NFD比较</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str1 = <span class="string">'\u01D1'</span> <span class="comment">// Ǒ</span></span><br><span class="line"><span class="keyword">var</span> str2 = <span class="string">'\u004F\u030C'</span> <span class="comment">// Ǒ</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`str1的原始值（即赋予str1的值）为<span class="subst">$&#123;<span class="built_in">String</span>.raw<span class="string">`\u01D1`</span>&#125;</span>，显示的值为<span class="subst">$&#123;str1&#125;</span>,长度为<span class="subst">$&#123;str1.length&#125;</span>`</span>);  <span class="comment">// Ǒ</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`str2的原始值（即赋予str2的值）为<span class="subst">$&#123;<span class="built_in">String</span>.raw<span class="string">`\u004F\u030C`</span>&#125;</span>，显示的值为<span class="subst">$&#123;str2&#125;</span>,长度为<span class="subst">$&#123;str2.length&#125;</span>`</span>);  <span class="comment">// Ǒ</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`str1与str2是否相等？<span class="subst">$&#123;str1 === str2&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> params = [&#123;</span><br><span class="line">    param:<span class="string">'NFD'</span>,</span><br><span class="line">    beNorm:<span class="string">'str1'</span>,</span><br><span class="line">    beNormStr:str1,</span><br><span class="line">    beCompared:<span class="string">'str2'</span>,</span><br><span class="line">    beComparedStr:str2</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    param:<span class="string">'NFC'</span>,</span><br><span class="line">    beNorm:<span class="string">'str2'</span>,</span><br><span class="line">    beNormStr:str2,</span><br><span class="line">    beCompared:<span class="string">'str1'</span>,</span><br><span class="line">    beComparedStr:str1</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    param:<span class="string">'NFKD'</span>,</span><br><span class="line">    beNorm:<span class="string">'str1'</span>,</span><br><span class="line">    beNormStr:str1,</span><br><span class="line">    beCompared:<span class="string">'str2'</span>,</span><br><span class="line">    beComparedStr:str2</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    param:<span class="string">'NFKC'</span>,</span><br><span class="line">    beNorm:<span class="string">'str2'</span>,</span><br><span class="line">    beNormStr:str2,</span><br><span class="line">    beCompared:<span class="string">'str1'</span>,</span><br><span class="line">    beComparedStr:str1</span><br><span class="line">&#125;]</span><br><span class="line"></span><br><span class="line">params.forEach(<span class="function">(<span class="params">cur,idx</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;idx+<span class="number">1</span>&#125;</span>. 对<span class="subst">$&#123;cur.beNorm&#125;</span>进行<span class="subst">$&#123;cur.param&#125;</span>规范化`</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`规范化后的<span class="subst">$&#123;cur.beNorm&#125;</span>与<span class="subst">$&#123;cur.beCompared&#125;</span>是否相等？<span class="subst">$&#123;cur.beNormStr.normalize(cur.param) === cur.beComparedStr&#125;</span>`</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`规范化前后<span class="subst">$&#123;cur.beNorm&#125;</span>的值分别为：<span class="subst">$&#123;cur.beNormStr&#125;</span>,<span class="subst">$&#123;cur.beNormStr.normalize(cur.param)&#125;</span>`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`规范化前后<span class="subst">$&#123;cur.beNorm&#125;</span>的长度分别为：<span class="subst">$&#123;cur.beNormStr.length&#125;</span>,<span class="subst">$&#123;cur.beNormStr.normalize(cur.param).length&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li><li><p>NFKC和NFKD比较</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str1 = <span class="string">'\uFB00'</span> <span class="comment">// Ǒ</span></span><br><span class="line"><span class="keyword">var</span> str2 = <span class="string">'\u0066\u0066'</span> <span class="comment">// Ǒ</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`str1的原始值（即赋予str1的值）为<span class="subst">$&#123;<span class="built_in">String</span>.raw<span class="string">`\u01D1`</span>&#125;</span>，显示的值为<span class="subst">$&#123;str1&#125;</span>,长度为<span class="subst">$&#123;str1.length&#125;</span>`</span>);  <span class="comment">// Ǒ</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`str2的原始值（即赋予str2的值）为<span class="subst">$&#123;<span class="built_in">String</span>.raw<span class="string">`\u004F\u030C`</span>&#125;</span>，显示的值为<span class="subst">$&#123;str2&#125;</span>,长度为<span class="subst">$&#123;str2.length&#125;</span>`</span>);  <span class="comment">// Ǒ</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`str1与str2是否相等？<span class="subst">$&#123;str1 === str2&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> params = [&#123;</span><br><span class="line">    param:<span class="string">'NFD'</span>,</span><br><span class="line">    beNorm:<span class="string">'str1'</span>,</span><br><span class="line">    beNormStr:str1,</span><br><span class="line">    beCompared:<span class="string">'str2'</span>,</span><br><span class="line">    beComparedStr:str2</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    param:<span class="string">'NFC'</span>,</span><br><span class="line">    beNorm:<span class="string">'str2'</span>,</span><br><span class="line">    beNormStr:str2,</span><br><span class="line">    beCompared:<span class="string">'str1'</span>,</span><br><span class="line">    beComparedStr:str1</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    param:<span class="string">'NFKD'</span>,</span><br><span class="line">    beNorm:<span class="string">'str1'</span>,</span><br><span class="line">    beNormStr:str1,</span><br><span class="line">    beCompared:<span class="string">'str2'</span>,</span><br><span class="line">    beComparedStr:str2</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    param:<span class="string">'NFKC'</span>,</span><br><span class="line">    beNorm:<span class="string">'str2'</span>,</span><br><span class="line">    beNormStr:str2,</span><br><span class="line">    beCompared:<span class="string">'str1'</span>,</span><br><span class="line">    beComparedStr:str1</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    param:<span class="string">'NFKC'</span>,</span><br><span class="line">    beNorm:<span class="string">'str1'</span>,</span><br><span class="line">    beNormStr:str1,</span><br><span class="line">    beCompared:<span class="string">'str2'</span>,</span><br><span class="line">    beComparedStr:str2</span><br><span class="line">&#125;]</span><br><span class="line"></span><br><span class="line">params.forEach(<span class="function">(<span class="params">cur,idx</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;idx+<span class="number">1</span>&#125;</span>. 对<span class="subst">$&#123;cur.beNorm&#125;</span>进行<span class="subst">$&#123;cur.param&#125;</span>规范化`</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`规范化后的<span class="subst">$&#123;cur.beNorm&#125;</span>与<span class="subst">$&#123;cur.beCompared&#125;</span>是否相等？<span class="subst">$&#123;cur.beNormStr.normalize(cur.param) === cur.beComparedStr&#125;</span>`</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`规范化前后<span class="subst">$&#123;cur.beNorm&#125;</span>的值分别为：<span class="subst">$&#123;cur.beNormStr&#125;</span>,<span class="subst">$&#123;cur.beNormStr.normalize(cur.param)&#125;</span>`</span>)</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`规范化前后<span class="subst">$&#123;cur.beNorm&#125;</span>的长度分别为：<span class="subst">$&#123;cur.beNormStr.length&#125;</span>,<span class="subst">$&#123;cur.beNormStr.normalize(cur.param).length&#125;</span>`</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></li></ol><p>第四次比较中为什么str2没有进行组合？暂时还未解决该疑惑。</p>]]></content>
+    
+    <summary type="html">
+    
+      es6：字符串扩展内容的总结。
+    
+    </summary>
+    
+      <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="es6" scheme="http://nice2meetu.site/tags/es6/"/>
+    
+      <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vuex学习笔记</title>
+    <link href="http://nice2meetu.site/2020/04/24/vue/vuex%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://nice2meetu.site/2020/04/24/vue/vuex学习笔记/</id>
+    <published>2020-04-24T03:23:50.000Z</published>
+    <updated>2020-08-24T05:46:32.922Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="mapState辅助函数"><a href="#mapState辅助函数" class="headerlink" title="mapState辅助函数"></a>mapState辅助函数</h3><p>第一个可选参数不太懂。<br>第二个参数可以为对象或者数组。<br>数组，适用于计算属性的名称和state的名称相同时。<br>对象，key为computed的key，value如果是字符串，直接返回该字符串对应的State。如果是函数，则函数的第一个参数为state。<br>辅助函数常与扩展运算符一起用。</p><h3 id="使用常量替代-Mutation-事件类型"><a href="#使用常量替代-Mutation-事件类型" class="headerlink" title="使用常量替代 Mutation 事件类型"></a>使用常量替代 Mutation 事件类型</h3><h4 id="具体实践："><a href="#具体实践：" class="headerlink" title="具体实践："></a>具体实践：</h4><ol><li>将mutation的名称全部作为常量提取到另一个文件<code>mutations-type.js</code>，并将全部常量export。</li><li>定义mutation时，导入<code>mutations-type.js</code>文件中的常量。并且在创建vuex的mutations中全部用常量作为类型名。</li><li>触发mutation，即调用commit时，需要将调用的类型名从<code>mutations-type.js</code>中引入，并使用常量作为commit方法的类型名。</li></ol><p>优点：</p><ol><li>如果需要修改mutation的类型名，只需将常量的值进行修改即可，无需改动其他内容。降低改动成本。</li><li>可以让合作者对整个应用的mutation一目了然。即mutation是如何定义的、何处调用的commit会更加清晰。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;mapState辅助函数&quot;&gt;&lt;a href=&quot;#mapState辅助函数&quot; class=&quot;headerlink&quot; title=&quot;mapState辅助函数&quot;&gt;&lt;/a&gt;mapState辅助函数&lt;/h3&gt;&lt;p&gt;第一个可选参数不太懂。&lt;br&gt;第二个参数可以为对象或者数组。
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="vue" scheme="http://nice2meetu.site/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>js遍历方法总结</title>
+    <link href="http://nice2meetu.site/2020/04/23/js%E5%9F%BA%E7%A1%80/js%E9%81%8D%E5%8E%86%E6%80%BB%E7%BB%93/"/>
+    <id>http://nice2meetu.site/2020/04/23/js基础/js遍历总结/</id>
+    <published>2020-04-23T15:50:50.000Z</published>
+    <updated>2020-08-24T05:46:32.917Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li><a href="#1">遍历语句</a><ol><li><a href="#1.1">for</a></li><li><a href="#1.2">for … of</a></li><li><a href="#1.3">for … in</a></li></ol></li><li><a href="#2">数组遍历方法</a></li><li><a href="#3">其他注意事项</a><ol><li><a href="#3.1">map</a></li><li><a href="#3.2">reduce</a></li></ol></li><li><a href="#4">一些思考</a></li></ol><h2 id="1-遍历语句"><a href="#1-遍历语句" class="headerlink" title="1.遍历语句"></a><div id="1">1.遍历语句</div></h2><h2 id="1-for"><a href="#1-for" class="headerlink" title="1.for"></a><div id="1.1">1.for</div></h2><p>极其简单，极其强大，但是书写麻烦，不予赘述。</p><h2 id="2-for-…-of"><a href="#2-for-…-of" class="headerlink" title="2. for … of"></a><div id="1.2">2. for … of</div></h2><p>主要用来对可迭代对象进行迭代，注意一下不同迭代对象的迭代形式。</p><h2 id="3-for-…-in"><a href="#3-for-…-in" class="headerlink" title="3. for … in"></a><div id="1.3">3. for … in</div></h2><p><strong>以任意顺序遍历一个对象的除Symbol以外的可枚举属性</strong>，主要用来迭代对象属性以及debug。</p><h2 id="2-数组遍历方法"><a href="#2-数组遍历方法" class="headerlink" title="2. 数组遍历方法"></a><div id="2">2. 数组遍历方法</div></h2><p>注意点：</p><ol><li>遍历方法的作用。</li><li>遍历方法的参数。</li><li>表达式的返回值是什么？</li><li>能否跳出遍历？</li><li>遍历方法的推荐使用场景。</li><li>遍历过程中数组是否实时更新。换句话说：被遍历的数组在遍历时的内容是否以调用该遍历方法时为准？</li><li>遍历时传入回调函数中的元素是数组中相应项的深拷贝吗？</li></ol><table><thead><tr><th>方法名</th><th>作用</th><th>参数</th><th>返回值</th><th>能否跳出遍历</th><th>常见使用场景</th></tr></thead><tbody><tr><td>map</td><td>对数组中的每一项使用回调方法进行处理，返回处理后的元素形成的新数组</td><td>回调函数（当前处理的元素、索引、原数组），this参数</td><td>处理后的元素组成的新数组。</td><td>否</td><td>需要对一个数组进行遍历，并且需要使用遍历产生的新数组</td></tr><tr><td>filter</td><td>过滤数组，生成新数组</td><td>回调函数（当前处理的元素、索引、原数组），this参数</td><td>回调函数返回值为true的元素组成的新数组</td><td>否</td><td>个人用的较多的情况便是过滤数组</td></tr><tr><td>every</td><td>判断数组中的每一项是否能通过测试</td><td>回调函数（当前处理的元素、索引、原数组），this参数</td><td>布尔值true/false</td><td>是</td><td>个人觉得最正规的用途可能就是检测数组中的元素是否符合某个特点，符合正规用途的使用场景较窄。但是作为唯一一个可以中途跳出遍历的循环，也可以用作for循环的更简便的替代方案——但是不推荐这种用法，还是针对不同场景使用更加符合语义的遍历方式吧</td></tr><tr><td>some</td><td>判断数组中是否有一项使得回调函数的返回值为true</td><td>回调函数（当前处理的元素、索引、原数组），this参数</td><td>布尔值true/false</td><td>是</td><td>针对某个数据在数组中是否“存在”的判断</td></tr><tr><td>reduce</td><td>对数组中的元素进行遍历，同时在遍历过程中能够进行累加，最后返回累加器最后的值</td><td>回调函数（即reducer函数，包括四个参数：累加器acc，当前值cur，索引idx，被调用的数组src），累加器的初始值</td><td>reduce函数返回累加器最后的值。reducer函数的返回值由使用者定义，该返回值将被分配给累加器</td><td>否</td><td>对数字进行操、使用字符串连接函数等处理字符串，用途十分广泛</td></tr><tr><td>reduceRight</td><td>同reduce，但遍历顺序为降序，即从数组的尾部向前遍历</td><td>同reduce</td><td>同reduce</td><td>否</td><td>同reduce</td></tr><tr><td>find</td><td>返回数组中满足提供的测试函数的第一个元素的值。</td><td>回调函数（当前处理的元素、索引、原数组），this参数</td><td>数组中满足回调函数的元素的值，未命中返回<code>undefined</code></td><td>是</td><td>寻找数组中的某一项</td></tr><tr><td>findIndex</td><td>大致与find相同，只是返回的为满足测试函数的元素的索引</td><td>同find</td><td>回调函数返回值为true的元素的索引，未命中返回-1</td><td>是</td><td>同find</td></tr><tr><td>forEach</td><td>对数组的每个元素执行一次给定的函数</td><td>调函数（当前处理的元素、索引、原数组），this参数</td><td>undefined</td><td>否。可以先使用filter，再使用forEach</td><td>可以替代for循环，更简洁一些。由于该方法会跳过数组中的空数组单元，用来处理系数数组的效果较好</td></tr></tbody></table><h3 id="遍历过程中数组是否实时更新。换句话说：被遍历的数组在遍历时的内容是否为调用遍历方法时为准？"><a href="#遍历过程中数组是否实时更新。换句话说：被遍历的数组在遍历时的内容是否为调用遍历方法时为准？" class="headerlink" title="遍历过程中数组是否实时更新。换句话说：被遍历的数组在遍历时的内容是否为调用遍历方法时为准？"></a>遍历过程中数组是否实时更新。换句话说：被遍历的数组在遍历时的内容是否为调用遍历方法时为准？</h3><h4 id="map、filter、every、some、find、findIndex等"><a href="#map、filter、every、some、find、findIndex等" class="headerlink" title="map、filter、every、some、find、findIndex等"></a>map、filter、every、some、find、findIndex等</h4><p>分情况，“修改”、“删除”、“新增”的情况不同，“修改”情况又分为修改前遍历该元素和修改后遍历到该元素。</p><ul><li>遍历中修改某个元素：在遍历到某个元素之前发生变化，遍历到该元素时得到的为变化后的值。若遍历后发生修改，则修改是会反映到原数组中的，但是不会影响之前的遍历。</li><li>遍历中删除某个元素：该元素变为underfined（empty?），但仍然占据在数组中的原位置。如果方法返回的是一个新数组，同时会影响新生成的数组的该索引的元素（根据修改规则判断是否影响）。生成的数组长度不变，原数组长度也不变。</li><li>遍历中新增某个元素：在遍历时不会对其进行遍历。</li></ul><h4 id="forEach"><a href="#forEach" class="headerlink" title="forEach"></a>forEach</h4><p>规则有点不同。如果数组在迭代时被修改了，则其他元素会被跳过。</p><h3 id="上述方法，遍历时传入回调函数中的元素是数组中相应项的深拷贝吗？"><a href="#上述方法，遍历时传入回调函数中的元素是数组中相应项的深拷贝吗？" class="headerlink" title="上述方法，遍历时传入回调函数中的元素是数组中相应项的深拷贝吗？"></a>上述方法，遍历时传入回调函数中的元素是数组中相应项的深拷贝吗？</h3><p>不是。</p><h2 id="3-其他注意事项"><a href="#3-其他注意事项" class="headerlink" title="3. 其他注意事项"></a><div id="3">3. 其他注意事项</div></h2><h3 id="3-1-map"><a href="#3-1-map" class="headerlink" title="3.1 map"></a><div id="3.1">3.1 map</div></h3><p>在遍历过程中一定记得写明返回值！直接更改当前遍历的内容而不反回，不会反映到遍历结束生成的数组中！比如<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> b = arr.map(<span class="function"><span class="params">i</span>=&gt;</span>&#123;i.text = <span class="string">"测试"</span>;i.value=<span class="string">"测试"</span>&#125;);       <span class="comment">// 此时b数组中所有项的值皆undefined</span></span><br><span class="line"><span class="keyword">var</span> b = arr.map(<span class="function"><span class="params">i</span>=&gt;</span>&#123;<span class="keyword">return</span> &#123;<span class="attr">text</span>:<span class="string">"测试"</span>,<span class="attr">value</span>:<span class="string">"测试"</span>&#125;&#125;)     <span class="comment">// 此时b数组所有项的值才为一个包含text和value属性的对象</span></span><br></pre></td></tr></table></figure></p><h3 id="3-2-reduce"><a href="#3-2-reduce" class="headerlink" title="3.2 reduce"></a><div id="3.2">3.2 reduce</div></h3><p>注意一下reduce函数中累加器的初始值设置。</p><h2 id="4-一些思考"><a href="#4-一些思考" class="headerlink" title="4. 一些思考"></a><div id="4">4. 一些思考</div></h2><p>for循环功能很强大，但总不能处处都用for循环。在项目中只用for可能会徒增不必要的代码，使得代码写的复杂、晦涩，存在大量重复等。代码在保证运行效率的情况下，应该足够简洁，编写的代码才会更易懂、易维护，应该针对不同的场景使用合适的遍历方法。</p>]]></content>
+    
+    <summary type="html">
+    
+      js遍历方法的汇总
+    
+    </summary>
+    
+      <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
+    
+      <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vue学习笔记：可复用性&amp;组合</title>
+    <link href="http://nice2meetu.site/2020/04/20/vue/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0:%E5%8F%AF%E5%A4%8D%E7%94%A8%E6%80%A7&amp;%E7%BB%84%E5%90%88/"/>
+    <id>http://nice2meetu.site/2020/04/20/vue/vue学习笔记:可复用性&amp;组合/</id>
+    <published>2020-04-20T04:05:50.000Z</published>
+    <updated>2020-08-24T05:46:32.922Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li><a href="#1">混入（mixin）</a></li><li><a href="#2">自定义指令</a></li><li><a href="#3">渲染函数&amp;JSX</a></li><li><a href="#4">插件</a></li><li><a href="#5">过滤器</a></li></ol><h2 id="1-混入"><a href="#1-混入" class="headerlink" title="1. 混入"></a><div id="1">1. 混入</div></h2><p>Vue中使用全局变量的方案。顾名思义，混入功能可以将vue组件的一些选项如data、created、methods，置入到每一个组件中，从而被每个组件使用。混入的内容将涉及所有组件——十分混乱；混入的内容可注入到每个组件中——十分深入。</p><ul><li>选项合并：解决混入时的同名选项冲突问题。<ul><li>数据对象：递归合并，组件优先。</li><li>生命周期钩子：合并为数组，mixin中的钩子先调用。</li><li>值为对象的选项：合并为同一个对象，键名冲突时组件优先（如methods中的同名方法）。</li></ul></li><li>全局混入：即全局注册，混入的主要使用场景。</li><li>自定义选项合并策略（不太清楚这一块的作用。）</li></ul><h3 id="全局混入用法实践"><a href="#全局混入用法实践" class="headerlink" title="全局混入用法实践"></a>全局混入用法实践</h3><ul><li><p>将混入内容单独写到一个文件中，例如：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mixin = &#123;</span><br><span class="line">    data()&#123;</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            msg:<span class="string">"Hello~"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> mixin</span><br></pre></td></tr></table></figure></li><li><p>在main.js文件中引入：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> mixin <span class="keyword">from</span> <span class="string">'路径/mixin.js'</span></span><br><span class="line">Vue.mixin(mixin)</span><br></pre></td></tr></table></figure></li></ul><h2 id="2-自定义指令"><a href="#2-自定义指令" class="headerlink" title="2. 自定义指令"></a>2. <div id="2">自定义指令</div></h2><p>通过自定义指令可以更方便地控制dom的样式及行为，而不仅仅局限于v-bind、v-model、v-show等。</p><ul><li>钩子函数：类似组件的生命周期。这就是钩子函数就是自定义指令的生命周期。</li><li>钩子函数参数：所绑定元素的DOM、包含指令属性的对象、vnode、上一个vnode。</li><li>对象字面量：指令函数能够接收所有合法js语句。</li></ul><h2 id="3-渲染函数"><a href="#3-渲染函数" class="headerlink" title="3. 渲染函数"></a>3. <div id="3">渲染函数</div></h2><p>通过render函数，可以使用js编写模版。有时直接使用template编写模版重复度会较高，而使用js编写可以简洁很多。<br>这一部分内容比较多，理解难度比较大，暂时没有完全吃透。</p><h2 id="4-插件"><a href="#4-插件" class="headerlink" title="4. 插件"></a>4. <div id="4">插件</div></h2><p>可以通过插件封装经常使用的重复代码，在一定程度上减少了冗余代码。</p><h2 id="5-过滤器"><a href="#5-过滤器" class="headerlink" title="5. 过滤器"></a>5. <div id="5">过滤器</div></h2><p>主要用来格式化数据。除了可以在组件内部使用filers属性定义局部过滤器之外，还可以使用Vue.filter()定义全局过滤器。<br>过滤器的声明和使用方法：<a href="https://www.cnblogs.com/yan7/p/8133897.html" target="_blank" rel="noopener">https://www.cnblogs.com/yan7/p/8133897.html</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;目录&quot;&gt;&lt;a href=&quot;#目录&quot; class=&quot;headerlink&quot; title=&quot;目录&quot;&gt;&lt;/a&gt;目录&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;#1&quot;&gt;混入（mixin）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#2&quot;&gt;自定义指令&lt;/a&gt;&lt;/li&gt;
+
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="vue" scheme="http://nice2meetu.site/tags/vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>后台代码质量检查工具：SonarQube</title>
+    <link href="http://nice2meetu.site/2020/04/09/%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E6%A3%80%E6%9F%A5/%E4%BD%BF%E7%94%A8SonarQube%E8%BF%9B%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E6%A3%80%E6%9F%A5/"/>
+    <id>http://nice2meetu.site/2020/04/09/代码质量检查/使用SonarQube进行代码质量检查/</id>
+    <published>2020-04-09T03:35:30.000Z</published>
+    <updated>2020-08-24T05:46:32.923Z</updated>
+    
+    <content type="html"><![CDATA[<p>SonarQube的安装、插件配置及个人的一些感受</p><a id="more"></a><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li><a href="#1">安装SonarQube</a></li><li><a href="#2">配置相关插件</a><ol><li><a href="#2.1">汉化插件</a></li><li><a href="#2.2">导出代码质量检测报告插件</a></li></ol></li><li><a href="#3">其他SonarQube相关操作</a><ol><li><a href="#3.1">查看当前SonarQube版本</a></li></ol></li></ol><h2 id="1-安装SonarQube"><a href="#1-安装SonarQube" class="headerlink" title="1. 安装SonarQube"></a><span id="1">1. 安装SonarQube</span></h2><ol><li>前往SonarQube官网进行下载（推荐下载Community版本，免费，功能够用）：<a href="https://www.sonarqube.org/downloads/" target="_blank" rel="noopener">https://www.sonarqube.org/downloads/</a></li><li>下载完成后解压该文件，此处最好不要使用root用户进行解压。该步骤在官网文档的说明十分详细：<a href="https://docs.sonarqube.org/latest/setup/get-started-2-minutes/" target="_blank" rel="noopener">https://docs.sonarqube.org/latest/setup/get-started-2-minutes/</a> </li><li><p>解压后在命令行下进入解压后的文件夹，然后进入<code>bin</code>目录，该文件夹包含了不同平台下的脚本文件。如：</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jsw-licensemacosx-universal-64</span><br><span class="line">linux-x86-64windows-x86-64</span><br></pre></td></tr></table></figure></li><li><p>根据自己的平台cd到相应文件夹下（博主是macos），然后输入<code>sonar.sh start</code>运行SonarQube。</p></li><li>进入SonarQube客户端界面：<a href="http://localhost:9000" target="_blank" rel="noopener">http://localhost:9000</a> </li></ol><h2 id="2-配置相关插件"><a href="#2-配置相关插件" class="headerlink" title="2. 配置相关插件"></a><span id="2">2. 配置相关插件</span></h2><h3 id="2-1-汉化插件"><a href="#2-1-汉化插件" class="headerlink" title="2.1 汉化插件"></a><span id="2.1">2.1 汉化插件</span></h3><ol><li>下载汉化插件。一定要下载相应版本，否则可能会无法启动SonarQube：<a href="https://github.com/SonarQubeCommunity/sonar-l10n-zh" target="_blank" rel="noopener">https://github.com/SonarQubeCommunity/sonar-l10n-zh</a></li><li>将下载后的插件移动到<code>sonarQube根目录/extensions/plugins</code></li><li>重启SonarQube</li></ol><h3 id="导出代码质量检测报告插件"><a href="#导出代码质量检测报告插件" class="headerlink" title="导出代码质量检测报告插件"></a><span id="2.2">导出代码质量检测报告插件</span></h3><ol><li>使用该仓库的python程序导出：<a href="https://github.com/ximone/Sonar_Report_Generator" target="_blank" rel="noopener">https://github.com/ximone/Sonar_Report_Generator</a></li></ol><h2 id="3-其他SonarQube相关操作"><a href="#3-其他SonarQube相关操作" class="headerlink" title="3. 其他SonarQube相关操作"></a><span id="3">3. 其他SonarQube相关操作</span></h2><h3 id="1-查看当前SonarQube的版本"><a href="#1-查看当前SonarQube的版本" class="headerlink" title="1. 查看当前SonarQube的版本"></a><span id="3.1">1. 查看当前SonarQube的版本</span></h3><p>在SonarQube的客户端界面选择Administration-&gt;System</p><h2 id="个人感受"><a href="#个人感受" class="headerlink" title="个人感受"></a>个人感受</h2><p>使用不多，课程要求才进行了初步尝试。<br>个人感觉该软件对一个软件开发团队而言意义更大一些。</p><ol><li>可以更好地帮助一个软件开发团队维护代码，使得代码编写符合内部的编码规范。</li><li>可以方便地review代码。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      使用SonarQube进行代码质量检查
+    
+    </summary>
+    
+      <category term="后端" scheme="http://nice2meetu.site/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="代码质量检查" scheme="http://nice2meetu.site/tags/%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E6%A3%80%E6%9F%A5/"/>
+    
+      <category term="SonarQube" scheme="http://nice2meetu.site/tags/SonarQube/"/>
+    
+  </entry>
+  
+</feed>
