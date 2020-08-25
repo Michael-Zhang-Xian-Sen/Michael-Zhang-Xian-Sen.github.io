@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nice2meetu.site/"/>
-  <updated>2020-08-24T05:46:32.909Z</updated>
+  <updated>2020-08-25T02:34:40.771Z</updated>
   <id>http://nice2meetu.site/</id>
   
   <author>
@@ -17,44 +17,69 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
-    <link href="http://nice2meetu.site/2020/08/24/css%E5%9F%BA%E7%A1%80/%E5%A4%96%E8%BE%B9%E8%B7%9D%E6%8A%98%E5%8F%A0/"/>
-    <id>http://nice2meetu.site/2020/08/24/css基础/外边距折叠/</id>
-    <published>2020-08-24T05:46:32.909Z</published>
-    <updated>2020-08-24T05:46:32.909Z</updated>
+    <title>js出现舍入误差的原因及应对方案</title>
+    <link href="http://nice2meetu.site/2020/08/25/js%E5%9F%BA%E7%A1%80/js%E8%88%8D%E5%85%A5%E8%AF%AF%E5%B7%AE%E5%8F%8A%E5%85%B6%E6%B6%88%E9%99%A4%E6%96%B9%E6%A1%88/"/>
+    <id>http://nice2meetu.site/2020/08/25/js基础/js舍入误差及其消除方案/</id>
+    <published>2020-08-25T02:34:30.000Z</published>
+    <updated>2020-08-25T02:34:40.771Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="形成外布局重叠的情况："><a href="#形成外布局重叠的情况：" class="headerlink" title="形成外布局重叠的情况："></a>形成外布局重叠的情况：</h3><p>外边距重叠的含义：块的上外边距(margin-top)和下外边距(margin-bottom)有时合并(折叠)为单个边距，其大小为单个边距的最大值(或如果它们相等，则仅为其中一个)，</p><ol><li>同一层相邻元素之间：相邻的两个元素之间的外边距重叠，除非后一个元素加上clear-fix清除浮动。</li></ol><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>知乎回答：<a href="https://www.zhihu.com/question/19823139?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/19823139?sort=created</a></li><li>MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing</a></li></ol>]]></content>
+    <content type="html"><![CDATA[<h3 id="舍入误差"><a href="#舍入误差" class="headerlink" title="舍入误差"></a>舍入误差</h3><p>Number类型使用IEEE 754 双精度 64 位浮点数格式来表示整数和浮点值。</p><ul><li>符号位，第63位（共1位），用来区分正负数。</li><li>指数，第52-62位（共11位），即2的指数。</li><li>第0到51是尾数位（共52位）。<br>因此，2^(-53)到2^53之间的整数都可以精确表示，但是对于计算机而言，两个数字在相加时是以二进制形式进行的，在呈现结果时才转换成十进制，所以浮点数不一定能精确表示。</li></ul><h4 id="十进制小数转二进制小数"><a href="#十进制小数转二进制小数" class="headerlink" title="十进制小数转二进制小数"></a>十进制小数转二进制小数</h4><p>用2乘十进制小数，可以得到积，将积的整数部分取出，再用2乘余下的小数部分，又得到一个积，再将积的整数部分取出，如此进行，直到积中的小数部分为零，此时0或1为二进制的最后一位。或者达到所要求的精度为止。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">如：0.1 =（0.0 0011 0011 0011...(0011无限循环下去)）B</span><br><span class="line">0.1*2=0.2========取出整数部分0</span><br><span class="line">0.2*2=0.4========取出整数部分0</span><br><span class="line">0.4*2=0.8========取出整数部分0</span><br><span class="line">0.8*2=1.6========取出整数部分1</span><br><span class="line">0.6*2=1.2========取出整数部分1</span><br><span class="line">0.2*2=0.4========取出整数部分0</span><br><span class="line">0.4*2=0.8========取出整数部分0</span><br><span class="line">0.8*2=1.6========取出整数部分1</span><br><span class="line">0.6*2=1.2========取出整数部分1</span><br><span class="line">0.2*2=0.4========取出整数部分0</span><br></pre></td></tr></table></figure><p>0.1和0.2的表示如下所示：</p><ul><li>0.1：e = -4; m =1.1001100110011001100110011001100110011001100110011010 (52位)</li><li>0.2：e = -3; m =1.1001100110011001100110011001100110011001100110011010 (52位)</li></ul><h4 id="二进制的舍入规则"><a href="#二进制的舍入规则" class="headerlink" title="二进制的舍入规则"></a>二进制的舍入规则</h4><p>舍入的目标即尽可能使舍入后的结果与真实值误差最小（尽可能减小舍入处理的影响）。如果以形式1.RR..RDD..D表示浮点数（R表示有效位，或保留位，而D表示舍去位），舍入规则就是：</p><ul><li>如果DD..D &lt; 10..0，则向下舍入。如：<code>1.001011</code>，保留四位有效数字，由于舍去位<code>011 &lt; 100</code>，故保留位最后一位不进位，结果为：<code>1.001</code>。</li><li>如果DD..D &gt; 10..0，则向上舍入。如：<code>1.001101</code>，保留四位有效数字，由于舍去位<code>101 &gt; 100</code>，故保留位最后一位进位1，结果为：<code>1.010</code>。</li><li>如要DD..D = 10..0，则向最近偶数舍入，细则如下 ：<ul><li>如果RR..R = XX..0 （最低有效位是0），则向下舍入。如：<code>1.100100</code>，保留四位有效数字，由于最低有效位是0，故不进位，结果为：<code>1.100</code>。</li><li>如果RR..R = XX..1（最低有效位是1），则向上舍入。如：<code>1.001100</code>，保留四位有效数字，由于最低有效位是1，故进位1，结果为：<code>1.010</code>。</li></ul></li></ul><h4 id="0-1-0-2-0-3"><a href="#0-1-0-2-0-3" class="headerlink" title="0.1 + 0.2 !== 0.3"></a>0.1 + 0.2 !== 0.3</h4><p>0.1与0.2二进制相加，步骤如下：</p><ol><li>对齐二进制位。由于0.1与0.2的指数不一致，需要对齐。<ul><li>0.1：e = -3; m = 0.1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1101</li></ul><ul><li>0.2：e = -3; m = 1.1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1010</li></ul></li><li>对应位数相加<ul><li>相加后得到的结果：e = -3; m = 10.0110 0110 0110 0110 0110 0110 0110 0110 0110 0110 0110 0110 0111</li></ul></li><li>超出的精度需要舍入。由于最后的舍去位是<code>1</code>，且最低有效位是<code>1</code>，故向上舍入，保留位最后一位进1.<ul><li>最终结果：e = -2; m = 1.0011001100110011001100110011001100110011001100110100(52位)</li><li>最终结果的二进制形式：0.010011001100110011001100110011001100110011001100110100</li><li>最终结果的十进制形式：0.30000000000000004</li></ul></li></ol><p>解决js中（或者说遵循IEEE 754规范）的语言中，两浮点数相加结果不正确的问题，可以设置一个误差范围值，即“机器精度”。对于Javascript来说，这个值通常是2^-52。</p><p>ES6中新增属性<code>Number.EMPSILON</code>，表示 1 与Number可表示的大于 1 的最小的浮点数之间的差值。可以使用<code>Number.EMPSILON</code>作为机器精度。</p><p>一个用于判断两数是否相等，并且消除了浮点数相加时舍入误差带来的影响：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEqual</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.abs(a-b) &lt; <span class="built_in">Number</span>.EPSILON;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>深入探讨浮点数舍入问题：<a href="https://blog.csdn.net/qq_42372980/article/details/80554247?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight" target="_blank" rel="noopener">https://blog.csdn.net/qq_42372980/article/details/80554247?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight</a></li><li>Javascript中的Number类型和BigInt类型：<a href="https://blog.csdn.net/RaeZhang/article/details/107624193" target="_blank" rel="noopener">https://blog.csdn.net/RaeZhang/article/details/107624193</a></li><li>MDN中有关Number.EPSILON的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON</a></li></ol>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;形成外布局重叠的情况：&quot;&gt;&lt;a href=&quot;#形成外布局重叠的情况：&quot; class=&quot;headerlink&quot; title=&quot;形成外布局重叠的情况：&quot;&gt;&lt;/a&gt;形成外布局重叠的情况：&lt;/h3&gt;&lt;p&gt;外边距重叠的含义：块的上外边距(margin-top)和下外边距(m
+        &lt;h3 id=&quot;舍入误差&quot;&gt;&lt;a href=&quot;#舍入误差&quot; class=&quot;headerlink&quot; title=&quot;舍入误差&quot;&gt;&lt;/a&gt;舍入误差&lt;/h3&gt;&lt;p&gt;Number类型使用IEEE 754 双精度 64 位浮点数格式来表示整数和浮点值。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;符号位，第6
       
     
     </summary>
     
+      <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://nice2meetu.site/2020/08/24/css%E5%9F%BA%E7%A1%80/%E5%AE%9A%E4%BD%8D%E3%80%81%E6%96%87%E6%A1%A3%E6%B5%81%E4%B8%8E%E6%96%87%E6%9C%AC%E6%B5%81/"/>
-    <id>http://nice2meetu.site/2020/08/24/css基础/定位、文档流与文本流/</id>
-    <published>2020-08-24T05:46:32.909Z</published>
-    <updated>2020-08-24T05:46:32.910Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="几种定位"><a href="#几种定位" class="headerlink" title="几种定位"></a>几种定位</h3><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>mdn有关文档流及定位的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D</a></li></ol>]]></content>
+    <title>深度优先遍历</title>
+    <link href="http://nice2meetu.site/2020/08/24/%E7%AE%97%E6%B3%95/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/"/>
+    <id>http://nice2meetu.site/2020/08/24/算法/深度优先遍历/</id>
+    <published>2020-08-24T12:15:30.000Z</published>
+    <updated>2020-08-24T12:15:55.487Z</updated>
     
     <summary type="html">
     
-      
-      
-        &lt;h3 id=&quot;几种定位&quot;&gt;&lt;a href=&quot;#几种定位&quot; class=&quot;headerlink&quot; title=&quot;几种定位&quot;&gt;&lt;/a&gt;几种定位&lt;/h3&gt;&lt;h3 id=&quot;参考资料&quot;&gt;&lt;a href=&quot;#参考资料&quot; class=&quot;headerlink&quot; title=&quot;参考资料&quot;&gt;&lt;/a
-      
+    </summary>
+    
+      <category term="算法" scheme="http://nice2meetu.site/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="算法" scheme="http://nice2meetu.site/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTTP状态码</title>
+    <link href="http://nice2meetu.site/2020/08/24/http/http%E7%8A%B6%E6%80%81%E7%A0%81/"/>
+    <id>http://nice2meetu.site/2020/08/24/http/http状态码/</id>
+    <published>2020-08-24T06:14:00.000Z</published>
+    <updated>2020-08-24T09:18:07.965Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><code>1xx</code>消息（Informational）</li><li><code>2xx</code>成功（Success）</li><li><code>3xx</code>重定向（Redirection）</li><li><code>4xx</code>客户端错误（Client error）：客户端请求出错，服务器无法处理请求</li><li><code>5xx</code>服务器错误（Server Error）：服务器处理请求出错。</li></ol><h3 id="1-消息"><a href="#1-消息" class="headerlink" title="1. 消息"></a>1. 消息</h3><p>接收的请求正在处理。</p><h3 id="2-成功"><a href="#2-成功" class="headerlink" title="2. 成功"></a>2. 成功</h3><p>请求正常处理完毕。</p><ul><li><code>200 OK</code>，表示从客户端发送给服务器的请求被正常处理并返回。</li><li><code>204 No Content</code>，请求处理成功，但没有任何资源可以返回给客户端，一般在只需要从客户端往服务器发送信息，而服务器不需要向客户端发送新信息内容的情况下使用。</li><li><code>206 Partial Content</code>，是对资源某一部分的请求，该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求。响应报文中包含由Content-Range指定范围的实体内容。</li></ul><h3 id="3-重定向"><a href="#3-重定向" class="headerlink" title="3. 重定向"></a>3. 重定向</h3><p>需要进行附加操作以完成请求。</p><ul><li><code>301 Moved Permanently</code>，永久性重定向。请求的资源已经被分配了新的URI，以后应使用资源现在所指的URI。</li><li><code>302 Found</code>，临时性重定向。和301相似，但302代表的资源不是永久性移动，只是临时性性质的。换句话说，已移动的资源对应的URI将来还有可能发生改变。</li><li><code>303 See Other</code>，该状态码表示由于请求对应的资源存在着另一个URL，应使用GET方法定向获取请求的资源。303状态码和302状态码有着相同的功能，但303状态码明确表示客户端应当采用GET方法获取资源，这点与302状态码有区别。</li><li><code>304 Not Modified</code>，资源已找到，但未符合条件请求。该状态码表示客户端发送附带条件的请求时（采用GET方法的请求报文中包含If-Match，If-Modified-Since，If-None-Match，If-Range，If-Unmodified-Since中任一首部）服务端允许请求访问资源，但因发生请求未满足条件的情况后，直接返回304。</li><li><code>307 Temporary Redirect</code>，临时重定向。与302有相同的含义。</li></ul><h4 id="301永久重定向与302临时重定向的区别"><a href="#301永久重定向与302临时重定向的区别" class="headerlink" title="301永久重定向与302临时重定向的区别"></a>301永久重定向与302临时重定向的区别</h4><ul><li>301永久重定向，新网址完全继承旧网址，旧网址的排名等完全清零</li><li>302临时重定向，搜索引擎会抓取新的内容而保留旧的网址，</li></ul><h3 id="CNAME（Canonical-Name）与HTTP重定向的区别"><a href="#CNAME（Canonical-Name）与HTTP重定向的区别" class="headerlink" title="CNAME（Canonical Name）与HTTP重定向的区别"></a>CNAME（Canonical Name）与HTTP重定向的区别</h3><p>CNAME记录只是域名的别名，多用于CDN加速，而HTTP重定向是接收到重定向报文后，将请求重新发送给重定向所指出的URL。</p><h3 id="4-客户端错误"><a href="#4-客户端错误" class="headerlink" title="4. 客户端错误"></a>4. 客户端错误</h3><ul><li><code>400 Bad Request</code>，服务器端无法理解客户端发送的请求，请求报文中可能存在语法错误。</li><li><code>401 Unauthorized</code>，该状态码表示发送的请求需要有通过HTTP认证（BASIC认证，DIGEST认证）的认证信息。</li><li><code>403 Forbidden</code>，不允许访问那个资源。该状态码表明对请求资源的访问被服务器拒绝了。</li><li><code>404 Not Found</code>，服务器上没有请求的资源。路径错误等。</li></ul><h3 id="5-服务器本身发生错误"><a href="#5-服务器本身发生错误" class="headerlink" title="5. 服务器本身发生错误"></a>5. 服务器本身发生错误</h3><ul><li><code>500 Internal Server Error</code>，该状态码表明服务器端在执行请求时发生了错误。也有可能是web应用存在bug或某些临时故障。</li><li><code>503 Service Unavailable</code>，该状态码表明服务器暂时处于超负载或正在停机维护，现在无法处理请求。</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      HTTP状态码
     
     </summary>
     
+      <category term="HTTP" scheme="http://nice2meetu.site/categories/HTTP/"/>
+    
+    
+      <category term="HTTP" scheme="http://nice2meetu.site/tags/HTTP/"/>
     
   </entry>
   
@@ -387,16 +412,16 @@
     <link href="http://nice2meetu.site/2020/05/04/js%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
     <id>http://nice2meetu.site/2020/05/04/js基础/js数据类型/</id>
     <published>2020-05-04T10:13:30.000Z</published>
-    <updated>2020-08-24T05:46:32.916Z</updated>
+    <updated>2020-08-25T02:33:45.615Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>共八种，分为基础类型和引用类型。</p><h2 id="基本类型（又称原始类型、简单类型。）"><a href="#基本类型（又称原始类型、简单类型。）" class="headerlink" title="基本类型（又称原始类型、简单类型。）"></a>基本类型（又称原始类型、简单类型。）</h2><p>值本身无法被改变。尤其注意的是基本类型和内置对象是不一样的。比如Boolean的基本类型的值只有false和true，而Boolean对象只是用来承载Boolean基本类型的。</p><ol><li>Boolean：值仅有<code>true</code>或<code>false</code><ul><li>判断基本类型：<code>typeof variable === &quot;boolean&quot;</code></li></ul></li><li>Null<ul><li>判断基本类型：<code>variable === null</code></li></ul></li><li>Undefined<ul><li>判断基本类型方法1：<code>variable === undefined</code></li><li>判断基本类型方法2：<code>typeof a === &quot;undefined&quot;</code></li></ul></li><li>Number<ul><li>判断基本类型：<code>typeof variable === &quot;number&quot;</code></li><li>判断整数：<code>Number.isInteger()</code>。</li><li>判断是否为NaN：<code>Number.isNan()</code>。</li><li>判断是否为有穷数：<code>Number.isFinite()</code>。</li><li>字符串转浮点数：<code>Number.parseFloat()</code>。</li><li>字符串转整数：<code>Number.parseInt()</code>。和全局的<code>parseInt()</code>方法一致。</li></ul></li><li>BigInt<ul><li>判断基本类型：<code>typeof variable === &quot;bigint&quot;</code></li><li>注意：不能用于Math对象中的方法。</li></ul></li><li>String<ul><li>判断基本类型：<code>typeof variable === &quot;String&quot;</code></li></ul></li><li>Symbol<ul><li>判断基本类型：<code>typeof variable === &quot;Symbol&quot;</code></li></ul></li></ol><h2 id="引用类型Object"><a href="#引用类型Object" class="headerlink" title="引用类型Object"></a>引用类型Object</h2><p>值本身可以被改变。</p><h3 id="对象判空的方法"><a href="#对象判空的方法" class="headerlink" title="对象判空的方法"></a>对象判空的方法</h3><ol><li>使用JSON.stringify()。</li><li>使用<code>for in</code>。</li><li>使用Object.keys()。</li></ol><h3 id="1-使用JSON-stringify"><a href="#1-使用JSON-stringify" class="headerlink" title="1. 使用JSON.stringify()"></a>1. 使用JSON.stringify()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    return JSON.stringify(obj) === &quot;&#123;&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-使用for-in"><a href="#2-使用for-in" class="headerlink" title="2. 使用for in"></a>2. 使用<code>for in</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    for(let attr in obj)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="3-使用Object-keys"><a href="#3-使用Object-keys" class="headerlink" title="3. 使用Object.keys()"></a>3. 使用Object.keys()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    return Object.keys(obj).length === 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="数据类型概览"><a href="#数据类型概览" class="headerlink" title="数据类型概览"></a>数据类型概览</h1><p>共八种，分为基础类型和引用类型。</p><h2 id="基本类型（又称原始类型、简单类型。）"><a href="#基本类型（又称原始类型、简单类型。）" class="headerlink" title="基本类型（又称原始类型、简单类型。）"></a>基本类型（又称原始类型、简单类型。）</h2><p>值本身无法被改变。尤其注意的是基本类型和内置对象是不一样的。比如Boolean的基本类型的值只有false和true，而Boolean对象只是用来承载Boolean基本类型的。</p><ol><li>Boolean：值仅有<code>true</code>或<code>false</code><ul><li>判断基本类型：<code>typeof variable === &quot;boolean&quot;</code></li></ul></li><li>Null<ul><li>判断基本类型：<code>variable === null</code></li></ul></li><li>Undefined<ul><li>判断基本类型方法1：<code>variable === undefined</code></li><li>判断基本类型方法2：<code>typeof a === &quot;undefined&quot;</code></li></ul></li><li>Number<ul><li>判断基本类型：<code>typeof variable === &quot;number&quot;</code></li><li>判断整数：<code>Number.isInteger()</code>。</li><li>判断是否为NaN：<code>Number.isNaN()</code>。</li><li>判断是否为有穷数：<code>Number.isFinite()</code>。</li><li>字符串转浮点数：<code>Number.parseFloat()</code>。</li><li>字符串转整数：<code>Number.parseInt()</code>。和全局的<code>parseInt()</code>方法一致。</li></ul></li><li>BigInt<ul><li>判断基本类型：<code>typeof variable === &quot;bigint&quot;</code></li><li>注意：不能用于Math对象中的方法。</li></ul></li><li>String<ul><li>判断基本类型：<code>typeof variable === &quot;String&quot;</code></li></ul></li><li>Symbol<ul><li>判断基本类型：<code>typeof variable === &quot;Symbol&quot;</code></li></ul></li></ol><h2 id="引用类型Object"><a href="#引用类型Object" class="headerlink" title="引用类型Object"></a>引用类型Object</h2><p>值本身可以被改变。</p><h3 id="对象判空的方法"><a href="#对象判空的方法" class="headerlink" title="对象判空的方法"></a>对象判空的方法</h3><ol><li>使用JSON.stringify()。</li><li>使用<code>for in</code>。</li><li>使用Object.keys()。</li></ol><h3 id="1-使用JSON-stringify"><a href="#1-使用JSON-stringify" class="headerlink" title="1. 使用JSON.stringify()"></a>1. 使用JSON.stringify()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    return JSON.stringify(obj) === &quot;&#123;&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-使用for-in"><a href="#2-使用for-in" class="headerlink" title="2. 使用for in"></a>2. 使用<code>for in</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    for(let attr in obj)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="3-使用Object-keys"><a href="#3-使用Object-keys" class="headerlink" title="3. 使用Object.keys()"></a>3. 使用Object.keys()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    return Object.keys(obj).length === 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;数据类型&quot;&gt;&lt;a href=&quot;#数据类型&quot; class=&quot;headerlink&quot; title=&quot;数据类型&quot;&gt;&lt;/a&gt;数据类型&lt;/h1&gt;&lt;p&gt;共八种，分为基础类型和引用类型。&lt;/p&gt;
-&lt;h2 id=&quot;基本类型（又称原始类型、简单类型。）&quot;&gt;&lt;a href=&quot;#基本类
+        &lt;h1 id=&quot;数据类型概览&quot;&gt;&lt;a href=&quot;#数据类型概览&quot; class=&quot;headerlink&quot; title=&quot;数据类型概览&quot;&gt;&lt;/a&gt;数据类型概览&lt;/h1&gt;&lt;p&gt;共八种，分为基础类型和引用类型。&lt;/p&gt;
+&lt;h2 id=&quot;基本类型（又称原始类型、简单类型。）&quot;&gt;&lt;a hr
       
     
     </summary>
@@ -510,30 +535,6 @@
       <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="vue" scheme="http://nice2meetu.site/tags/vue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>后台代码质量检查工具：SonarQube</title>
-    <link href="http://nice2meetu.site/2020/04/09/%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E6%A3%80%E6%9F%A5/%E4%BD%BF%E7%94%A8SonarQube%E8%BF%9B%E8%A1%8C%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E6%A3%80%E6%9F%A5/"/>
-    <id>http://nice2meetu.site/2020/04/09/代码质量检查/使用SonarQube进行代码质量检查/</id>
-    <published>2020-04-09T03:35:30.000Z</published>
-    <updated>2020-08-24T05:46:32.923Z</updated>
-    
-    <content type="html"><![CDATA[<p>SonarQube的安装、插件配置及个人的一些感受</p><a id="more"></a><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li><a href="#1">安装SonarQube</a></li><li><a href="#2">配置相关插件</a><ol><li><a href="#2.1">汉化插件</a></li><li><a href="#2.2">导出代码质量检测报告插件</a></li></ol></li><li><a href="#3">其他SonarQube相关操作</a><ol><li><a href="#3.1">查看当前SonarQube版本</a></li></ol></li></ol><h2 id="1-安装SonarQube"><a href="#1-安装SonarQube" class="headerlink" title="1. 安装SonarQube"></a><span id="1">1. 安装SonarQube</span></h2><ol><li>前往SonarQube官网进行下载（推荐下载Community版本，免费，功能够用）：<a href="https://www.sonarqube.org/downloads/" target="_blank" rel="noopener">https://www.sonarqube.org/downloads/</a></li><li>下载完成后解压该文件，此处最好不要使用root用户进行解压。该步骤在官网文档的说明十分详细：<a href="https://docs.sonarqube.org/latest/setup/get-started-2-minutes/" target="_blank" rel="noopener">https://docs.sonarqube.org/latest/setup/get-started-2-minutes/</a> </li><li><p>解压后在命令行下进入解压后的文件夹，然后进入<code>bin</code>目录，该文件夹包含了不同平台下的脚本文件。如：</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jsw-licensemacosx-universal-64</span><br><span class="line">linux-x86-64windows-x86-64</span><br></pre></td></tr></table></figure></li><li><p>根据自己的平台cd到相应文件夹下（博主是macos），然后输入<code>sonar.sh start</code>运行SonarQube。</p></li><li>进入SonarQube客户端界面：<a href="http://localhost:9000" target="_blank" rel="noopener">http://localhost:9000</a> </li></ol><h2 id="2-配置相关插件"><a href="#2-配置相关插件" class="headerlink" title="2. 配置相关插件"></a><span id="2">2. 配置相关插件</span></h2><h3 id="2-1-汉化插件"><a href="#2-1-汉化插件" class="headerlink" title="2.1 汉化插件"></a><span id="2.1">2.1 汉化插件</span></h3><ol><li>下载汉化插件。一定要下载相应版本，否则可能会无法启动SonarQube：<a href="https://github.com/SonarQubeCommunity/sonar-l10n-zh" target="_blank" rel="noopener">https://github.com/SonarQubeCommunity/sonar-l10n-zh</a></li><li>将下载后的插件移动到<code>sonarQube根目录/extensions/plugins</code></li><li>重启SonarQube</li></ol><h3 id="导出代码质量检测报告插件"><a href="#导出代码质量检测报告插件" class="headerlink" title="导出代码质量检测报告插件"></a><span id="2.2">导出代码质量检测报告插件</span></h3><ol><li>使用该仓库的python程序导出：<a href="https://github.com/ximone/Sonar_Report_Generator" target="_blank" rel="noopener">https://github.com/ximone/Sonar_Report_Generator</a></li></ol><h2 id="3-其他SonarQube相关操作"><a href="#3-其他SonarQube相关操作" class="headerlink" title="3. 其他SonarQube相关操作"></a><span id="3">3. 其他SonarQube相关操作</span></h2><h3 id="1-查看当前SonarQube的版本"><a href="#1-查看当前SonarQube的版本" class="headerlink" title="1. 查看当前SonarQube的版本"></a><span id="3.1">1. 查看当前SonarQube的版本</span></h3><p>在SonarQube的客户端界面选择Administration-&gt;System</p><h2 id="个人感受"><a href="#个人感受" class="headerlink" title="个人感受"></a>个人感受</h2><p>使用不多，课程要求才进行了初步尝试。<br>个人感觉该软件对一个软件开发团队而言意义更大一些。</p><ol><li>可以更好地帮助一个软件开发团队维护代码，使得代码编写符合内部的编码规范。</li><li>可以方便地review代码。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      使用SonarQube进行代码质量检查
-    
-    </summary>
-    
-      <category term="后端" scheme="http://nice2meetu.site/categories/%E5%90%8E%E7%AB%AF/"/>
-    
-    
-      <category term="代码质量检查" scheme="http://nice2meetu.site/tags/%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F%E6%A3%80%E6%9F%A5/"/>
-    
-      <category term="SonarQube" scheme="http://nice2meetu.site/tags/SonarQube/"/>
     
   </entry>
   

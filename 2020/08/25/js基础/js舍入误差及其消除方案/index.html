@@ -22,7 +22,7 @@
     
     <title>
         
-        归档 | 
+        js出现舍入误差的原因及应对方案 | 
         
         XD
     </title>
@@ -48,7 +48,7 @@
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Michael Zhang">
     <meta name="description" itemprop="description" content>
-    <meta name="keywords" content="Himory blog">
+    <meta name="keywords" content="Himory blog,前端">
 
     <!-- Site Verification -->
     
@@ -79,15 +79,19 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://nice2meetu.site">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="归档 | XD">
+    <meta property="og:title" content="js出现舍入误差的原因及应对方案 | XD">
     <meta property="og:image" content="http://ewinds.pw/code.png">
     <meta property="og:description" content>
     
+    <meta property="og:article:tag" content="前端"> 
 
+    
+    <meta property="article:published_time" content="8月 25, 2020">
+    <meta property="article:modified_time" content="8月 25, 2020">
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="归档 | XD">
+    <meta name="twitter:title" content="js出现舍入误差的原因及应对方案 | XD">
     <meta name="twitter:description" content>
     <meta name="twitter:image" content="http://ewinds.pw/code.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -95,13 +99,43 @@
 
     <!-- Add canonical link for SEO -->
     
-    <link rel="canonical" href="http://nice2meetu.site/archives/page/5/index.html">
+    <link rel="canonical" href="http://nice2meetu.site/2020/08/25/js基础/js舍入误差及其消除方案/index.html">
     
 
     <!-- Structured-data for SEO -->
     
     
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "XD",
+        "logo": "http://ewinds.pw/code.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Michael Zhang",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://ewinds.pw/code.png"
+        },
+        "description": "机会总是青睐喜欢动脑子的人"
+    },
+    "headline": "js出现舍入误差的原因及应对方案",
+    "url": "http://nice2meetu.site/2020/08/25/js基础/js舍入误差及其消除方案/index.html",
+    "datePublished": "8月 25, 2020",
+    "dateModified": "8月 25, 2020",
+    "description": "",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://nice2meetu.site"
+    }
+}
+</script>
 
 
     
@@ -384,25 +418,29 @@
 
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
     
 
-    <!-- Normal Post -->
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
     
         <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
+        <div class="post-header_info without-thumbnail">
             <!-- Author Avatar & Name -->
             <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
             <span class="name-span">Michael Zhang</span>
@@ -413,473 +451,139 @@
     
         </div>
 
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/08/07/css基础/标准盒模型和怪异盒模型/">标准盒模型和怪异盒模型</a>
-        </p>
 
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                标准盒子模...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/08/07/css基础/标准盒模型和怪异盒模型/" target="_self">阅读全文</a>
-            </span>
-        </p>
 
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/设计/">设计</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 07, 2017
-            </div>
-            <div class="post_entry-footer-comment">
                 
-                
-            </div>
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                js出现舍入误差的原因及应对方案
+            </p>
+            <h3 id="舍入误差"><a href="#舍入误差" class="headerlink" title="舍入误差"></a>舍入误差</h3><p>Number类型使用IEEE 754 双精度 64 位浮点数格式来表示整数和浮点值。</p>
+<ul>
+<li>符号位，第63位（共1位），用来区分正负数。</li>
+<li>指数，第52-62位（共11位），即2的指数。</li>
+<li>第0到51是尾数位（共52位）。<br>因此，2^(-53)到2^53之间的整数都可以精确表示，但是对于计算机而言，两个数字在相加时是以二进制形式进行的，在呈现结果时才转换成十进制，所以浮点数不一定能精确表示。</li>
+</ul>
+<h4 id="十进制小数转二进制小数"><a href="#十进制小数转二进制小数" class="headerlink" title="十进制小数转二进制小数"></a>十进制小数转二进制小数</h4><p>用2乘十进制小数，可以得到积，将积的整数部分取出，再用2乘余下的小数部分，又得到一个积，再将积的整数部分取出，如此进行，直到积中的小数部分为零，此时0或1为二进制的最后一位。或者达到所要求的精度为止。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">如：0.1 =（0.0 0011 0011 0011...(0011无限循环下去)）B</span><br><span class="line">0.1*2=0.2========取出整数部分0</span><br><span class="line">0.2*2=0.4========取出整数部分0</span><br><span class="line">0.4*2=0.8========取出整数部分0</span><br><span class="line">0.8*2=1.6========取出整数部分1</span><br><span class="line">0.6*2=1.2========取出整数部分1</span><br><span class="line">0.2*2=0.4========取出整数部分0</span><br><span class="line">0.4*2=0.8========取出整数部分0</span><br><span class="line">0.8*2=1.6========取出整数部分1</span><br><span class="line">0.6*2=1.2========取出整数部分1</span><br><span class="line">0.2*2=0.4========取出整数部分0</span><br></pre></td></tr></table></figure>
+<p>0.1和0.2的表示如下所示：</p>
+<ul>
+<li>0.1：e = -4; m =1.1001100110011001100110011001100110011001100110011010 (52位)</li>
+<li>0.2：e = -3; m =1.1001100110011001100110011001100110011001100110011010 (52位)</li>
+</ul>
+<h4 id="二进制的舍入规则"><a href="#二进制的舍入规则" class="headerlink" title="二进制的舍入规则"></a>二进制的舍入规则</h4><p>舍入的目标即尽可能使舍入后的结果与真实值误差最小（尽可能减小舍入处理的影响）。如果以形式1.RR..RDD..D表示浮点数（R表示有效位，或保留位，而D表示舍去位），舍入规则就是：</p>
+<ul>
+<li>如果DD..D &lt; 10..0，则向下舍入。如：<code>1.001011</code>，保留四位有效数字，由于舍去位<code>011 &lt; 100</code>，故保留位最后一位不进位，结果为：<code>1.001</code>。</li>
+<li>如果DD..D &gt; 10..0，则向上舍入。如：<code>1.001101</code>，保留四位有效数字，由于舍去位<code>101 &gt; 100</code>，故保留位最后一位进位1，结果为：<code>1.010</code>。</li>
+<li>如要DD..D = 10..0，则向最近偶数舍入，细则如下 ：<ul>
+<li>如果RR..R = XX..0 （最低有效位是0），则向下舍入。如：<code>1.100100</code>，保留四位有效数字，由于最低有效位是0，故不进位，结果为：<code>1.100</code>。</li>
+<li>如果RR..R = XX..1（最低有效位是1），则向上舍入。如：<code>1.001100</code>，保留四位有效数字，由于最低有效位是1，故进位1，结果为：<code>1.010</code>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="0-1-0-2-0-3"><a href="#0-1-0-2-0-3" class="headerlink" title="0.1 + 0.2 !== 0.3"></a>0.1 + 0.2 !== 0.3</h4><p>0.1与0.2二进制相加，步骤如下：</p>
+<ol>
+<li>对齐二进制位。由于0.1与0.2的指数不一致，需要对齐。<ul>
+<li>0.1：e = -3; m = 0.1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1101</li>
+</ul>
+<ul>
+<li>0.2：e = -3; m = 1.1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1010</li>
+</ul>
+</li>
+<li>对应位数相加<ul>
+<li>相加后得到的结果：e = -3; m = 10.0110 0110 0110 0110 0110 0110 0110 0110 0110 0110 0110 0110 0111</li>
+</ul>
+</li>
+<li>超出的精度需要舍入。由于最后的舍去位是<code>1</code>，且最低有效位是<code>1</code>，故向上舍入，保留位最后一位进1.<ul>
+<li>最终结果：e = -2; m = 1.0011001100110011001100110011001100110011001100110100(52位)</li>
+<li>最终结果的二进制形式：0.010011001100110011001100110011001100110011001100110100</li>
+<li>最终结果的十进制形式：0.30000000000000004</li>
+</ul>
+</li>
+</ol>
+<p>解决js中（或者说遵循IEEE 754规范）的语言中，两浮点数相加结果不正确的问题，可以设置一个误差范围值，即“机器精度”。对于Javascript来说，这个值通常是2^-52。</p>
+<p>ES6中新增属性<code>Number.EMPSILON</code>，表示 1 与Number可表示的大于 1 的最小的浮点数之间的差值。可以使用<code>Number.EMPSILON</code>作为机器精度。</p>
+<p>一个用于判断两数是否相等，并且消除了浮点数相加时舍入误差带来的影响：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEqual</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.abs(a-b) &lt; <span class="built_in">Number</span>.EPSILON;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol>
+<li>深入探讨浮点数舍入问题：<a href="https://blog.csdn.net/qq_42372980/article/details/80554247?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight" target="_blank" rel="noopener">https://blog.csdn.net/qq_42372980/article/details/80554247?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight</a></li>
+<li>Javascript中的Number类型和BigInt类型：<a href="https://blog.csdn.net/RaeZhang/article/details/107624193" target="_blank" rel="noopener">https://blog.csdn.net/RaeZhang/article/details/107624193</a></li>
+<li>MDN中有关Number.EPSILON的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON</a></li>
+</ol>
+
         </div>
-    </div>
+    
 </div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
-            <span class="name-span">Michael Zhang</span>
-        </div>
 
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/08/07/设计/「写给大家看的设计书」/">「写给大家看的设计书」</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                不懂设计的前端不是一个好前端 =。=！
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/08/07/设计/「写给大家看的设计书」/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/设计/">设计</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 07, 2017
-            </div>
-            <div class="post_entry-footer-comment">
                 
+                    <!-- Paradox Post Info -->
+                    
                 
-            </div>
-        </div>
-    </div>
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://nice2meetu.site/2020/08/25/js基础/js舍入误差及其消除方案/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://nice2meetu.site/2020/08/25/js基础/js舍入误差及其消除方案/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//nice2meetu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
 </div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
-            <span class="name-span">Michael Zhang</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/08/01/js基础/Attribute‘n&#39;property/">关于Attribute和property的区别</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                阅读提示：
-
-本篇文章中的attribute，全部翻译为“属性”。而property，全部翻译为“特性”。
-点表示法指js对象通过“.”获取特性，方括号表示法指js对象通过“[]”获取特性。
-
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/08/01/js基础/Attribute‘n&#39;property/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/前端/">前端</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                8月 01, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
                 
             </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/08/24/算法/深度优先遍历/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
         </div>
     </div>
-</div>
 
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
-            <span class="name-span">Michael Zhang</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/07/30/命名规范及最佳实践/js语言最佳实践/">js语言最佳实践</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/07/30/命名规范及最佳实践/js语言最佳实践/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/前端/">前端</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                7月 30, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
-            <span class="name-span">Michael Zhang</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/06/14/http/http_afternoon_tea/">《HTTP下午茶》</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                HTTP协议的入门小书，全书通俗易读，辅以插图食用口味更佳。
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/06/14/http/http_afternoon_tea/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/前端/">前端</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/读书笔记/">读书笔记</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                6月 14, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
-            <span class="name-span">Michael Zhang</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/06/14/java/java lombok插件/">Java lombok插件</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                lombok是一个java库，可以在构建工具或编辑器中引用。这款插件能够使得我们在代码中，通过使用插件提供的注解，减少getter、setter等重...
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/06/14/java/java lombok插件/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/Java插件/">Java插件</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                6月 14, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
-            <span class="name-span">Michael Zhang</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/05/24/编程实践/title-icon/">标签页动态图标的实现</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                很久之前在一个人的博客上，看到了一个很有意思的效果——当我在他的页面浏览时，选项卡图标和title是一个模样，当我离开他的页面以后，他的博客所在选项卡图标又变成了另一幅模样。当时感觉非常有趣，但没有花时间去考虑如何实现。
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/05/24/编程实践/title-icon/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/前端/">前端</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                5月 24, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-        
-            
-            
-                <!-- Isolation Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post_entry Header -->
-    
-        <!-- Post Header Info -->
-        <div class="post_entry-header_info without-thumbnail">
-            <!-- Author Avatar & Name -->
-            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
-            <span class="name-span">Michael Zhang</span>
-        </div>
-
-        <!-- Null Thumbnail -->
-        <div class="post_thumbnail-null">
-    
-        </div>
-
-    <!-- Post_entry Content -->
-    <div class="post_entry-content mdl-color-text--grey-600 mdl-card__supporting-text">
-        <!-- Post Title -->
-        <p class="post_entry-title">
-            <a href="/2017/05/10/环境搭建/build-blog/">GitHub Page + Hexo 搭建博客（win10）</a>
-        </p>
-
-        <!-- Post Excerpt -->
-        <p class="post_entry-excerpt">
-            
-                简要介绍一下搭建博客的过程、遇到的问题及解决方案。
-            
-            &nbsp;&nbsp;&nbsp;
-            <span>
-                <a href="/2017/05/10/环境搭建/build-blog/" target="_self">阅读全文</a>
-            </span>
-        </p>
-
-        <!-- Post Tags -->
-        <ul class="post_entry-tags-list"><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/win10/">win10</a></li><li class="post_entry-tags-list-item"><a class="post_entry-tags-list-link" href="/tags/博客/">博客</a></li></ul>
-    </div>
-
-    <!-- Post_entry Footer -->
-    <div class="post_entry-footer">
-        <div class="post_entry-footer-border"></div>
-        <div class="post_entry-footer-info">
-            <div class="post_entry-footer-date">
-                5月 10, 2017
-            </div>
-            <div class="post_entry-footer-comment">
-                
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/archives/page/4/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/3/">3</a><a class="page-number" href="/archives/page/4/">4</a><span class="page-number current">5</span>
-        </nav>
-    
-
-    
-</div>
 
 
                     

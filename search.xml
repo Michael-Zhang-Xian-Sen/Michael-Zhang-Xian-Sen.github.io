@@ -3,18 +3,62 @@
   
     
     <entry>
-      <title></title>
-      <link href="/2020/08/24/css%E5%9F%BA%E7%A1%80/%E5%A4%96%E8%BE%B9%E8%B7%9D%E6%8A%98%E5%8F%A0/"/>
-      <content type="html"><![CDATA[<h3 id="形成外布局重叠的情况："><a href="#形成外布局重叠的情况：" class="headerlink" title="形成外布局重叠的情况："></a>形成外布局重叠的情况：</h3><p>外边距重叠的含义：块的上外边距(margin-top)和下外边距(margin-bottom)有时合并(折叠)为单个边距，其大小为单个边距的最大值(或如果它们相等，则仅为其中一个)，</p><ol><li>同一层相邻元素之间：相邻的两个元素之间的外边距重叠，除非后一个元素加上clear-fix清除浮动。</li></ol><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>知乎回答：<a href="https://www.zhihu.com/question/19823139?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/19823139?sort=created</a></li><li>MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing</a></li></ol>]]></content>
+      <title>js出现舍入误差的原因及应对方案</title>
+      <link href="/2020/08/25/js%E5%9F%BA%E7%A1%80/js%E8%88%8D%E5%85%A5%E8%AF%AF%E5%B7%AE%E5%8F%8A%E5%85%B6%E6%B6%88%E9%99%A4%E6%96%B9%E6%A1%88/"/>
+      <content type="html"><![CDATA[<h3 id="舍入误差"><a href="#舍入误差" class="headerlink" title="舍入误差"></a>舍入误差</h3><p>Number类型使用IEEE 754 双精度 64 位浮点数格式来表示整数和浮点值。</p><ul><li>符号位，第63位（共1位），用来区分正负数。</li><li>指数，第52-62位（共11位），即2的指数。</li><li>第0到51是尾数位（共52位）。<br>因此，2^(-53)到2^53之间的整数都可以精确表示，但是对于计算机而言，两个数字在相加时是以二进制形式进行的，在呈现结果时才转换成十进制，所以浮点数不一定能精确表示。</li></ul><h4 id="十进制小数转二进制小数"><a href="#十进制小数转二进制小数" class="headerlink" title="十进制小数转二进制小数"></a>十进制小数转二进制小数</h4><p>用2乘十进制小数，可以得到积，将积的整数部分取出，再用2乘余下的小数部分，又得到一个积，再将积的整数部分取出，如此进行，直到积中的小数部分为零，此时0或1为二进制的最后一位。或者达到所要求的精度为止。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">如：0.1 =（0.0 0011 0011 0011...(0011无限循环下去)）B</span><br><span class="line">0.1*2=0.2========取出整数部分0</span><br><span class="line">0.2*2=0.4========取出整数部分0</span><br><span class="line">0.4*2=0.8========取出整数部分0</span><br><span class="line">0.8*2=1.6========取出整数部分1</span><br><span class="line">0.6*2=1.2========取出整数部分1</span><br><span class="line">0.2*2=0.4========取出整数部分0</span><br><span class="line">0.4*2=0.8========取出整数部分0</span><br><span class="line">0.8*2=1.6========取出整数部分1</span><br><span class="line">0.6*2=1.2========取出整数部分1</span><br><span class="line">0.2*2=0.4========取出整数部分0</span><br></pre></td></tr></table></figure><p>0.1和0.2的表示如下所示：</p><ul><li>0.1：e = -4; m =1.1001100110011001100110011001100110011001100110011010 (52位)</li><li>0.2：e = -3; m =1.1001100110011001100110011001100110011001100110011010 (52位)</li></ul><h4 id="二进制的舍入规则"><a href="#二进制的舍入规则" class="headerlink" title="二进制的舍入规则"></a>二进制的舍入规则</h4><p>舍入的目标即尽可能使舍入后的结果与真实值误差最小（尽可能减小舍入处理的影响）。如果以形式1.RR..RDD..D表示浮点数（R表示有效位，或保留位，而D表示舍去位），舍入规则就是：</p><ul><li>如果DD..D &lt; 10..0，则向下舍入。如：<code>1.001011</code>，保留四位有效数字，由于舍去位<code>011 &lt; 100</code>，故保留位最后一位不进位，结果为：<code>1.001</code>。</li><li>如果DD..D &gt; 10..0，则向上舍入。如：<code>1.001101</code>，保留四位有效数字，由于舍去位<code>101 &gt; 100</code>，故保留位最后一位进位1，结果为：<code>1.010</code>。</li><li>如要DD..D = 10..0，则向最近偶数舍入，细则如下 ：<ul><li>如果RR..R = XX..0 （最低有效位是0），则向下舍入。如：<code>1.100100</code>，保留四位有效数字，由于最低有效位是0，故不进位，结果为：<code>1.100</code>。</li><li>如果RR..R = XX..1（最低有效位是1），则向上舍入。如：<code>1.001100</code>，保留四位有效数字，由于最低有效位是1，故进位1，结果为：<code>1.010</code>。</li></ul></li></ul><h4 id="0-1-0-2-0-3"><a href="#0-1-0-2-0-3" class="headerlink" title="0.1 + 0.2 !== 0.3"></a>0.1 + 0.2 !== 0.3</h4><p>0.1与0.2二进制相加，步骤如下：</p><ol><li>对齐二进制位。由于0.1与0.2的指数不一致，需要对齐。<ul><li>0.1：e = -3; m = 0.1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1100 1101</li></ul><ul><li>0.2：e = -3; m = 1.1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1001 1010</li></ul></li><li>对应位数相加<ul><li>相加后得到的结果：e = -3; m = 10.0110 0110 0110 0110 0110 0110 0110 0110 0110 0110 0110 0110 0111</li></ul></li><li>超出的精度需要舍入。由于最后的舍去位是<code>1</code>，且最低有效位是<code>1</code>，故向上舍入，保留位最后一位进1.<ul><li>最终结果：e = -2; m = 1.0011001100110011001100110011001100110011001100110100(52位)</li><li>最终结果的二进制形式：0.010011001100110011001100110011001100110011001100110100</li><li>最终结果的十进制形式：0.30000000000000004</li></ul></li></ol><p>解决js中（或者说遵循IEEE 754规范）的语言中，两浮点数相加结果不正确的问题，可以设置一个误差范围值，即“机器精度”。对于Javascript来说，这个值通常是2^-52。</p><p>ES6中新增属性<code>Number.EMPSILON</code>，表示 1 与Number可表示的大于 1 的最小的浮点数之间的差值。可以使用<code>Number.EMPSILON</code>作为机器精度。</p><p>一个用于判断两数是否相等，并且消除了浮点数相加时舍入误差带来的影响：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isEqual</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.abs(a-b) &lt; <span class="built_in">Number</span>.EPSILON;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>深入探讨浮点数舍入问题：<a href="https://blog.csdn.net/qq_42372980/article/details/80554247?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight" target="_blank" rel="noopener">https://blog.csdn.net/qq_42372980/article/details/80554247?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight&amp;depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.edu_weight</a></li><li>Javascript中的Number类型和BigInt类型：<a href="https://blog.csdn.net/RaeZhang/article/details/107624193" target="_blank" rel="noopener">https://blog.csdn.net/RaeZhang/article/details/107624193</a></li><li>MDN中有关Number.EPSILON的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/EPSILON</a></li></ol>]]></content>
       
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 前端 </tag>
+            
+        </tags>
       
     </entry>
     
     <entry>
-      <title></title>
-      <link href="/2020/08/24/css%E5%9F%BA%E7%A1%80/%E5%AE%9A%E4%BD%8D%E3%80%81%E6%96%87%E6%A1%A3%E6%B5%81%E4%B8%8E%E6%96%87%E6%9C%AC%E6%B5%81/"/>
-      <content type="html"><![CDATA[<h3 id="几种定位"><a href="#几种定位" class="headerlink" title="几种定位"></a>几种定位</h3><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>mdn有关文档流及定位的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D</a></li></ol>]]></content>
+      <title>深度优先遍历</title>
+      <link href="/2020/08/24/%E7%AE%97%E6%B3%95/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/"/>
+      <content type="html"><![CDATA[]]></content>
       
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>HTTP状态码</title>
+      <link href="/2020/08/24/http/http%E7%8A%B6%E6%80%81%E7%A0%81/"/>
+      <content type="html"><![CDATA[<ol><li><code>1xx</code>消息（Informational）</li><li><code>2xx</code>成功（Success）</li><li><code>3xx</code>重定向（Redirection）</li><li><code>4xx</code>客户端错误（Client error）：客户端请求出错，服务器无法处理请求</li><li><code>5xx</code>服务器错误（Server Error）：服务器处理请求出错。</li></ol><h3 id="1-消息"><a href="#1-消息" class="headerlink" title="1. 消息"></a>1. 消息</h3><p>接收的请求正在处理。</p><h3 id="2-成功"><a href="#2-成功" class="headerlink" title="2. 成功"></a>2. 成功</h3><p>请求正常处理完毕。</p><ul><li><code>200 OK</code>，表示从客户端发送给服务器的请求被正常处理并返回。</li><li><code>204 No Content</code>，请求处理成功，但没有任何资源可以返回给客户端，一般在只需要从客户端往服务器发送信息，而服务器不需要向客户端发送新信息内容的情况下使用。</li><li><code>206 Partial Content</code>，是对资源某一部分的请求，该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求。响应报文中包含由Content-Range指定范围的实体内容。</li></ul><h3 id="3-重定向"><a href="#3-重定向" class="headerlink" title="3. 重定向"></a>3. 重定向</h3><p>需要进行附加操作以完成请求。</p><ul><li><code>301 Moved Permanently</code>，永久性重定向。请求的资源已经被分配了新的URI，以后应使用资源现在所指的URI。</li><li><code>302 Found</code>，临时性重定向。和301相似，但302代表的资源不是永久性移动，只是临时性性质的。换句话说，已移动的资源对应的URI将来还有可能发生改变。</li><li><code>303 See Other</code>，该状态码表示由于请求对应的资源存在着另一个URL，应使用GET方法定向获取请求的资源。303状态码和302状态码有着相同的功能，但303状态码明确表示客户端应当采用GET方法获取资源，这点与302状态码有区别。</li><li><code>304 Not Modified</code>，资源已找到，但未符合条件请求。该状态码表示客户端发送附带条件的请求时（采用GET方法的请求报文中包含If-Match，If-Modified-Since，If-None-Match，If-Range，If-Unmodified-Since中任一首部）服务端允许请求访问资源，但因发生请求未满足条件的情况后，直接返回304。</li><li><code>307 Temporary Redirect</code>，临时重定向。与302有相同的含义。</li></ul><h4 id="301永久重定向与302临时重定向的区别"><a href="#301永久重定向与302临时重定向的区别" class="headerlink" title="301永久重定向与302临时重定向的区别"></a>301永久重定向与302临时重定向的区别</h4><ul><li>301永久重定向，新网址完全继承旧网址，旧网址的排名等完全清零</li><li>302临时重定向，搜索引擎会抓取新的内容而保留旧的网址，</li></ul><h3 id="CNAME（Canonical-Name）与HTTP重定向的区别"><a href="#CNAME（Canonical-Name）与HTTP重定向的区别" class="headerlink" title="CNAME（Canonical Name）与HTTP重定向的区别"></a>CNAME（Canonical Name）与HTTP重定向的区别</h3><p>CNAME记录只是域名的别名，多用于CDN加速，而HTTP重定向是接收到重定向报文后，将请求重新发送给重定向所指出的URL。</p><h3 id="4-客户端错误"><a href="#4-客户端错误" class="headerlink" title="4. 客户端错误"></a>4. 客户端错误</h3><ul><li><code>400 Bad Request</code>，服务器端无法理解客户端发送的请求，请求报文中可能存在语法错误。</li><li><code>401 Unauthorized</code>，该状态码表示发送的请求需要有通过HTTP认证（BASIC认证，DIGEST认证）的认证信息。</li><li><code>403 Forbidden</code>，不允许访问那个资源。该状态码表明对请求资源的访问被服务器拒绝了。</li><li><code>404 Not Found</code>，服务器上没有请求的资源。路径错误等。</li></ul><h3 id="5-服务器本身发生错误"><a href="#5-服务器本身发生错误" class="headerlink" title="5. 服务器本身发生错误"></a>5. 服务器本身发生错误</h3><ul><li><code>500 Internal Server Error</code>，该状态码表明服务器端在执行请求时发生了错误。也有可能是web应用存在bug或某些临时故障。</li><li><code>503 Service Unavailable</code>，该状态码表明服务器暂时处于超负载或正在停机维护，现在无法处理请求。</li></ul>]]></content>
+      
+      <categories>
+          
+          <category> HTTP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HTTP </tag>
+            
+        </tags>
       
     </entry>
     
@@ -277,7 +321,7 @@
     <entry>
       <title>js数据类型</title>
       <link href="/2020/05/04/js%E5%9F%BA%E7%A1%80/js%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/"/>
-      <content type="html"><![CDATA[<h1 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h1><p>共八种，分为基础类型和引用类型。</p><h2 id="基本类型（又称原始类型、简单类型。）"><a href="#基本类型（又称原始类型、简单类型。）" class="headerlink" title="基本类型（又称原始类型、简单类型。）"></a>基本类型（又称原始类型、简单类型。）</h2><p>值本身无法被改变。尤其注意的是基本类型和内置对象是不一样的。比如Boolean的基本类型的值只有false和true，而Boolean对象只是用来承载Boolean基本类型的。</p><ol><li>Boolean：值仅有<code>true</code>或<code>false</code><ul><li>判断基本类型：<code>typeof variable === &quot;boolean&quot;</code></li></ul></li><li>Null<ul><li>判断基本类型：<code>variable === null</code></li></ul></li><li>Undefined<ul><li>判断基本类型方法1：<code>variable === undefined</code></li><li>判断基本类型方法2：<code>typeof a === &quot;undefined&quot;</code></li></ul></li><li>Number<ul><li>判断基本类型：<code>typeof variable === &quot;number&quot;</code></li><li>判断整数：<code>Number.isInteger()</code>。</li><li>判断是否为NaN：<code>Number.isNan()</code>。</li><li>判断是否为有穷数：<code>Number.isFinite()</code>。</li><li>字符串转浮点数：<code>Number.parseFloat()</code>。</li><li>字符串转整数：<code>Number.parseInt()</code>。和全局的<code>parseInt()</code>方法一致。</li></ul></li><li>BigInt<ul><li>判断基本类型：<code>typeof variable === &quot;bigint&quot;</code></li><li>注意：不能用于Math对象中的方法。</li></ul></li><li>String<ul><li>判断基本类型：<code>typeof variable === &quot;String&quot;</code></li></ul></li><li>Symbol<ul><li>判断基本类型：<code>typeof variable === &quot;Symbol&quot;</code></li></ul></li></ol><h2 id="引用类型Object"><a href="#引用类型Object" class="headerlink" title="引用类型Object"></a>引用类型Object</h2><p>值本身可以被改变。</p><h3 id="对象判空的方法"><a href="#对象判空的方法" class="headerlink" title="对象判空的方法"></a>对象判空的方法</h3><ol><li>使用JSON.stringify()。</li><li>使用<code>for in</code>。</li><li>使用Object.keys()。</li></ol><h3 id="1-使用JSON-stringify"><a href="#1-使用JSON-stringify" class="headerlink" title="1. 使用JSON.stringify()"></a>1. 使用JSON.stringify()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    return JSON.stringify(obj) === &quot;&#123;&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-使用for-in"><a href="#2-使用for-in" class="headerlink" title="2. 使用for in"></a>2. 使用<code>for in</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    for(let attr in obj)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="3-使用Object-keys"><a href="#3-使用Object-keys" class="headerlink" title="3. 使用Object.keys()"></a>3. 使用Object.keys()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    return Object.keys(obj).length === 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <content type="html"><![CDATA[<h1 id="数据类型概览"><a href="#数据类型概览" class="headerlink" title="数据类型概览"></a>数据类型概览</h1><p>共八种，分为基础类型和引用类型。</p><h2 id="基本类型（又称原始类型、简单类型。）"><a href="#基本类型（又称原始类型、简单类型。）" class="headerlink" title="基本类型（又称原始类型、简单类型。）"></a>基本类型（又称原始类型、简单类型。）</h2><p>值本身无法被改变。尤其注意的是基本类型和内置对象是不一样的。比如Boolean的基本类型的值只有false和true，而Boolean对象只是用来承载Boolean基本类型的。</p><ol><li>Boolean：值仅有<code>true</code>或<code>false</code><ul><li>判断基本类型：<code>typeof variable === &quot;boolean&quot;</code></li></ul></li><li>Null<ul><li>判断基本类型：<code>variable === null</code></li></ul></li><li>Undefined<ul><li>判断基本类型方法1：<code>variable === undefined</code></li><li>判断基本类型方法2：<code>typeof a === &quot;undefined&quot;</code></li></ul></li><li>Number<ul><li>判断基本类型：<code>typeof variable === &quot;number&quot;</code></li><li>判断整数：<code>Number.isInteger()</code>。</li><li>判断是否为NaN：<code>Number.isNaN()</code>。</li><li>判断是否为有穷数：<code>Number.isFinite()</code>。</li><li>字符串转浮点数：<code>Number.parseFloat()</code>。</li><li>字符串转整数：<code>Number.parseInt()</code>。和全局的<code>parseInt()</code>方法一致。</li></ul></li><li>BigInt<ul><li>判断基本类型：<code>typeof variable === &quot;bigint&quot;</code></li><li>注意：不能用于Math对象中的方法。</li></ul></li><li>String<ul><li>判断基本类型：<code>typeof variable === &quot;String&quot;</code></li></ul></li><li>Symbol<ul><li>判断基本类型：<code>typeof variable === &quot;Symbol&quot;</code></li></ul></li></ol><h2 id="引用类型Object"><a href="#引用类型Object" class="headerlink" title="引用类型Object"></a>引用类型Object</h2><p>值本身可以被改变。</p><h3 id="对象判空的方法"><a href="#对象判空的方法" class="headerlink" title="对象判空的方法"></a>对象判空的方法</h3><ol><li>使用JSON.stringify()。</li><li>使用<code>for in</code>。</li><li>使用Object.keys()。</li></ol><h3 id="1-使用JSON-stringify"><a href="#1-使用JSON-stringify" class="headerlink" title="1. 使用JSON.stringify()"></a>1. 使用JSON.stringify()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    return JSON.stringify(obj) === &quot;&#123;&#125;&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-使用for-in"><a href="#2-使用for-in" class="headerlink" title="2. 使用for in"></a>2. 使用<code>for in</code></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    for(let attr in obj)&#123;</span><br><span class="line">        return false;</span><br><span class="line">    &#125;</span><br><span class="line">    return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="3-使用Object-keys"><a href="#3-使用Object-keys" class="headerlink" title="3. 使用Object.keys()"></a>3. 使用Object.keys()</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function isObjEmpty(obj)&#123;</span><br><span class="line">    return Object.keys(obj).length === 0</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
       
       <categories>
           
@@ -1006,14 +1050,14 @@
     </entry>
     
     <entry>
-      <title>links</title>
-      <link href="/links/index.html"/>
+      <title>gallery</title>
+      <link href="/gallery/index.html"/>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
-      <title>gallery</title>
-      <link href="/gallery/index.html"/>
+      <title>links</title>
+      <link href="/links/index.html"/>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
@@ -1037,14 +1081,14 @@
     
     <entry>
       <title></title>
-      <link href="/temp/js%E4%B8%AD%E7%9A%84%E5%87%A0%E7%A7%8D%E5%BE%AA%E7%8E%AF%E5%92%8C%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%81%8D%E5%8E%86.html"/>
-      <content type="html"><![CDATA[<h3 id="1-for循环"><a href="#1-for循环" class="headerlink" title="1. for循环"></a>1. for循环</h3><p>最简单的循环。写起来麻烦，但几乎什么啥都能干。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(循环体运行之前执行，一般为赋值语句;循环条件判断语句;循环体运行完毕后执行，)&#123;</span><br><span class="line">    循环体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-foreach"><a href="#2-foreach" class="headerlink" title="2. foreach"></a>2. foreach</h3><p>语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组.foreach(callback(currentValue[,index[,array]])[,thisArg]);</span><br></pre></td></tr></table></figure></p><p>参数：</p><ul><li>callback:为数组中每个元素执行的函数，该函数接收三个参数：</li><li>currentValue:数组中正在处理的当前元素。</li><li>index 可选:数组中正在处理的当前元素的索引。</li><li>array 可选:forEach() 方法正在操作的数组。</li><li>thisArg 可选 可选参数。当执行回调函数 callback 时，用作 this 的值。</li></ul><p>返回值：</p><ul><li>undefined</li></ul><p>其他注意事项：</p><ul><li>forEach() 遍历的范围在第一次调用 callback 前就会确定。调用 forEach 后添加到数组中的项不会被 callback 访问到。</li><li>除了抛出异常以外，没有办法中止或跳出 forEach() 循环</li></ul><h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3>]]></content>
+      <link href="/temp/iTerm2.html"/>
+      <content type="html"><![CDATA[<p>chsh命令。切换shell环境。</p>]]></content>
     </entry>
     
     <entry>
       <title></title>
-      <link href="/temp/iTerm2.html"/>
-      <content type="html"><![CDATA[<p>chsh命令。切换shell环境。</p>]]></content>
+      <link href="/temp/js%E4%B8%AD%E7%9A%84%E5%87%A0%E7%A7%8D%E5%BE%AA%E7%8E%AF%E5%92%8C%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%81%8D%E5%8E%86.html"/>
+      <content type="html"><![CDATA[<h3 id="1-for循环"><a href="#1-for循环" class="headerlink" title="1. for循环"></a>1. for循环</h3><p>最简单的循环。写起来麻烦，但几乎什么啥都能干。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(循环体运行之前执行，一般为赋值语句;循环条件判断语句;循环体运行完毕后执行，)&#123;</span><br><span class="line">    循环体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-foreach"><a href="#2-foreach" class="headerlink" title="2. foreach"></a>2. foreach</h3><p>语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组.foreach(callback(currentValue[,index[,array]])[,thisArg]);</span><br></pre></td></tr></table></figure></p><p>参数：</p><ul><li>callback:为数组中每个元素执行的函数，该函数接收三个参数：</li><li>currentValue:数组中正在处理的当前元素。</li><li>index 可选:数组中正在处理的当前元素的索引。</li><li>array 可选:forEach() 方法正在操作的数组。</li><li>thisArg 可选 可选参数。当执行回调函数 callback 时，用作 this 的值。</li></ul><p>返回值：</p><ul><li>undefined</li></ul><p>其他注意事项：</p><ul><li>forEach() 遍历的范围在第一次调用 callback 前就会确定。调用 forEach 后添加到数组中的项不会被 callback 访问到。</li><li>除了抛出异常以外，没有办法中止或跳出 forEach() 循环</li></ul><h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3>]]></content>
     </entry>
     
     <entry>
@@ -1060,15 +1104,15 @@
     </entry>
     
     <entry>
-      <title>初识uri scheme</title>
-      <link href="/temp/schema.html"/>
-      <content type="html"><![CDATA[<p>初识scheme</p><a id="more"></a><p>uri scheme即uri方案。指URi命名结构的第一级。</p>]]></content>
-    </entry>
-    
-    <entry>
       <title>vue-cli配置代理进行跨域</title>
       <link href="/temp/vue-cli%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86.html"/>
       <content type="html"><![CDATA[<p>记录通过vue-cli配置代理进行跨域的实践及感悟。</p><a id="more"></a><h3 id="实践：通过vue-cli配置代理进行跨域。"><a href="#实践：通过vue-cli配置代理进行跨域。" class="headerlink" title="实践：通过vue-cli配置代理进行跨域。"></a>实践：通过vue-cli配置代理进行跨域。</h3><ol><li>在项目根目录添加vue.config.js文件（如果已经有则跳过）。</li><li>添加如下代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devServer: &#123;  <span class="comment">// 该配置仅针对开发模式有效</span></span><br><span class="line">    proxy: &#123;    <span class="comment">// 该对象下的内容为代理配置</span></span><br><span class="line">      <span class="string">'/api'</span>: &#123; <span class="comment">// 代理具有'\api'前缀的请求</span></span><br><span class="line">        target: <span class="string">'http://localhost:8080/video_war/'</span>, <span class="comment">// 将匹配的前缀（本示例中为'api'）改为target属性的内容。</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span>, <span class="comment">// </span></span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          <span class="string">'^/api'</span>: <span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    </entry>
+    
+    <entry>
+      <title>初识uri scheme</title>
+      <link href="/temp/schema.html"/>
+      <content type="html"><![CDATA[<p>初识scheme</p><a id="more"></a><p>uri scheme即uri方案。指URi命名结构的第一级。</p>]]></content>
     </entry>
     
     <entry>
@@ -1085,14 +1129,14 @@
     
     <entry>
       <title></title>
-      <link href="/temp/web%E7%AB%AF%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83.html"/>
-      <content type="html"><![CDATA[<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>中文：微软雅黑字体。<br>英文：arial字体。</p><h3 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h3><p>12px：网页的最小字体，突出性的日期、版权等注释性内容。<br>14px：适用于非突出的普通正文内容。<br>16px：突出性的标题内容。</p><h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>黑</p><ul><li>#999999;</li><li>#666666;</li><li>#333333;</li></ul><p>灰</p><ul><li>#8a9699;</li><li>#5c6466;</li><li>#2e3233;</li></ul>]]></content>
+      <link href="/temp/vue%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3.html"/>
+      <content type="html"><![CDATA[<h2 id="做项目中遇到的一些问题"><a href="#做项目中遇到的一些问题" class="headerlink" title="做项目中遇到的一些问题"></a>做项目中遇到的一些问题</h2><h3 id="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"><a href="#如何对使用父组件通过v-bind传递给子组件的数据进行过滤？" class="headerlink" title="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"></a>如何对使用父组件通过v-bind传递给子组件的数据进行过滤？</h3><h4 id="方案1-使用过滤器。"><a href="#方案1-使用过滤器。" class="headerlink" title="方案1:使用过滤器。"></a>方案1:使用过滤器。</h4><p>vue文档中指出过滤器可以用在两个地方：1. 双花括号差值。 2. v-bind表达式</p>]]></content>
     </entry>
     
     <entry>
       <title></title>
-      <link href="/temp/vue%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3.html"/>
-      <content type="html"><![CDATA[<h2 id="做项目中遇到的一些问题"><a href="#做项目中遇到的一些问题" class="headerlink" title="做项目中遇到的一些问题"></a>做项目中遇到的一些问题</h2><h3 id="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"><a href="#如何对使用父组件通过v-bind传递给子组件的数据进行过滤？" class="headerlink" title="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"></a>如何对使用父组件通过v-bind传递给子组件的数据进行过滤？</h3><h4 id="方案1-使用过滤器。"><a href="#方案1-使用过滤器。" class="headerlink" title="方案1:使用过滤器。"></a>方案1:使用过滤器。</h4><p>vue文档中指出过滤器可以用在两个地方：1. 双花括号差值。 2. v-bind表达式</p>]]></content>
+      <link href="/temp/web%E7%AB%AF%E8%AE%BE%E8%AE%A1%E8%A7%84%E8%8C%83.html"/>
+      <content type="html"><![CDATA[<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>中文：微软雅黑字体。<br>英文：arial字体。</p><h3 id="大小"><a href="#大小" class="headerlink" title="大小"></a>大小</h3><p>12px：网页的最小字体，突出性的日期、版权等注释性内容。<br>14px：适用于非突出的普通正文内容。<br>16px：突出性的标题内容。</p><h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>黑</p><ul><li>#999999;</li><li>#666666;</li><li>#333333;</li></ul><p>灰</p><ul><li>#8a9699;</li><li>#5c6466;</li><li>#2e3233;</li></ul>]]></content>
     </entry>
     
     <entry>
@@ -1120,6 +1164,24 @@
     </entry>
     
     <entry>
+      <title>外边距折叠</title>
+      <link href="/temp/%E5%A4%96%E8%BE%B9%E8%B7%9D%E6%8A%98%E5%8F%A0.html"/>
+      <content type="html"><![CDATA[<h3 id="形成外布局重叠的情况："><a href="#形成外布局重叠的情况：" class="headerlink" title="形成外布局重叠的情况："></a>形成外布局重叠的情况：</h3><p>外边距重叠的含义：块的上外边距(margin-top)和下外边距(margin-bottom)有时合并(折叠)为单个边距，其大小为单个边距的最大值(或如果它们相等，则仅为其中一个)，</p><ol><li>同一层相邻元素之间：相邻的两个元素之间的外边距重叠，除非后一个元素加上clear-fix清除浮动。</li></ol><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>知乎回答：<a href="https://www.zhihu.com/question/19823139?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/19823139?sort=created</a></li><li>MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing</a></li></ol>]]></content>
+    </entry>
+    
+    <entry>
+      <title>定位、文档流与文本流</title>
+      <link href="/temp/%E5%AE%9A%E4%BD%8D%E3%80%81%E6%96%87%E6%A1%A3%E6%B5%81%E4%B8%8E%E6%96%87%E6%9C%AC%E6%B5%81.html"/>
+      <content type="html"><![CDATA[<h3 id="几种定位"><a href="#几种定位" class="headerlink" title="几种定位"></a>几种定位</h3><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>mdn有关文档流及定位的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D</a></li></ol>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/%E5%B8%B8%E8%AF%86%E7%A7%AF%E7%B4%AF.html"/>
+      <content type="html"><![CDATA[<h3 id="crlf"><a href="#crlf" class="headerlink" title="crlf"></a>crlf</h3><p>回车换行（Carriage-Return Line-Feed）</p><ul><li>回车(CR, ASCII 13, \r) </li><li>换行(LF, ASCII 10, \n)</li></ul>]]></content>
+    </entry>
+    
+    <entry>
       <title>关于异步（三）： 并发模型与事件循环机制</title>
       <link href="/temp/%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.html"/>
       <content type="html"><![CDATA[<h2 id="运行时概念"><a href="#运行时概念" class="headerlink" title="运行时概念"></a>运行时概念</h2><ul><li><strong>函数调用</strong>形成栈帧</li><li><strong>对象</strong>被分配在堆中</li><li><strong>待处理消息</strong>在队列中。消息关联着一个用以处理这个消息的回调函数。</li></ul><h2 id="事件循环（EventLoop）"><a href="#事件循环（EventLoop）" class="headerlink" title="事件循环（EventLoop）"></a>事件循环（EventLoop）</h2><ol><li>事件循环时，“运行时”会先处理队头的消息。处理方式即将该消息移出队列，然后使用其输入参数调用关联的函数，形成栈帧，然后继续执行这个函数直到完成（栈空）。</li><li>处理完后，执行下一个消息。</li></ol><h3 id="添加“消息”"><a href="#添加“消息”" class="headerlink" title="添加“消息”"></a>添加“消息”</h3><p>条件：</p><ol><li>事件被事件监听器绑定。</li><li>事件发生。</li></ol><p>注意：</p><ul><li>如果没有事件监听器，则该事件被丢失。</li></ul><h3 id="关于处理消息的“执行至完成”过程"><a href="#关于处理消息的“执行至完成”过程" class="headerlink" title="关于处理消息的“执行至完成”过程"></a>关于处理消息的“执行至完成”过程</h3><ul><li>缺陷：如果消息耗费时间长，则无法处理其他的事情，比如用户的其他交互。</li><li>对策：<ol><li>采用loading动画等提示信息。</li><li>将消息剪裁为多个消息。</li></ol></li></ul><h3 id="关于setTimeout"><a href="#关于setTimeout" class="headerlink" title="关于setTimeout"></a>关于setTimeout</h3><p>setTimeout接收的参数如下：</p><ul><li>待加入队列的消息。</li><li>一个时间值。即消息被加入队列的最小延迟时间。<br>当经过最小延迟时间后，该消息将入队，但必须要等待到前边的内容全部处理完毕后才能执行。</li></ul>]]></content>
@@ -1135,12 +1197,6 @@
       <title></title>
       <link href="/temp/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8A%9F%E8%83%BD.html"/>
       <content type="html"><![CDATA[<h2 id="前端导出excel文件"><a href="#前端导出excel文件" class="headerlink" title="前端导出excel文件"></a>前端导出excel文件</h2><ol><li>save as的前端实现</li></ol><p>插件：</p><ol><li>FileSaver <a href="https://www.npmjs.com/package/file-saver" target="_blank" rel="noopener">npm地址</a>, <a href="https://github.com/eligrey/FileSaver.js/" target="_blank" rel="noopener">GitHub地址</a> </li><li>xlsx <a href="https://www.npmjs.com/package/xlsx" target="_blank" rel="noopener">npm地址</a></li><li>script-loader <a href="https://www.npmjs.com/package/script-loader" target="_blank" rel="noopener">npm地址</a> </li></ol>]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <link href="/temp/%E5%B8%B8%E8%AF%86%E7%A7%AF%E7%B4%AF.html"/>
-      <content type="html"><![CDATA[<h3 id="crlf"><a href="#crlf" class="headerlink" title="crlf"></a>crlf</h3><p>回车换行（Carriage-Return Line-Feed）</p><ul><li>回车(CR, ASCII 13, \r) </li><li>换行(LF, ASCII 10, \n)</li></ul>]]></content>
     </entry>
     
     <entry>
