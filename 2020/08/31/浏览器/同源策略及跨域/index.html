@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.4.0 -->
+    <script>window.materialVersion = "1.4.0"</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-156881034-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-156881034-1');
+    </script>
+
+
+    <!-- Title -->
+    
+    <title>
+        
+        同源策略及跨域 | 
+        
+        XD
+    </title>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    
+    
+    
+    
+    <link rel="dns-prefetch" href="https://hm.baidu.com">
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="theme-color" content="#0097A7">
+    <meta name="author" content="Michael Zhang">
+    <meta name="description" itemprop="description" content="同源策略及跨域">
+    <meta name="keywords" content="Himory blog,跨域">
+
+    <!-- Site Verification -->
+    
+    <meta name="google-site-verification" content="PM-youOm1Gs9nhRAbihUFKg8Nz8C3zYQdqRe-wI2mNw">
+    
+    <meta name="baidu-site-verification" content="fIB8rNXEiA">
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="http://opqksc9nz.bkt.clouddn.com/code.png">
+    <link rel="icon" sizes="192x192" href="http://ewinds.pw/code.png">
+    <link rel="apple-touch-icon" href="http://ewinds.pw/code.png">
+
+    <!--iOS -->
+    <meta name="apple-mobile-web-app-title" content="Title">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="480">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="XD">
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://nice2meetu.site">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="同源策略及跨域 | XD">
+    <meta property="og:image" content="http://ewinds.pw/code.png">
+    <meta property="og:description" content="同源策略及跨域">
+    
+    <meta property="og:article:tag" content="跨域"> 
+
+    
+    <meta property="article:published_time" content="8月 31, 2020">
+    <meta property="article:modified_time" content="9月 02, 2020">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:title" content="同源策略及跨域 | XD">
+    <meta name="twitter:description" content="同源策略及跨域">
+    <meta name="twitter:image" content="http://ewinds.pw/code.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://nice2meetu.site">
+
+    <!-- Add canonical link for SEO -->
+    
+    <link rel="canonical" href="http://nice2meetu.site/2020/08/31/浏览器/同源策略及跨域/index.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+    
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "XD",
+        "logo": "http://ewinds.pw/code.png"
+    },
+    "author": {
+        "@type": "Person",
+        "name": "Michael Zhang",
+        "image": {
+            "@type": "ImageObject",
+            "url": "http://ewinds.pw/code.png"
+        },
+        "description": "机会总是青睐喜欢动脑子的人"
+    },
+    "headline": "同源策略及跨域",
+    "url": "http://nice2meetu.site/2020/08/31/浏览器/同源策略及跨域/index.html",
+    "datePublished": "8月 31, 2020",
+    "dateModified": "9月 02, 2020",
+    "description": "同源策略及跨域",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://nice2meetu.site"
+    }
+}
+</script>
+
+
+    
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function () { window.lsloader = { jsRunSequence: [], jsnamemap: {}, cssnamemap: {} }; lsloader.removeLS = function (key) { try { localStorage.removeItem(key) } catch (e) { } }; lsloader.setLS = function (key, val) { try { localStorage.setItem(key, val) } catch (e) { } }; lsloader.getLS = function (key) { var val = ""; try { val = localStorage.getItem(key) } catch (e) { val = "" } return val }; versionString = "/*" + materialVersion + "*/"; lsloader.clean = function () { try { var keys = []; for (var i = 0; i < localStorage.length; i++) { keys.push(localStorage.key(i)) } keys.forEach(function (key) { var data = lsloader.getLS(key); if (data && data.indexOf(versionString) === -1) { lsloader.removeLS(key) } }) } catch (e) { } }; lsloader.clean(); lsloader.load = function (jsname, jspath, cssonload) { cssonload = cssonload || function () { }; var code; code = this.getLS(jsname); if (code && code.indexOf(versionString) === -1) { this.removeLS(jsname); this.requestResource(jsname, jspath, cssonload); return } if (code) { var versionNumber = code.split(versionString)[0]; if (versionNumber != jspath) { console.log("reload:" + jspath); this.removeLS(jsname); this.requestResource(jsname, jspath, cssonload); return } code = code.split(versionString)[1]; if (/\.js?.+$/.test(versionNumber)) { this.jsRunSequence.push({ name: jsname, code: code }); this.runjs(jspath, jsname, code) } else { document.getElementById(jsname).appendChild(document.createTextNode(code)); cssonload() } } else { this.requestResource(jsname, jspath, cssonload) } }; lsloader.requestResource = function (name, path, cssonload) { var that = this; if (/\.js?.+$/.test(path)) { this.iojs(path, name, function (path, name, code) { that.setLS(name, path + versionString + code); that.runjs(path, name, code) }) } else if (/\.css?.+$/.test(path)) { this.iocss(path, name, function (code) { document.getElementById(name).appendChild(document.createTextNode(code)); that.setLS(name, path + versionString + code) }, cssonload) } }; lsloader.iojs = function (path, jsname, callback) { var that = this; that.jsRunSequence.push({ name: jsname, code: "" }); try { var xhr = new XMLHttpRequest; xhr.open("get", path, true); xhr.onreadystatechange = function () { if (xhr.readyState == 4) { if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { if (xhr.response != "") { callback(path, jsname, xhr.response); return } } that.jsfallback(path, jsname) } }; xhr.send(null) } catch (e) { that.jsfallback(path, jsname) } }; lsloader.iocss = function (path, jsname, callback, cssonload) { var that = this; try { var xhr = new XMLHttpRequest; xhr.open("get", path, true); xhr.onreadystatechange = function () { if (xhr.readyState == 4) { if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { if (xhr.response != "") { callback(xhr.response); cssonload(); return } } that.cssfallback(path, jsname, cssonload) } }; xhr.send(null) } catch (e) { that.cssfallback(path, jsname, cssonload) } }; lsloader.iofonts = function (path, jsname, callback, cssonload) { var that = this; try { var xhr = new XMLHttpRequest; xhr.open("get", path, true); xhr.onreadystatechange = function () { if (xhr.readyState == 4) { if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { if (xhr.response != "") { callback(xhr.response); cssonload(); return } } that.cssfallback(path, jsname, cssonload) } }; xhr.send(null) } catch (e) { that.cssfallback(path, jsname, cssonload) } }; lsloader.runjs = function (path, name, code) { if (!!name && !!code) { for (var k in this.jsRunSequence) { if (this.jsRunSequence[k].name == name) { this.jsRunSequence[k].code = code } } } if (!!this.jsRunSequence[0] && !!this.jsRunSequence[0].code && this.jsRunSequence[0].status != "failed") { var script = document.createElement("script"); script.appendChild(document.createTextNode(this.jsRunSequence[0].code)); script.type = "text/javascript"; document.getElementsByTagName("head")[0].appendChild(script); this.jsRunSequence.shift(); if (this.jsRunSequence.length > 0) { this.runjs() } } else if (!!this.jsRunSequence[0] && this.jsRunSequence[0].status == "failed") { var that = this; var script = document.createElement("script"); script.src = this.jsRunSequence[0].path; script.type = "text/javascript"; this.jsRunSequence[0].status = "loading"; script.onload = function () { that.jsRunSequence.shift(); if (that.jsRunSequence.length > 0) { that.runjs() } }; document.body.appendChild(script) } }; lsloader.tagLoad = function (path, name) { this.jsRunSequence.push({ name: name, code: "", path: path, status: "failed" }); this.runjs() }; lsloader.jsfallback = function (path, name) { if (!!this.jsnamemap[name]) { return } else { this.jsnamemap[name] = name } for (var k in this.jsRunSequence) { if (this.jsRunSequence[k].name == name) { this.jsRunSequence[k].code = ""; this.jsRunSequence[k].status = "failed"; this.jsRunSequence[k].path = path } } this.runjs() }; lsloader.cssfallback = function (path, name, cssonload) { if (!!this.cssnamemap[name]) { return } else { this.cssnamemap[name] = 1 } var link = document.createElement("link"); link.type = "text/css"; link.href = path; link.rel = "stylesheet"; link.onload = link.onerror = cssonload; var root = document.getElementsByTagName("script")[0]; root.parentNode.insertBefore(link, root) }; lsloader.runInlineScript = function (scriptId, codeId) { var code = document.getElementById(codeId).innerText; this.jsRunSequence.push({ name: scriptId, code: code }); this.runjs() }; lsloader.loadCombo = function (jslist) { var updateList = ""; var requestingModules = {}; for (var k in jslist) { var LS = this.getLS(jslist[k].name); if (!!LS) { var version = LS.split(versionString)[0]; var code = LS.split(versionString)[1] } else { var version = "" } if (version == jslist[k].path) { this.jsRunSequence.push({ name: jslist[k].name, code: code, path: jslist[k].path }) } else { this.jsRunSequence.push({ name: jslist[k].name, code: null, path: jslist[k].path, status: "comboloading" }); requestingModules[jslist[k].name] = true; updateList += (updateList == "" ? "" : ";") + jslist[k].path } } var that = this; if (!!updateList) { var xhr = new XMLHttpRequest; xhr.open("get", combo + updateList, true); xhr.onreadystatechange = function () { if (xhr.readyState == 4) { if (xhr.status >= 200 && xhr.status < 300 || xhr.status == 304) { if (xhr.response != "") { that.runCombo(xhr.response, requestingModules); return } } else { for (var i in that.jsRunSequence) { if (requestingModules[that.jsRunSequence[i].name]) { that.jsRunSequence[i].status = "failed" } } that.runjs() } } }; xhr.send(null) } this.runjs() }; lsloader.runCombo = function (comboCode, requestingModules) { comboCode = comboCode.split("/*combojs*/"); comboCode.shift(); for (var k in this.jsRunSequence) { if (!!requestingModules[this.jsRunSequence[k].name] && !!comboCode[0]) { this.jsRunSequence[k].status = "comboJS"; this.jsRunSequence[k].code = comboCode[0]; this.setLS(this.jsRunSequence[k].name, this.jsRunSequence[k].path + versionString + comboCode[0]); comboCode.shift() } } this.runjs() } })();</script>
+
+    <!-- Import CSS & jQuery -->
+    
+    <style id="css/material.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/material.min.css","/css/material.min.css?fJTiM/K1J3dWIruo3pxtAw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+    <style id="css/style.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("css/style.min.css","/css/style.min.css?oCSEO3ST+aEypEwttTDI9g==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+    
+    <style id="/css/fontawesome.min.css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("/css/fontawesome.min.css","/css/fontawesome.min.css?JpVQUwzBJ7aqWjWSWn3mzg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";})</script>
+    
+    
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <script>lsloader.load("js/jquery.min.js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==")</script>
+    
+    
+    <script>function Queue() { this.dataStore = []; this.offer = b; this.poll = d; this.execNext = a; this.debug = false; this.startDebug = c; function b(e) { if (this.debug) { console.log("Offered a Queued Function.") } if (typeof e === "function") { this.dataStore.push(e) } else { console.log("You must offer a function.") } } function d() { if (this.debug) { console.log("Polled a Queued Function.") } return this.dataStore.shift() } function a() { var e = this.poll(); if (e !== undefined) { if (this.debug) { console.log("Run a Queued Function.") } e() } } function c() { this.debug = true } } var queue = new Queue();</script>
+
+    <!-- Analytics -->
+    <script>
+    var _hmt = _hmt || [];
+    (function() {var hm = document.createElement('script');
+    hm.src = 'https://hm.baidu.com/hm.js?a4f985b92495f97a07b51ae760c6913d';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+    <!-- Custom Head -->
+    
+</head>
+
+    
+        <body id="scheme-Isolation" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+                    <!-- Isolation Header -->
+                    <header class="header">
+    <div class="header-wrapper">
+        <!-- Header Copyright -->
+        <div class="header-copyright">
+            <div class="header-site">
+                ©&nbsp;
+                <script type="text/javascript">
+                    var fd = new Date();
+                    document.write(fd.getFullYear());
+                </script>
+                &nbsp;XD
+            </div>
+            <!--
+            I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+            It will not impact the appearance and can give developers a lot of support :)
+
+            很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+            它不会影响美观并可以给开发者很大的支持。 :)
+            -->
+            <div>
+                Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a>
+                <br>
+                Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a>
+            </div>
+        </div>
+
+        <!-- Header Title -->
+        <span class="header-title header-item">
+            <a href="/" title="XD">
+                XD
+            </a>
+        </span>
+
+        <p class="header-slogan header-item">
+        
+            
+                机会总是青睐喜欢动脑子的人
+            
+        
+        </p>
+
+        <!-- Header Nav -->
+        <nav class="header-nav header-item">
+            <span class="header-nav-item">
+                <a href="/" title="Home">
+                    <span>主页</span>
+                </a>
+            </span>
+
+            <!-- Pages  -->
+            
+                <span class="header-nav-item">
+                    <a href="/gallery" title="图库">
+                        <span>图库</span>
+                    </a>
+                </span>
+            
+                <span class="header-nav-item">
+                    <a href="/about" title="关于我">
+                        <span>关于我</span>
+                    </a>
+                </span>
+            
+                <span class="header-nav-item">
+                    <a href="/links" title="友情链接">
+                        <span>友情链接</span>
+                    </a>
+                </span>
+            
+            
+        </nav>
+
+        <!-- Header SNS -->
+        <div class="header-item header-sns_list">
+    <!-- Twitter -->
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+        <a href="https://plus.google.com/u/0/108135275713505840320" target="_blank">
+            <i class="fa fa-google-plus fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/Michael-Zhang-Xian-Sen" target="_blank">
+            <i class="fa fa-github fa-lg" aria-hidden="true"></i>
+        </a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Telegram -->
+    
+        <a href="https://t.me/MichaelZhang2018" target="_blank">
+            <i class="fa fa-telegram fa-lg" aria-hidden="true"></i>
+        </a>
+    
+</div>
+
+    </div>
+</header>
+
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+
+                    <!-- Post TOC -->
+
+    
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+
+
+    <!-- Isolation Post Header -->
+    <!-- Post thumbnail -->
+    
+        <!-- Post Header Info -->
+        <div class="post-header_info without-thumbnail">
+            <!-- Author Avatar & Name -->
+            <img src="/img/big.jpg" class="avatar-img" width="44px" height="44px" alt="Michael Zhang's avatar">
+            <span class="name-span">Michael Zhang</span>
+        </div>
+
+        <!-- Null Thumbnail -->
+        <div class="post_thumbnail-null">
+    
+        </div>
+
+
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+
+    
+        <div class="post-content_wrapper">
+            <p class="post-title">
+                同源策略及跨域
+            </p>
+            <h1 id="必备知识"><a href="#必备知识" class="headerlink" title="必备知识"></a>必备知识</h1><ol>
+<li>同源策略（Same origin policy），浏览器的一个安全策略，现代浏览器大部分都实现了该策略。<ol>
+<li>同源指：域名、协议、端口相同。</li>
+<li>禁止使用 XHR 对象向不同源的服务器地址发起 HTTP 请求。</li>
+<li>禁止对不同源页面 DOM 进行操作。这里主要场景是 iframe 跨域的情况，不同域名的 iframe 是限制互相访问的。</li>
+</ol>
+</li>
+<li>http协议的<code>Content-Type</code>字段：如果该字段在http request header（请求头）里，指“前端向后台传递的数据的类型”，后台框架可能会根据该字段，自动地对前端发来的内容进行解析；如果该字段在htttp response header(响应头)里，指“后台向前端传递的数据的类型”。</li>
+</ol>
+<p>如果要跨域就要解决两个关键问题，一个是浏览器不让你发请求（实质上是浏览器根据预检请求得到的结果，不让你发正式的请求），另一个是浏览器不让你收请求。</p>
+<h1 id="如何绕开同源策略（如何跨域）？"><a href="#如何绕开同源策略（如何跨域）？" class="headerlink" title="如何绕开同源策略（如何跨域）？"></a>如何绕开同源策略（如何跨域）？</h1><h2 id="1-jsonp跨域"><a href="#1-jsonp跨域" class="headerlink" title="1. jsonp跨域"></a>1. jsonp跨域</h2><p>JSONP（JSON with Padding，带填充的json），是由Bob Ippolito在2005年提出的一种跨域手段。jsonp跨域的两个关键点，一个是<code>&lt;script&gt;</code>标签，另一个是回调函数。</p>
+<p>jsonp利用<code>script</code>标签从前端向后台请求数据。前端获得响应后，会在该<code>script</code>标签内执行一个回调函数。</p>
+<p>为什么是<code>&lt;script&gt;</code>标签呢？因为一些HTML标签是不受同源策略限制的，如<code>script</code>、<code>img</code>，因此使用这些标签可以发请求。</p>
+<p>为什么不用<code>img</code>标签呢？因为实际场景，前端不仅要发、收请求，还要对请求的结果进行下一步的处理。script标签内的内容可以作为js代码被浏览器执行，因此script非常符合我们的需求。</p>
+<p>jsonp的另一个关键点就是回调函数了。利用<code>&lt;script&gt;</code>发起请求，返回内容是由后台生成的，因此在<code>script</code>标签内执行的代码只能是后台响应的数据。<br>这样一来..是不是有点尴尬，“后台大哥，我前端只能执行你发的数据，要不我等会代码写好了拷贝一份发你吧！”，后台大哥：“滚！”….<br>我们当然不能这样做，也不一定可行（作用域问题）。我们应该好好利用一个东西：函数！函数能把我们的业务代码囊括进去，一行代码便能执行数十行代码，还能利用闭包解决作用域的问题，简直太棒了！所以我们仅需要把回调函数告诉后台，让后台以函数的调用形式作为请求的响应内容返回就好了！至此，利用jsonp跨域的理论基础便建立起来了。</p>
+<p>所以，利用jsonp发起一个跨域请求的具体步骤大致如下：</p>
+<ol>
+<li>前端创建一个<code>script</code>标签，并设置该标签的<code>src</code>属性为我们期望请求api的url，设置<code>type</code>属性为”text/javascript”。</li>
+<li>将该<code>script</code>标签添加至dom树。该标签加入dom树后，便会自动向<code>src</code>指定的url发送请求。</li>
+<li>后台向前端响应的内容，应该是一段调用回调函数的代码，如：<code>前端回调函数名(参数)</code>。</li>
+<li>在前端声明一个回调函数，该函数在请求成功响应后执行。（注意，大部分情况都是要将该函数挂到全局对象上哦，因为script标签内的作用域是全局作用域）</li>
+</ol>
+<p>jsonp跨域的一些缺点：</p>
+<ol>
+<li>仅支持<code>get</code>请求。</li>
+</ol>
+<h3 id="1-1-jsonp跨域的原生实现："><a href="#1-1-jsonp跨域的原生实现：" class="headerlink" title="1.1 jsonp跨域的原生实现："></a>1.1 jsonp跨域的原生实现：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* vue前端 */</span></span><br><span class="line"><span class="keyword">let</span> script = <span class="built_in">document</span>.createElement(<span class="string">"script"</span>), <span class="comment">// 创建一个script标签</span></span><br><span class="line">    jsonpCallbackName = <span class="string">"jsonpCallback"</span>, <span class="comment">// 消除魔法字符串，统一后续的jsonp回调函数名称。</span></span><br><span class="line">    context = <span class="keyword">this</span>; <span class="comment">// 记录当前的上下文。博主的这段代码实际是在vue中编写的，具体代码可见文末的demo。这条赋值语句可以忽略。</span></span><br><span class="line"></span><br><span class="line">script.type = <span class="string">"text/javascript"</span>; <span class="comment">// 使该标签请求获得的数据可以被浏览器执行。</span></span><br><span class="line">script.src = <span class="string">`http://localhost:3000/api/testGet?anything=<span class="subst">$&#123;<span class="keyword">this</span>.form.anything&#125;</span>&amp;callback=<span class="subst">$&#123;jsonpCallbackName&#125;</span>`</span>; <span class="comment">// 建议传一个回调函数名给后端，方便后端返回时执行这个在前端定义的回调函数。</span></span><br><span class="line"><span class="built_in">document</span>.head.appendChild(script); <span class="comment">// 将该标签添加至dom树，加入dom树后该标签会触发向src的请求。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// script标签请求成功后的回调函数。</span></span><br><span class="line"><span class="built_in">window</span>[jsonpCallbackName] = <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.head.removeChild(script);</span><br><span class="line">    <span class="keyword">delete</span> <span class="built_in">window</span>[jsonpCallbackName];</span><br><span class="line">    context.returnMsg = res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* node后台 */</span></span><br><span class="line">router.get(<span class="string">'/testGet'</span>, (ctx) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`后台testGet接口被触发`</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`接收到数据：<span class="subst">$&#123;ctx.request.query.anything&#125;</span>`</span>);</span><br><span class="line">    ctx.response.status = <span class="number">200</span>;</span><br><span class="line">    <span class="comment">// 后台返回的内容必须为模拟执行回调函数的代码，即：回调函数名(参数)</span></span><br><span class="line">    ctx.body = <span class="string">`<span class="subst">$&#123;ctx.request.query.callback&#125;</span>(&#123;"status":"success"&#125;)`</span>;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>对于实现过程中的一些细节的解释：</p>
+<ol>
+<li>为什么一定要给<code>script</code>标签设置<code>type</code>属性？<blockquote>
+<p><code>type</code>属性定义script元素包含或src引用的脚本语言。属性的值为MIME类型; 支持的MIME类型包括text/javascript, text/ecmascript, application/javascript, 和application/ecmascript。如果没有定义这个属性，脚本会被视作JavaScript。如果MIME类型不是JavaScript类型（上述支持的类型），则该元素所包含的内容会被当作数据块而不会被浏览器执行。 <strong><em><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/script" target="_blank" rel="noopener">(摘自mdn)</a></em></strong></p>
+</blockquote>
+</li>
+<li>为什么要将回调函数挂载到window上？<ul>
+<li>因为<code>script</code>标签内的代码的执行环境是全局作用域，如果不将回调函数挂载到window上，script标签内的代码访问不到该回调函数。</li>
+</ul>
+</li>
+<li>为什么要在回调函数里删除该方法？<ul>
+<li>为了避免内存泄漏。function也是会占用一定内存的。</li>
+</ul>
+</li>
+</ol>
+<p>可能会遇到的报错：</p>
+<ol>
+<li><blockquote>
+<p>Cross-Origin Read Blocking (CORB) blocked cross-origin response <a href="http://localhost:3000/api/testGet?name=test&amp;callback=handleCallback" target="_blank" rel="noopener">http://localhost:3000/api/testGet?name=test&amp;callback=handleCallback</a> with MIME type application/json. See <a href="https://www.chromestatus.com/feature/5629709824032768" target="_blank" rel="noopener">https://www.chromestatus.com/feature/5629709824032768</a> for more details.</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>出现原因：因为CORB策略（详见参考资料1）。后台返回的内容可能满足了CORB的保护规则，触发了CORB，因此前端无法获取到响应信息。</li>
+<li>解决方案：博主是初学时不懂后台要返回一个方法的调用（如：<code>前端回调函数名(参数)</code>），而是返回了一段json数据才导致的这个错误。</li>
+</ul>
+<h3 id="1-2-jquery版本的jsonp跨域"><a href="#1-2-jquery版本的jsonp跨域" class="headerlink" title="1.2 jquery版本的jsonp跨域"></a>1.2 jquery版本的jsonp跨域</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> jsonpCallbackName = <span class="string">"jsonpCallback"</span>,</span><br><span class="line">    context = <span class="keyword">this</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">window</span>[jsonpCallbackName] = <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">delete</span> <span class="built_in">window</span>[jsonpCallbackName];</span><br><span class="line">    context.returnMsg = res;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">$.ajax(&#123;</span><br><span class="line">    url: <span class="string">"http://localhost:3000/api/testGet"</span>,</span><br><span class="line">    type: <span class="string">"get"</span>,</span><br><span class="line">    dataType: <span class="string">"jsonp"</span>, <span class="comment">// 预期服务器返回的数据类型。当值为"jsonp"时，会在url中自动添加"callback=?"，其中?会被自动替换为jsonpCallback字段设置的函数名。</span></span><br><span class="line">    jsonpCallback: jsonpCallbackName, <span class="comment">// 回调函数的函数名。</span></span><br><span class="line">    data: &#123;</span><br><span class="line">        anything: <span class="keyword">this</span>.form.anything,</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="2-iframe-form跨域"><a href="#2-iframe-form跨域" class="headerlink" title="2. iframe+form跨域"></a>2. iframe+form跨域</h2><p>由于form表单在提交时不会出现跨域问题，因此可以利用form表单进行跨域。<br>ifame标签，主要用来避免页面刷新的问题，收到响应数据后直接将表单的数据显示到iframe标签中。<br>但是该方法的局限性比较大，后台传递回来的数据只在<code>iframe</code>中渲染，在<code>iframe</code>的父页面中无法获取。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 前端 */</span></span><br><span class="line"><span class="keyword">let</span> iframe = <span class="built_in">document</span>.createElement(<span class="string">"iframe"</span>), <span class="comment">// 首先创建一个用来发送数据的iframe.</span></span><br><span class="line">form = <span class="built_in">document</span>.createElement(<span class="string">"form"</span>),</span><br><span class="line">node = <span class="built_in">document</span>.createElement(<span class="string">"input"</span>),</span><br><span class="line">context = <span class="keyword">this</span>,</span><br><span class="line">data = &#123;</span><br><span class="line">    anything: <span class="keyword">this</span>.form.anything,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置并添加iframe至dom树</span></span><br><span class="line">iframe.name = <span class="string">"iframePost"</span>;</span><br><span class="line">iframe.style.display = <span class="string">"none"</span>;</span><br><span class="line">iframe.src = <span class="string">"http://localhost:8080"</span>;</span><br><span class="line">iframe.addEventListener(<span class="string">"load"</span>, <span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 暂时还没有解决无法接收后台数据的问题。</span></span><br><span class="line">    context.returnMsg = res;</span><br><span class="line">    <span class="built_in">console</span>.log(res);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(iframe);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置并添加form至iframe</span></span><br><span class="line">form.action = <span class="string">"http://localhost:3000/api/testPost"</span>;</span><br><span class="line">form.target = iframe.name; <span class="comment">// 在提交表单之后，在指定的iframe中显示响应信息</span></span><br><span class="line">form.method = <span class="string">"post"</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> prop <span class="keyword">in</span> data) &#123;</span><br><span class="line">    node.name = prop;</span><br><span class="line">    node.value = data[prop].toString();</span><br><span class="line">    form.appendChild(node.cloneNode());</span><br><span class="line">&#125;</span><br><span class="line">form.style.display = <span class="string">"none"</span>;</span><br><span class="line"><span class="built_in">document</span>.body.appendChild(form);</span><br><span class="line">form.submit(); <span class="comment">// 发送form</span></span><br><span class="line"><span class="built_in">document</span>.body.removeChild(form); <span class="comment">// 表单提交后,就可以删除这个表单,不影响下次的数据发送.</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 后台 */</span></span><br><span class="line">router.post(<span class="string">'/testPost'</span>, (ctx) =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`后台testPost接口被触发`</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`接收到数据：<span class="subst">$&#123;ctx.request.body&#125;</span>`</span>);</span><br><span class="line">    ctx.response.status = <span class="number">200</span>;</span><br><span class="line">    ctx.body = &#123;</span><br><span class="line">        status: <span class="string">"success"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="3-CORS（Cross-origin-resource-sharing，跨域资源共享）"><a href="#3-CORS（Cross-origin-resource-sharing，跨域资源共享）" class="headerlink" title="3. CORS（Cross-origin resource sharing，跨域资源共享）"></a>3. CORS（Cross-origin resource sharing，跨域资源共享）</h2><p>cors是一种规范，这个规范规定了一些能够进行跨域的情况。<br>如果我们需要根据cors规范跨域，绝大多数情况下仅需要在前后端设置一下http请求的header。</p>
+<h3 id="关于cors规范，有些内容你必须了解"><a href="#关于cors规范，有些内容你必须了解" class="headerlink" title="关于cors规范，有些内容你必须了解"></a>关于cors规范，有些内容你必须了解</h3><h4 id="1-简单请求和非简单请求"><a href="#1-简单请求和非简单请求" class="headerlink" title="1. 简单请求和非简单请求"></a>1. 简单请求和非简单请求</h4><p>cors规范将请求分为了<strong>简单请求</strong>和<strong>非简单请求</strong>。为什么要划分呢?因为有些http请求可能会对服务器数据产生副作用，划分请求便是为了阻止这些副作用。</p>
+<p>这两个请求的最大区别，便是简单请求只需发送一个http请求，而非简单请求一共需要发送两个http请求。非简单请求首先发起一个预检请求，获知后台是否允许跨域请求，确认允许后才可以发起实际的HTTP请求。简单请求直接发送实际的HTTP请求。</p>
+<p>满足以下所有条件即简单请求(<strong><em><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="noopener">摘自mdn</a></em></strong>)</p>
+<blockquote>
+<ul>
+<li>使用下列方法之一<ul>
+<li>GET</li>
+<li>HEAD</li>
+<li>POST</li>
+</ul>
+</li>
+<li>除了被用户代理自动设置的首部字段（例如 Connection ，User-Agent）和在 Fetch 规范中定义为 禁用首部名称 的其他首部，允许人为设置的字段为 Fetch 规范定义的 对 CORS 安全的首部字段集合。该集合为：<ul>
+<li>Accept</li>
+<li>Accept-Language</li>
+<li>Content-Language</li>
+<li>Content-Type （需要注意额外的限制）</li>
+<li>DPR</li>
+<li>Downlink</li>
+<li>Save-Data</li>
+<li>Viewport-Width</li>
+<li>Width</li>
+</ul>
+</li>
+<li>Content-Type 的值仅限于下列三者之一：（牢记，容易出问题，我们常用的application/json并不包括在里面）<ul>
+<li>text/plain</li>
+<li>multipart/form-data</li>
+<li>application/x-www-form-urlencoded</li>
+</ul>
+</li>
+<li>请求中的任意XMLHttpRequestUpload 对象均没有注册任何事件监听器；XMLHttpRequestUpload 对象可以使用 XMLHttpRequest.upload 属性访问。</li>
+<li>请求中没有使用 ReadableStream 对象。</li>
+</ul>
+</blockquote>
+<h3 id="cors跨域该如何设置？"><a href="#cors跨域该如何设置？" class="headerlink" title="cors跨域该如何设置？"></a>cors跨域该如何设置？</h3><p>前端：</p>
+<ol>
+<li>如果需要携带认证信息（包括cookie），需要设置<code>xhr.withCredentials = true</code>。</li>
+<li>根据自己传送的数据类型，设置一下<code>contentType</code>，如<code>xhr.setRequestHeader(&quot;Content-Type&quot;, &quot;application/json&quot;);</code></li>
+</ol>
+<p>后台：</p>
+<ol>
+<li><code>Access-Control-Allow-Origin</code>：设置允许访问资源的源，经常被设置为<code>&quot;*&quot;</code>，注意如果携带了认证信息，该字段值不能设置为<code>&quot;*&quot;</code>，需要设置为相应的uri。</li>
+<li>如果携带认证信息(包括cookie)，设置<code>Access-Control-Allow-Credentials</code>的值为<code>true</code>。非简单请求一般情况下也将该字段设置为<code>true</code>。</li>
+<li><code>Access-Control-Allow-Headers</code>：设置请求头中除一些标准的字段，额外允许携带的字段。比如<code>Content-Type</code>。多个字段用逗号隔开，如：<code>&#39;Content-Type, Content-Length, Authorization, Accept&#39;</code></li>
+<li><code>Access-Control-Allow-Methods</code>：设置前端可以使用哪些方法进行请求。可以设置为：<code>&#39;PUT, POST, GET, DELETE, OPTIONS&#39;</code><br>设置了这几个字段，基本就能实现请求的跨域了，其他字段可以根据需要另行设置。</li>
+</ol>
+<h3 id="与cors跨域相关的字段（仅做总结）"><a href="#与cors跨域相关的字段（仅做总结）" class="headerlink" title="与cors跨域相关的字段（仅做总结）"></a>与cors跨域相关的字段（仅做总结）</h3><h4 id="请求头的相关字段："><a href="#请求头的相关字段：" class="headerlink" title="请求头的相关字段："></a>请求头的相关字段：</h4><ul>
+<li><code>origin</code>：发送请求的源的URI。</li>
+<li><code>Access-Control-Request-Method</code>：仅用于预检请求。将实际请求所使用的 HTTP 方法告诉服务器。</li>
+<li><code>Access-Control-Request-Headers</code>：仅用于预检请求。将实际请求所携带的首部字段告诉服务器。</li>
+</ul>
+<h4 id="响应头的相关字段："><a href="#响应头的相关字段：" class="headerlink" title="响应头的相关字段："></a>响应头的相关字段：</h4><ol>
+<li><code>Access-Control-Allow-Origin</code>，指定可以访问该资源的URI。“*”指任何人都可以访问；也可以是具体的uri，比如：<code>https://developer.mozilla.org</code>。<ul>
+<li>对于附带身份凭证的请求，或需要传递cookie的请求，该值不能使用<code>&quot;*&quot;</code></li>
+</ul>
+</li>
+<li><code>Access-Control-Allow-Credentials</code>，表示是否可以将对请求的响应暴露给页面。<ul>
+<li>如果前端要把cookie传递至后台，则后台必须将响应头中该字段的值设为<code>true</code></li>
+</ul>
+</li>
+<li><code>Access-Control-Allow-Methods</code>，表示前端可以使用哪些方法进行请求。</li>
+<li><code>Access-Control-Allow-Headers</code>，表示请求头中除一些标准的字段，额外允许携带的字段。</li>
+<li><code>Access-Control-Expose-Headers</code>，扩展前端使用<code>XMLHttpRequest</code>对象的<code>getResponseHeader()</code>方法所能获取到的响应头信息。<code>getResponseHeader()</code>默认只能获取最基本的响应头：<code>Cache-Control</code>、<code>Content-Language</code>、<code>Content-Type</code>、<code>Expires</code>、<code>Last-Modified</code>、<code>Pragma</code></li>
+<li><code>Access-Control-Max-Age</code>，指定预检请求可以被缓存多少秒。</li>
+</ol>
+<h2 id="基于上述内容做的一个跨域模拟器"><a href="#基于上述内容做的一个跨域模拟器" class="headerlink" title="基于上述内容做的一个跨域模拟器"></a>基于上述内容做的一个跨域模拟器</h2><p>项目基于nodejs koa2和vue3.0实现（基本没用什么新特性..），这个模拟器可以用来：</p>
+<ol>
+<li>观察跨域时的http报文..</li>
+<li>直接看源码，了解上述跨域方法是如何使用的。</li>
+</ol>
+<p>嗯嗯..就这些了..这也是我第一次用这个koa框架和vue3.0..喜欢的话帮忙点个Star呗~ 欢迎pr~ 项目地址：<a href="https://github.com/Michael-Zhang-Xian-Sen/cross-domain-simulation" target="_blank" rel="noopener">https://github.com/Michael-Zhang-Xian-Sen/cross-domain-simulation</a></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://blog.csdn.net/weixin_42672054/article/details/81985736" target="_blank" rel="noopener">30 分钟理解 CORB 是什么</a></li>
+<li><a href="https://en.wikipedia.org/wiki/JSONP" target="_blank" rel="noopener">Jsonp 维基百科</a></li>
+<li><a href="https://segmentfault.com/a/1190000011145364" target="_blank" rel="noopener">前端常见跨域解决方案（全）</a></li>
+<li><a href="https://web.archive.org/web/20120608162347/http://bob.ippoli.to/archives/2005/12/05/remote-json-jsonp/" target="_blank" rel="noopener">Remote JSON - JSONP</a></li>
+<li><a href="https://segmentfault.com/a/1190000015597029" target="_blank" rel="noopener">不要再问我跨域的问题了</a></li>
+</ol>
+<h2 id="延伸阅读"><a href="#延伸阅读" class="headerlink" title="延伸阅读"></a>延伸阅读</h2><ol>
+<li><a href="https://www.w3.org/wiki/CORS#Why_is_there_a_preflight_request.3F" target="_blank" rel="noopener">w3c cors标准</a></li>
+</ol>
+
+        </div>
+    
+</div>
+
+
+                
+                    <!-- Paradox Post Info -->
+                    
+                
+
+                <!-- Post Comments -->
+                
+                    
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://nice2meetu.site/2020/08/31/浏览器/同源策略及跨域/';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://nice2meetu.site/2020/08/31/浏览器/同源策略及跨域/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//nice2meetu.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2020/08/31/前端工程化/webpack/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2020/08/30/IDE/vsc实用的技巧与插件/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+</footer>
+
+
+                    <!-- Import File -->
+
+
+    <script>lsloader.load("js/lazyload.min.js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==")</script>
+    <script>lsloader.load("js/js.min.js","/js/js.min.js?oAl/+lvaqTFV31JXTmbrNA==")</script>
+
+
+
+    <script>lsloader.load("js/nprogress.js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==")</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+    
+        <script>lsloader.load("js/smoothscroll.js","/js/smoothscroll.js?lOy/ACj5suSNi7ZVFVbpFQ==")</script>
+    
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+<script id="dsq-count-scr" src="//nice2meetu.disqus.com/count.js" async></script>
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Window Load-->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+</script>
+
+<!-- MathJax Load-->
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Bing Background -->
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.4.0 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>

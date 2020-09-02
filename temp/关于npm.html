@@ -431,8 +431,13 @@
 <li><code>-p</code>参数，指定要安装的模块。</li>
 <li><code>-c</code>参数，使得所有命令交由npx解释。</li>
 <li>npx还可以远程执行github源码。</li>
-<li>npm从5.2版本开始支持npx。</li>
+<li>npm从5.2版本开始支持npx</li>
 </ul>
+<h3 id="dependencies和devDependencies的区别"><a href="#dependencies和devDependencies的区别" class="headerlink" title="dependencies和devDependencies的区别"></a>dependencies和devDependencies的区别</h3><ul>
+<li><code>devDependencies</code>：开发环境使用。<br>npm i -D 是 npm install –save-dev 的简写，是指安装模块并保存到 package.json 的 devDependencies</li>
+<li><code>dependencies</code>：生产环境使用</li>
+</ul>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>删除一个依赖：<code>npm remove</code></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul>
 <li>阮一峰的npx使用教程：<a href="http://www.ruanyifeng.com/blog/2019/02/npx.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/02/npx.html</a></li>
 </ul>
