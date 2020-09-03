@@ -23,14 +23,6 @@
     </entry>
     
     <entry>
-      <title></title>
-      <link href="/2020/09/02/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/git-flow/"/>
-      <content type="html"><![CDATA[]]></content>
-      
-      
-    </entry>
-    
-    <entry>
       <title>TCP三次握手与四次挥手</title>
       <link href="/2020/09/01/%E7%BD%91%E7%BB%9C/http/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%8F%8A%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/"/>
       <content type="html"><![CDATA[<h3 id="TCP的三次握手"><a href="#TCP的三次握手" class="headerlink" title="TCP的三次握手"></a>TCP的三次握手</h3><p>为了对每次发送的数据量进行跟踪与协商，确保数据段的发送和接收同步，根据所接收到的数据量而确认数据发送、接收完毕后何时撤消联系，并建立虚连接。</p><p>第一次 客户端-&gt;服务端 SYN_SENT状态 syn,同时发送序号x<br>第二次 客户端&lt;-服务端 SYN_RECV状态 syn+ack包，返回确认号x+1，同时发送序号y<br>第三次 客户端-&gt;服务端 ESTABLISHED状态 syn+ack，返回确认号y+1。</p><h3 id="TCP的四次挥手"><a href="#TCP的四次挥手" class="headerlink" title="TCP的四次挥手"></a>TCP的四次挥手</h3><p>第一次 客户端-&gt;服务端 FIN=1,seq=u                   告诉服务端，我准备关闭连接了！此时客户端不向服务端发数据了，但是能收数据。<br>第二次 客户端&lt;-服务端 ACK=1,seq=v ack=u+1           哦，你要关连接啊，那我准备一下。<br>第三次 客户端&lt;-服务端 FIN=1,ACK=1,seq=w,ack=u+1     我准备好了，你关吧！停止向服务端发数据，但是能收数据<br>第四次 客户端-&gt;服务端 ACK=1,seq=u+1,ack=w+1         好的，我停止接收了，你停止接收吧，</p>]]></content>
@@ -344,9 +336,9 @@
       
         <tags>
             
-            <tag> svn </tag>
-            
             <tag> 版本管理工具 </tag>
+            
+            <tag> svn </tag>
             
         </tags>
       
@@ -388,9 +380,9 @@
       
         <tags>
             
-            <tag> 版本管理工具 </tag>
-            
             <tag> git </tag>
+            
+            <tag> 版本管理工具 </tag>
             
         </tags>
       
@@ -838,9 +830,9 @@
       
         <tags>
             
-            <tag> 读书笔记 </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> 读书笔记 </tag>
             
         </tags>
       
@@ -1106,9 +1098,9 @@
       
         <tags>
             
-            <tag> 读书笔记 </tag>
-            
             <tag> 前端 </tag>
+            
+            <tag> 读书笔记 </tag>
             
         </tags>
       
@@ -1226,21 +1218,9 @@
     </entry>
     
     <entry>
-      <title>初识uri scheme</title>
-      <link href="/temp/schema.html"/>
-      <content type="html"><![CDATA[<p>初识scheme<br><a id="more"></a><br>uri scheme即uri方案。指URi命名结构的第一级。</p>]]></content>
-    </entry>
-    
-    <entry>
       <title></title>
       <link href="/temp/iTerm2.html"/>
       <content type="html"><![CDATA[<p>chsh命令。切换shell环境。</p>]]></content>
-    </entry>
-    
-    <entry>
-      <title>vue-cli配置代理进行跨域</title>
-      <link href="/temp/vue-cli%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86.html"/>
-      <content type="html"><![CDATA[<p>记录通过vue-cli配置代理进行跨域的实践及感悟。</p><a id="more"></a><h3 id="实践：通过vue-cli配置代理进行跨域。"><a href="#实践：通过vue-cli配置代理进行跨域。" class="headerlink" title="实践：通过vue-cli配置代理进行跨域。"></a>实践：通过vue-cli配置代理进行跨域。</h3><ol><li>在项目根目录添加vue.config.js文件（如果已经有则跳过）。</li><li>添加如下代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devServer: &#123;  <span class="comment">// 该配置仅针对开发模式有效</span></span><br><span class="line">    proxy: &#123;    <span class="comment">// 该对象下的内容为代理配置</span></span><br><span class="line">      <span class="string">'/api'</span>: &#123; <span class="comment">// 代理具有'\api'前缀的请求</span></span><br><span class="line">        target: <span class="string">'http://localhost:8080/video_war/'</span>, <span class="comment">// 将匹配的前缀（本示例中为'api'）改为target属性的内容。</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span>, <span class="comment">// </span></span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          <span class="string">'^/api'</span>: <span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     </entry>
     
     <entry>
@@ -1250,9 +1230,15 @@
     </entry>
     
     <entry>
-      <title>vue学习笔记：深入了解组件</title>
-      <link href="/temp/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"/>
-      <content type="html"><![CDATA[<p>主要学习了组件的引入（组件注册）、组件的数据（prop）、组件的行为（自定义事件）、组件间协作（插槽）。</p><a id="more"></a>]]></content>
+      <title>初识uri scheme</title>
+      <link href="/temp/schema.html"/>
+      <content type="html"><![CDATA[<p>初识scheme<br><a id="more"></a><br>uri scheme即uri方案。指URi命名结构的第一级。</p>]]></content>
+    </entry>
+    
+    <entry>
+      <title>vue-cli配置代理进行跨域</title>
+      <link href="/temp/vue-cli%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86.html"/>
+      <content type="html"><![CDATA[<p>记录通过vue-cli配置代理进行跨域的实践及感悟。</p><a id="more"></a><h3 id="实践：通过vue-cli配置代理进行跨域。"><a href="#实践：通过vue-cli配置代理进行跨域。" class="headerlink" title="实践：通过vue-cli配置代理进行跨域。"></a>实践：通过vue-cli配置代理进行跨域。</h3><ol><li>在项目根目录添加vue.config.js文件（如果已经有则跳过）。</li><li>添加如下代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devServer: &#123;  <span class="comment">// 该配置仅针对开发模式有效</span></span><br><span class="line">    proxy: &#123;    <span class="comment">// 该对象下的内容为代理配置</span></span><br><span class="line">      <span class="string">'/api'</span>: &#123; <span class="comment">// 代理具有'\api'前缀的请求</span></span><br><span class="line">        target: <span class="string">'http://localhost:8080/video_war/'</span>, <span class="comment">// 将匹配的前缀（本示例中为'api'）改为target属性的内容。</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span>, <span class="comment">// </span></span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          <span class="string">'^/api'</span>: <span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
     </entry>
     
     <entry>
@@ -1262,9 +1248,21 @@
     </entry>
     
     <entry>
+      <title>vue学习笔记：深入了解组件</title>
+      <link href="/temp/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html"/>
+      <content type="html"><![CDATA[<p>主要学习了组件的引入（组件注册）、组件的数据（prop）、组件的行为（自定义事件）、组件间协作（插槽）。</p><a id="more"></a>]]></content>
+    </entry>
+    
+    <entry>
       <title></title>
       <link href="/temp/vue%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3.html"/>
       <content type="html"><![CDATA[<h2 id="做项目中遇到的一些问题"><a href="#做项目中遇到的一些问题" class="headerlink" title="做项目中遇到的一些问题"></a>做项目中遇到的一些问题</h2><h3 id="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"><a href="#如何对使用父组件通过v-bind传递给子组件的数据进行过滤？" class="headerlink" title="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"></a>如何对使用父组件通过v-bind传递给子组件的数据进行过滤？</h3><h4 id="方案1-使用过滤器。"><a href="#方案1-使用过滤器。" class="headerlink" title="方案1:使用过滤器。"></a>方案1:使用过滤器。</h4><p>vue文档中指出过滤器可以用在两个地方：1. 双花括号差值。 2. v-bind表达式</p>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/websocket.html"/>
+      <content type="html"><![CDATA[<ul><li>服务器推送技术的一种。</li><li>建立在 TCP 协议之上。</li><li>数据格式比较轻量，性能开销小，通信高效。</li><li>可以发送文本，也可以发送二进制数据。</li><li>没有同源限制，客户端可以与任意服务器通信。</li><li>协议标识符是ws（如果加密，则为wss），服务器网址就是 URL.</li></ul><p>问题。发送http请求时，需要建立连接吗？TCP和UDP什么关系？http报文是UDP实现吗？</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"ws://localhost:8080"</span>);</span><br><span class="line"><span class="keyword">switch</span>(ws.readyState)&#123;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CONNECTING:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.OPEN:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CLOSING:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CLOSED:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 连接成功后的回调函数。写法1</span></span><br><span class="line">ws.onOpen = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 向服务器发送数据</span></span><br><span class="line">    ws.send(<span class="string">"Hello Server"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// websocket连接成功后的回调函数，写法2</span></span><br><span class="line">ws.addEventListener(<span class="string">'open'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ws.send(<span class="string">"Hello Server"</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 连接关闭后的回调函数</span></span><br><span class="line">ws.onclose = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> code = event.code,</span><br><span class="line">        reason = event.reason,</span><br><span class="line">        wasClean = event.wasClean;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 收到服务器数据后的回调函数</span></span><br><span class="line">ws.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = event.data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 报错时的回调函数</span></span><br><span class="line">ws.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// handle error event;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     </entry>
     
     <entry>
@@ -1281,20 +1279,26 @@
     
     <entry>
       <title></title>
-      <link href="/temp/%E5%85%B3%E4%BA%8E%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91.html"/>
-      <content type="html"><![CDATA[<p>加密型<br>无特征。但是墙通过判断包大小可以阻断。<br>ss,ssr,v2ray by Vmess</p><p>伪装型<br>伪装为HTTPS流量。<br>Trojan,v2ray WebSocket+LTs</p><ul><li>Trojan TCP+TLS</li><li>V2ray webocket+TLS</li></ul>]]></content>
+      <link href="/temp/%E5%85%B3%E4%BA%8Enpm.html"/>
+      <content type="html"><![CDATA[<h2 id="关于npx"><a href="#关于npx" class="headerlink" title="关于npx"></a>关于npx</h2><ul><li>npx 想要解决的主要问题，就是调用项目内部安装的模块。</li><li>npx还可以安装模块，且默认不是全局安装，而是安装到一个临时目录，用完即删。可以通过命令进行指定是否使用本地的模块而不是安装模块（–no-install）、强制安装并使用远程模块（–ignore-existing）</li><li><code>-p</code>参数，指定要安装的模块。</li><li><code>-c</code>参数，使得所有命令交由npx解释。</li><li>npx还可以远程执行github源码。</li><li>npm从5.2版本开始支持npx</li></ul><h3 id="dependencies和devDependencies的区别"><a href="#dependencies和devDependencies的区别" class="headerlink" title="dependencies和devDependencies的区别"></a>dependencies和devDependencies的区别</h3><ul><li><code>devDependencies</code>：开发环境使用。npm i -D 是 npm install –save-dev 的简写，是指安装模块并保存到 package.json 的 devDependencies。在开发环境，npm i ，安装所有devDependencies 和 dependencies里面的模块</li><li><code>dependencies</code>：生产环境使用。npm i -S 在生产环境，使用npm install –production安装 dependencies 部分的模块。</li></ul><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>删除一个依赖：<code>npm remove</code></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li>阮一峰的npx使用教程：<a href="http://www.ruanyifeng.com/blog/2019/02/npx.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/02/npx.html</a></li></ul>]]></content>
     </entry>
     
     <entry>
       <title></title>
-      <link href="/temp/%E5%85%B3%E4%BA%8Enpm.html"/>
-      <content type="html"><![CDATA[<h2 id="关于npx"><a href="#关于npx" class="headerlink" title="关于npx"></a>关于npx</h2><ul><li>npx 想要解决的主要问题，就是调用项目内部安装的模块。</li><li>npx还可以安装模块，且默认不是全局安装，而是安装到一个临时目录，用完即删。可以通过命令进行指定是否使用本地的模块而不是安装模块（–no-install）、强制安装并使用远程模块（–ignore-existing）</li><li><code>-p</code>参数，指定要安装的模块。</li><li><code>-c</code>参数，使得所有命令交由npx解释。</li><li>npx还可以远程执行github源码。</li><li>npm从5.2版本开始支持npx</li></ul><h3 id="dependencies和devDependencies的区别"><a href="#dependencies和devDependencies的区别" class="headerlink" title="dependencies和devDependencies的区别"></a>dependencies和devDependencies的区别</h3><ul><li><code>devDependencies</code>：开发环境使用。npm i -D 是 npm install –save-dev 的简写，是指安装模块并保存到 package.json 的 devDependencies。在开发环境，npm i ，安装所有devDependencies 和 dependencies里面的模块</li><li><code>dependencies</code>：生产环境使用。npm i -S 在生产环境，使用npm install –production安装 dependencies 部分的模块。</li></ul><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>删除一个依赖：<code>npm remove</code></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li>阮一峰的npx使用教程：<a href="http://www.ruanyifeng.com/blog/2019/02/npx.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/02/npx.html</a></li></ul>]]></content>
+      <link href="/temp/%E5%85%B3%E4%BA%8E%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91.html"/>
+      <content type="html"><![CDATA[<p>加密型<br>无特征。但是墙通过判断包大小可以阻断。<br>ss,ssr,v2ray by Vmess</p><p>伪装型<br>伪装为HTTPS流量。<br>Trojan,v2ray WebSocket+LTs</p><ul><li>Trojan TCP+TLS</li><li>V2ray webocket+TLS</li></ul>]]></content>
     </entry>
     
     <entry>
       <title>外边距折叠</title>
       <link href="/temp/%E5%A4%96%E8%BE%B9%E8%B7%9D%E6%8A%98%E5%8F%A0.html"/>
       <content type="html"><![CDATA[<h3 id="形成外布局重叠的情况："><a href="#形成外布局重叠的情况：" class="headerlink" title="形成外布局重叠的情况："></a>形成外布局重叠的情况：</h3><p>外边距重叠的含义：块的上外边距(margin-top)和下外边距(margin-bottom)有时合并(折叠)为单个边距，其大小为单个边距的最大值(或如果它们相等，则仅为其中一个)，</p><ol><li>同一层相邻元素之间：相邻的两个元素之间的外边距重叠，除非后一个元素加上clear-fix清除浮动。</li></ol><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>知乎回答：<a href="https://www.zhihu.com/question/19823139?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/19823139?sort=created</a></li><li>MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing</a></li></ol>]]></content>
+    </entry>
+    
+    <entry>
+      <title>定位、文档流与文本流</title>
+      <link href="/temp/%E5%AE%9A%E4%BD%8D%E3%80%81%E6%96%87%E6%A1%A3%E6%B5%81%E4%B8%8E%E6%96%87%E6%9C%AC%E6%B5%81.html"/>
+      <content type="html"><![CDATA[<h3 id="几种定位"><a href="#几种定位" class="headerlink" title="几种定位"></a>几种定位</h3><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>mdn有关文档流及定位的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D</a></li></ol>]]></content>
     </entry>
     
     <entry>
@@ -1310,9 +1314,9 @@
     </entry>
     
     <entry>
-      <title>定位、文档流与文本流</title>
-      <link href="/temp/%E5%AE%9A%E4%BD%8D%E3%80%81%E6%96%87%E6%A1%A3%E6%B5%81%E4%B8%8E%E6%96%87%E6%9C%AC%E6%B5%81.html"/>
-      <content type="html"><![CDATA[<h3 id="几种定位"><a href="#几种定位" class="headerlink" title="几种定位"></a>几种定位</h3><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>mdn有关文档流及定位的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D</a></li></ol>]]></content>
+      <title></title>
+      <link href="/temp/%E6%95%B0%E6%8D%AE%E5%BD%A2%E5%BC%8F%E8%BD%AC%E6%8D%A2.html"/>
+      <content type="html"><![CDATA[<p>A querystring parsing and stringifying library with some added security.</p>]]></content>
     </entry>
     
     <entry>
@@ -1331,18 +1335,6 @@
       <title></title>
       <link href="/temp/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8A%9F%E8%83%BD.html"/>
       <content type="html"><![CDATA[<h2 id="前端导出excel文件"><a href="#前端导出excel文件" class="headerlink" title="前端导出excel文件"></a>前端导出excel文件</h2><ol><li>save as的前端实现</li></ol><p>插件：</p><ol><li>FileSaver <a href="https://www.npmjs.com/package/file-saver" target="_blank" rel="noopener">npm地址</a>, <a href="https://github.com/eligrey/FileSaver.js/" target="_blank" rel="noopener">GitHub地址</a> </li><li>xlsx <a href="https://www.npmjs.com/package/xlsx" target="_blank" rel="noopener">npm地址</a></li><li>script-loader <a href="https://www.npmjs.com/package/script-loader" target="_blank" rel="noopener">npm地址</a> </li></ol>]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <link href="/temp/websocket.html"/>
-      <content type="html"><![CDATA[<ul><li>服务器推送技术的一种。</li><li>建立在 TCP 协议之上。</li><li>数据格式比较轻量，性能开销小，通信高效。</li><li>可以发送文本，也可以发送二进制数据。</li><li>没有同源限制，客户端可以与任意服务器通信。</li><li>协议标识符是ws（如果加密，则为wss），服务器网址就是 URL.</li></ul><p>问题。发送http请求时，需要建立连接吗？TCP和UDP什么关系？http报文是UDP实现吗？</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"ws://localhost:8080"</span>);</span><br><span class="line"><span class="keyword">switch</span>(ws.readyState)&#123;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CONNECTING:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.OPEN:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CLOSING:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CLOSED:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 连接成功后的回调函数。写法1</span></span><br><span class="line">ws.onOpen = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 向服务器发送数据</span></span><br><span class="line">    ws.send(<span class="string">"Hello Server"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// websocket连接成功后的回调函数，写法2</span></span><br><span class="line">ws.addEventListener(<span class="string">'open'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ws.send(<span class="string">"Hello Server"</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 连接关闭后的回调函数</span></span><br><span class="line">ws.onclose = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> code = event.code,</span><br><span class="line">        reason = event.reason,</span><br><span class="line">        wasClean = event.wasClean;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 收到服务器数据后的回调函数</span></span><br><span class="line">ws.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = event.data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 报错时的回调函数</span></span><br><span class="line">ws.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// handle error event;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <link href="/temp/%E6%95%B0%E6%8D%AE%E5%BD%A2%E5%BC%8F%E8%BD%AC%E6%8D%A2.html"/>
-      <content type="html"><![CDATA[<p>A querystring parsing and stringifying library with some added security.</p>]]></content>
     </entry>
     
   

@@ -42,20 +42,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://nice2meetu.site/2020/09/02/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/git-flow/"/>
-    <id>http://nice2meetu.site/2020/09/02/版本管理工具/git-flow/</id>
-    <published>2020-09-02T06:15:10.890Z</published>
-    <updated>2020-09-02T06:18:09.534Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>TCP三次握手与四次挥手</title>
     <link href="http://nice2meetu.site/2020/09/01/%E7%BD%91%E7%BB%9C/http/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%8F%8A%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/"/>
     <id>http://nice2meetu.site/2020/09/01/网络/http/TCP三次握手及四次挥手/</id>
@@ -474,9 +460,9 @@
       <category term="工具" scheme="http://nice2meetu.site/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="svn" scheme="http://nice2meetu.site/tags/svn/"/>
-    
       <category term="版本管理工具" scheme="http://nice2meetu.site/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="svn" scheme="http://nice2meetu.site/tags/svn/"/>
     
   </entry>
   
@@ -507,6 +493,30 @@
       <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
     
       <category term="命名规范" scheme="http://nice2meetu.site/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git常用命令小记</title>
+    <link href="http://nice2meetu.site/2020/08/01/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%EF%BC%9Agit%E5%B0%8F%E8%AE%B0/"/>
+    <id>http://nice2meetu.site/2020/08/01/版本管理工具/版本管理工具：git小记/</id>
+    <published>2020-08-01T13:35:30.000Z</published>
+    <updated>2020-09-03T08:33:46.104Z</updated>
+    
+    <content type="html"><![CDATA[<p>git的常用操作及相关问题的解决方案。</p><a id="more"></a><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>遇到git命令参数的问题，可通过查看文档解决：</p><ol><li>输入<code>git</code>后回车可以显示常用的git命令。</li><li>输入<code>git 某个命令 -h</code> 可以查看该命令具体的参数信息。</li></ol><h3 id="1-分支操作"><a href="#1-分支操作" class="headerlink" title="1. 分支操作"></a>1. 分支操作</h3><ol><li>将当前内容全部复制到一个新分支：<code>git checkout -b 新分支名称</code></li><li>删除分支：<code>git branch -d</code></li></ol><h2 id="具体问题的解决方案"><a href="#具体问题的解决方案" class="headerlink" title="具体问题的解决方案"></a>具体问题的解决方案</h2><h3 id="1-fork得到的仓库的代码如何更新使得其与原仓库的代码一致。"><a href="#1-fork得到的仓库的代码如何更新使得其与原仓库的代码一致。" class="headerlink" title="1. fork得到的仓库的代码如何更新使得其与原仓库的代码一致。"></a>1. fork得到的仓库的代码如何更新使得其与原仓库的代码一致。</h3><ol><li>配置原仓库的路径：<code>git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git</code></li><li>查看远程仓库的路径，确保正确添加上游仓库：<code>git remote -v</code></li><li>抓取原仓库的修改：<code>git fetch upstream</code></li><li>其他内容：删除某个远程仓库<code>git remote remove &lt;name&gt;</code></li></ol><h3 id="2-修改commit的注释"><a href="#2-修改commit的注释" class="headerlink" title="2. 修改commit的注释"></a>2. 修改commit的注释</h3><p><code>git commit --amend</code>amend为修正的意思。</p><h3 id="3-撤销git-add"><a href="#3-撤销git-add" class="headerlink" title="3. 撤销git add"></a>3. 撤销git add</h3><p><code>git reset 文件名</code></p>]]></content>
+    
+    <summary type="html">
+    
+      git常用命令
+    
+    </summary>
+    
+      <category term="工具" scheme="http://nice2meetu.site/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="git" scheme="http://nice2meetu.site/tags/git/"/>
+    
+      <category term="版本管理工具" scheme="http://nice2meetu.site/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
