@@ -3,7 +3,7 @@
   
     
     <entry>
-      <title>实用vue工具推荐：treeselect多选插件</title>
+      <title>web安全：xss攻击</title>
       <link href="/2020/09/02/web%E5%AE%89%E5%85%A8/xss/"/>
       <content type="html"><![CDATA[<h1 id="xss（Cross-Site-Scripting）攻击"><a href="#xss（Cross-Site-Scripting）攻击" class="headerlink" title="xss（Cross-Site Scripting）攻击"></a>xss（Cross-Site Scripting）攻击</h1><p>XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一起；浏览器无法分辨哪些脚本是可信的，导致恶意脚本被执行。</p><h3 id="不可信内容"><a href="#不可信内容" class="headerlink" title="不可信内容"></a>不可信内容</h3><ul><li>来自用户的 UGC（User Generated Content） 信息</li><li>来自第三方的链接</li><li>URL 参数</li><li>POST 参数</li><li>Referer （可能来自不可信的来源）</li><li>Cookie （可能来自其他子域注入）</li></ul><h3 id="XSS-注入的方法"><a href="#XSS-注入的方法" class="headerlink" title="XSS 注入的方法"></a>XSS 注入的方法</h3><ol><li>在 HTML 中内嵌的文本中，恶意内容以 script 标签形成注入。</li><li>在内联的 JavaScript 中，拼接的数据突破了原本的限制（字符串，变量，方法名等）。</li><li>在标签属性中，恶意内容包含引号，从而突破属性值的限制，注入其他属性或者标签。</li><li>在标签的 href、src 等属性中，包含 javascript: 等可执行代码。</li><li>在 onload、onerror、onclick 等事件中，注入不受控制代码。</li><li>在 style 属性和标签中，包含类似 background-image:url(“javascript:…”); 的代码（新版本浏览器已经可以防范）。</li><li>在 style 属性和标签中，包含类似 expression(…) 的 CSS 表达式代码（新版本浏览器已经可以防范）。</li><li>总之，如果开发者没有将用户输入的文本进行合适的过滤，就贸然插入到 HTML 中，这很容易造成注入漏洞。攻击者可以利用漏洞，构造出恶意的代码指令，进而利用恶意代码危害数据安全。</li></ol><h3 id="XSS攻击的两大要素："><a href="#XSS攻击的两大要素：" class="headerlink" title="XSS攻击的两大要素："></a>XSS攻击的两大要素：</h3><ol><li>攻击者提交恶意代码。</li><li>浏览器执行恶意代码。</li></ol><h3 id="前端应对方案："><a href="#前端应对方案：" class="headerlink" title="前端应对方案："></a>前端应对方案：</h3><ol><li>输入过滤。并不是终极方案，且不是特别好。</li><li>纯前端渲染。</li><li>避免将不可信的数据传递给以下能把字符串作为代码执行的api：<ol><li>DOM 中的内联事件监听器，如 location、onclick、onerror、onload、onmouseover 等。</li><li><a> 标签的 href 属性。</a></li><li>JavaScript 的 eval()、setTimeout()、setInterval() 等</li></ol></li><li>严格进行CSP防范。</li><li>输入内容长度控制。</li><li>HTTP-only Cookie: 禁止 JavaScript 读取某些敏感 Cookie，攻击者完成 XSS 注入后也无法窃取此 Cookie。</li><li>验证码：防止脚本冒充用户提交危险操作。</li><li>避免拼接 HTML。</li></ol><h3 id="如何减少xss漏洞"><a href="#如何减少xss漏洞" class="headerlink" title="如何减少xss漏洞"></a>如何减少xss漏洞</h3><ol><li>利用模板引擎。</li><li>避免内联事件。</li><li>避免拼接 HTML。</li><li>时刻保持警惕。</li><li>增加攻击难度，降低攻击后果。</li><li>主动检测和发现。</li></ol>]]></content>
       
@@ -336,9 +336,9 @@
       
         <tags>
             
-            <tag> 版本管理工具 </tag>
-            
             <tag> svn </tag>
+            
+            <tag> 版本管理工具 </tag>
             
         </tags>
       
@@ -380,9 +380,9 @@
       
         <tags>
             
-            <tag> git </tag>
-            
             <tag> 版本管理工具 </tag>
+            
+            <tag> git </tag>
             
         </tags>
       
@@ -1165,13 +1165,13 @@
     
     <entry>
       <title></title>
-      <link href="/temp/http1.0%E5%92%8Chttp1.1%E7%9A%84%E8%BE%A8%E6%9E%90.html"/>
+      <link href="/temp/java%E5%BE%AE%E6%9C%8D%E5%8A%A1.html"/>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
       <title></title>
-      <link href="/temp/java%E5%BE%AE%E6%9C%8D%E5%8A%A1.html"/>
+      <link href="/temp/http1.0%E5%92%8Chttp1.1%E7%9A%84%E8%BE%A8%E6%9E%90.html"/>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
@@ -1206,12 +1206,6 @@
     </entry>
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
       <title></title>
       <link href="/temp/BootstrapVue%E4%B8%AD%E5%85%83%E7%B4%A0%E7%9A%84%E4%B8%80%E4%BA%9B%E7%94%A8%E6%B3%95.html"/>
       <content type="html"><![CDATA[<h3 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h3><p>表单的一项经常是一些文字带一个表单input，比如标题，要写清楚标题两个字，旁边附带一个输入框。<br>则就是bootstrap中表单组的概念。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">b-form-group</span> <span class="attr">label</span>=<span class="string">"性别"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">b-form-radio-group</span> <span class="attr">v-model</span>=<span class="string">"form.gender"</span> <span class="attr">:disabled</span>=<span class="string">"disabled"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">b-form-radio</span> <span class="attr">value</span>=<span class="string">"true"</span>&gt;</span>男性<span class="tag">&lt;/<span class="name">b-form-radio</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">b-form-radio</span> <span class="attr">value</span>=<span class="string">"false"</span>&gt;</span>女性<span class="tag">&lt;/<span class="name">b-form-radio</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">b-form-radio-group</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">b-form-group</span>&gt;</span></span><br></pre></td></tr></table></figure></p>]]></content>
@@ -1224,27 +1218,15 @@
     </entry>
     
     <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <content type="html"><![CDATA[]]></content>
+    </entry>
+    
+    <entry>
       <title>mac配置代理</title>
       <link href="/temp/mac%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86.html"/>
       <content type="html"><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li>查看代理软件中的代理信息。</li><li>设置系统偏好设置中的代理。</li><li>设置shell下的代理。</li></ol><h3 id="1-查看代理软件中的代理信息"><a href="#1-查看代理软件中的代理信息" class="headerlink" title="1. 查看代理软件中的代理信息"></a>1. 查看代理软件中的代理信息</h3><p>以v2rayn客户端为例。通过在 在配置信息中找到”本地http端口”及”本地socks5端口”。<br>猜测两端口的作用如下。</p><ul><li>本地http端口：本机中的http请求将通过该端口进行转发。</li><li>本地socks5端口：本机中部分请求使用socks5协议通过该端口进行转发。</li></ul><h3 id="2-设置系统偏好设置中的代理信息"><a href="#2-设置系统偏好设置中的代理信息" class="headerlink" title="2. 设置系统偏好设置中的代理信息"></a>2. 设置系统偏好设置中的代理信息</h3><p>配置如下信息<br>系统偏好设置-&gt;网络-&gt;高级-&gt;代理</p><ul><li>勾选自动发现代理</li><li>如果使用pac模式，请勾选自动代理配置</li></ul><h3 id="3-设置shell下的代理"><a href="#3-设置shell下的代理" class="headerlink" title="3. 设置shell下的代理"></a>3. 设置shell下的代理</h3><p>修改用户的bash配置信息，添加如下内容</p><ul><li>export http_proxy=socks5://127.0.0.1:1081（步骤1中的本地soskc5端口）</li><li>export https_proxy=socks5://127.0.0.1:1081（同上）</li><li>export http_proxy=<a href="http://127.0.0.1:8001/（步骤1中的本地http端口）" target="_blank" rel="noopener">http://127.0.0.1:8001/（步骤1中的本地http端口）</a></li><li>export https_proxy=<a href="http://127.0.0.1:8001/（同上）" target="_blank" rel="noopener">http://127.0.0.1:8001/（同上）</a></li></ul><p>不清楚为什么，修改完毕后使用source命令使用配置没有作用，重新启动bash后才成功使用新配置。</p>]]></content>
-    </entry>
-    
-    <entry>
-      <title>初识uri scheme</title>
-      <link href="/temp/schema.html"/>
-      <content type="html"><![CDATA[<p>初识scheme<br><a id="more"></a><br>uri scheme即uri方案。指URi命名结构的第一级。</p>]]></content>
-    </entry>
-    
-    <entry>
-      <title>vue-cli配置代理进行跨域</title>
-      <link href="/temp/vue-cli%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86.html"/>
-      <content type="html"><![CDATA[<p>记录通过vue-cli配置代理进行跨域的实践及感悟。</p><a id="more"></a><h3 id="实践：通过vue-cli配置代理进行跨域。"><a href="#实践：通过vue-cli配置代理进行跨域。" class="headerlink" title="实践：通过vue-cli配置代理进行跨域。"></a>实践：通过vue-cli配置代理进行跨域。</h3><ol><li>在项目根目录添加vue.config.js文件（如果已经有则跳过）。</li><li>添加如下代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devServer: &#123;  <span class="comment">// 该配置仅针对开发模式有效</span></span><br><span class="line">    proxy: &#123;    <span class="comment">// 该对象下的内容为代理配置</span></span><br><span class="line">      <span class="string">'/api'</span>: &#123; <span class="comment">// 代理具有'\api'前缀的请求</span></span><br><span class="line">        target: <span class="string">'http://localhost:8080/video_war/'</span>, <span class="comment">// 将匹配的前缀（本示例中为'api'）改为target属性的内容。</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span>, <span class="comment">// </span></span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          <span class="string">'^/api'</span>: <span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
-    </entry>
-    
-    <entry>
-      <title>vue学习笔记：工具</title>
-      <link href="/temp/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0:%E5%B7%A5%E5%85%B7.html"/>
-      <content type="html"><![CDATA[<p>主要学习vue的单文件组件、单元测试、TypeScript及生产环境的部署。</p><a id="more"></a><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h2 id="1-单文件组件"><a href="#1-单文件组件" class="headerlink" title="1. 单文件组件"></a>1. 单文件组件</h2><p>单文件组件大致指的是将一个vue文件作为一个组件。使用vue-cli搭建的项目中的<code>.vue</code>文件即单文件组件。</p><h2 id="2-单元测试"><a href="#2-单元测试" class="headerlink" title="2. 单元测试"></a>2. 单元测试</h2><p>将组件当作黑盒，只关注输入和输出，只针对输入和输出进行测试。不论如何改变组件的内部逻辑，只要该组件响应输入的输出内容正确，能够通过测试，则该组件就是正确的。</p><p>进行单元测试需要安装如下插件：</p><ol><li><code>Vue Test Utils</code>。安装命令：<code>npm install --save-dev @vue/test-utils</code></li><li>一个测试运行器（<code>jest</code>或<code>mocha</code>）。安装命令：<code>npm install --save-dev jest</code></li></ol><p>相关学习资料</p><ul><li>Vue Test Utils：<a href="https://vue-test-utils.vuejs.org/zh/" target="_blank" rel="noopener">https://vue-test-utils.vuejs.org/zh/</a></li><li>jest：<a href="https://jestjs.io/docs/en/getting-started" target="_blank" rel="noopener">https://jestjs.io/docs/en/getting-started</a></li></ul><h2 id="3-TypeScript支持"><a href="#3-TypeScript支持" class="headerlink" title="3. TypeScript支持"></a>3. TypeScript支持</h2><h2 id="4-生产环境部署"><a href="#4-生产环境部署" class="headerlink" title="4. 生产环境部署"></a>4. 生产环境部署</h2>]]></content>
     </entry>
     
     <entry>
@@ -1254,15 +1236,21 @@
     </entry>
     
     <entry>
-      <title></title>
-      <link href="/temp/vue%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3.html"/>
-      <content type="html"><![CDATA[<h2 id="做项目中遇到的一些问题"><a href="#做项目中遇到的一些问题" class="headerlink" title="做项目中遇到的一些问题"></a>做项目中遇到的一些问题</h2><h3 id="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"><a href="#如何对使用父组件通过v-bind传递给子组件的数据进行过滤？" class="headerlink" title="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"></a>如何对使用父组件通过v-bind传递给子组件的数据进行过滤？</h3><h4 id="方案1-使用过滤器。"><a href="#方案1-使用过滤器。" class="headerlink" title="方案1:使用过滤器。"></a>方案1:使用过滤器。</h4><p>vue文档中指出过滤器可以用在两个地方：1. 双花括号差值。 2. v-bind表达式</p>]]></content>
+      <title>vue-cli配置代理进行跨域</title>
+      <link href="/temp/vue-cli%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86.html"/>
+      <content type="html"><![CDATA[<p>记录通过vue-cli配置代理进行跨域的实践及感悟。</p><a id="more"></a><h3 id="实践：通过vue-cli配置代理进行跨域。"><a href="#实践：通过vue-cli配置代理进行跨域。" class="headerlink" title="实践：通过vue-cli配置代理进行跨域。"></a>实践：通过vue-cli配置代理进行跨域。</h3><ol><li>在项目根目录添加vue.config.js文件（如果已经有则跳过）。</li><li>添加如下代码：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  devServer: &#123;  <span class="comment">// 该配置仅针对开发模式有效</span></span><br><span class="line">    proxy: &#123;    <span class="comment">// 该对象下的内容为代理配置</span></span><br><span class="line">      <span class="string">'/api'</span>: &#123; <span class="comment">// 代理具有'\api'前缀的请求</span></span><br><span class="line">        target: <span class="string">'http://localhost:8080/video_war/'</span>, <span class="comment">// 将匹配的前缀（本示例中为'api'）改为target属性的内容。</span></span><br><span class="line">        changeOrigin: <span class="literal">true</span>, <span class="comment">// </span></span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          <span class="string">'^/api'</span>: <span class="string">''</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li></ol>]]></content>
+    </entry>
+    
+    <entry>
+      <title>初识uri scheme</title>
+      <link href="/temp/schema.html"/>
+      <content type="html"><![CDATA[<p>初识scheme<br><a id="more"></a><br>uri scheme即uri方案。指URi命名结构的第一级。</p>]]></content>
     </entry>
     
     <entry>
       <title></title>
-      <link href="/temp/websocket.html"/>
-      <content type="html"><![CDATA[<ul><li>服务器推送技术的一种。</li><li>建立在 TCP 协议之上。</li><li>数据格式比较轻量，性能开销小，通信高效。</li><li>可以发送文本，也可以发送二进制数据。</li><li>没有同源限制，客户端可以与任意服务器通信。</li><li>协议标识符是ws（如果加密，则为wss），服务器网址就是 URL.</li></ul><p>问题。发送http请求时，需要建立连接吗？TCP和UDP什么关系？http报文是UDP实现吗？</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"ws://localhost:8080"</span>);</span><br><span class="line"><span class="keyword">switch</span>(ws.readyState)&#123;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CONNECTING:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.OPEN:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CLOSING:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CLOSED:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 连接成功后的回调函数。写法1</span></span><br><span class="line">ws.onOpen = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 向服务器发送数据</span></span><br><span class="line">    ws.send(<span class="string">"Hello Server"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// websocket连接成功后的回调函数，写法2</span></span><br><span class="line">ws.addEventListener(<span class="string">'open'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ws.send(<span class="string">"Hello Server"</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 连接关闭后的回调函数</span></span><br><span class="line">ws.onclose = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> code = event.code,</span><br><span class="line">        reason = event.reason,</span><br><span class="line">        wasClean = event.wasClean;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 收到服务器数据后的回调函数</span></span><br><span class="line">ws.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = event.data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 报错时的回调函数</span></span><br><span class="line">ws.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// handle error event;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      <link href="/temp/vue%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3.html"/>
+      <content type="html"><![CDATA[<h2 id="做项目中遇到的一些问题"><a href="#做项目中遇到的一些问题" class="headerlink" title="做项目中遇到的一些问题"></a>做项目中遇到的一些问题</h2><h3 id="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"><a href="#如何对使用父组件通过v-bind传递给子组件的数据进行过滤？" class="headerlink" title="如何对使用父组件通过v-bind传递给子组件的数据进行过滤？"></a>如何对使用父组件通过v-bind传递给子组件的数据进行过滤？</h3><h4 id="方案1-使用过滤器。"><a href="#方案1-使用过滤器。" class="headerlink" title="方案1:使用过滤器。"></a>方案1:使用过滤器。</h4><p>vue文档中指出过滤器可以用在两个地方：1. 双花括号差值。 2. v-bind表达式</p>]]></content>
     </entry>
     
     <entry>
@@ -1278,9 +1266,9 @@
     </entry>
     
     <entry>
-      <title></title>
-      <link href="/temp/%E5%85%B3%E4%BA%8Enpm.html"/>
-      <content type="html"><![CDATA[<h2 id="关于npx"><a href="#关于npx" class="headerlink" title="关于npx"></a>关于npx</h2><ul><li>npx 想要解决的主要问题，就是调用项目内部安装的模块。</li><li>npx还可以安装模块，且默认不是全局安装，而是安装到一个临时目录，用完即删。可以通过命令进行指定是否使用本地的模块而不是安装模块（–no-install）、强制安装并使用远程模块（–ignore-existing）</li><li><code>-p</code>参数，指定要安装的模块。</li><li><code>-c</code>参数，使得所有命令交由npx解释。</li><li>npx还可以远程执行github源码。</li><li>npm从5.2版本开始支持npx</li></ul><h3 id="dependencies和devDependencies的区别"><a href="#dependencies和devDependencies的区别" class="headerlink" title="dependencies和devDependencies的区别"></a>dependencies和devDependencies的区别</h3><ul><li><code>devDependencies</code>：开发环境使用。npm i -D 是 npm install –save-dev 的简写，是指安装模块并保存到 package.json 的 devDependencies。在开发环境，npm i ，安装所有devDependencies 和 dependencies里面的模块</li><li><code>dependencies</code>：生产环境使用。npm i -S 在生产环境，使用npm install –production安装 dependencies 部分的模块。</li></ul><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>删除一个依赖：<code>npm remove</code></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li>阮一峰的npx使用教程：<a href="http://www.ruanyifeng.com/blog/2019/02/npx.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/02/npx.html</a></li></ul>]]></content>
+      <title>vue学习笔记：工具</title>
+      <link href="/temp/vue%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0:%E5%B7%A5%E5%85%B7.html"/>
+      <content type="html"><![CDATA[<p>主要学习vue的单文件组件、单元测试、TypeScript及生产环境的部署。</p><a id="more"></a><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><h2 id="1-单文件组件"><a href="#1-单文件组件" class="headerlink" title="1. 单文件组件"></a>1. 单文件组件</h2><p>单文件组件大致指的是将一个vue文件作为一个组件。使用vue-cli搭建的项目中的<code>.vue</code>文件即单文件组件。</p><h2 id="2-单元测试"><a href="#2-单元测试" class="headerlink" title="2. 单元测试"></a>2. 单元测试</h2><p>将组件当作黑盒，只关注输入和输出，只针对输入和输出进行测试。不论如何改变组件的内部逻辑，只要该组件响应输入的输出内容正确，能够通过测试，则该组件就是正确的。</p><p>进行单元测试需要安装如下插件：</p><ol><li><code>Vue Test Utils</code>。安装命令：<code>npm install --save-dev @vue/test-utils</code></li><li>一个测试运行器（<code>jest</code>或<code>mocha</code>）。安装命令：<code>npm install --save-dev jest</code></li></ol><p>相关学习资料</p><ul><li>Vue Test Utils：<a href="https://vue-test-utils.vuejs.org/zh/" target="_blank" rel="noopener">https://vue-test-utils.vuejs.org/zh/</a></li><li>jest：<a href="https://jestjs.io/docs/en/getting-started" target="_blank" rel="noopener">https://jestjs.io/docs/en/getting-started</a></li></ul><h2 id="3-TypeScript支持"><a href="#3-TypeScript支持" class="headerlink" title="3. TypeScript支持"></a>3. TypeScript支持</h2><h2 id="4-生产环境部署"><a href="#4-生产环境部署" class="headerlink" title="4. 生产环境部署"></a>4. 生产环境部署</h2>]]></content>
     </entry>
     
     <entry>
@@ -1290,15 +1278,9 @@
     </entry>
     
     <entry>
-      <title>外边距折叠</title>
-      <link href="/temp/%E5%A4%96%E8%BE%B9%E8%B7%9D%E6%8A%98%E5%8F%A0.html"/>
-      <content type="html"><![CDATA[<h3 id="形成外布局重叠的情况："><a href="#形成外布局重叠的情况：" class="headerlink" title="形成外布局重叠的情况："></a>形成外布局重叠的情况：</h3><p>外边距重叠的含义：块的上外边距(margin-top)和下外边距(margin-bottom)有时合并(折叠)为单个边距，其大小为单个边距的最大值(或如果它们相等，则仅为其中一个)，</p><ol><li>同一层相邻元素之间：相邻的两个元素之间的外边距重叠，除非后一个元素加上clear-fix清除浮动。</li></ol><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>知乎回答：<a href="https://www.zhihu.com/question/19823139?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/19823139?sort=created</a></li><li>MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing</a></li></ol>]]></content>
-    </entry>
-    
-    <entry>
-      <title>定位、文档流与文本流</title>
-      <link href="/temp/%E5%AE%9A%E4%BD%8D%E3%80%81%E6%96%87%E6%A1%A3%E6%B5%81%E4%B8%8E%E6%96%87%E6%9C%AC%E6%B5%81.html"/>
-      <content type="html"><![CDATA[<h3 id="几种定位"><a href="#几种定位" class="headerlink" title="几种定位"></a>几种定位</h3><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>mdn有关文档流及定位的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D</a></li></ol>]]></content>
+      <title></title>
+      <link href="/temp/%E5%85%B3%E4%BA%8Enpm.html"/>
+      <content type="html"><![CDATA[<h2 id="关于npx"><a href="#关于npx" class="headerlink" title="关于npx"></a>关于npx</h2><ul><li>npx 想要解决的主要问题，就是调用项目内部安装的模块。</li><li>npx还可以安装模块，且默认不是全局安装，而是安装到一个临时目录，用完即删。可以通过命令进行指定是否使用本地的模块而不是安装模块（–no-install）、强制安装并使用远程模块（–ignore-existing）</li><li><code>-p</code>参数，指定要安装的模块。</li><li><code>-c</code>参数，使得所有命令交由npx解释。</li><li>npx还可以远程执行github源码。</li><li>npm从5.2版本开始支持npx</li></ul><h3 id="dependencies和devDependencies的区别"><a href="#dependencies和devDependencies的区别" class="headerlink" title="dependencies和devDependencies的区别"></a>dependencies和devDependencies的区别</h3><ul><li><code>devDependencies</code>：开发环境使用。npm i -D 是 npm install –save-dev 的简写，是指安装模块并保存到 package.json 的 devDependencies。在开发环境，npm i ，安装所有devDependencies 和 dependencies里面的模块</li><li><code>dependencies</code>：生产环境使用。npm i -S 在生产环境，使用npm install –production安装 dependencies 部分的模块。</li></ul><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>删除一个依赖：<code>npm remove</code></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li>阮一峰的npx使用教程：<a href="http://www.ruanyifeng.com/blog/2019/02/npx.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/02/npx.html</a></li></ul>]]></content>
     </entry>
     
     <entry>
@@ -1308,15 +1290,27 @@
     </entry>
     
     <entry>
+      <title></title>
+      <link href="/temp/websocket.html"/>
+      <content type="html"><![CDATA[<ul><li>服务器推送技术的一种。</li><li>建立在 TCP 协议之上。</li><li>数据格式比较轻量，性能开销小，通信高效。</li><li>可以发送文本，也可以发送二进制数据。</li><li>没有同源限制，客户端可以与任意服务器通信。</li><li>协议标识符是ws（如果加密，则为wss），服务器网址就是 URL.</li></ul><p>问题。发送http请求时，需要建立连接吗？TCP和UDP什么关系？http报文是UDP实现吗？</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"ws://localhost:8080"</span>);</span><br><span class="line"><span class="keyword">switch</span>(ws.readyState)&#123;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CONNECTING:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.OPEN:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CLOSING:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CLOSED:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 连接成功后的回调函数。写法1</span></span><br><span class="line">ws.onOpen = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 向服务器发送数据</span></span><br><span class="line">    ws.send(<span class="string">"Hello Server"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// websocket连接成功后的回调函数，写法2</span></span><br><span class="line">ws.addEventListener(<span class="string">'open'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ws.send(<span class="string">"Hello Server"</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 连接关闭后的回调函数</span></span><br><span class="line">ws.onclose = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> code = event.code,</span><br><span class="line">        reason = event.reason,</span><br><span class="line">        wasClean = event.wasClean;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 收到服务器数据后的回调函数</span></span><br><span class="line">ws.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = event.data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 报错时的回调函数</span></span><br><span class="line">ws.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// handle error event;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    </entry>
+    
+    <entry>
+      <title>外边距折叠</title>
+      <link href="/temp/%E5%A4%96%E8%BE%B9%E8%B7%9D%E6%8A%98%E5%8F%A0.html"/>
+      <content type="html"><![CDATA[<h3 id="形成外布局重叠的情况："><a href="#形成外布局重叠的情况：" class="headerlink" title="形成外布局重叠的情况："></a>形成外布局重叠的情况：</h3><p>外边距重叠的含义：块的上外边距(margin-top)和下外边距(margin-bottom)有时合并(折叠)为单个边距，其大小为单个边距的最大值(或如果它们相等，则仅为其中一个)，</p><ol><li>同一层相邻元素之间：相邻的两个元素之间的外边距重叠，除非后一个元素加上clear-fix清除浮动。</li></ol><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>知乎回答：<a href="https://www.zhihu.com/question/19823139?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/19823139?sort=created</a></li><li>MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing</a></li></ol>]]></content>
+    </entry>
+    
+    <entry>
       <title>关于异步（三）： 并发模型与事件循环机制</title>
       <link href="/temp/%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.html"/>
       <content type="html"><![CDATA[<h2 id="运行时概念"><a href="#运行时概念" class="headerlink" title="运行时概念"></a>运行时概念</h2><ul><li><strong>函数调用</strong>形成栈帧</li><li><strong>对象</strong>被分配在堆中</li><li><strong>待处理消息</strong>在队列中。消息关联着一个用以处理这个消息的回调函数。</li></ul><h2 id="事件循环（EventLoop）"><a href="#事件循环（EventLoop）" class="headerlink" title="事件循环（EventLoop）"></a>事件循环（EventLoop）</h2><ol><li>事件循环时，“运行时”会先处理队头的消息。处理方式即将该消息移出队列，然后使用其输入参数调用关联的函数，形成栈帧，然后继续执行这个函数直到完成（栈空）。</li><li>处理完后，执行下一个消息。</li></ol><h3 id="添加“消息”"><a href="#添加“消息”" class="headerlink" title="添加“消息”"></a>添加“消息”</h3><p>条件：</p><ol><li>事件被事件监听器绑定。</li><li>事件发生。</li></ol><p>注意：</p><ul><li>如果没有事件监听器，则该事件被丢失。</li></ul><h3 id="关于处理消息的“执行至完成”过程"><a href="#关于处理消息的“执行至完成”过程" class="headerlink" title="关于处理消息的“执行至完成”过程"></a>关于处理消息的“执行至完成”过程</h3><ul><li>缺陷：如果消息耗费时间长，则无法处理其他的事情，比如用户的其他交互。</li><li>对策：<ol><li>采用loading动画等提示信息。</li><li>将消息剪裁为多个消息。</li></ol></li></ul><h3 id="关于setTimeout"><a href="#关于setTimeout" class="headerlink" title="关于setTimeout"></a>关于setTimeout</h3><p>setTimeout接收的参数如下：</p><ul><li>待加入队列的消息。</li><li>一个时间值。即消息被加入队列的最小延迟时间。<br>当经过最小延迟时间后，该消息将入队，但必须要等待到前边的内容全部处理完毕后才能执行。</li></ul>]]></content>
     </entry>
     
     <entry>
-      <title></title>
-      <link href="/temp/%E6%95%B0%E6%8D%AE%E5%BD%A2%E5%BC%8F%E8%BD%AC%E6%8D%A2.html"/>
-      <content type="html"><![CDATA[<p>A querystring parsing and stringifying library with some added security.</p>]]></content>
+      <title>定位、文档流与文本流</title>
+      <link href="/temp/%E5%AE%9A%E4%BD%8D%E3%80%81%E6%96%87%E6%A1%A3%E6%B5%81%E4%B8%8E%E6%96%87%E6%9C%AC%E6%B5%81.html"/>
+      <content type="html"><![CDATA[<h3 id="几种定位"><a href="#几种定位" class="headerlink" title="几种定位"></a>几种定位</h3><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>mdn有关文档流及定位的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D</a></li></ol>]]></content>
     </entry>
     
     <entry>
@@ -1329,6 +1323,12 @@
       <title>项目的一些思考</title>
       <link href="/temp/%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83.html"/>
       <content type="html"><![CDATA[<p>项目的一些交互设计主要仿照如下网站：</p><ul><li>七牛云</li><li>腾讯云</li><li>阿里云</li></ul><a id="more"></a><p>项目内容。</p><h2 id="登陆模块"><a href="#登陆模块" class="headerlink" title="登陆模块"></a>登陆模块</h2><h3 id="七牛云登陆模块分析"><a href="#七牛云登陆模块分析" class="headerlink" title="七牛云登陆模块分析"></a>七牛云登陆模块分析</h3><h4 id="1-用户交互"><a href="#1-用户交互" class="headerlink" title="1. 用户交互"></a>1. 用户交互</h4><p>输入框内容</p><ol><li>未输入文本时，输入框的背景色为白色，输入框内的背景为浅色文字，文字内容为名词：“七牛注册邮箱”、“七牛登陆密码”。</li><li>输入文本之后，背景文字消失，无其他变化。</li></ol><p>快捷键：回车</p><ol><li>当光标在任意输入框内，都可以通过回车登陆。</li></ol><h4 id="2-登陆按钮点击操作。"><a href="#2-登陆按钮点击操作。" class="headerlink" title="2. 登陆按钮点击操作。"></a>2. 登陆按钮点击操作。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">loginButton.on(&apos;click&apos;, function(e) &#123;</span><br><span class="line">  // 判断是否已经发送了登陆请求。</span><br><span class="line">  if (isSendingSigninReq) &#123;   </span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 获取需要传送的内容的值。</span><br><span class="line">  var email = emailElement.val()</span><br><span class="line">  var password = passwordElement.val()</span><br><span class="line">  var captchaVal = captchaIn.val()</span><br><span class="line"></span><br><span class="line">  // 值判空</span><br><span class="line">  if (!loginValidEmpty()) &#123;</span><br><span class="line">    return</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 拼凑字符串</span><br><span class="line">  var clientId = getURLParameter(&quot;client_id&quot;) || &quot;&quot;</span><br><span class="line">  var redirectUrl = getURLParameter(&quot;redirect_url&quot;) || &quot;&quot;</span><br><span class="line">  var url = &quot;/signin?client_id=&quot; + clientId + &quot;&amp;redirect_url=&quot; + redirectUrl</span><br><span class="line"></span><br><span class="line">  // 设置已经发送过登陆请求。</span><br><span class="line">  isSendingSigninReq = true</span><br><span class="line">  // 添加样式。disabled属性，导致按钮的颜色变浅，光标变化。</span><br><span class="line">  // cursor: not-allowed;</span><br><span class="line">  // filter: alpha(opacity=65);</span><br><span class="line">  // -webkit-box-shadow: none;</span><br><span class="line">  // box-shadow: none;</span><br><span class="line">  // opacity: .65;</span><br><span class="line">  loginButton.addClass(&apos;disabled&apos;);</span><br><span class="line"></span><br><span class="line">  performRequest(url, &quot;POST&quot;, &#123;</span><br><span class="line">    &quot;username&quot;: email,</span><br><span class="line">    &quot;password&quot;: password,</span><br><span class="line">    &quot;captcha&quot;: captchaVal</span><br><span class="line">  &#125;, loginSuccess, loginError, function(e) &#123;</span><br><span class="line">    isSendingSigninReq = false</span><br><span class="line">    loginButton.removeClass(&apos;disabled&apos;)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><h3 id="律师事务所登陆操作"><a href="#律师事务所登陆操作" class="headerlink" title="律师事务所登陆操作"></a>律师事务所登陆操作</h3><h4 id="1-用户交互-1"><a href="#1-用户交互-1" class="headerlink" title="1. 用户交互"></a>1. 用户交互</h4><p>猜测：按钮点击，然后提交表单，然后接收返回的内容，是一整套流程。这个流程里边有很多细节。可以探究一下。</p><h3 id="登陆模块还可以采取的改进方式"><a href="#登陆模块还可以采取的改进方式" class="headerlink" title="登陆模块还可以采取的改进方式"></a>登陆模块还可以采取的改进方式</h3><ul><li>表单提交最大的等待时间？</li><li></li></ul>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/temp/%E6%95%B0%E6%8D%AE%E5%BD%A2%E5%BC%8F%E8%BD%AC%E6%8D%A2.html"/>
+      <content type="html"><![CDATA[<p>A querystring parsing and stringifying library with some added security.</p>]]></content>
     </entry>
     
     <entry>
