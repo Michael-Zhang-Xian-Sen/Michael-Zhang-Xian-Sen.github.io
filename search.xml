@@ -3,6 +3,54 @@
   
     
     <entry>
+      <title>实用vue工具推荐：treeselect多选插件</title>
+      <link href="/2020/09/02/web%E5%AE%89%E5%85%A8/xss/"/>
+      <content type="html"><![CDATA[<h1 id="xss（Cross-Site-Scripting）攻击"><a href="#xss（Cross-Site-Scripting）攻击" class="headerlink" title="xss（Cross-Site Scripting）攻击"></a>xss（Cross-Site Scripting）攻击</h1><p>XSS 的本质是：恶意代码未经过滤，与网站正常的代码混在一起；浏览器无法分辨哪些脚本是可信的，导致恶意脚本被执行。</p><h3 id="不可信内容"><a href="#不可信内容" class="headerlink" title="不可信内容"></a>不可信内容</h3><ul><li>来自用户的 UGC（User Generated Content） 信息</li><li>来自第三方的链接</li><li>URL 参数</li><li>POST 参数</li><li>Referer （可能来自不可信的来源）</li><li>Cookie （可能来自其他子域注入）</li></ul><h3 id="XSS-注入的方法"><a href="#XSS-注入的方法" class="headerlink" title="XSS 注入的方法"></a>XSS 注入的方法</h3><ol><li>在 HTML 中内嵌的文本中，恶意内容以 script 标签形成注入。</li><li>在内联的 JavaScript 中，拼接的数据突破了原本的限制（字符串，变量，方法名等）。</li><li>在标签属性中，恶意内容包含引号，从而突破属性值的限制，注入其他属性或者标签。</li><li>在标签的 href、src 等属性中，包含 javascript: 等可执行代码。</li><li>在 onload、onerror、onclick 等事件中，注入不受控制代码。</li><li>在 style 属性和标签中，包含类似 background-image:url(“javascript:…”); 的代码（新版本浏览器已经可以防范）。</li><li>在 style 属性和标签中，包含类似 expression(…) 的 CSS 表达式代码（新版本浏览器已经可以防范）。</li><li>总之，如果开发者没有将用户输入的文本进行合适的过滤，就贸然插入到 HTML 中，这很容易造成注入漏洞。攻击者可以利用漏洞，构造出恶意的代码指令，进而利用恶意代码危害数据安全。</li></ol><h3 id="XSS攻击的两大要素："><a href="#XSS攻击的两大要素：" class="headerlink" title="XSS攻击的两大要素："></a>XSS攻击的两大要素：</h3><ol><li>攻击者提交恶意代码。</li><li>浏览器执行恶意代码。</li></ol><h3 id="前端应对方案："><a href="#前端应对方案：" class="headerlink" title="前端应对方案："></a>前端应对方案：</h3><ol><li>输入过滤。并不是终极方案，且不是特别好。</li><li>纯前端渲染。</li><li>避免将不可信的数据传递给以下能把字符串作为代码执行的api：<ol><li>DOM 中的内联事件监听器，如 location、onclick、onerror、onload、onmouseover 等。</li><li><a> 标签的 href 属性。</a></li><li>JavaScript 的 eval()、setTimeout()、setInterval() 等</li></ol></li><li>严格进行CSP防范。</li><li>输入内容长度控制。</li><li>HTTP-only Cookie: 禁止 JavaScript 读取某些敏感 Cookie，攻击者完成 XSS 注入后也无法窃取此 Cookie。</li><li>验证码：防止脚本冒充用户提交危险操作。</li><li>避免拼接 HTML。</li></ol><h3 id="如何减少xss漏洞"><a href="#如何减少xss漏洞" class="headerlink" title="如何减少xss漏洞"></a>如何减少xss漏洞</h3><ol><li>利用模板引擎。</li><li>避免内联事件。</li><li>避免拼接 HTML。</li><li>时刻保持警惕。</li><li>增加攻击难度，降低攻击后果。</li><li>主动检测和发现。</li></ol>]]></content>
+      
+      <categories>
+          
+          <category> web安全 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> web安全 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title></title>
+      <link href="/2020/09/02/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/git-flow/"/>
+      <content type="html"><![CDATA[]]></content>
+      
+      
+    </entry>
+    
+    <entry>
+      <title>TCP三次握手与四次挥手</title>
+      <link href="/2020/09/01/%E7%BD%91%E7%BB%9C/http/TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%8F%8A%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B/"/>
+      <content type="html"><![CDATA[<h3 id="TCP的三次握手"><a href="#TCP的三次握手" class="headerlink" title="TCP的三次握手"></a>TCP的三次握手</h3><p>为了对每次发送的数据量进行跟踪与协商，确保数据段的发送和接收同步，根据所接收到的数据量而确认数据发送、接收完毕后何时撤消联系，并建立虚连接。</p><p>第一次 客户端-&gt;服务端 SYN_SENT状态 syn,同时发送序号x<br>第二次 客户端&lt;-服务端 SYN_RECV状态 syn+ack包，返回确认号x+1，同时发送序号y<br>第三次 客户端-&gt;服务端 ESTABLISHED状态 syn+ack，返回确认号y+1。</p><h3 id="TCP的四次挥手"><a href="#TCP的四次挥手" class="headerlink" title="TCP的四次挥手"></a>TCP的四次挥手</h3><p>第一次 客户端-&gt;服务端 FIN=1,seq=u                   告诉服务端，我准备关闭连接了！此时客户端不向服务端发数据了，但是能收数据。<br>第二次 客户端&lt;-服务端 ACK=1,seq=v ack=u+1           哦，你要关连接啊，那我准备一下。<br>第三次 客户端&lt;-服务端 FIN=1,ACK=1,seq=w,ack=u+1     我准备好了，你关吧！停止向服务端发数据，但是能收数据<br>第四次 客户端-&gt;服务端 ACK=1,seq=u+1,ack=w+1         好的，我停止接收了，你停止接收吧，</p>]]></content>
+      
+      <categories>
+          
+          <category> TCP </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> TCP </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title></title>
       <link href="/2020/08/31/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/"/>
       <content type="html"><![CDATA[<p>要安装的内容：</p><ol><li>全局安装webpack。<code>npm install webpack -g</code></li><li>webpack命令行工具：<code>npm install webpack-cli -g</code></li></ol>]]></content>
@@ -161,26 +209,6 @@
     </entry>
     
     <entry>
-      <title>深度优先遍历</title>
-      <link href="/2020/08/24/%E7%AE%97%E6%B3%95/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/"/>
-      <content type="html"><![CDATA[]]></content>
-      
-      <categories>
-          
-          <category> 算法 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    <entry>
       <title>字节前端 一面</title>
       <link href="/2020/08/24/%E7%A7%8B%E6%8B%9B%E5%8E%86%E7%A8%8B/%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A2/"/>
       <content type="html"><![CDATA[<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol><li><p>算法题</p> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">从左侧视角打印一棵二叉树</span><br><span class="line"></span><br><span class="line">         <span class="number">1</span></span><br><span class="line">    <span class="number">2</span>        <span class="number">3</span></span><br><span class="line"><span class="number">4</span>       <span class="number">5</span></span><br><span class="line"></span><br><span class="line">=&gt;</span><br><span class="line">[<span class="number">1</span>, <span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printTree</span>(<span class="params">root</span>) </span>&#123;</span><br><span class="line"><span class="comment">// 补全代码</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123; val, left, right &#125;</span><br></pre></td></tr></table></figure></li><li><p>算法题</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">求一个数组A中所有长度为N的组合</span><br><span class="line">A = [1, 2, 3, 4, 5]</span><br><span class="line">N = 3</span><br><span class="line">=&gt;</span><br><span class="line">[[1, 2, 3], [1, 2, 4], [1, 2, 5], ....]</span><br><span class="line"></span><br><span class="line">function group(A, N) &#123;</span><br><span class="line">// 补全代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li><li><p>什么是CORS?<br>待总结。</p></li></ol><h2 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h2><h3 id="1-算法题"><a href="#1-算法题" class="headerlink" title="1. 算法题"></a>1. 算法题</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">printTree</span>(<span class="params">root</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = [],</span><br><span class="line">        pathQueue = [],</span><br><span class="line">        depthQueue = [];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(root)&#123;</span><br><span class="line">        pathQueue.push(root);</span><br><span class="line">        depthQueue.push(<span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(pathQueue.length)&#123;</span><br><span class="line">        <span class="keyword">let</span> node = pathQueue.shift(),</span><br><span class="line">            depth = depthQueue.shift();</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span>(result[depth] === <span class="literal">undefined</span>)&#123;</span><br><span class="line">            result.push(node.value);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(node.left)&#123;</span><br><span class="line">            pathQueue.push(node.left);</span><br><span class="line">            depthQueue.push(depth + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(node.right)&#123;</span><br><span class="line">            pathQueue.push(node.right);</span><br><span class="line">            depthQueue.push(depth + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-算法题"><a href="#2-算法题" class="headerlink" title="2. 算法题"></a>2. 算法题</h3><h3 id="3-什么是CORS"><a href="#3-什么是CORS" class="headerlink" title="3. 什么是CORS?"></a>3. 什么是CORS?</h3><p>CORS是一个W3C标准，全称是”跨域资源共享”（Cross-origin resource sharing）</p><h3 id="4-TCP协议队头阻塞"><a href="#4-TCP协议队头阻塞" class="headerlink" title="4. TCP协议队头阻塞"></a>4. TCP协议队头阻塞</h3><ol><li>TCP队头阻塞<br>TCP数据包是有序传输，中间一个数据包丢失，会等待该数据包重传，造成后面的数据包的阻塞。</li><li>HTTP队头阻塞<br>http队头阻塞和TCP队头阻塞完全不是一回事。</li></ol><p>http1.x采用长连接(Connection:keep-alive)，可以在一个TCP请求上，发送多个http请求。</p><p>有非管道化和管道化，两种方式。</p><p>非管道化，完全串行执行，请求-&gt;响应-&gt;请求-&gt;响应…，后一个请求必须在前一个响应之后发送。</p><p>管道化，请求可以并行发出，但是响应必须串行返回。后一个响应必须在前一个响应之后。原因是，没有序号标明顺序，只能串行接收。</p><p>管道化请求的致命弱点:</p><ol><li>会造成队头阻塞，前一个响应未及时返回，后面的响应被阻塞</li><li>请求必须是幂等请求，不能修改资源。因为，意外中断时候，客户端需要把未收到响应的请求重发，非幂等请求，会造成资源破坏。</li></ol><p>由于这个原因，目前大部分浏览器和Web服务器，都关闭了管道化，采用非管道化模式。</p><p>无论是非管道化还是管道化，都会造成队头阻塞(请求阻塞)。</p><p>解决http队头阻塞的方法：</p><ol><li>并发TCP连接（浏览器一个域名采用6-8个TCP连接，并发HTTP请求）</li><li><p>域名分片（多个域名，可以建立更多的TCP连接，从而提高HTTP请求的并发）</p></li><li><p>HTTP2方式</p></li></ol><p>http2使用一个域名单一TCP连接发送请求，请求包被二进制分帧，不同请求可以互相穿插，避免了http层面的请求队头阻塞。但是不能避免TCP层面的队头阻塞。</p><p>抄自：<a href="https://www.cnblogs.com/mengff/p/12724641.html" target="_blank" rel="noopener">https://www.cnblogs.com/mengff/p/12724641.html</a></p><h3 id="5-进程间通信的方式有哪些"><a href="#5-进程间通信的方式有哪些" class="headerlink" title="5. 进程间通信的方式有哪些"></a>5. 进程间通信的方式有哪些</h3><p>进程间通信方式有bai管道、信du号量、信号、消息队列、共享内存、套接字六种。<br>（1）管道分为有名管道和无名管道，其中无名管道是一种半双工的通信方式，数据只能单向流动，而且只能在具有亲缘关系的进程间使用，一般用于两个不同进程之间的通信。有名管道也是一种半双工的通信方式，但它允许无亲缘关系进程间的通信。<br>（2）信号量是一个计数器，可以用来控制多个线程对共享资源的访问，它不是用于交换大批数据，而用于多线程之间的同步。他常作为一种锁机制。因此，主要作为进程间以及同一个进程内不同线程之间的同步手段。<br>（3）信号是一种比较复杂的通信方式，用于通知接收进程某个时间已经发生。<br>（4）消息队列是消息的链表，存放在内核中并由消息队列标识符标识，消息队列克服了信号传递信息少，管道只能承载无格式字节流以及缓冲区大小受限等特点。<br>（5）共享内存就是映射一段能被其他进程所访问的内存，这段共享内存由一个进程创建，但多个进程都可以访问。他往往与其他通信机制，如信号量配合使用，来实现进程间的同步和通信。<br>（6）套接字可用于不同及其间的进程通信。</p><h3 id="6-数据库的事务是指什么。"><a href="#6-数据库的事务是指什么。" class="headerlink" title="6. 数据库的事务是指什么。"></a>6. 数据库的事务是指什么。</h3><p>数据库事务( transaction)是访问并可能操作各种数据项的一个数据库操作序列，这些操作要么全部执行,要么全部不执行，是一个不可分割的工作单位。事务由事务开始与事务结束之间执行的全部数据库操作组成。ACID特性。</p><p>1、原子性(Atomicity)：事务中的全部操作在数据库中是不可分割的，要么全部完成，要么全部不执行。<br>2、一致性(Consistency)：几个并行执行的事务，其执行结果必须与按某一顺序 串行执行的结果相一致。<br>3、隔离性(Isolation)：事务的执行不受其他事务的干扰，事务执行的中间结果对其他事务必须是透明的。<br>4、持久性(Durability):对于任意已提交事务，系统必须保证该事务对数据库的改变不被丢失，即使数据库出现故障。</p><h3 id="7-怎么用css实现一个正方形，要求宽度是屏幕宽度的一半。"><a href="#7-怎么用css实现一个正方形，要求宽度是屏幕宽度的一半。" class="headerlink" title="7. 怎么用css实现一个正方形，要求宽度是屏幕宽度的一半。"></a>7. 怎么用css实现一个正方形，要求宽度是屏幕宽度的一半。</h3><p>vw单位。1vw等于视口宽度的1%。</p><h3 id="8-编写isEqual-a-b-，使得逾期返回true。"><a href="#8-编写isEqual-a-b-，使得逾期返回true。" class="headerlink" title="8. 编写isEqual(a, b)，使得逾期返回true。"></a>8. 编写isEqual(a, b)，使得逾期返回true。</h3><p>已总结博客。见：js出现舍入误差的原因及应对方案</p><ol><li>什么是CORS?</li><li>TCP协议队头阻塞？</li><li>进程间通信的方式有哪些</li></ol><h3 id="9-事件的target和currentTarget分别是什么"><a href="#9-事件的target和currentTarget分别是什么" class="headerlink" title="9. 事件的target和currentTarget分别是什么"></a>9. 事件的target和currentTarget分别是什么</h3><p>target指触发事件的元素。</p><p>currentTarget指由于冒泡/捕获遍历元素的事件程序时，当前遍历到的元素。</p><p>已总结博客，见“js事件总结“</p><h3 id="10-for…in-和-Object-keys-的区别"><a href="#10-for…in-和-Object-keys-的区别" class="headerlink" title="10. for…in 和 Object.keys 的区别"></a>10. for…in 和 Object.keys 的区别</h3><p>两者之间最主要的区别就是Object.keys( )不会走原型链，而for in 会走原型链….</p><h3 id="11-form元素的target属性作用是什么：target-action"><a href="#11-form元素的target属性作用是什么：target-action" class="headerlink" title="11. form元素的target属性作用是什么：target=? action"></a>11. form元素的target属性作用是什么：target=? action</h3><p>target属性定在何处打开actionURL。共有五个属性值：</p><ol><li>_blank，在新窗口打开。</li><li>_self，默认，在相同的框架打开。</li><li>_parent，在父框架集中打开。</li><li>_top，在整个窗口中打开。</li><li>framename，在指定的框架打开。</li></ol><p>action属性，用来处理表单提交的URL。该属性可能会被覆盖。</p><h3 id="12-VUE父子组件怎么通信？"><a href="#12-VUE父子组件怎么通信？" class="headerlink" title="12. VUE父子组件怎么通信？"></a>12. VUE父子组件怎么通信？</h3><ol><li>props、emit</li><li>eventBus（不推荐）</li><li>vuex（不推荐）</li></ol>]]></content>
@@ -202,7 +230,7 @@
     
     <entry>
       <title>HTTP状态码</title>
-      <link href="/2020/08/24/http/http%E7%8A%B6%E6%80%81%E7%A0%81/"/>
+      <link href="/2020/08/24/%E7%BD%91%E7%BB%9C/http/http%E7%8A%B6%E6%80%81%E7%A0%81/"/>
       <content type="html"><![CDATA[<ol><li><code>1xx</code>消息（Informational）</li><li><code>2xx</code>成功（Success）</li><li><code>3xx</code>重定向（Redirection）</li><li><code>4xx</code>客户端错误（Client error）：客户端请求出错，服务器无法处理请求</li><li><code>5xx</code>服务器错误（Server Error）：服务器处理请求出错。</li></ol><h3 id="1-消息"><a href="#1-消息" class="headerlink" title="1. 消息"></a>1. 消息</h3><p>接收的请求正在处理。</p><h3 id="2-成功"><a href="#2-成功" class="headerlink" title="2. 成功"></a>2. 成功</h3><p>请求正常处理完毕。</p><ul><li><code>200 OK</code>，表示从客户端发送给服务器的请求被正常处理并返回。</li><li><code>204 No Content</code>，请求处理成功，但没有任何资源可以返回给客户端，一般在只需要从客户端往服务器发送信息，而服务器不需要向客户端发送新信息内容的情况下使用。</li><li><code>206 Partial Content</code>，是对资源某一部分的请求，该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求。响应报文中包含由Content-Range指定范围的实体内容。</li></ul><h3 id="3-重定向"><a href="#3-重定向" class="headerlink" title="3. 重定向"></a>3. 重定向</h3><p>需要进行附加操作以完成请求。</p><ul><li><code>301 Moved Permanently</code>，永久性重定向。请求的资源已经被分配了新的URI，以后应使用资源现在所指的URI。</li><li><code>302 Found</code>，临时性重定向。和301相似，但302代表的资源不是永久性移动，只是临时性性质的。换句话说，已移动的资源对应的URI将来还有可能发生改变。</li><li><code>303 See Other</code>，该状态码表示由于请求对应的资源存在着另一个URL，应使用GET方法定向获取请求的资源。303状态码和302状态码有着相同的功能，但303状态码明确表示客户端应当采用GET方法获取资源，这点与302状态码有区别。</li><li><code>304 Not Modified</code>，资源已找到，但未符合条件请求。该状态码表示客户端发送附带条件的请求时（采用GET方法的请求报文中包含If-Match，If-Modified-Since，If-None-Match，If-Range，If-Unmodified-Since中任一首部）服务端允许请求访问资源，但因发生请求未满足条件的情况后，直接返回304。</li><li><code>307 Temporary Redirect</code>，临时重定向。与302有相同的含义。</li></ul><h4 id="301永久重定向与302临时重定向的区别"><a href="#301永久重定向与302临时重定向的区别" class="headerlink" title="301永久重定向与302临时重定向的区别"></a>301永久重定向与302临时重定向的区别</h4><ul><li>301永久重定向，新网址完全继承旧网址，旧网址的排名等完全清零</li><li>302临时重定向，搜索引擎会抓取新的内容而保留旧的网址，</li></ul><h3 id="CNAME（Canonical-Name）与HTTP重定向的区别"><a href="#CNAME（Canonical-Name）与HTTP重定向的区别" class="headerlink" title="CNAME（Canonical Name）与HTTP重定向的区别"></a>CNAME（Canonical Name）与HTTP重定向的区别</h3><p>CNAME记录只是域名的别名，多用于CDN加速，而HTTP重定向是接收到重定向报文后，将请求重新发送给重定向所指出的URL。</p><h3 id="4-客户端错误"><a href="#4-客户端错误" class="headerlink" title="4. 客户端错误"></a>4. 客户端错误</h3><ul><li><code>400 Bad Request</code>，服务器端无法理解客户端发送的请求，请求报文中可能存在语法错误。</li><li><code>401 Unauthorized</code>，该状态码表示发送的请求需要有通过HTTP认证（BASIC认证，DIGEST认证）的认证信息。</li><li><code>403 Forbidden</code>，不允许访问那个资源。该状态码表明对请求资源的访问被服务器拒绝了。</li><li><code>404 Not Found</code>，服务器上没有请求的资源。路径错误等。</li></ul><h3 id="5-服务器本身发生错误"><a href="#5-服务器本身发生错误" class="headerlink" title="5. 服务器本身发生错误"></a>5. 服务器本身发生错误</h3><ul><li><code>500 Internal Server Error</code>，该状态码表明服务器端在执行请求时发生了错误。也有可能是web应用存在bug或某些临时故障。</li><li><code>503 Service Unavailable</code>，该状态码表明服务器暂时处于超负载或正在停机维护，现在无法处理请求。</li></ul>]]></content>
       
       <categories>
@@ -263,9 +291,9 @@
     </entry>
     
     <entry>
-      <title>chrome浏览器的渲染过程</title>
+      <title>chrome浏览器的渲染过程及回流与重绘</title>
       <link href="/2020/08/17/%E6%B5%8F%E8%A7%88%E5%99%A8/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B/"/>
-      <content type="html"><![CDATA[<h2 id="浏览器的渲染过程分为以下几步："><a href="#浏览器的渲染过程分为以下几步：" class="headerlink" title="浏览器的渲染过程分为以下几步："></a>浏览器的渲染过程分为以下几步：</h2><p>1.解析HTML，构建DOM树<br>2.解析CSS样式表，构建CSSOM(CSS Object Model)<br>3.将DOM和CSSOM进行合并生成Render Tree(渲染树)<br>4.根据Render Tree计算布局<br>5.依据Render Tree进行渲染</p><h2 id="关于回流和重绘"><a href="#关于回流和重绘" class="headerlink" title="关于回流和重绘"></a>关于回流和重绘</h2><ol><li>回流(reflow/layout)：当Render Tree中的一部分(或所有)因为其中元素的规模尺寸、布局(计算确切位置)、隐藏等改变而需要重新构建Render Tree。</li><li>重绘(repaint/painting)：当Render Tree中的一些元素需要更新属性，但这些属性只会影响元素的外观，风格，而不会影响布局，无需重新构建render tree。</li></ol><p>导致回流的具体情况：</p><ul><li>添加或删除可见的DOM元素</li><li>元素的位置发生变化</li><li>元素的尺寸发生变化（包括外边距、内边框、边框大小、高度和宽度等）</li><li>内容发生变化，比如文本变化或图片被另一个不同尺寸的图片所替代。</li><li>页面一开始渲染的时候（这肯定避免不了）</li><li>浏览器的窗口尺寸变化（因为回流是根据视口的大小来计算元素的位置和大小的）</li></ul><p>回流一定会触发重绘，但是重绘不一定触发回流。</p><h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><ul><li>利用cssTest属性和修改class更改元素样式，避免直接修改元素样式，最小化重绘和重排。</li><li>让DOM脱离文档流，进行修改完毕后，再回到文档流。脱离文档流后的改动不会引起回流。</li><li>现代浏览器大部分有一个队列，用于优化重排过程。而类似offsetTop的方法会强制队列刷新。所以需要避免在修改样式时直接引用以上属性，即避免触发同步布局事件。</li><li>复杂动画最好能脱离文档流。</li><li>css3硬件加速。</li></ul><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>谷歌开发者web基础：<a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn" target="_blank" rel="noopener">https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn</a></li><li>你真的了解重流和重绘吗：<a href="https://segmentfault.com/a/1190000017329980" target="_blank" rel="noopener">https://segmentfault.com/a/1190000017329980</a></li></ol>]]></content>
+      <content type="html"><![CDATA[<h2 id="浏览器的渲染过程分为以下几步："><a href="#浏览器的渲染过程分为以下几步：" class="headerlink" title="浏览器的渲染过程分为以下几步："></a>浏览器的渲染过程分为以下几步：</h2><p>1.解析HTML，构建DOM树<br>2.解析CSS样式表，构建CSSOM(CSS Object Model)<br>3.将DOM和CSSOM进行合并生成Render Tree(渲染树)<br>4.根据Render Tree计算布局<br>5.依据Render Tree进行渲染</p><h2 id="关于回流和重绘"><a href="#关于回流和重绘" class="headerlink" title="关于回流和重绘"></a>关于回流和重绘</h2><ol><li>回流(reflow/layout)：当Render Tree中的一部分(或所有)因为其中元素的规模尺寸、布局(计算确切位置)、隐藏等改变而需要重新构建Render Tree。即结构发生变化了。</li><li>重绘(repaint/painting)：当Render Tree中的一些元素需要更新属性，但这些属性只会影响元素的外观，风格，而不会影响布局，无需重新构建render tree。即样式发生变化了。</li></ol><p>导致回流的具体情况：</p><ul><li>添加或删除可见的DOM元素</li><li>元素的位置发生变化</li><li>元素的尺寸发生变化（包括外边距、内边框、边框大小、高度和宽度等）</li><li>内容发生变化，比如文本变化或图片被另一个不同尺寸的图片所替代。</li><li>页面一开始渲染的时候（这肯定避免不了）</li><li>浏览器的窗口尺寸变化（因为回流是根据视口的大小来计算元素的位置和大小的）</li></ul><p>回流一定会触发重绘，但是重绘不一定触发回流。</p><h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><ul><li>利用cssTest属性和修改class更改元素样式，避免直接修改元素样式，最小化重绘。</li><li>让DOM脱离文档流，进行修改完毕后，再回到文档流。脱离文档流后的改动不会引起回流。</li><li>现代浏览器大部分有一个队列，用于优化重排过程。而类似offsetTop的方法会强制队列刷新。所以需要避免在修改样式时直接引用以上属性，即避免触发同步布局事件。</li><li>复杂动画最好能脱离文档流。</li><li>css3硬件加速。</li></ul><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>谷歌开发者web基础：<a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn" target="_blank" rel="noopener">https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn</a></li><li>你真的了解重流和重绘吗：<a href="https://segmentfault.com/a/1190000017329980" target="_blank" rel="noopener">https://segmentfault.com/a/1190000017329980</a></li></ol>]]></content>
       
       <categories>
           
@@ -285,7 +313,7 @@
     <entry>
       <title>浏览器存储总结</title>
       <link href="/2020/08/17/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8%E6%80%BB%E7%BB%93/"/>
-      <content type="html"><![CDATA[<p>存储方式：</p><ol><li>localStorage</li><li>sessionStorage</li><li>cookie</li></ol><p>浏览器的存储根据上下文环境不同，涉及到几个层级关系。</p><ol><li>浏览器。firefox or chome or …</li><li>浏览器窗口。一个窗口包含一堆标签页。</li><li>浏览器标签页。<ul><li>引申：标签页之间是否同源。</li><li>引申：点击链接，进行跳转<ul><li>跳转到新的标签页。</li><li>在本标签页内跳转，不生成新页面。</li></ul></li></ul></li><li>内嵌iframe</li></ol><h2 id="1-localStorage"><a href="#1-localStorage" class="headerlink" title="1. localStorage"></a>1. localStorage</h2><p>HTML5新增。</p><ul><li>生命周期：用于将数据长久保存在网站中，保存的数据没有过期时间，直到手动删除。关闭浏览器呢？</li><li>使用范围：同一个浏览器下的不同浏览器窗口的同源标签页之间，可以共享。</li><li>大小：因浏览器而异，大致在2.5MB到10MB之间。</li></ul><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p><code>localStorage</code>对象的对象原型为<code>Storage</code>。</p><ul><li>设置localStorage：<code>localStorage.setItem(&#39;test&#39;,&#39;设置localStorage&#39;)</code></li><li>获取localStorage<ul><li>获取指定记录：<code>localStorage.getItem(&#39;test&#39;)</code></li><li>获取全部记录：<code>window.localStorage</code></li></ul></li><li>移除localStorage<ul><li>移除指定记录：<code>localStorage.removeItem(&#39;test&#39;)</code></li><li>移除全部记录：<code>localStorage.clear()</code></li></ul></li><li>获取localStorage的长度：<code>localStorage.length</code></li><li>获取某条localStorage记录的名称：<code>localStorage.key(idx)</code></li></ul><h2 id="2-sessionStorage"><a href="#2-sessionStorage" class="headerlink" title="2. sessionStorage"></a>2. sessionStorage</h2><p>HTML5新增。</p><ul><li>生命周期：当前窗口/标签页，刷新时不会被清空。</li><li>使用范围：当前标签页。当前标签页内跳转可以共享sessionStorage，但是通过打开新标签页跳转时不能共享。</li></ul><h3 id="基本操作-1"><a href="#基本操作-1" class="headerlink" title="基本操作"></a>基本操作</h3><p><code>sessionStorage</code>的对象原型也为<code>Storage</code>。api和localStorage几乎可以说是一模一样。</p><ul><li>设置sessionStorage：<code>sessionStorage.setItem(&#39;test&#39;,&quot;设置sessionStorage)</code></li><li>获取sessionStorage<ul><li>获取指定记录：<code>sessionStorage.getItem(&#39;test&#39;)</code></li><li>获取全部记录：<code>window.sessionStorage</code></li></ul></li><li>移除sessionStorage<ul><li>移除指定记录：<code>sessionStorage.removeItem(&#39;test&#39;)</code></li><li>移除全部记录：<code>sessionStorage.clear()</code></li></ul></li><li>获取sessionStorage的长度：<code>sessionStorage.length</code></li><li>获取某条sessionStorage记录的名称：<code>sessionStorage.key(idx)</code></li></ul><h2 id="3-cookie"><a href="#3-cookie" class="headerlink" title="3. cookie"></a>3. cookie</h2><p>cookie经常与session搭配使用。由于http协议是无状态的，而服务器如果要识别当前通信的客户，此时需要一个“通行证”，由服务器颁发给客户端，客户端以后再与后台通信时，仅需要将通行证和要传递的内容一起发给后台，后台看到通行证就会明白自己在与谁通信，然后就可以将需要的数据返回给前端。cookie和session的作用，就是此处的通行证。</p><p>生命周期：Cookie存储于电脑上的文本文件中，如果不进行清除或未打到过期时间，永远不会消失。<br>适用范围：同一个浏览器下可以共享。<br>使用场景：可以帮助我们实现记录用户个人信息的功能。Cookie经常被用于存储用户的信息，来实现记住用户名、记住密码等功能。</p><h3 id="基本操作-2"><a href="#基本操作-2" class="headerlink" title="基本操作"></a>基本操作</h3><ul><li>设置cookie：<code>document.cookie=&quot;键值对;过期时间;cookie路径&quot;</code>，如：<code>document.cookie=&quot;username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/&quot;;</code></li><li>获取cookie：获取字符串格式的cookie：<code>document.cookie</code></li><li>删除cookie：为该记录设置一个已经过去的时间或者当前时间<code>document.cookie = &quot;username=; expires=Thu, 01 Jan 1970 00:00:00 GMT&quot;;</code><br>由于cookie的相关api较少，操作不方便，故使用时最好能够封装一些cookie的基本操作。</li></ul><h2 id="4-indexedDB"><a href="#4-indexedDB" class="headerlink" title="4. indexedDB"></a>4. indexedDB</h2><p>浏览器内置的大量数据存储技术。</p><p>相关教程：<a href="http://www.ruanyifeng.com/blog/2018/07/indexeddb.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2018/07/indexeddb.html</a></p><h2 id="localStorage和sessionStorage的区别"><a href="#localStorage和sessionStorage的区别" class="headerlink" title="localStorage和sessionStorage的区别"></a>localStorage和sessionStorage的区别</h2><p>时效性。localStorage会一直存储在浏览器中，除非手动删除。而sessionStorage会在关闭窗口或标签页后清除，仅仅用于临时保存。</p>]]></content>
+      <content type="html"><![CDATA[<p>存储方式：</p><ol><li>localStorage</li><li>sessionStorage</li><li>cookie</li></ol><p>浏览器的存储根据上下文环境不同，涉及到几个层级关系。</p><ol><li>浏览器。firefox or chome or …</li><li>浏览器窗口。一个窗口包含一堆标签页。</li><li>浏览器标签页。<ul><li>引申：标签页之间是否同源。</li><li>引申：点击链接，进行跳转<ul><li>跳转到新的标签页。</li><li>在本标签页内跳转，不生成新页面。</li></ul></li></ul></li><li>内嵌iframe</li></ol><h2 id="1-localStorage"><a href="#1-localStorage" class="headerlink" title="1. localStorage"></a>1. localStorage</h2><p>HTML5新增。</p><ul><li>生命周期：用于将数据长久保存在网站中，保存的数据没有过期时间，直到手动删除。</li><li>使用范围：同一个浏览器下的不同浏览器窗口的同源标签页之间，可以共享。</li><li>大小：因浏览器而异，大致在2.5MB到10MB之间。</li></ul><h3 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h3><p><code>localStorage</code>对象的对象原型为<code>Storage</code>。</p><ul><li>设置localStorage：<code>localStorage.setItem(&#39;test&#39;,&#39;设置localStorage&#39;)</code></li><li>获取localStorage<ul><li>获取指定记录：<code>localStorage.getItem(&#39;test&#39;)</code></li><li>获取全部记录：<code>window.localStorage</code></li></ul></li><li>移除localStorage<ul><li>移除指定记录：<code>localStorage.removeItem(&#39;test&#39;)</code></li><li>移除全部记录：<code>localStorage.clear()</code></li></ul></li><li>获取localStorage的长度：<code>localStorage.length</code></li><li>获取某条localStorage记录的名称：<code>localStorage.key(idx)</code></li></ul><h2 id="2-sessionStorage"><a href="#2-sessionStorage" class="headerlink" title="2. sessionStorage"></a>2. sessionStorage</h2><p>HTML5新增。</p><ul><li>生命周期：当前窗口/标签页，刷新时不会被清空。</li><li>使用范围：当前标签页。当前标签页内跳转可以共享sessionStorage，但是通过打开新标签页跳转时不能共享。</li></ul><h3 id="基本操作-1"><a href="#基本操作-1" class="headerlink" title="基本操作"></a>基本操作</h3><p><code>sessionStorage</code>的对象原型也为<code>Storage</code>。api和localStorage几乎可以说是一模一样。</p><ul><li>设置sessionStorage：<code>sessionStorage.setItem(&#39;test&#39;,&quot;设置sessionStorage)</code></li><li>获取sessionStorage<ul><li>获取指定记录：<code>sessionStorage.getItem(&#39;test&#39;)</code></li><li>获取全部记录：<code>window.sessionStorage</code></li></ul></li><li>移除sessionStorage<ul><li>移除指定记录：<code>sessionStorage.removeItem(&#39;test&#39;)</code></li><li>移除全部记录：<code>sessionStorage.clear()</code></li></ul></li><li>获取sessionStorage的长度：<code>sessionStorage.length</code></li><li>获取某条sessionStorage记录的名称：<code>sessionStorage.key(idx)</code></li></ul><h2 id="3-cookie"><a href="#3-cookie" class="headerlink" title="3. cookie"></a>3. cookie</h2><p>cookie经常与session搭配使用。由于http协议是无状态的，而服务器如果要识别当前通信的客户，此时需要一个“通行证”，由服务器颁发给客户端，客户端以后再与后台通信时，仅需要将通行证和要传递的内容一起发给后台，后台看到通行证就会明白自己在与谁通信，然后就可以将需要的数据返回给前端。cookie和session的作用，就是此处的通行证。</p><p>生命周期：Cookie存储于电脑上的文本文件中，如果不进行清除或未打到过期时间，永远不会消失。<br>适用范围：同一个浏览器下可以共享。<br>使用场景：可以帮助我们实现记录用户个人信息的功能。Cookie经常被用于存储用户的信息，来实现记住用户名、记住密码等功能。</p><h3 id="基本操作-2"><a href="#基本操作-2" class="headerlink" title="基本操作"></a>基本操作</h3><ul><li>设置cookie：<code>document.cookie=&quot;键值对;过期时间;cookie路径&quot;</code>，如：<code>document.cookie=&quot;username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/&quot;;</code></li><li>获取cookie：获取字符串格式的cookie：<code>document.cookie</code></li><li>删除cookie：为该记录设置一个已经过去的时间或者当前时间<code>document.cookie = &quot;username=; expires=Thu, 01 Jan 1970 00:00:00 GMT&quot;;</code><br>由于cookie的相关api较少，操作不方便，故使用时最好能够封装一些cookie的基本操作。</li></ul><h2 id="4-indexedDB"><a href="#4-indexedDB" class="headerlink" title="4. indexedDB"></a>4. indexedDB</h2><p>浏览器内置的大量数据存储技术。</p><p>相关教程：<a href="http://www.ruanyifeng.com/blog/2018/07/indexeddb.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2018/07/indexeddb.html</a></p><h2 id="localStorage和sessionStorage的区别"><a href="#localStorage和sessionStorage的区别" class="headerlink" title="localStorage和sessionStorage的区别"></a>localStorage和sessionStorage的区别</h2><p>时效性。localStorage会一直存储在浏览器中，除非手动删除。而sessionStorage会在关闭窗口或标签页后清除，仅仅用于临时保存。</p>]]></content>
       
       <categories>
           
@@ -635,14 +663,14 @@
       
       <categories>
           
-          <category> 软件设计 </category>
+          <category> vue </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 软件设计 </tag>
+            <tag> vue </tag>
             
         </tags>
       
@@ -1086,7 +1114,7 @@
     
     <entry>
       <title>《HTTP下午茶》</title>
-      <link href="/2017/06/14/http/http_afternoon_tea/"/>
+      <link href="/2017/06/14/%E7%BD%91%E7%BB%9C/http/http_afternoon_tea/"/>
       <content type="html"><![CDATA[<p>HTTP协议的入门小书，全书通俗易读，辅以插图食用口味更佳。</p><a id="more"></a><p>传送门：<a href="https://www.kancloud.cn/kancloud/tealeaf-http/43837" target="_blank" rel="noopener">https://www.kancloud.cn/kancloud/tealeaf-http/43837</a></p><p>书中简要介绍了如下内容：</p><ul><li>如何通过网址如何上网<ul><li>DNS</li><li>客户端和服务器。</li></ul></li><li>无状态协议</li><li>URL</li><li>抓包工具</li><li>HTTP请求<ul><li>get请求</li><li>post请求</li><li>HTTP状态码</li></ul></li><li>如何构建有状态的web应用<ul><li>session</li><li>cookies</li><li>ajax</li></ul></li><li>WEB安全<ul><li>HTTPS</li><li>同源策略</li><li>会话劫持</li><li>XSS攻击（会话劫持的对策）</li></ul></li></ul>]]></content>
       
       <categories>
@@ -1165,13 +1193,13 @@
     
     <entry>
       <title></title>
-      <link href="/temp/java%E5%BE%AE%E6%9C%8D%E5%8A%A1.html"/>
+      <link href="/temp/http1.0%E5%92%8Chttp1.1%E7%9A%84%E8%BE%A8%E6%9E%90.html"/>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
       <title></title>
-      <link href="/temp/npm%E4%BD%BF%E7%94%A8%E5%B0%8F%E8%AE%B0.html"/>
+      <link href="/temp/java%E5%BE%AE%E6%9C%8D%E5%8A%A1.html"/>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
@@ -1188,14 +1216,14 @@
     </entry>
     
     <entry>
-      <title>gallery</title>
-      <link href="/gallery/index.html"/>
+      <title>links</title>
+      <link href="/links/index.html"/>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
-      <title>links</title>
-      <link href="/links/index.html"/>
+      <title>gallery</title>
+      <link href="/gallery/index.html"/>
       <content type="html"><![CDATA[]]></content>
     </entry>
     
@@ -1221,18 +1249,6 @@
       <title></title>
       <link href="/temp/iTerm2.html"/>
       <content type="html"><![CDATA[<p>chsh命令。切换shell环境。</p>]]></content>
-    </entry>
-    
-    <entry>
-      <title></title>
-      <link href="/temp/js%E4%B8%AD%E7%9A%84%E5%87%A0%E7%A7%8D%E5%BE%AA%E7%8E%AF%E5%92%8C%E6%95%B0%E7%BB%84%E3%80%81%E5%AF%B9%E8%B1%A1%E7%9A%84%E9%81%8D%E5%8E%86.html"/>
-      <content type="html"><![CDATA[<h3 id="1-for循环"><a href="#1-for循环" class="headerlink" title="1. for循环"></a>1. for循环</h3><p>最简单的循环。写起来麻烦，但几乎什么啥都能干。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for(循环体运行之前执行，一般为赋值语句;循环条件判断语句;循环体运行完毕后执行，)&#123;</span><br><span class="line">    循环体</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="2-foreach"><a href="#2-foreach" class="headerlink" title="2. foreach"></a>2. foreach</h3><p>语法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数组.foreach(callback(currentValue[,index[,array]])[,thisArg]);</span><br></pre></td></tr></table></figure></p><p>参数：</p><ul><li>callback:为数组中每个元素执行的函数，该函数接收三个参数：</li><li>currentValue:数组中正在处理的当前元素。</li><li>index 可选:数组中正在处理的当前元素的索引。</li><li>array 可选:forEach() 方法正在操作的数组。</li><li>thisArg 可选 可选参数。当执行回调函数 callback 时，用作 this 的值。</li></ul><p>返回值：</p><ul><li>undefined</li></ul><p>其他注意事项：</p><ul><li>forEach() 遍历的范围在第一次调用 callback 前就会确定。调用 forEach 后添加到数组中的项不会被 callback 访问到。</li><li>除了抛出异常以外，没有办法中止或跳出 forEach() 循环</li></ul><h3 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h3>]]></content>
-    </entry>
-    
-    <entry>
-      <title>js小记：this入门及进阶</title>
-      <link href="/temp/js%E5%B0%8F%E8%AE%B0%EF%BC%9Athis%E7%9A%84%E5%90%AB%E4%B9%89%E5%8F%8A%E8%BF%9B%E9%98%B6%E7%94%A8%E6%B3%95.html"/>
-      <content type="html"><![CDATA[<h2 id="this的进阶知识"><a href="#this的进阶知识" class="headerlink" title="this的进阶知识"></a>this的进阶知识</h2><h3 id="this的箭头函数"><a href="#this的箭头函数" class="headerlink" title="this的箭头函数"></a>this的箭头函数</h3><h3 id="更改this的作用域。"><a href="#更改this的作用域。" class="headerlink" title="更改this的作用域。"></a>更改this的作用域。</h3><h4 id="方法1-call"><a href="#方法1-call" class="headerlink" title="方法1:call"></a>方法1:call</h4>]]></content>
     </entry>
     
     <entry>
@@ -1286,19 +1302,13 @@
     <entry>
       <title></title>
       <link href="/temp/%E5%85%B3%E4%BA%8Enpm.html"/>
-      <content type="html"><![CDATA[<h2 id="关于npx"><a href="#关于npx" class="headerlink" title="关于npx"></a>关于npx</h2><ul><li>npx 想要解决的主要问题，就是调用项目内部安装的模块。</li><li>npx还可以安装模块，且默认不是全局安装，而是安装到一个临时目录，用完即删。可以通过命令进行指定是否使用本地的模块而不是安装模块（–no-install）、强制安装并使用远程模块（–ignore-existing）</li><li><code>-p</code>参数，指定要安装的模块。</li><li><code>-c</code>参数，使得所有命令交由npx解释。</li><li>npx还可以远程执行github源码。</li><li>npm从5.2版本开始支持npx</li></ul><h3 id="dependencies和devDependencies的区别"><a href="#dependencies和devDependencies的区别" class="headerlink" title="dependencies和devDependencies的区别"></a>dependencies和devDependencies的区别</h3><ul><li><code>devDependencies</code>：开发环境使用。<br>npm i -D 是 npm install –save-dev 的简写，是指安装模块并保存到 package.json 的 devDependencies</li><li><code>dependencies</code>：生产环境使用</li></ul><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>删除一个依赖：<code>npm remove</code></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li>阮一峰的npx使用教程：<a href="http://www.ruanyifeng.com/blog/2019/02/npx.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/02/npx.html</a></li></ul>]]></content>
+      <content type="html"><![CDATA[<h2 id="关于npx"><a href="#关于npx" class="headerlink" title="关于npx"></a>关于npx</h2><ul><li>npx 想要解决的主要问题，就是调用项目内部安装的模块。</li><li>npx还可以安装模块，且默认不是全局安装，而是安装到一个临时目录，用完即删。可以通过命令进行指定是否使用本地的模块而不是安装模块（–no-install）、强制安装并使用远程模块（–ignore-existing）</li><li><code>-p</code>参数，指定要安装的模块。</li><li><code>-c</code>参数，使得所有命令交由npx解释。</li><li>npx还可以远程执行github源码。</li><li>npm从5.2版本开始支持npx</li></ul><h3 id="dependencies和devDependencies的区别"><a href="#dependencies和devDependencies的区别" class="headerlink" title="dependencies和devDependencies的区别"></a>dependencies和devDependencies的区别</h3><ul><li><code>devDependencies</code>：开发环境使用。npm i -D 是 npm install –save-dev 的简写，是指安装模块并保存到 package.json 的 devDependencies。在开发环境，npm i ，安装所有devDependencies 和 dependencies里面的模块</li><li><code>dependencies</code>：生产环境使用。npm i -S 在生产环境，使用npm install –production安装 dependencies 部分的模块。</li></ul><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>删除一个依赖：<code>npm remove</code></p><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li>阮一峰的npx使用教程：<a href="http://www.ruanyifeng.com/blog/2019/02/npx.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2019/02/npx.html</a></li></ul>]]></content>
     </entry>
     
     <entry>
-      <title>外边距折叠</title>
-      <link href="/temp/%E5%A4%96%E8%BE%B9%E8%B7%9D%E6%8A%98%E5%8F%A0.html"/>
-      <content type="html"><![CDATA[<h3 id="形成外布局重叠的情况："><a href="#形成外布局重叠的情况：" class="headerlink" title="形成外布局重叠的情况："></a>形成外布局重叠的情况：</h3><p>外边距重叠的含义：块的上外边距(margin-top)和下外边距(margin-bottom)有时合并(折叠)为单个边距，其大小为单个边距的最大值(或如果它们相等，则仅为其中一个)，</p><ol><li>同一层相邻元素之间：相邻的两个元素之间的外边距重叠，除非后一个元素加上clear-fix清除浮动。</li></ol><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>知乎回答：<a href="https://www.zhihu.com/question/19823139?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/19823139?sort=created</a></li><li>MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing</a></li></ol>]]></content>
-    </entry>
-    
-    <entry>
-      <title>定位、文档流与文本流</title>
-      <link href="/temp/%E5%AE%9A%E4%BD%8D%E3%80%81%E6%96%87%E6%A1%A3%E6%B5%81%E4%B8%8E%E6%96%87%E6%9C%AC%E6%B5%81.html"/>
-      <content type="html"><![CDATA[<h3 id="几种定位"><a href="#几种定位" class="headerlink" title="几种定位"></a>几种定位</h3><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>mdn有关文档流及定位的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D</a></li></ol>]]></content>
+      <title></title>
+      <link href="/temp/websocket.html"/>
+      <content type="html"><![CDATA[<ul><li>服务器推送技术的一种。</li><li>建立在 TCP 协议之上。</li><li>数据格式比较轻量，性能开销小，通信高效。</li><li>可以发送文本，也可以发送二进制数据。</li><li>没有同源限制，客户端可以与任意服务器通信。</li><li>协议标识符是ws（如果加密，则为wss），服务器网址就是 URL.</li></ul><p>问题。发送http请求时，需要建立连接吗？TCP和UDP什么关系？http报文是UDP实现吗？</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ws = <span class="keyword">new</span> WebSocket(<span class="string">"ws://localhost:8080"</span>);</span><br><span class="line"><span class="keyword">switch</span>(ws.readyState)&#123;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CONNECTING:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.OPEN:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CLOSING:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">case</span> WebSocket.CLOSED:<span class="keyword">break</span>;</span><br><span class="line">    <span class="keyword">default</span>: <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 连接成功后的回调函数。写法1</span></span><br><span class="line">ws.onOpen = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 向服务器发送数据</span></span><br><span class="line">    ws.send(<span class="string">"Hello Server"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// websocket连接成功后的回调函数，写法2</span></span><br><span class="line">ws.addEventListener(<span class="string">'open'</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    ws.send(<span class="string">"Hello Server"</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 连接关闭后的回调函数</span></span><br><span class="line">ws.onclose = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> code = event.code,</span><br><span class="line">        reason = event.reason,</span><br><span class="line">        wasClean = event.wasClean;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 收到服务器数据后的回调函数</span></span><br><span class="line">ws.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> data = event.data;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4. 报错时的回调函数</span></span><br><span class="line">ws.onerror = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// handle error event;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
     </entry>
     
     <entry>
@@ -1314,9 +1324,21 @@
     </entry>
     
     <entry>
+      <title>外边距折叠</title>
+      <link href="/temp/%E5%A4%96%E8%BE%B9%E8%B7%9D%E6%8A%98%E5%8F%A0.html"/>
+      <content type="html"><![CDATA[<h3 id="形成外布局重叠的情况："><a href="#形成外布局重叠的情况：" class="headerlink" title="形成外布局重叠的情况："></a>形成外布局重叠的情况：</h3><p>外边距重叠的含义：块的上外边距(margin-top)和下外边距(margin-bottom)有时合并(折叠)为单个边距，其大小为单个边距的最大值(或如果它们相等，则仅为其中一个)，</p><ol><li>同一层相邻元素之间：相邻的两个元素之间的外边距重叠，除非后一个元素加上clear-fix清除浮动。</li></ol><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>知乎回答：<a href="https://www.zhihu.com/question/19823139?sort=created" target="_blank" rel="noopener">https://www.zhihu.com/question/19823139?sort=created</a></li><li>MDN：<a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing</a></li></ol>]]></content>
+    </entry>
+    
+    <entry>
       <title>关于异步（三）： 并发模型与事件循环机制</title>
       <link href="/temp/%E5%B9%B6%E5%8F%91%E6%A8%A1%E5%9E%8B%E4%B8%8E%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF.html"/>
       <content type="html"><![CDATA[<h2 id="运行时概念"><a href="#运行时概念" class="headerlink" title="运行时概念"></a>运行时概念</h2><ul><li><strong>函数调用</strong>形成栈帧</li><li><strong>对象</strong>被分配在堆中</li><li><strong>待处理消息</strong>在队列中。消息关联着一个用以处理这个消息的回调函数。</li></ul><h2 id="事件循环（EventLoop）"><a href="#事件循环（EventLoop）" class="headerlink" title="事件循环（EventLoop）"></a>事件循环（EventLoop）</h2><ol><li>事件循环时，“运行时”会先处理队头的消息。处理方式即将该消息移出队列，然后使用其输入参数调用关联的函数，形成栈帧，然后继续执行这个函数直到完成（栈空）。</li><li>处理完后，执行下一个消息。</li></ol><h3 id="添加“消息”"><a href="#添加“消息”" class="headerlink" title="添加“消息”"></a>添加“消息”</h3><p>条件：</p><ol><li>事件被事件监听器绑定。</li><li>事件发生。</li></ol><p>注意：</p><ul><li>如果没有事件监听器，则该事件被丢失。</li></ul><h3 id="关于处理消息的“执行至完成”过程"><a href="#关于处理消息的“执行至完成”过程" class="headerlink" title="关于处理消息的“执行至完成”过程"></a>关于处理消息的“执行至完成”过程</h3><ul><li>缺陷：如果消息耗费时间长，则无法处理其他的事情，比如用户的其他交互。</li><li>对策：<ol><li>采用loading动画等提示信息。</li><li>将消息剪裁为多个消息。</li></ol></li></ul><h3 id="关于setTimeout"><a href="#关于setTimeout" class="headerlink" title="关于setTimeout"></a>关于setTimeout</h3><p>setTimeout接收的参数如下：</p><ul><li>待加入队列的消息。</li><li>一个时间值。即消息被加入队列的最小延迟时间。<br>当经过最小延迟时间后，该消息将入队，但必须要等待到前边的内容全部处理完毕后才能执行。</li></ul>]]></content>
+    </entry>
+    
+    <entry>
+      <title>定位、文档流与文本流</title>
+      <link href="/temp/%E5%AE%9A%E4%BD%8D%E3%80%81%E6%96%87%E6%A1%A3%E6%B5%81%E4%B8%8E%E6%96%87%E6%9C%AC%E6%B5%81.html"/>
+      <content type="html"><![CDATA[<h3 id="几种定位"><a href="#几种定位" class="headerlink" title="几种定位"></a>几种定位</h3><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>mdn有关文档流及定位的介绍：<a href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Learn/CSS/CSS_layout/%E5%AE%9A%E4%BD%8D</a></li></ol>]]></content>
     </entry>
     
     <entry>

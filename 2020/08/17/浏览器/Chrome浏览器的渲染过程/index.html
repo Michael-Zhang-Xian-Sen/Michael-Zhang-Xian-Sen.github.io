@@ -22,7 +22,7 @@
     
     <title>
         
-        chrome浏览器的渲染过程 | 
+        chrome浏览器的渲染过程及回流与重绘 | 
         
         XD
     </title>
@@ -79,7 +79,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://nice2meetu.site">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="chrome浏览器的渲染过程 | XD">
+    <meta property="og:title" content="chrome浏览器的渲染过程及回流与重绘 | XD">
     <meta property="og:image" content="http://ewinds.pw/code.png">
     <meta property="og:description" content>
     
@@ -87,11 +87,11 @@
 
     
     <meta property="article:published_time" content="8月 17, 2020">
-    <meta property="article:modified_time" content="8月 24, 2020">
+    <meta property="article:modified_time" content="9月 02, 2020">
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="chrome浏览器的渲染过程 | XD">
+    <meta name="twitter:title" content="chrome浏览器的渲染过程及回流与重绘 | XD">
     <meta name="twitter:description" content>
     <meta name="twitter:image" content="http://ewinds.pw/code.png">
     <meta name="twitter:card" content="summary_large_image">
@@ -125,10 +125,10 @@
         },
         "description": "机会总是青睐喜欢动脑子的人"
     },
-    "headline": "chrome浏览器的渲染过程",
+    "headline": "chrome浏览器的渲染过程及回流与重绘",
     "url": "http://nice2meetu.site/2020/08/17/浏览器/Chrome浏览器的渲染过程/index.html",
     "datePublished": "8月 17, 2020",
-    "dateModified": "8月 24, 2020",
+    "dateModified": "9月 02, 2020",
     "description": "",
     "mainEntityOfPage": {
         "@type": "WebPage",
@@ -462,12 +462,12 @@
     
         <div class="post-content_wrapper">
             <p class="post-title">
-                chrome浏览器的渲染过程
+                chrome浏览器的渲染过程及回流与重绘
             </p>
             <h2 id="浏览器的渲染过程分为以下几步："><a href="#浏览器的渲染过程分为以下几步：" class="headerlink" title="浏览器的渲染过程分为以下几步："></a>浏览器的渲染过程分为以下几步：</h2><p>1.解析HTML，构建DOM树<br>2.解析CSS样式表，构建CSSOM(CSS Object Model)<br>3.将DOM和CSSOM进行合并生成Render Tree(渲染树)<br>4.根据Render Tree计算布局<br>5.依据Render Tree进行渲染</p>
 <h2 id="关于回流和重绘"><a href="#关于回流和重绘" class="headerlink" title="关于回流和重绘"></a>关于回流和重绘</h2><ol>
-<li>回流(reflow/layout)：当Render Tree中的一部分(或所有)因为其中元素的规模尺寸、布局(计算确切位置)、隐藏等改变而需要重新构建Render Tree。</li>
-<li>重绘(repaint/painting)：当Render Tree中的一些元素需要更新属性，但这些属性只会影响元素的外观，风格，而不会影响布局，无需重新构建render tree。</li>
+<li>回流(reflow/layout)：当Render Tree中的一部分(或所有)因为其中元素的规模尺寸、布局(计算确切位置)、隐藏等改变而需要重新构建Render Tree。即结构发生变化了。</li>
+<li>重绘(repaint/painting)：当Render Tree中的一些元素需要更新属性，但这些属性只会影响元素的外观，风格，而不会影响布局，无需重新构建render tree。即样式发生变化了。</li>
 </ol>
 <p>导致回流的具体情况：</p>
 <ul>
@@ -480,7 +480,7 @@
 </ul>
 <p>回流一定会触发重绘，但是重绘不一定触发回流。</p>
 <h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><ul>
-<li>利用cssTest属性和修改class更改元素样式，避免直接修改元素样式，最小化重绘和重排。</li>
+<li>利用cssTest属性和修改class更改元素样式，避免直接修改元素样式，最小化重绘。</li>
 <li>让DOM脱离文档流，进行修改完毕后，再回到文档流。脱离文档流后的改动不会引起回流。</li>
 <li>现代浏览器大部分有一个队列，用于优化重排过程。而类似offsetTop的方法会强制队列刷新。所以需要避免在修改样式时直接引用以上属性，即避免触发同步布局事件。</li>
 <li>复杂动画最好能脱离文档流。</li>
