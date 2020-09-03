@@ -64,31 +64,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://nice2meetu.site/2020/08/31/%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B%E5%8C%96/webpack/"/>
-    <id>http://nice2meetu.site/2020/08/31/前端工程化/webpack/</id>
-    <published>2020-08-31T13:12:42.802Z</published>
-    <updated>2020-09-01T11:16:55.405Z</updated>
-    
-    <content type="html"><![CDATA[<p>要安装的内容：</p><ol><li>全局安装webpack。<code>npm install webpack -g</code></li><li>webpack命令行工具：<code>npm install webpack-cli -g</code></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;要安装的内容：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;全局安装webpack。&lt;code&gt;npm install webpack -g&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;webpack命令行工具：&lt;code&gt;npm install webpack-cli -g&lt;/code&gt;&lt;/li&gt;
-&lt;
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
     <title>同源策略及跨域</title>
     <link href="http://nice2meetu.site/2020/08/31/%E6%B5%8F%E8%A7%88%E5%99%A8/%E5%90%8C%E6%BA%90%E7%AD%96%E7%95%A5%E5%8F%8A%E8%B7%A8%E5%9F%9F/"/>
     <id>http://nice2meetu.site/2020/08/31/浏览器/同源策略及跨域/</id>
@@ -517,6 +492,30 @@
       <category term="版本管理工具" scheme="http://nice2meetu.site/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
     
       <category term="git" scheme="http://nice2meetu.site/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>打造舒适的Mac工作环境：CLI配置</title>
+    <link href="http://nice2meetu.site/2020/07/02/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/Mac%20bash%E9%85%8D%E7%BD%AE/"/>
+    <id>http://nice2meetu.site/2020/07/02/环境搭建/Mac bash配置/</id>
+    <published>2020-07-02T13:47:50.000Z</published>
+    <updated>2020-08-24T05:46:32.926Z</updated>
+    
+    <content type="html"><![CDATA[<p>mac环境下的CLI终端工具及bash配置推荐。</p><a id="more"></a><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li>CLI终端推荐：iTerm2</li><li>bash推荐：oh-my-zsh</li><li>bsah相关的命令</li></ol><h2 id="1-CLI终端推荐：iTerm2"><a href="#1-CLI终端推荐：iTerm2" class="headerlink" title="1. CLI终端推荐：iTerm2"></a>1. CLI终端推荐：iTerm2</h2><ol><li>下载地址：<a href="https://www.iterm2.com/" target="_blank" rel="noopener">https://www.iterm2.com/</a></li></ol><h3 id="实用小技巧"><a href="#实用小技巧" class="headerlink" title="实用小技巧"></a>实用小技巧</h3><ul><li>分屏：<code>command+d</code>。</li></ul><h2 id="2-bash推荐：oh-my-zsh"><a href="#2-bash推荐：oh-my-zsh" class="headerlink" title="2. bash推荐：oh-my-zsh"></a>2. bash推荐：oh-my-zsh</h2><p>oh-my-zsh是一款傻瓜化的zsh配置工具。优点：省心，功能强大。</p><ol><li>安装oh-my-zsh：<code>sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code></li></ol><h3 id="2-1-插件"><a href="#2-1-插件" class="headerlink" title="2.1 插件"></a>2.1 插件</h3><p>如何安装插件？</p><ol><li>在<code>oh-my-zsh安装位置/.oh-my-zsh/custom/plugins</code>文件夹下，使用插件名创建文件夹<code>mkdir 插件名</code></li><li>将下载好的插件放入该文件夹中。</li><li>打开oh-my-zsh配置文件：<code>vim ~/.zshrc</code></li><li>在配置文件结束添加如下内容：<code>source $ZSH/custom/plugins/插件名文件夹/插件名</code>（vim中<code>shit+G</code>可以快速跳转到最后一行）</li><li>更新配置<code>source ~/.zshrc</code></li></ol><h4 id="2-1-1-git-plugin（自带插件）"><a href="#2-1-1-git-plugin（自带插件）" class="headerlink" title="2.1.1 git plugin（自带插件）"></a>2.1.1 git plugin（自带插件）</h4><p>这款插件默认开启。该插件为大量的git的命令设置了别名，</p><p>文档地址：<a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/" target="_blank" rel="noopener">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/</a></p><h4 id="2-1-2-extract-plugin（自带插件）"><a href="#2-1-2-extract-plugin（自带插件）" class="headerlink" title="2.1.2 extract plugin（自带插件）"></a>2.1.2 extract plugin（自带插件）</h4><p>一款功能强大的解压软件。仅通过一个命令<code>extract</code>即可解压大部分的压缩文件，包括rar、zip、tar等。</p><p>文档地址：<a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract" target="_blank" rel="noopener">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract</a></p><h4 id="2-1-3-自动补全插件"><a href="#2-1-3-自动补全插件" class="headerlink" title="2.1.3 自动补全插件"></a>2.1.3 自动补全插件</h4><p>这款插件可以在用户输入命令时，在光标下方提示可以使用的命令、文件等信息，再也不用为记不住linux命令名、不停地输入ls而苦恼。</p><p>插件下载地址：<a href="http://mimosa-pudica.net/src/incr-0.2.zsh" target="_blank" rel="noopener">http://mimosa-pudica.net/src/incr-0.2.zsh</a></p><h2 id="2-bash相关的命令"><a href="#2-bash相关的命令" class="headerlink" title="2. bash相关的命令"></a>2. bash相关的命令</h2><ul><li>查看当前终端使用的bash：<code>echo $SHELL</code></li><li>查看当前安装的所有bash：<code>cat /etc/shells</code></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      mac工具
+    
+    </summary>
+    
+      <category term="mac" scheme="http://nice2meetu.site/categories/mac/"/>
+    
+    
+      <category term="工具" scheme="http://nice2meetu.site/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="mac" scheme="http://nice2meetu.site/tags/mac/"/>
     
   </entry>
   
