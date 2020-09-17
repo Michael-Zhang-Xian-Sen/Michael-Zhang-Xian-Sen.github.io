@@ -22,8 +22,6 @@
     
     <title>
         
-        TCP三次握手与四次挥手 | 
-        
         XD
     </title>
 
@@ -47,8 +45,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <meta name="theme-color" content="#0097A7">
     <meta name="author" content="Michael Zhang">
-    <meta name="description" itemprop="description" content="TCP三次握手与四次挥手">
-    <meta name="keywords" content="Himory blog,TCP">
+    <meta name="description" itemprop="description" content>
+    <meta name="keywords" content="Himory blog">
 
     <!-- Site Verification -->
     
@@ -79,63 +77,29 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://nice2meetu.site">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="TCP三次握手与四次挥手 | XD">
+    <meta property="og:title" content="XD">
     <meta property="og:image" content="http://ewinds.pw/code.png">
-    <meta property="og:description" content="TCP三次握手与四次挥手">
+    <meta property="og:description" content>
     
-    <meta property="og:article:tag" content="TCP"> 
 
-    
-    <meta property="article:published_time" content="9月 01, 2020">
-    <meta property="article:modified_time" content="9月 08, 2020">
     
 
     <!-- The Twitter Card protocol -->
-    <meta name="twitter:title" content="TCP三次握手与四次挥手 | XD">
-    <meta name="twitter:description" content="TCP三次握手与四次挥手">
+    <meta name="twitter:title" content="XD">
+    <meta name="twitter:description" content>
     <meta name="twitter:image" content="http://ewinds.pw/code.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="http://nice2meetu.site">
 
     <!-- Add canonical link for SEO -->
     
-    <link rel="canonical" href="http://nice2meetu.site/2020/09/01/网络/http/TCP三次握手及四次挥手/index.html">
+    <link rel="canonical" href="http://nice2meetu.site/temp/vue源码分析.html">
     
 
     <!-- Structured-data for SEO -->
     
     
 
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "publisher": {
-        "@type": "Organization",
-        "name": "XD",
-        "logo": "http://ewinds.pw/code.png"
-    },
-    "author": {
-        "@type": "Person",
-        "name": "Michael Zhang",
-        "image": {
-            "@type": "ImageObject",
-            "url": "http://ewinds.pw/code.png"
-        },
-        "description": "机会总是青睐喜欢动脑子的人"
-    },
-    "headline": "TCP三次握手与四次挥手",
-    "url": "http://nice2meetu.site/2020/09/01/网络/http/TCP三次握手及四次挥手/index.html",
-    "datePublished": "9月 01, 2020",
-    "dateModified": "9月 08, 2020",
-    "description": "TCP三次握手与四次挥手",
-    "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "http://nice2meetu.site"
-    }
-}
-</script>
 
 
     
@@ -420,9 +384,6 @@
 
                     <!-- Post TOC -->
 
-    
-
-
 
 <!-- Layouts -->
 
@@ -462,11 +423,81 @@
     
         <div class="post-content_wrapper">
             <p class="post-title">
-                TCP三次握手与四次挥手
+                
             </p>
-            <h3 id="TCP的三次握手"><a href="#TCP的三次握手" class="headerlink" title="TCP的三次握手"></a>TCP的三次握手</h3><p>为了对每次发送的数据量进行跟踪与协商，确保数据段的发送和接收同步，根据所接收到的数据量而确认数据发送、接收完毕后何时撤消联系，并建立虚连接。</p>
-<p>第一次 客户端-&gt;服务端 SYN_SENT状态 syn,同时发送序号x<br>第二次 客户端&lt;-服务端 SYN_RECV状态 syn+ack包，返回确认号x+1，同时发送序号y<br>第三次 客户端-&gt;服务端 ESTABLISHED状态 syn+ack，返回确认号y+1。</p>
-<h3 id="TCP的四次挥手"><a href="#TCP的四次挥手" class="headerlink" title="TCP的四次挥手"></a>TCP的四次挥手</h3><p>第一次 客户端-&gt;服务端 FIN=1,seq=u                   告诉服务端，我准备关闭连接了！此时客户端不向服务端发数据了，但是能收数据。<br>第二次 客户端&lt;-服务端 ACK=1,seq=v ack=u+1           哦，你要关连接啊，那我准备一下。<br>第三次 客户端&lt;-服务端 FIN=1,ACK=1,seq=w,ack=u+1     我准备好了，你关吧！停止向客户端发数据，但是能收数据<br>第四次 客户端-&gt;服务端 ACK=1,seq=u+1,ack=w+1         好的，我停止接收了，你停止接收吧，</p>
+            <p>/**</p>
+<ul>
+<li></li>
+<li>@param {*} parentElm 父元素 </li>
+<li>@param {*} oldCh 旧的子节点</li>
+<li><p>@param {<em>} newCh 新的子节点
+</em>/<br>function updateChildren(parentElm, oldCh, newCh) {<br> let oldStartIdx = 0;<br> let newStartIdx = 0;<br> let oldEndIdx = oldCh.length - 1;<br> let oldStartVnode = oldCh[0];<br> let oldEndVnode = oldCh[oldEndIdx];<br> let newEndIdx = newCh.length - 1;<br> let newStartVnode = newCh[0];<br> let newEndVnode = newCh[newEndIdx];<br> let oldKeyToIdx, idxInOld, elmToMove, refElm;</p>
+<p> while (oldStartIdx &lt;= oldEndIdx &amp;&amp; newStartIdx &lt;= newEndIdx) {</p>
+<pre><code>if (!oldStartVnode) {
+    // 如果旧的start vnode不存在，则获取旧的start vnode。
+    oldStartVnode = oldCh[++oldStartIdx];
+} else if (!oldEndVnode) {
+    // 如果旧的end vnode不存在，则获取旧的end vnode
+    oldEndVnode = oldCh[--oldEndIdx];
+} else if (sameVnode(oldStartVnode, newStartVnode)) {
+    // 如果旧的开始节点和新的开始节点一致，比对这两个节点的属性等信息。
+    // 然后再获取新的old start vnode和新的new start vnode
+    patchVnode(oldStartVnode, newStartVnode);
+    oldStartVnode = oldCh[++oldStartIdx];
+    newStartVnode = newCh[++newStartIdx];
+} else if (sameVnode(oldEndVnode, newEndVnode)) {
+    // 如果旧的end vnode和新的end vnode相同，则比较
+    patchVnode(oldEndVnode, newEndVnode);
+    oldEndVnode = oldCh[--oldEndIdx];
+    newEndVnode = newCh[--newEndIdx];
+} else if (sameVnode(oldStartVnode, newEndVnode)) {
+    patchVnode(oldStartVnode, newEndVnode);
+    nodeOps.insertBefore(parentElm, oldStartVnode.elm, nodeOps.nextSibling(oldEndVnode.elm));
+    oldStartVnode = oldCh[++oldStartIdx];
+    newEndVnode = newCh[--newEndIdx];
+} else if (sameVnode(oldEndVnode, newStartVnode)) {
+    patchVnode(oldEndVnode, newStartVnode);
+    nodeOps.insertBefore(parentElm, oldEndVnode.elm, oldStartVnode.elm);
+    oldEndVnode = oldCh[--oldEndIdx];
+    newStartVnode = newCh[++newStartIdx];
+} else {
+    let elmToMove = oldCh[idxInOld];
+    if (!oldKeyToIdx) oldKeyToIdx = createKeyToOldIdx(oldCh, oldStartIdx, oldEndIdx);
+    idxInOld = newStartVnode.key ? oldKeyToIdx[newStartVnode.key] : null;
+    if (!idxInOld) {
+        createElm(newStartVnode, parentElm);
+        newStartVnode = newCh[++newStartIdx];
+    } else {
+        elmToMove = oldCh[idxInOld];
+        if (sameVnode(elmToMove, newStartVnode)) {
+            patchVnode(elmToMove, newStartVnode);
+            oldCh[idxInOld] = undefined;
+            nodeOps.insertBefore(parentElm, newStartVnode.elm, oldStartVnode.elm);
+            newStartVnode = newCh[++newStartIdx];
+        } else {
+            createElm(newStartVnode, parentElm);
+            newStartVnode = newCh[++newStartIdx];
+        }
+    }
+}
+</code></pre><p> }</p>
+<p> if (oldStartIdx &gt; oldEndIdx) {</p>
+<pre><code>refElm = (newCh[newEndIdx + 1]) ? newCh[newEndIdx + 1].elm : null;
+addVnodes(parentElm, refElm, newCh, newStartIdx, newEndIdx);
+</code></pre><p> } else if (newStartIdx &gt; newEndIdx) {</p>
+<pre><code>removeVnodes(parentElm, oldCh, oldStartIdx, oldEndIdx);
+</code></pre><p> }<br>}</p>
+</li>
+</ul>
+<p>function patch(oldVnode, vnode, parentElm) {<br>    if (!oldVnode) {<br>        // 老vnode不存在，将新的vnode直接插入元素。<br>        addVnodes(parentElm, null, vnode, 0, vnode.length - 1);<br>    } else if (!vnode) {<br>        // 新vnode不存在，直接删除原树上的元素。<br>        removeVnodes(parentElm, oldVnode, 0, oldVnode.length - 1);<br>    } else {<br>        // 两个vnode的key、标签相同，同时为注释节点、data同时定义或不定义、如果标签类型同时为Input，则type相同。<br>        // 满足以上所有条件则为vnode。<br>        if (sameVnode(oldVNode, vnode)) {<br>            // 对两个vnode进行patch。<br>            patchVnode(oldVNode, vnode);<br>        } else {<br>            // 如果不相同，将旧节点移除，插入新节点。<br>            removeVnodes(parentElm, oldVnode, 0, oldVnode.length - 1);<br>            addVnodes(parentElm, null, vnode, 0, vnode.length - 1);<br>        }<br>    }<br>}</p>
+<p>let has = {};   // 利用has辅助判断watcher是否存在。<br>let queue = [];<br>let waiting = false;</p>
+<p>function queueWatcher(watcher) {<br>    const id = watcher.id;<br>    if (has[id] == null) {<br>        has[id] = true;     // 添加watcher时，将相应的map设置为true。<br>        queue.push(watcher);</p>
+<pre><code>    if (!waiting) {
+        waiting = true;
+        nextTick(flushSchedulerQueue);
+    }
+}
+</code></pre><p>}</p>
 
         </div>
     
@@ -486,8 +517,8 @@
     <div id="disqus_thread"></div>
 <script type="text/javascript">
     var disqus_config = function () {
-        this.page.url = 'http://nice2meetu.site/2020/09/01/网络/http/TCP三次握手及四次挥手/';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://nice2meetu.site/2020/09/01/网络/http/TCP三次握手及四次挥手/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://nice2meetu.site/temp/vue源码分析.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://nice2meetu.site/temp/vue源码分析.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 </script>
 <script type="text/ls-javascript" id="disqus-thread-script">
@@ -517,27 +548,11 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2020/09/02/web安全/xss/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            新篇
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
-    
-        <a href="/2020/08/31/浏览器/同源策略及跨域/" id="post_nav-older" class="next-content">
-            旧篇
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
     
 </nav>
 
