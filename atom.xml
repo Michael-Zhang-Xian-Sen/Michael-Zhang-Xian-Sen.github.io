@@ -132,9 +132,9 @@
       <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
-    
       <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
     
   </entry>
   
@@ -308,9 +308,9 @@
       <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
-    
       <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+      <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
     
   </entry>
   
@@ -341,6 +341,31 @@
   </entry>
   
   <entry>
+    <title>chrome浏览器的渲染过程及回流与重绘</title>
+    <link href="http://nice2meetu.site/2020/08/17/%E6%B5%8F%E8%A7%88%E5%99%A8/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B/"/>
+    <id>http://nice2meetu.site/2020/08/17/浏览器/Chrome浏览器的渲染过程/</id>
+    <published>2020-08-17T07:04:50.000Z</published>
+    <updated>2020-09-02T08:57:18.872Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="浏览器的渲染过程分为以下几步："><a href="#浏览器的渲染过程分为以下几步：" class="headerlink" title="浏览器的渲染过程分为以下几步："></a>浏览器的渲染过程分为以下几步：</h2><p>1.解析HTML，构建DOM树<br>2.解析CSS样式表，构建CSSOM(CSS Object Model)<br>3.将DOM和CSSOM进行合并生成Render Tree(渲染树)<br>4.根据Render Tree计算布局<br>5.依据Render Tree进行渲染</p><h2 id="关于回流和重绘"><a href="#关于回流和重绘" class="headerlink" title="关于回流和重绘"></a>关于回流和重绘</h2><ol><li>回流(reflow/layout)：当Render Tree中的一部分(或所有)因为其中元素的规模尺寸、布局(计算确切位置)、隐藏等改变而需要重新构建Render Tree。即结构发生变化了。</li><li>重绘(repaint/painting)：当Render Tree中的一些元素需要更新属性，但这些属性只会影响元素的外观，风格，而不会影响布局，无需重新构建render tree。即样式发生变化了。</li></ol><p>导致回流的具体情况：</p><ul><li>添加或删除可见的DOM元素</li><li>元素的位置发生变化</li><li>元素的尺寸发生变化（包括外边距、内边框、边框大小、高度和宽度等）</li><li>内容发生变化，比如文本变化或图片被另一个不同尺寸的图片所替代。</li><li>页面一开始渲染的时候（这肯定避免不了）</li><li>浏览器的窗口尺寸变化（因为回流是根据视口的大小来计算元素的位置和大小的）</li></ul><p>回流一定会触发重绘，但是重绘不一定触发回流。</p><h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><ul><li>利用cssTest属性和修改class更改元素样式，避免直接修改元素样式，最小化重绘。</li><li>让DOM脱离文档流，进行修改完毕后，再回到文档流。脱离文档流后的改动不会引起回流。</li><li>现代浏览器大部分有一个队列，用于优化重排过程。而类似offsetTop的方法会强制队列刷新。所以需要避免在修改样式时直接引用以上属性，即避免触发同步布局事件。</li><li>复杂动画最好能脱离文档流。</li><li>css3硬件加速。</li></ul><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>谷歌开发者web基础：<a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn" target="_blank" rel="noopener">https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn</a></li><li>你真的了解重流和重绘吗：<a href="https://segmentfault.com/a/1190000017329980" target="_blank" rel="noopener">https://segmentfault.com/a/1190000017329980</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;浏览器的渲染过程分为以下几步：&quot;&gt;&lt;a href=&quot;#浏览器的渲染过程分为以下几步：&quot; class=&quot;headerlink&quot; title=&quot;浏览器的渲染过程分为以下几步：&quot;&gt;&lt;/a&gt;浏览器的渲染过程分为以下几步：&lt;/h2&gt;&lt;p&gt;1.解析HTML，构建DOM树&lt;br
+      
+    
+    </summary>
+    
+      <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+    
+      <category term="浏览器原理" scheme="http://nice2meetu.site/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
     <title>浏览器存储总结</title>
     <link href="http://nice2meetu.site/2020/08/17/%E6%B5%8F%E8%A7%88%E5%99%A8/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%AD%98%E5%82%A8%E6%80%BB%E7%BB%93/"/>
     <id>http://nice2meetu.site/2020/08/17/浏览器/浏览器存储总结/</id>
@@ -362,31 +387,6 @@
 &lt;p&gt;浏览器的存储根据上下文环境不同，涉及到几个层级关系。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;浏览器。firefox
-      
-    
-    </summary>
-    
-      <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-    
-      <category term="浏览器原理" scheme="http://nice2meetu.site/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%8E%9F%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>chrome浏览器的渲染过程及回流与重绘</title>
-    <link href="http://nice2meetu.site/2020/08/17/%E6%B5%8F%E8%A7%88%E5%99%A8/Chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%B8%B2%E6%9F%93%E8%BF%87%E7%A8%8B/"/>
-    <id>http://nice2meetu.site/2020/08/17/浏览器/Chrome浏览器的渲染过程/</id>
-    <published>2020-08-17T07:04:50.000Z</published>
-    <updated>2020-09-02T08:57:18.872Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="浏览器的渲染过程分为以下几步："><a href="#浏览器的渲染过程分为以下几步：" class="headerlink" title="浏览器的渲染过程分为以下几步："></a>浏览器的渲染过程分为以下几步：</h2><p>1.解析HTML，构建DOM树<br>2.解析CSS样式表，构建CSSOM(CSS Object Model)<br>3.将DOM和CSSOM进行合并生成Render Tree(渲染树)<br>4.根据Render Tree计算布局<br>5.依据Render Tree进行渲染</p><h2 id="关于回流和重绘"><a href="#关于回流和重绘" class="headerlink" title="关于回流和重绘"></a>关于回流和重绘</h2><ol><li>回流(reflow/layout)：当Render Tree中的一部分(或所有)因为其中元素的规模尺寸、布局(计算确切位置)、隐藏等改变而需要重新构建Render Tree。即结构发生变化了。</li><li>重绘(repaint/painting)：当Render Tree中的一些元素需要更新属性，但这些属性只会影响元素的外观，风格，而不会影响布局，无需重新构建render tree。即样式发生变化了。</li></ol><p>导致回流的具体情况：</p><ul><li>添加或删除可见的DOM元素</li><li>元素的位置发生变化</li><li>元素的尺寸发生变化（包括外边距、内边框、边框大小、高度和宽度等）</li><li>内容发生变化，比如文本变化或图片被另一个不同尺寸的图片所替代。</li><li>页面一开始渲染的时候（这肯定避免不了）</li><li>浏览器的窗口尺寸变化（因为回流是根据视口的大小来计算元素的位置和大小的）</li></ul><p>回流一定会触发重绘，但是重绘不一定触发回流。</p><h2 id="优化方法"><a href="#优化方法" class="headerlink" title="优化方法"></a>优化方法</h2><ul><li>利用cssTest属性和修改class更改元素样式，避免直接修改元素样式，最小化重绘。</li><li>让DOM脱离文档流，进行修改完毕后，再回到文档流。脱离文档流后的改动不会引起回流。</li><li>现代浏览器大部分有一个队列，用于优化重排过程。而类似offsetTop的方法会强制队列刷新。所以需要避免在修改样式时直接引用以上属性，即避免触发同步布局事件。</li><li>复杂动画最好能脱离文档流。</li><li>css3硬件加速。</li></ul><h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ol><li>谷歌开发者web基础：<a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn" target="_blank" rel="noopener">https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-tree-construction?hl=zh-cn</a></li><li>你真的了解重流和重绘吗：<a href="https://segmentfault.com/a/1190000017329980" target="_blank" rel="noopener">https://segmentfault.com/a/1190000017329980</a></li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h2 id=&quot;浏览器的渲染过程分为以下几步：&quot;&gt;&lt;a href=&quot;#浏览器的渲染过程分为以下几步：&quot; class=&quot;headerlink&quot; title=&quot;浏览器的渲染过程分为以下几步：&quot;&gt;&lt;/a&gt;浏览器的渲染过程分为以下几步：&lt;/h2&gt;&lt;p&gt;1.解析HTML，构建DOM树&lt;br
       
     
     </summary>
