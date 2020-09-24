@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nice2meetu.site/"/>
-  <updated>2020-09-03T10:26:54.846Z</updated>
+  <updated>2020-09-24T15:51:16.571Z</updated>
   <id>http://nice2meetu.site/</id>
   
   <author>
@@ -17,19 +17,45 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>使用idea开发springboot项目生成文件的含义详解</title>
+    <title>js数组去重</title>
+    <link href="http://nice2meetu.site/2020/09/24/js%E5%9F%BA%E7%A1%80/js%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/"/>
+    <id>http://nice2meetu.site/2020/09/24/js基础/js数组去重/</id>
+    <published>2020-09-24T14:50:30.000Z</published>
+    <updated>2020-09-24T15:51:16.571Z</updated>
+    
+    <content type="html"><![CDATA[<p>根据是否改变原数组可分为两类，然后根据是否使用ES6特性，再进行细分。</p><!-- TOC --><ol><li><a href="#不改变原数组">不改变原数组</a><ol><li><a href="#利用es6的set">利用ES6的Set</a></li><li><a href="#利用indexof额外数组">利用indexOf+额外数组</a></li><li><a href="#利用filterindexof">利用filter+indexOf</a></li></ol></li><li><a href="#改变原数组">改变原数组</a><ol><li><a href="#利用splice方法">利用splice方法</a></li></ol></li><li><a href="#其他注意内容">其他注意内容</a></li></ol><!-- /TOC --><h1 id="不改变原数组"><a href="#不改变原数组" class="headerlink" title="不改变原数组"></a>不改变原数组</h1><h2 id="利用ES6的Set"><a href="#利用ES6的Set" class="headerlink" title="利用ES6的Set"></a>利用ES6的Set</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Array</span>.from(<span class="keyword">new</span> <span class="built_in">Set</span>(arr));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注意：无法去掉<code>{}</code>空对象。</p><h2 id="利用indexOf-额外数组"><a href="#利用indexOf-额外数组" class="headerlink" title="利用indexOf+额外数组"></a>利用indexOf+额外数组</h2><p>借助额外的数组array。遍历原数组，如果该元素在array中不存在，则加入至array，否则跳过。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> array = [],</span><br><span class="line">        len = arr.length;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(array.indexOf(arr[i]) === <span class="number">-1</span>) array.push(arr[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> array;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h2 id="利用filter-indexOf"><a href="#利用filter-indexOf" class="headerlink" title="利用filter+indexOf"></a>利用filter+indexOf</h2><p>利用filter方法遍历数组，使用indexOf判断元素是否重复，将重复的元素剔除。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> arr.filter(<span class="function">(<span class="params">cur,idx,array</span>)=&gt;</span>array.indexOf(cur) === idx)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h1 id="改变原数组"><a href="#改变原数组" class="headerlink" title="改变原数组"></a>改变原数组</h1><h2 id="利用splice方法"><a href="#利用splice方法" class="headerlink" title="利用splice方法"></a>利用splice方法</h2><p>遍历数组，使用indexOf判断元素是否重复，如果重复则利用splice从原数组中剔除该元素。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">unique</span>(<span class="params">arr</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr.indexOf(arr[i]) !== i)&#123;</span><br><span class="line">            arr.splice(i--,<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><h1 id="其他注意内容"><a href="#其他注意内容" class="headerlink" title="其他注意内容"></a>其他注意内容</h1><p>需要判断接收的参数是否为数组，若不为数组则提示”Type Error”并返回一个空数组。</p>]]></content>
+    
+    <summary type="html">
+    
+      你不知道的JavaScript的读书笔记
+    
+    </summary>
+    
+      <category term="js" scheme="http://nice2meetu.site/categories/js/"/>
+    
+    
+      <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vsc的使用技巧及实用插件</title>
     <link href="http://nice2meetu.site/2020/09/03/IDE/vsc%E5%AE%9E%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7%E4%B8%8E%E6%8F%92%E4%BB%B6/"/>
     <id>http://nice2meetu.site/2020/09/03/IDE/vsc实用的技巧与插件/</id>
     <published>2020-09-03T10:25:30.000Z</published>
-    <updated>2020-09-03T10:26:54.846Z</updated>
+    <updated>2020-09-24T15:58:36.822Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="vsc的使用技巧及实用插件"><a href="#vsc的使用技巧及实用插件" class="headerlink" title="vsc的使用技巧及实用插件"></a>vsc的使用技巧及实用插件</h1><h2 id="实用插件"><a href="#实用插件" class="headerlink" title="实用插件"></a>实用插件</h2><ol><li>EditorConfig：用于统一项目的编码风格，如采用何种方式缩进。该插件的优先级高于编辑器默认的代码格式化规则。</li></ol><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* .editorconfig文件 */</span></span><br><span class="line">[*.&#123;js,jsx,ts,tsx,vue&#125;]</span><br><span class="line">root = <span class="literal">true</span></span><br><span class="line"># 缩进风格：空格</span><br><span class="line">indent_style = space</span><br><span class="line"># 缩进大小：4</span><br><span class="line">indent_size = <span class="number">4</span></span><br><span class="line"># 是否删除行尾的空格：true</span><br><span class="line">trim_trailing_whitespace = <span class="literal">true</span></span><br><span class="line"># 是否在文件的最后插入一个空行：true</span><br><span class="line">insert_final_newline = <span class="literal">true</span></span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<!-- TOC --><ol><li><a href="#实用插件">实用插件</a><ol><li><a href="#editorconfig">EditorConfig</a></li><li><a href="#markdown-toc">Markdown TOC</a></li></ol></li></ol><!-- /TOC --><h1 id="实用插件"><a href="#实用插件" class="headerlink" title="实用插件"></a>实用插件</h1><h2 id="EditorConfig"><a href="#EditorConfig" class="headerlink" title="EditorConfig"></a>EditorConfig</h2><p>用于统一项目的编码风格，如采用何种方式缩进。该插件的优先级高于编辑器默认的代码格式化规则。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* .editorconfig文件 */</span></span><br><span class="line">[*.&#123;js,jsx,ts,tsx,vue&#125;]</span><br><span class="line">root = <span class="literal">true</span></span><br><span class="line"># 缩进风格：空格</span><br><span class="line">indent_style = space</span><br><span class="line"># 缩进大小：4</span><br><span class="line">indent_size = <span class="number">4</span></span><br><span class="line"># 是否删除行尾的空格：true</span><br><span class="line">trim_trailing_whitespace = <span class="literal">true</span></span><br><span class="line"># 是否在文件的最后插入一个空行：true</span><br><span class="line">insert_final_newline = <span class="literal">true</span></span><br></pre></td></tr></table></figure><h2 id="Markdown-TOC"><a href="#Markdown-TOC" class="headerlink" title="Markdown TOC"></a>Markdown TOC</h2><p>用于生成markdown的目录。本文的目录便是使用该插件生成。</p><p>该插件在vsc的插件市场中下载量极高，但是原作者不维护了，当前的可下载版本存在一些问题，大致如下：</p><ol><li>生成的目录没有换行，且出现大量<code>auto</code>。错误原因是当前vsc配置的EOL为<code>LF(\n)</code>，修改为<code>CRLF(\r\n)</code>即可。</li><li>生成的标题从0开始计数。原因是标题必须从<code>#</code>开始。个人感觉这条规定很不合理，有些场景根本不适合用那么大的标题，但是若想正常使用插件便必须按照他的规定来。</li></ol><p>默默吐槽一下。由于原作者已不再维护该插件，于是一些用户fork源码后自行维护，导致vsc插件市场上有三四个类似的插件，但是…仍然都有bug…直观感受是类似拆了东墙补西墙…而且很少有人讨论修改后冒出来的奇葩问题…算了就用原作者的吧。</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h1 id=&quot;vsc的使用技巧及实用插件&quot;&gt;&lt;a href=&quot;#vsc的使用技巧及实用插件&quot; class=&quot;headerlink&quot; title=&quot;vsc的使用技巧及实用插件&quot;&gt;&lt;/a&gt;vsc的使用技巧及实用插件&lt;/h1&gt;&lt;h2 id=&quot;实用插件&quot;&gt;&lt;a href=&quot;#实用插件&quot;
+        &lt;!-- TOC --&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;#实用插件&quot;&gt;实用插件&lt;/a&gt;&lt;ol&gt;
+&lt;li&gt;&lt;a href=&quot;#editorconfig&quot;&gt;EditorConfig&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#markdown-toc&quot;&gt;Markdown TO
       
     
     </summary>
@@ -132,9 +158,9 @@
       <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
+    
+      <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
@@ -143,7 +169,7 @@
     <link href="http://nice2meetu.site/2020/08/27/js%E5%9F%BA%E7%A1%80/js%E9%97%AD%E5%8C%85/"/>
     <id>http://nice2meetu.site/2020/08/27/js基础/js闭包/</id>
     <published>2020-08-27T08:04:50.000Z</published>
-    <updated>2020-09-03T14:52:41.947Z</updated>
+    <updated>2020-09-24T14:56:21.103Z</updated>
     
     <content type="html"><![CDATA[<h2 id="什么是闭包-closure-？"><a href="#什么是闭包-closure-？" class="headerlink" title="什么是闭包(closure)？"></a>什么是闭包(closure)？</h2><ul><li>第一种解释：函数和对其周围状态（lexical environment，词法环境）的引用捆绑在一起构成闭包（closure）。</li><li>第二种解释（方大佬的解释）：「函数」和「函数内部能访问到的变量」（也叫环境）的总和，就是一个闭包。</li></ul><h2 id="什么是词法作用域？"><a href="#什么是词法作用域？" class="headerlink" title="什么是词法作用域？"></a>什么是词法作用域？</h2><p>词法（lexical）一词指的是，词法作用域根据源代码中声明变量的位置来确定该变量在何处可用。嵌套函数可访问声明于它们外部的作用域的变量。</p><h2 id="闭包的作用："><a href="#闭包的作用：" class="headerlink" title="闭包的作用："></a>闭包的作用：</h2><ol><li>它允许将函数与其所操作的某些数据（环境）关联起来。（类似面向对象编程中，对象允许我们将某些数据与一个或者多个方法相关联。）</li><li>让这些变量始终保存在内存中，不会随着函数的结束而自动销毁。</li><li>可用于将函数与其所操作的某些数据（环境）关联起来。</li><li>可以使用闭包来模拟私有方法，保护函数内部的变量，有利于数据隐藏和封装。可以用来实现模块模式。</li></ol><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://zhuanlan.zhihu.com/p/22486908" target="_blank" rel="noopener">「每日一题」JS 中的闭包是什么？</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="noopener">MDN闭包</a></li></ul>]]></content>
     
@@ -268,7 +294,7 @@
     <link href="http://nice2meetu.site/2020/08/24/%E7%BD%91%E7%BB%9C/http/http%E7%8A%B6%E6%80%81%E7%A0%81/"/>
     <id>http://nice2meetu.site/2020/08/24/网络/http/http状态码/</id>
     <published>2020-08-24T06:14:00.000Z</published>
-    <updated>2020-09-03T04:54:39.891Z</updated>
+    <updated>2020-09-23T02:56:50.323Z</updated>
     
     <content type="html"><![CDATA[<ol><li><code>1xx</code>消息（Informational）</li><li><code>2xx</code>成功（Success）</li><li><code>3xx</code>重定向（Redirection）</li><li><code>4xx</code>客户端错误（Client error）：客户端请求出错，服务器无法处理请求</li><li><code>5xx</code>服务器错误（Server Error）：服务器处理请求出错。</li></ol><h3 id="1-消息"><a href="#1-消息" class="headerlink" title="1. 消息"></a>1. 消息</h3><p>接收的请求正在处理。</p><h3 id="2-成功"><a href="#2-成功" class="headerlink" title="2. 成功"></a>2. 成功</h3><p>请求正常处理完毕。</p><ul><li><code>200 OK</code>，表示从客户端发送给服务器的请求被正常处理并返回。</li><li><code>204 No Content</code>，请求处理成功，但没有任何资源可以返回给客户端，一般在只需要从客户端往服务器发送信息，而服务器不需要向客户端发送新信息内容的情况下使用。</li><li><code>206 Partial Content</code>，是对资源某一部分的请求，该状态码表示客户端进行了范围请求，而服务器成功执行了这部分的GET请求。响应报文中包含由Content-Range指定范围的实体内容。</li></ul><h3 id="3-重定向"><a href="#3-重定向" class="headerlink" title="3. 重定向"></a>3. 重定向</h3><p>需要进行附加操作以完成请求。</p><ul><li><code>301 Moved Permanently</code>，永久性重定向。请求的资源已经被分配了新的URI，以后应使用资源现在所指的URI。</li><li><code>302 Found</code>，临时性重定向。和301相似，但302代表的资源不是永久性移动，只是临时性性质的。换句话说，已移动的资源对应的URI将来还有可能发生改变。</li><li><code>303 See Other</code>，该状态码表示由于请求对应的资源存在着另一个URL，应使用GET方法定向获取请求的资源。303状态码和302状态码有着相同的功能，但303状态码明确表示客户端应当采用GET方法获取资源，这点与302状态码有区别。</li><li><code>304 Not Modified</code>，资源已找到，但未符合条件请求。该状态码表示客户端发送附带条件的请求时（采用GET方法的请求报文中包含If-Match，If-Modified-Since，If-None-Match，If-Range，If-Unmodified-Since中任一首部）服务端允许请求访问资源，但因发生请求未满足条件的情况后，直接返回304。</li><li><code>307 Temporary Redirect</code>，临时重定向。与302有相同的含义。</li></ul><h4 id="301永久重定向与302临时重定向的区别"><a href="#301永久重定向与302临时重定向的区别" class="headerlink" title="301永久重定向与302临时重定向的区别"></a>301永久重定向与302临时重定向的区别</h4><ul><li>301永久重定向，新网址完全继承旧网址，旧网址的排名等完全清零</li><li>302临时重定向，搜索引擎会抓取新的内容而保留旧的网址，</li></ul><h3 id="CNAME（Canonical-Name）与HTTP重定向的区别"><a href="#CNAME（Canonical-Name）与HTTP重定向的区别" class="headerlink" title="CNAME（Canonical Name）与HTTP重定向的区别"></a>CNAME（Canonical Name）与HTTP重定向的区别</h3><p>CNAME记录只是域名的别名，多用于CDN加速，而HTTP重定向是接收到重定向报文后，将请求重新发送给重定向所指出的URL。</p><h3 id="4-客户端错误"><a href="#4-客户端错误" class="headerlink" title="4. 客户端错误"></a>4. 客户端错误</h3><ul><li><code>400 Bad Request</code>，服务器端无法理解客户端发送的请求，请求报文中可能存在语法错误。</li><li><code>401 Unauthorized</code>，该状态码表示发送的请求需要有通过HTTP认证（BASIC认证，DIGEST认证）的认证信息。</li><li><code>403 Forbidden</code>，不允许访问那个资源。该状态码表明对请求资源的访问被服务器拒绝了。</li><li><code>404 Not Found</code>，服务器上没有请求的资源。路径错误等。</li></ul><h3 id="5-服务器本身发生错误"><a href="#5-服务器本身发生错误" class="headerlink" title="5. 服务器本身发生错误"></a>5. 服务器本身发生错误</h3><ul><li><code>500 Internal Server Error</code>，该状态码表明服务器端在执行请求时发生了错误。也有可能是web应用存在bug或某些临时故障。</li><li><code>503 Service Unavailable</code>，该状态码表明服务器暂时处于超负载或正在停机维护，现在无法处理请求。</li></ul>]]></content>
     
@@ -308,9 +334,9 @@
       <category term="前端" scheme="http://nice2meetu.site/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
-    
       <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
+    
+      <category term="前端" scheme="http://nice2meetu.site/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
@@ -495,30 +521,6 @@
       <category term="版本管理工具" scheme="http://nice2meetu.site/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
     
       <category term="git" scheme="http://nice2meetu.site/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>打造舒适的Mac工作环境：CLI配置</title>
-    <link href="http://nice2meetu.site/2020/07/02/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/Mac%20bash%E9%85%8D%E7%BD%AE/"/>
-    <id>http://nice2meetu.site/2020/07/02/环境搭建/Mac bash配置/</id>
-    <published>2020-07-02T13:47:50.000Z</published>
-    <updated>2020-08-24T05:46:32.926Z</updated>
-    
-    <content type="html"><![CDATA[<p>mac环境下的CLI终端工具及bash配置推荐。</p><a id="more"></a><h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol><li>CLI终端推荐：iTerm2</li><li>bash推荐：oh-my-zsh</li><li>bsah相关的命令</li></ol><h2 id="1-CLI终端推荐：iTerm2"><a href="#1-CLI终端推荐：iTerm2" class="headerlink" title="1. CLI终端推荐：iTerm2"></a>1. CLI终端推荐：iTerm2</h2><ol><li>下载地址：<a href="https://www.iterm2.com/" target="_blank" rel="noopener">https://www.iterm2.com/</a></li></ol><h3 id="实用小技巧"><a href="#实用小技巧" class="headerlink" title="实用小技巧"></a>实用小技巧</h3><ul><li>分屏：<code>command+d</code>。</li></ul><h2 id="2-bash推荐：oh-my-zsh"><a href="#2-bash推荐：oh-my-zsh" class="headerlink" title="2. bash推荐：oh-my-zsh"></a>2. bash推荐：oh-my-zsh</h2><p>oh-my-zsh是一款傻瓜化的zsh配置工具。优点：省心，功能强大。</p><ol><li>安装oh-my-zsh：<code>sh -c &quot;$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&quot;</code></li></ol><h3 id="2-1-插件"><a href="#2-1-插件" class="headerlink" title="2.1 插件"></a>2.1 插件</h3><p>如何安装插件？</p><ol><li>在<code>oh-my-zsh安装位置/.oh-my-zsh/custom/plugins</code>文件夹下，使用插件名创建文件夹<code>mkdir 插件名</code></li><li>将下载好的插件放入该文件夹中。</li><li>打开oh-my-zsh配置文件：<code>vim ~/.zshrc</code></li><li>在配置文件结束添加如下内容：<code>source $ZSH/custom/plugins/插件名文件夹/插件名</code>（vim中<code>shit+G</code>可以快速跳转到最后一行）</li><li>更新配置<code>source ~/.zshrc</code></li></ol><h4 id="2-1-1-git-plugin（自带插件）"><a href="#2-1-1-git-plugin（自带插件）" class="headerlink" title="2.1.1 git plugin（自带插件）"></a>2.1.1 git plugin（自带插件）</h4><p>这款插件默认开启。该插件为大量的git的命令设置了别名，</p><p>文档地址：<a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/" target="_blank" rel="noopener">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/</a></p><h4 id="2-1-2-extract-plugin（自带插件）"><a href="#2-1-2-extract-plugin（自带插件）" class="headerlink" title="2.1.2 extract plugin（自带插件）"></a>2.1.2 extract plugin（自带插件）</h4><p>一款功能强大的解压软件。仅通过一个命令<code>extract</code>即可解压大部分的压缩文件，包括rar、zip、tar等。</p><p>文档地址：<a href="https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract" target="_blank" rel="noopener">https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/extract</a></p><h4 id="2-1-3-自动补全插件"><a href="#2-1-3-自动补全插件" class="headerlink" title="2.1.3 自动补全插件"></a>2.1.3 自动补全插件</h4><p>这款插件可以在用户输入命令时，在光标下方提示可以使用的命令、文件等信息，再也不用为记不住linux命令名、不停地输入ls而苦恼。</p><p>插件下载地址：<a href="http://mimosa-pudica.net/src/incr-0.2.zsh" target="_blank" rel="noopener">http://mimosa-pudica.net/src/incr-0.2.zsh</a></p><h2 id="2-bash相关的命令"><a href="#2-bash相关的命令" class="headerlink" title="2. bash相关的命令"></a>2. bash相关的命令</h2><ul><li>查看当前终端使用的bash：<code>echo $SHELL</code></li><li>查看当前安装的所有bash：<code>cat /etc/shells</code></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      mac工具
-    
-    </summary>
-    
-      <category term="mac" scheme="http://nice2meetu.site/categories/mac/"/>
-    
-    
-      <category term="工具" scheme="http://nice2meetu.site/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-      <category term="mac" scheme="http://nice2meetu.site/tags/mac/"/>
     
   </entry>
   
