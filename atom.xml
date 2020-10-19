@@ -10,7 +10,7 @@
   <id>http://nice2meetu.site/</id>
   
   <author>
-    <name>Michael Zhang</name>
+    <name>Himory</name>
     
   </author>
   
@@ -43,9 +43,9 @@
     <link href="http://nice2meetu.site/2020/09/03/IDE/vsc%E5%AE%9E%E7%94%A8%E7%9A%84%E6%8A%80%E5%B7%A7%E4%B8%8E%E6%8F%92%E4%BB%B6/"/>
     <id>http://nice2meetu.site/2020/09/03/IDE/vsc实用的技巧与插件/</id>
     <published>2020-09-03T10:25:30.000Z</published>
-    <updated>2020-09-24T16:00:04.209Z</updated>
+    <updated>2020-09-30T14:51:49.676Z</updated>
     
-    <content type="html"><![CDATA[<!-- TOC --><ol><li><a href="#实用插件">实用插件</a><ol><li><a href="#editorconfig">EditorConfig</a></li><li><a href="#markdown-toc">Markdown TOC</a></li></ol></li></ol><!-- /TOC --><h1 id="实用插件"><a href="#实用插件" class="headerlink" title="实用插件"></a>实用插件</h1><h2 id="EditorConfig"><a href="#EditorConfig" class="headerlink" title="EditorConfig"></a>EditorConfig</h2><p>用于统一项目的编码风格，如采用何种方式缩进。该插件的优先级高于编辑器默认的代码格式化规则。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* .editorconfig文件 */</span></span><br><span class="line">[*.&#123;js,jsx,ts,tsx,vue&#125;]</span><br><span class="line">root = <span class="literal">true</span></span><br><span class="line"># 缩进风格：空格</span><br><span class="line">indent_style = space</span><br><span class="line"># 缩进大小：4</span><br><span class="line">indent_size = <span class="number">4</span></span><br><span class="line"># 是否删除行尾的空格：true</span><br><span class="line">trim_trailing_whitespace = <span class="literal">true</span></span><br><span class="line"># 是否在文件的最后插入一个空行：true</span><br><span class="line">insert_final_newline = <span class="literal">true</span></span><br></pre></td></tr></table></figure><h2 id="Markdown-TOC"><a href="#Markdown-TOC" class="headerlink" title="Markdown TOC"></a>Markdown TOC</h2><p>用于生成markdown的目录。本文的目录便是使用该插件生成。</p><p>该插件在vsc的插件市场中下载量极高，但是原作者不维护了，当前的可下载版本存在一些问题，大致如下：</p><ol><li>生成的目录没有换行，且出现大量<code>auto</code>。错误原因是当前vsc配置的EOL为<code>LF(\n)</code>，修改为<code>CRLF(\r\n)</code>即可。</li><li>生成的标题从0开始计数。原因是标题必须从<code>#</code>开始。个人感觉这条规定很不合理，有些场景根本不适合用那么大的标题，但是若想正常使用插件便必须按照他的规定来。</li></ol><p>默默吐槽一下。由于原作者已不再维护该插件，于是一些用户fork源码后自行维护，导致vsc插件市场上有三四个类似的插件，但是…仍然都有bug…直观感受是类似拆了东墙补西墙…而且很少有人讨论修改后冒出来的奇葩问题…算了就用原作者的吧。</p>]]></content>
+    <content type="html"><![CDATA[<!-- TOC --><ol><li><a href="#实用插件">实用插件</a><ol><li><a href="#editorconfig">EditorConfig</a></li><li><a href="#markdown-toc">Markdown TOC</a></li></ol></li></ol><!-- /TOC --><h1 id="实用插件"><a href="#实用插件" class="headerlink" title="实用插件"></a>实用插件</h1><h2 id="EditorConfig"><a href="#EditorConfig" class="headerlink" title="EditorConfig"></a>EditorConfig</h2><p>用于统一项目的编码风格，如采用何种方式缩进。该插件的优先级高于编辑器默认的代码格式化规则。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* .editorconfig文件 */</span></span><br><span class="line">[*.&#123;js,jsx,ts,tsx,vue&#125;]</span><br><span class="line">root = <span class="literal">true</span></span><br><span class="line"># 缩进风格：空格</span><br><span class="line">indent_style = space</span><br><span class="line"># 缩进大小：4</span><br><span class="line">indent_size = <span class="number">4</span></span><br><span class="line"># 是否删除行尾的空格：true</span><br><span class="line">trim_trailing_whitespace = <span class="literal">true</span></span><br><span class="line"># 是否在文件的最后插入一个空行：true</span><br><span class="line">insert_final_newline = <span class="literal">true</span></span><br></pre></td></tr></table></figure><h2 id="Markdown-TOC"><a href="#Markdown-TOC" class="headerlink" title="Markdown TOC"></a>Markdown TOC</h2><p>用于生成markdown的目录(Table of Content)。本文的目录便是使用该插件生成。</p><p>该插件在vsc的插件市场中下载量极高，但是原作者不维护了，当前的可下载版本存在一些问题，大致如下：</p><ol><li>生成的目录没有换行，且出现大量<code>auto</code>。错误原因是当前vsc配置的EOL为<code>LF(\n)</code>，修改为<code>CRLF(\r\n)</code>即可。</li><li>生成的标题从0开始计数。原因是标题必须从<code>#</code>开始。个人感觉这条规定很不合理，有些场景根本不适合用那么大的标题，但是若想正常使用插件便必须按照他的规定来。</li></ol><p>默默吐槽一下。由于原作者已不再维护该插件，于是一些用户fork源码后自行维护，导致vsc插件市场上有三四个类似的插件，但是…仍然都有bug…直观感受是类似拆了东墙补西墙…而且很少有人讨论修改后冒出来的奇葩问题…算了就用原作者的吧。</p>]]></content>
     
     <summary type="html">
     
@@ -169,7 +169,7 @@
     <link href="http://nice2meetu.site/2020/08/27/js%E5%9F%BA%E7%A1%80/js%E9%97%AD%E5%8C%85/"/>
     <id>http://nice2meetu.site/2020/08/27/js基础/js闭包/</id>
     <published>2020-08-27T08:04:50.000Z</published>
-    <updated>2020-09-24T14:56:21.103Z</updated>
+    <updated>2020-10-18T04:40:31.436Z</updated>
     
     <content type="html"><![CDATA[<h2 id="什么是闭包-closure-？"><a href="#什么是闭包-closure-？" class="headerlink" title="什么是闭包(closure)？"></a>什么是闭包(closure)？</h2><ul><li>第一种解释：函数和对其周围状态（lexical environment，词法环境）的引用捆绑在一起构成闭包（closure）。</li><li>第二种解释（方大佬的解释）：「函数」和「函数内部能访问到的变量」（也叫环境）的总和，就是一个闭包。</li></ul><h2 id="什么是词法作用域？"><a href="#什么是词法作用域？" class="headerlink" title="什么是词法作用域？"></a>什么是词法作用域？</h2><p>词法（lexical）一词指的是，词法作用域根据源代码中声明变量的位置来确定该变量在何处可用。嵌套函数可访问声明于它们外部的作用域的变量。</p><h2 id="闭包的作用："><a href="#闭包的作用：" class="headerlink" title="闭包的作用："></a>闭包的作用：</h2><ol><li>它允许将函数与其所操作的某些数据（环境）关联起来。（类似面向对象编程中，对象允许我们将某些数据与一个或者多个方法相关联。）</li><li>让这些变量始终保存在内存中，不会随着函数的结束而自动销毁。</li><li>可用于将函数与其所操作的某些数据（环境）关联起来。</li><li>可以使用闭包来模拟私有方法，保护函数内部的变量，有利于数据隐藏和封装。可以用来实现模块模式。</li></ol><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="https://zhuanlan.zhihu.com/p/22486908" target="_blank" rel="noopener">「每日一题」JS 中的闭包是什么？</a></li><li><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Closures" target="_blank" rel="noopener">MDN闭包</a></li></ul>]]></content>
     
@@ -464,9 +464,9 @@
       <category term="工具" scheme="http://nice2meetu.site/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="svn" scheme="http://nice2meetu.site/tags/svn/"/>
-    
       <category term="版本管理工具" scheme="http://nice2meetu.site/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="svn" scheme="http://nice2meetu.site/tags/svn/"/>
     
   </entry>
   
@@ -518,9 +518,9 @@
       <category term="工具" scheme="http://nice2meetu.site/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="版本管理工具" scheme="http://nice2meetu.site/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="git" scheme="http://nice2meetu.site/tags/git/"/>
+    
+      <category term="版本管理工具" scheme="http://nice2meetu.site/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
