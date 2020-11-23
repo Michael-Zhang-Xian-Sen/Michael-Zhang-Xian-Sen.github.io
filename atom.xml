@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://nice2meetu.site/"/>
-  <updated>2020-09-24T15:59:52.620Z</updated>
+  <updated>2020-11-23T09:32:54.347Z</updated>
   <id>http://nice2meetu.site/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>apache2.4 开启并为网站配置ssl服务</title>
+    <link href="http://nice2meetu.site/2020/11/23/%E6%9C%8D%E5%8A%A1%E5%99%A8/apache%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%BC%80%E5%90%AF%E5%B9%B6%E4%B8%BA%E7%BD%91%E7%AB%99%E9%85%8D%E7%BD%AEssl%E6%9C%8D%E5%8A%A1/"/>
+    <id>http://nice2meetu.site/2020/11/23/服务器/apache服务器开启并为网站配置ssl服务/</id>
+    <published>2020-11-23T09:32:50.000Z</published>
+    <updated>2020-11-23T09:32:54.347Z</updated>
+    
+    <content type="html"><![CDATA[<p>大致流程为：先申请SSL证书并上传到服务器，然后在服务器配置ssl站点信息，最后启用ssl站点和ssl服务就可以了。</p><h3 id="1-申请SSL证书，并将证书文件上传到服务器"><a href="#1-申请SSL证书，并将证书文件上传到服务器" class="headerlink" title="1. 申请SSL证书，并将证书文件上传到服务器"></a>1. 申请SSL证书，并将证书文件上传到服务器</h3><ol><li>申请/购买SSL证书。博主的域名是在阿里云注册的，于是直接在阿里注册了SSL证书。在购买时选择单个域名、DV域名级SSL，有免费的证书。后续可能要绑定域名等。</li><li>下载SSL证书文件。我们需要以下三种文件：<ul><li>证书文件：以<code>.crt</code>为后缀或文件类型。证书不仅是证书，还有公钥存在其中，使用命令<code>openssl x509 -in xxxx.crt -pubkey</code>可以查看公钥。</li><li>证书链文件：以<code>.crt</code>为后缀或文件类型。名称中会包含<code>chain</code>。证书链是一系列CA证书发出的证书序列，最终以根CA证书结束。web浏览器内置有一组浏览器自动信任的根CA证书，其他证书授权机构的证书必须附带证书链。</li><li>密钥文件：以<code>.key</code>为后缀或文件类型。该秘钥为私钥，用来对经过公钥加密后的密文进行解密。</li></ul></li><li>将下载后的文件上传至服务器。博主保存在了<code>/etc/apache2/cert/</code>。</li></ol><h3 id="2-配置ssl站点。"><a href="#2-配置ssl站点。" class="headerlink" title="2. 配置ssl站点。"></a>2. 配置ssl站点。</h3><p>apache2有一个默认的ssl站点配置文件，但并没有启用，我们可以直接编辑该文件。</p><ol><li>进入到可用站点目录<code>cd /etc/apache2/sites-available/</code>。</li><li>编辑默认ssl站点配置文件<code>vim ./default-ssl.conf</code>。</li><li><p>将默认的三种文件路径注释掉，替换为我们自己的文件。</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># SSLCertificateFile     /etc/ssl/certs/ssl-cert-snakeoil.pem</span><br><span class="line"># SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key </span><br><span class="line"># SSLCertificateChainFile /etc/apache2/cert/4510898_www.nice2meetu.site_chain.crt</span><br><span class="line">SSLCertificateFile /etc/apache2/cert/xxxxx_www.xxxxxx.xxxx_public.crt</span><br><span class="line">SSLCertificateKeyFile /etc/apache2/cert/xxxxx_www.xxxxxx.xxxx.key</span><br><span class="line">SSLCertificateChainFile /etc/apache2/cert/xxxxx_www.xxxx.xxxxx_chain.crt</span><br></pre></td></tr></table></figure></li><li><p>开启SSL引擎。设置<code>SSLEnigne on</code>（应该是默认设置）。</p></li><li>设置网站的根目录。修改<code>DocumentRoot /var/www/blog</code>。即url中域名及端口后的路径，在我们服务器进行映射时的根目录。如：<code>https://www.xxxx.xxx/a/b/c/d</code>，用户实际访问的便是服务器上的<code>/var/www/blog/a/b/c/d</code>。</li><li>添加网站管理员邮箱（可选的修改）。修改<code>ServerAdmin 1920395012@qq.com</code>。该邮箱会在网站出问题时显示在网页上，方便访问者联系网站管理员。</li></ol><h3 id="3-启用apache2-ssl站点和服务"><a href="#3-启用apache2-ssl站点和服务" class="headerlink" title="3. 启用apache2 ssl站点和服务"></a>3. 启用apache2 ssl站点和服务</h3><p>apache2.4默认是没有开启ssl配置的，需要我们手动打开。</p><ol><li>开启ssl模块。在服务器上，输入并执行<code>a2enmod ssl</code>。（执行命令后会提示，浏览<code>/usr/share/doc/apache2/README.Debian.gz</code>获取如何配置SSL的教程，想要深入了解可以看一下。）</li><li>使用默认的SSL站点。输入并执行<code>a2ensite default ssl</code></li><li>重新启动apache2服务<code>/etc/init.d/apache2 restart</code></li></ol><p>至此，我们便可以使用https访问站点啦。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;大致流程为：先申请SSL证书并上传到服务器，然后在服务器配置ssl站点信息，最后启用ssl站点和ssl服务就可以了。&lt;/p&gt;
+&lt;h3 id=&quot;1-申请SSL证书，并将证书文件上传到服务器&quot;&gt;&lt;a href=&quot;#1-申请SSL证书，并将证书文件上传到服务器&quot; class=&quot;h
+      
+    
+    </summary>
+    
+      <category term="apache" scheme="http://nice2meetu.site/categories/apache/"/>
+    
+    
+      <category term="ssl" scheme="http://nice2meetu.site/tags/ssl/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>apache2.4 配置二级域名</title>
+    <link href="http://nice2meetu.site/2020/11/21/%E6%9C%8D%E5%8A%A1%E5%99%A8/apache%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/"/>
+    <id>http://nice2meetu.site/2020/11/21/服务器/apache服务器配置二级域名/</id>
+    <published>2020-11-21T12:23:50.000Z</published>
+    <updated>2020-11-23T06:15:51.955Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>添加DNS解析。如若添加phpmyadmin作为二级域名，则添加一条A记录，其中主机记录为phpmyadmin.yourwebsite.com，记录值为主机所在的IP地址。</li><li><p>编辑apache的站点配置文件。若为apache2.4版本，编辑<code>/etc/apache2/sites-available/000-default.conf</code>，编辑内容如下所示：</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># www子域名，指向个人博客</span><br><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">    DocumentRoot /var/www/blog</span><br><span class="line">    ServerName www.nice2meetu.site</span><br><span class="line">    ServerAdmin 1920395012@qq.com</span><br><span class="line">    ErrorLog $&#123;APACHE_LOG_DIR&#125;/blog/error.log</span><br><span class="line">    CustomLog $&#123;APACHE_LOG_DIR&#125;/blog/access.log combined</span><br><span class="line">    &lt;Directory /var/www/blog&gt;</span><br><span class="line">            AllowOverride All</span><br><span class="line">            Require all granted</span><br><span class="line">            DirectoryIndex index.html</span><br><span class="line">    &lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br><span class="line"># phpmyadmin子域名，指向phpmyadmin</span><br><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">    DocumentRoot /var/www/phpmyadmin</span><br><span class="line">    ServerName phpmyadmin.nice2meetu.site</span><br><span class="line">    ServerAdmin 1920395012@qq.com</span><br><span class="line">    ErrorLog $&#123;APACHE_LOG_DIR&#125;/phpmyadmin/error.log</span><br><span class="line">    CustomLog $&#123;APACHE_LOG_DIR&#125;/phpmyadmin/access.log combined</span><br><span class="line">    &lt;Directory /var/www/phpmyadmin&gt;</span><br><span class="line">            Options FollowSymLinks</span><br><span class="line">            AllowOverride All</span><br><span class="line">            Require all granted</span><br><span class="line">            DirectoryIndex index.html index.php</span><br><span class="line">    &lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure></li><li><p>重新启动apache服务器：<code>/etc/init.d/apache2 restart</code></p></li><li>此时二级域名与对应的网站便成功绑定。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;添加DNS解析。如若添加phpmyadmin作为二级域名，则添加一条A记录，其中主机记录为phpmyadmin.yourwebsite.com，记录值为主机所在的IP地址。&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;编辑apache的站点配置文件。若为apache2.4版本，编辑
+      
+    
+    </summary>
+    
+      <category term="apache" scheme="http://nice2meetu.site/categories/apache/"/>
+    
+    
+      <category term="二级域名" scheme="http://nice2meetu.site/tags/%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/"/>
+    
+  </entry>
   
   <entry>
     <title>js数组去重</title>
@@ -464,61 +517,7 @@
       <category term="工具" scheme="http://nice2meetu.site/categories/%E5%B7%A5%E5%85%B7/"/>
     
     
-      <category term="版本管理工具" scheme="http://nice2meetu.site/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
-    
       <category term="svn" scheme="http://nice2meetu.site/tags/svn/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>js 命名规范</title>
-    <link href="http://nice2meetu.site/2020/08/02/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%E5%8F%8A%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%EF%BC%9Ajs/"/>
-    <id>http://nice2meetu.site/2020/08/02/命名规范及最佳实践/命名规范：js/</id>
-    <published>2020-08-02T01:40:30.000Z</published>
-    <updated>2020-08-24T05:46:32.924Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="变量名："><a href="#变量名：" class="headerlink" title="变量名："></a>变量名：</h3><ul><li>变量名应为名词如car或person。</li></ul><h3 id="函数名"><a href="#函数名" class="headerlink" title="函数名"></a>函数名</h3><p>语法规范：<br>任何合法的javascript标识符都可以作为函数的名称。<br>约定俗成的内容：(非ECMAScript语法，但是为了便于开发者理解和识别，约定的函数命名规范。)<br>命名方法： 小驼峰式命名法</p><ul><li>命名规范： 前缀应该为动词，常用前缀如下：<ul><li>can     判断是否可执行某个动作</li><li>has     判断是否含有某个值</li><li>is     判断是否为某个值</li><li>get     获取某个值</li><li>set     设置某个值</li><li>load     加载某些数据</li></ul></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h3 id=&quot;变量名：&quot;&gt;&lt;a href=&quot;#变量名：&quot; class=&quot;headerlink&quot; title=&quot;变量名：&quot;&gt;&lt;/a&gt;变量名：&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;变量名应为名词如car或person。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&quot;函数名&quot;&gt;&lt;a href=&quot;#函数
-      
-    
-    </summary>
-    
-      <category term="js" scheme="http://nice2meetu.site/categories/js/"/>
-    
-    
-      <category term="js" scheme="http://nice2meetu.site/tags/js/"/>
-    
-      <category term="命名规范" scheme="http://nice2meetu.site/tags/%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>git常用命令小记</title>
-    <link href="http://nice2meetu.site/2020/08/01/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%EF%BC%9Agit%E5%B0%8F%E8%AE%B0/"/>
-    <id>http://nice2meetu.site/2020/08/01/版本管理工具/版本管理工具：git小记/</id>
-    <published>2020-08-01T13:35:30.000Z</published>
-    <updated>2020-09-03T08:33:46.104Z</updated>
-    
-    <content type="html"><![CDATA[<p>git的常用操作及相关问题的解决方案。</p><a id="more"></a><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>遇到git命令参数的问题，可通过查看文档解决：</p><ol><li>输入<code>git</code>后回车可以显示常用的git命令。</li><li>输入<code>git 某个命令 -h</code> 可以查看该命令具体的参数信息。</li></ol><h3 id="1-分支操作"><a href="#1-分支操作" class="headerlink" title="1. 分支操作"></a>1. 分支操作</h3><ol><li>将当前内容全部复制到一个新分支：<code>git checkout -b 新分支名称</code></li><li>删除分支：<code>git branch -d</code></li></ol><h2 id="具体问题的解决方案"><a href="#具体问题的解决方案" class="headerlink" title="具体问题的解决方案"></a>具体问题的解决方案</h2><h3 id="1-fork得到的仓库的代码如何更新使得其与原仓库的代码一致。"><a href="#1-fork得到的仓库的代码如何更新使得其与原仓库的代码一致。" class="headerlink" title="1. fork得到的仓库的代码如何更新使得其与原仓库的代码一致。"></a>1. fork得到的仓库的代码如何更新使得其与原仓库的代码一致。</h3><ol><li>配置原仓库的路径：<code>git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git</code></li><li>查看远程仓库的路径，确保正确添加上游仓库：<code>git remote -v</code></li><li>抓取原仓库的修改：<code>git fetch upstream</code></li><li>其他内容：删除某个远程仓库<code>git remote remove &lt;name&gt;</code></li></ol><h3 id="2-修改commit的注释"><a href="#2-修改commit的注释" class="headerlink" title="2. 修改commit的注释"></a>2. 修改commit的注释</h3><p><code>git commit --amend</code>amend为修正的意思。</p><h3 id="3-撤销git-add"><a href="#3-撤销git-add" class="headerlink" title="3. 撤销git add"></a>3. 撤销git add</h3><p><code>git reset 文件名</code></p>]]></content>
-    
-    <summary type="html">
-    
-      git常用命令
-    
-    </summary>
-    
-      <category term="工具" scheme="http://nice2meetu.site/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="git" scheme="http://nice2meetu.site/tags/git/"/>
     
       <category term="版本管理工具" scheme="http://nice2meetu.site/tags/%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"/>
     
