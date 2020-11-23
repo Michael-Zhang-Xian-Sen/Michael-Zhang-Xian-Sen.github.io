@@ -1,0 +1,2 @@
+#!/bin/sh
+git --work-tree=/var/www/blog --git-dir=/var/repo/Michael-Zhang-Xian-Sen.github.io checkout -f
