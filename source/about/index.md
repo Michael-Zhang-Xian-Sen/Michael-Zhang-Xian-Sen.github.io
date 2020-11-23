@@ -4,16 +4,23 @@ date:
 layout: about
 ---
 
-## 关于我
+华夏民族花月降生迈克尔张，护花使者，奈斯徒米特尤典塞特的全境守护者，鲁国嵫阳人，臭虫毁灭者，需求终结者，见习FE魔法师，光影初心者，五零四串珠圣手。
 
-### 技术栈
-* 语言
-    * 比较了解：JS、CSS、HTML、C
-    * 略懂一些：JAVA、PYTHON
-* 框架
-    * 比较了解：VUE、SpringBoot、jQuery、D3.js
-
-### 兴趣爱好
-* 游戏：代码写累了打两盘CSGO，放松一下。
-* 电影：Christopher Nolan、Quentin Tarantino、姜文
-* 想要学习摄影和剪辑。
+## 作品集
+1. C#计算器
+    * 下载地址：http://140.143.141.58/download/Calculator.exe
+    * 项目地址：https://github.com/Michael-Zhang-Xian-Sen/C-Calculator
+2. C#迷宫
+    * 下载地址：http://140.143.141.58/download/Maze.exe
+    * 项目地址：https://github.com/Michael-Zhang-Xian-Sen/simple-maze
+3. C语言公交管理系统
+    * 下载地址：http://140.143.141.58/download/BusManagementSystem.exe
+    * 项目地址：https://github.com/Michael-Zhang-Xian-Sen/bus-management-system
+4. 西邮购——二手交易平台
+    * 在线地址：暂未部署。
+    * 项目地址：https://github.com/Michael-Zhang-Xian-Sen/college-market
+5. 算法及网络协议仿真平台
+    * 在线地址：暂未部署。
+    * 项目地址：https://github.com/Michael-Zhang-Xian-Sen/openSys
+6. 视频网站
+    * 在线地址：暂未部署

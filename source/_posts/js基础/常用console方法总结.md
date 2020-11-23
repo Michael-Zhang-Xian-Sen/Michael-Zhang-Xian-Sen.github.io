@@ -1,5 +1,5 @@
 ---
-title: 关于箭头函数 
+title: 常用console方法总结
 date: 2020-05-20 11:09:00 
 categories: es6
 tags: [es6, js]

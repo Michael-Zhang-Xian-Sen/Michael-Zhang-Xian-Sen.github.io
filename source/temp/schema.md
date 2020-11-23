@@ -7,8 +7,5 @@ description: JavaScript中的Date对象及其常用方法总结
 ---
 
 初识scheme
-
 <!-- more -->
-
 uri scheme即uri方案。指URi命名结构的第一级。
-

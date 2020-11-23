@@ -1,15 +1,11 @@
 ---
 title:  js数据类型 #文章页面上的显示名称，可以任意修改，不会出现在URL中
-
 date: 2020-05-04 18:13:30 #文章生成时间，一般不改，当然也可以任意修改
-
 categories: 前端 #分类
-
 tags: [前端]  #文章标签，可空，多标签请用格式，注意:后面有个空格
-
 ---
 
-#  数据类型
+#  数据类型概览
 共八种，分为基础类型和引用类型。
 
 ## 基本类型（又称原始类型、简单类型。）
@@ -24,7 +20,7 @@ tags: [前端]  #文章标签，可空，多标签请用格式，注意:后面�
 4. Number
     * 判断基本类型：`typeof variable === "number"`
     * 判断整数：`Number.isInteger()`。
-    * 判断是否为NaN：`Number.isNan()`。
+    * 判断是否为NaN：`Number.isNaN()`。
     * 判断是否为有穷数：`Number.isFinite()`。
     * 字符串转浮点数：`Number.parseFloat()`。
     * 字符串转整数：`Number.parseInt()`。和全局的`parseInt()`方法一致。

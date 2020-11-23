@@ -11,7 +11,7 @@ description: js设计模式
 ---
 
 通用实现：
-```
+```js
 // 发布者。
 var publisherModel = {
     subscriber:{},
@@ -39,3 +39,4 @@ var installPublisher = function(obj){
     }
 }
 ```
+

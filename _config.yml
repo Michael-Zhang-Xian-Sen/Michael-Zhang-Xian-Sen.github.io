@@ -6,13 +6,13 @@
 title: XD
 subtitle:
 description:
-author: Michael Zhang
+author: Himory
 language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://nice2meetu.site
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -69,7 +69,7 @@ theme: material
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:Michael-Zhang-Xian-Sen/Michael-Zhang-Xian-Sen.github.io.git
+  repo: root@39.107.124.144:/var/repo/Michael-Zhang-Xian-Sen.github.io
   branch: master
 
 jsonContent: 

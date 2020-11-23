@@ -27,8 +27,8 @@ url:
 # ---------------------------------------------------------------
 
 # Schemes
-#scheme: Paradox    # 主题外观（默认）
-scheme: Isolation   # 主题外观（极简）
+scheme: Paradox    # 主题外观（默认）
+#scheme: Isolation   # 主题外观（极简）
 
 # UI & UX: slogan, color, effect
 uiux:
